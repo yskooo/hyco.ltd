@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif: var(--font-playfair);
+  
+  --color-corporate-dark: #0f172a;
+  --color-corporate-blue: #1e3a8a;
+  --color-corporate-light: #f8fafc;
+  --color-silver-light: #e2e8f0;
+  --color-silver-dark: #64748b;
+}
+
+body {
+  @apply font-sans text-slate-800 bg-corporate-light antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-serif text-corporate-dark;
+}
+
+p {
+  @apply font-sans;
+}
