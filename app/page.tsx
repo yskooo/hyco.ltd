@@ -42,6 +42,8 @@ export default function Home() {
       });
 
       // Portfolio Animation
+      // Animation removed to fix visibility issues
+      /*
       gsap.from('.portfolio-card', {
         scrollTrigger: {
           trigger: portfolioRef.current,
@@ -53,6 +55,7 @@ export default function Home() {
         stagger: 0.2,
         ease: 'power3.out'
       });
+      */
 
       // About Animation
       gsap.from('.about-content > *', {
