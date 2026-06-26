@@ -149,7 +149,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="flex flex-col gap-10">
             {/* ElectrifAI Card */}
             <motion.div 
               initial={{ opacity: 0, y: 40 }}
@@ -157,23 +157,23 @@ export default function Home() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <Link href="/electrifai" className="group block bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue h-full overflow-hidden relative">
-                <div className="h-64 overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700">
+              <Link href="/electrifai" className="group flex flex-col md:flex-row bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue overflow-hidden relative">
+                <div className="w-full md:w-[400px] lg:w-[500px] h-64 md:h-auto overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 shrink-0">
                   <div className="absolute inset-0 bg-hyco-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
                   <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop" alt="ElectrifAI" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
                 </div>
-                <div className="p-10 bg-white relative z-20 h-full flex flex-col">
-                  <div className="absolute top-0 left-10 w-12 h-1 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
+                <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
+                  <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-4 transition-colors duration-300">
+                    <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-6 transition-colors duration-300 shrink-0">
                       <BarChart3 size={24} />
                     </div>
-                    <h4 className="text-2xl font-bold tracking-tight text-hyco-black">ElectrifAI PH</h4>
+                    <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-hyco-black">ElectrifAI PH</h4>
                   </div>
-                  <p className="text-base text-gray-600 mb-8 flex-grow leading-relaxed font-light">
+                  <p className="text-lg text-gray-600 mb-10 max-w-3xl leading-relaxed font-light">
                     Intelligent energy management and predictive grid optimization for utility providers and industrial complexes.
                   </p>
-                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-hyco-blue transition-colors">
+                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-hyco-blue transition-colors mt-auto">
                     Access Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>
@@ -187,23 +187,23 @@ export default function Home() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Link href="/servicio-ai" className="group block bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue h-full overflow-hidden relative">
-                <div className="h-64 overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700">
+              <Link href="/servicio-ai" className="group flex flex-col md:flex-row-reverse bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue overflow-hidden relative">
+                <div className="w-full md:w-[400px] lg:w-[500px] h-64 md:h-auto overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 shrink-0">
                   <div className="absolute inset-0 bg-hyco-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
                   <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" alt="Servicio AI" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
                 </div>
-                <div className="p-10 bg-white relative z-20 h-full flex flex-col">
-                  <div className="absolute top-0 left-10 w-12 h-1 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
+                <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
+                  <div className="absolute top-0 md:top-10 left-10 md:-right-1 w-12 md:w-1 h-1 md:h-12 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-4 transition-colors duration-300">
+                    <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-6 transition-colors duration-300 shrink-0">
                       <Globe2 size={24} />
                     </div>
-                    <h4 className="text-2xl font-bold tracking-tight text-hyco-black">Serbisyow.AI</h4>
+                    <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-hyco-black">Serbisyow.AI</h4>
                   </div>
-                  <p className="text-base text-gray-600 mb-8 flex-grow leading-relaxed font-light">
+                  <p className="text-lg text-gray-600 mb-10 max-w-3xl leading-relaxed font-light">
                     Global verified professional talent collective. Advanced matching algorithms for home construction to legal consultation.
                   </p>
-                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-hyco-blue transition-colors">
+                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-hyco-blue transition-colors mt-auto">
                     Access Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>
@@ -217,23 +217,23 @@ export default function Home() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Link href="/leasifai" className="group block bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue h-full overflow-hidden relative">
-                <div className="h-64 overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700">
+              <Link href="/leasifai" className="group flex flex-col md:flex-row bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue overflow-hidden relative">
+                <div className="w-full md:w-[400px] lg:w-[500px] h-64 md:h-auto overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 shrink-0">
                   <div className="absolute inset-0 bg-hyco-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
                   <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop" alt="LeasifAI" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
                 </div>
-                <div className="p-10 bg-white relative z-20 h-full flex flex-col">
-                  <div className="absolute top-0 left-10 w-12 h-1 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
+                <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
+                  <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-4 transition-colors duration-300">
+                    <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-6 transition-colors duration-300 shrink-0">
                       <ShieldCheck size={24} />
                     </div>
-                    <h4 className="text-2xl font-bold tracking-tight text-hyco-black">LeasifAI</h4>
+                    <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-hyco-black">LeasifAI</h4>
                   </div>
-                  <p className="text-base text-gray-600 mb-8 flex-grow leading-relaxed font-light">
+                  <p className="text-lg text-gray-600 mb-10 max-w-3xl leading-relaxed font-light">
                     Smart real estate logistics. Automated contract analysis, tenant screening, and dynamic yield optimization models.
                   </p>
-                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-hyco-blue transition-colors">
+                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-hyco-blue transition-colors mt-auto">
                     Access Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>
@@ -247,23 +247,23 @@ export default function Home() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Link href="/edugaite" className="group block bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue h-full overflow-hidden relative">
-                <div className="h-64 overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700">
+              <Link href="/edugaite" className="group flex flex-col md:flex-row-reverse bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue overflow-hidden relative">
+                <div className="w-full md:w-[400px] lg:w-[500px] h-64 md:h-auto overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 shrink-0">
                   <div className="absolute inset-0 bg-hyco-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
                   <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop" alt="Edugaite" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
                 </div>
-                <div className="p-10 bg-white relative z-20 h-full flex flex-col">
-                  <div className="absolute top-0 left-10 w-12 h-1 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
+                <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
+                  <div className="absolute top-0 md:top-10 left-10 md:-right-1 w-12 md:w-1 h-1 md:h-12 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-4 transition-colors duration-300">
+                    <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-6 transition-colors duration-300 shrink-0">
                       <Globe2 size={24} />
                     </div>
-                    <h4 className="text-2xl font-bold tracking-tight text-hyco-black">Edugaite</h4>
+                    <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-hyco-black">Edugaite</h4>
                   </div>
-                  <p className="text-base text-gray-600 mb-8 flex-grow leading-relaxed font-light">
+                  <p className="text-lg text-gray-600 mb-10 max-w-3xl leading-relaxed font-light">
                     K-12 EdTech platform streamlining workflows with AI-powered lesson plans, quizzes, and grading for educators.
                   </p>
-                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-hyco-blue transition-colors">
+                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-hyco-blue transition-colors mt-auto">
                     Access Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>

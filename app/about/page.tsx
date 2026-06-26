@@ -68,7 +68,7 @@ export default function About() {
             </div>
             <div className="md:col-span-2">
               <blockquote className="text-2xl md:text-3xl font-serif text-slate-700 italic leading-relaxed mb-10">
-                "At Hardy & Co., we believe that technology should serve as an amplifier of human potential. Our commitment is to build robust, scalable IT and AI solutions that not only solve today's complex challenges but also anticipate the needs of tomorrow's enterprise."
+                &quot;At Hardy & Co., we believe that technology should serve as an amplifier of human potential. Our commitment is to build robust, scalable IT and AI solutions that not only solve today&apos;s complex challenges but also anticipate the needs of tomorrow&apos;s enterprise.&quot;
               </blockquote>
               <p className="text-lg text-slate-600 leading-relaxed mb-8">
                 With over three decades of experience in enterprise technology and strategic investments, Robert founded Hardy & Co. to consolidate fragmented technological innovations into cohesive, market-ready solutions.
