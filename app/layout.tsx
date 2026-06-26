@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
-import { Playfair_Display } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Layout from "../components/Layout";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Hardy & Co.",
-  description: "Pioneering IT & AI Solutions",
+  title: "HYCO",
+  description: "Hardy & Co. PH Corp - Technology Holding Company / AI Venture Group",
 };
 
 export default function RootLayout({
@@ -20,8 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} antialiased`}>
-        <Layout>{children}</Layout>
+      <body
+        className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
+      >  <Layout>{children}</Layout>
       </body>
     </html>
   );

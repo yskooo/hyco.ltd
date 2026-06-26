@@ -1,260 +1,319 @@
 "use client";
 
+import { motion } from 'motion/react';
+import { ArrowRight, BarChart3, Globe2, ShieldCheck, Zap } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
-import { ArrowRight, BarChart3, Globe2, ShieldCheck } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useState } from 'react';
 
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
+// Simple counter component for trust stats
+function Counter({ value, suffix = "" }: { value: number, suffix?: string }) {
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    let start = 0;
+    const duration = 2000;
+    const increment = value / (duration / 16);
+    
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= value) {
+        setCount(value);
+        clearInterval(timer);
+      } else {
+        setCount(start);
+      }
+    }, 16);
+    
+    return () => clearInterval(timer);
+  }, [value]);
+
+  return <span>{count % 1 !== 0 && count > 10 ? count.toFixed(1) : Math.floor(count)}{suffix}</span>;
 }
 
 export default function Home() {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
-  const portfolioRef = useRef<HTMLDivElement>(null);
-  const aboutRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Hero Animation
-    const ctx = gsap.context(() => {
-      gsap.from('.hero-content > *', {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: 'power3.out',
-        delay: 0.2
-      });
-
-      // Stats Animation
-      gsap.from('.stat-item', {
-        scrollTrigger: {
-          trigger: statsRef.current,
-          start: 'top 80%',
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: 'power2.out'
-      });
-
-      // Portfolio Animation
-      // Animation removed to fix visibility issues
-      /*
-      gsap.from('.portfolio-card', {
-        scrollTrigger: {
-          trigger: portfolioRef.current,
-          start: 'top 70%',
-        },
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'power3.out'
-      });
-      */
-
-      // About Animation
-      gsap.from('.about-content > *', {
-        scrollTrigger: {
-          trigger: aboutRef.current,
-          start: 'top 70%',
-        },
-        x: -50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'power2.out'
-      });
-
-      gsap.from('.about-image', {
-        scrollTrigger: {
-          trigger: aboutRef.current,
-          start: 'top 70%',
-        },
-        x: 50,
-        opacity: 0,
-        duration: 1,
-        ease: 'power2.out'
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <div className="w-full">
+    <div className="w-full bg-hyco-black text-hyco-white">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
+      <section className="relative h-screen min-h-[800px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
-            alt="Corporate Architecture" 
-            className="w-full h-full object-cover"
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" 
+            alt="Futuristic Technology Background" 
+            className="w-full h-full object-cover opacity-60 grayscale"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/90 to-transparent"></div>
+          <div className="absolute inset-0 bg-hyco-black/70 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-hyco-black via-transparent to-transparent"></div>
         </div>
         
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 mt-16">
-          <div className="max-w-3xl hero-content">
-            <div className="w-12 h-1 bg-blue-600 mb-8"></div>
-            <h1 className="text-5xl md:text-7xl lg:text-[80px] font-serif text-white mb-8 tracking-tight leading-[1.1]">
-              Pioneering IT & AI Solutions.
-            </h1>
-            <p className="text-lg md:text-xl text-slate-300 mb-12 font-light leading-relaxed max-w-2xl">
-              Hardy & Co. is a premier holding company delivering transformative technologies across energy, customer service, and real estate. We build the infrastructure of tomorrow.
-            </p>
-            <div className="flex flex-col sm:flex-row items-start gap-6">
-              <a href="#portfolio" className="bg-blue-700 text-white px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-blue-800 transition-colors flex items-center">
-                Explore Our Portfolio <ArrowRight size={16} className="ml-3" />
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 mt-20">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-4xl glass-panel p-8 md:p-12"
+          >
+            <motion.div 
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="w-16 h-1 bg-hyco-blue mb-8 origin-left"
+            ></motion.div>
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="relative z-20 text-5xl md:text-7xl lg:text-[90px] font-bold text-white mb-8 tracking-tighter leading-[1.05] uppercase"
+            >
+              The Catalyst<br/>For ASEAN AI.
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="text-lg md:text-2xl text-gray-300 mb-12 font-light leading-relaxed max-w-2xl"
+            >
+              <strong className="font-bold text-white tracking-widest">HYCO</strong> is building AI that matters, for people who deserve it. Deploying transformative AI and infrastructure solutions across energy, talent, real estate, and education.
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="flex flex-col sm:flex-row items-start gap-6"
+            >
+              <a href="#portfolio" className="bg-hyco-blue text-white px-10 py-5 text-sm font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-hyco-black transition-all duration-300 flex items-center shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_20px_rgba(255,255,255,0.6)]">
+                Explore Portfolio <ArrowRight size={18} className="ml-3" />
               </a>
-              <Link href="/about" className="border border-slate-500 text-white px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-white/10 hover:border-white transition-colors">
-                Corporate Overview
-              </Link>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Stats / Trust Bar */}
-      <section ref={statsRef} className="bg-white py-16 border-b border-slate-200">
+      <section className="bg-hyco-black py-16 border-y border-white/10 relative z-20">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-slate-100">
-            <div className="stat-item">
-              <div className="text-4xl font-serif text-[#0f172a] mb-2">3</div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-widest">Core Startups</div>
-            </div>
-            <div className="stat-item">
-              <div className="text-4xl font-serif text-[#0f172a] mb-2">$2.4B</div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-widest">Assets Under Mgmt</div>
-            </div>
-            <div className="stat-item">
-              <div className="text-4xl font-serif text-[#0f172a] mb-2">15+</div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-widest">Global Markets</div>
-            </div>
-            <div className="stat-item">
-              <div className="text-4xl font-serif text-[#0f172a] mb-2">99.9%</div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-widest">Uptime Reliability</div>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="text-5xl font-bold text-white mb-2"><Counter value={4} /></div>
+              <div className="text-xs font-bold text-gray-500 uppercase tracking-[0.2em]">Core Subsidiaries</div>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="text-5xl font-bold text-white mb-2">₱<Counter value={80} suffix="M+" /></div>
+              <div className="text-xs font-bold text-gray-500 uppercase tracking-[0.2em]">Target ARR</div>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <div className="text-5xl font-bold text-white mb-2"><Counter value={100} suffix="k+" /></div>
+              <div className="text-xs font-bold text-gray-500 uppercase tracking-[0.2em]">Target Users</div>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <div className="text-5xl font-bold text-white mb-2"><Counter value={100} suffix="%" /></div>
+              <div className="text-xs font-bold text-gray-500 uppercase tracking-[0.2em]">ASEAN Focus</div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" ref={portfolioRef} className="py-32 bg-slate-50">
+      <section id="portfolio" className="py-32 bg-hyco-light-gray text-hyco-black">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12">
           <div className="mb-20 md:flex justify-between items-end">
             <div className="max-w-3xl">
-              <h2 className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-4">Our Portfolio</h2>
-              <h3 className="text-5xl font-serif text-[#0f172a] mb-6">Integrated Solutions.</h3>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                By centralizing our core IT and AI products under Hardy & Co., we optimize operational costs, share proprietary machine learning models, and deliver unparalleled value to our enterprise clients.
+              <div className="flex items-center mb-4">
+                <Zap className="text-hyco-blue mr-2" size={20} />
+                <h2 className="text-xs font-bold text-hyco-blue uppercase tracking-[0.3em]">Our Ecosystem</h2>
+              </div>
+              <h3 className="text-5xl md:text-6xl font-bold text-hyco-black mb-6 tracking-tighter uppercase">Integrated Dynamics.</h3>
+              <p className="text-lg text-gray-600 leading-relaxed font-light">
+                By centralizing our core IT and AI products under <strong className="font-bold">HYCO</strong>, we optimize operational throughput, share proprietary ML models, and deliver unparalleled enterprise value.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* ElectrifAI Card */}
-            <Link href="/electrifai" className="portfolio-card group bg-white border border-slate-200 hover:border-blue-300 transition-all duration-500 hover:shadow-2xl overflow-hidden flex flex-col">
-              <div className="h-64 overflow-hidden relative">
-                <div className="absolute inset-0 bg-[#0f172a]/40 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
-                <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop" alt="ElectrifAI" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
-              </div>
-              <div className="p-10 flex-grow flex flex-col bg-white relative">
-                <div className="absolute top-0 left-10 w-12 h-1 bg-blue-600 -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                <div className="flex items-center mb-6">
-                  <div className="w-10 h-10 bg-slate-50 text-blue-700 flex items-center justify-center mr-4 border border-slate-100">
-                    <BarChart3 size={20} />
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <Link href="/electrifai" className="group block bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue h-full overflow-hidden relative">
+                <div className="h-64 overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700">
+                  <div className="absolute inset-0 bg-hyco-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
+                  <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop" alt="ElectrifAI" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
+                </div>
+                <div className="p-10 bg-white relative z-20 h-full flex flex-col">
+                  <div className="absolute top-0 left-10 w-12 h-1 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-4 transition-colors duration-300">
+                      <BarChart3 size={24} />
+                    </div>
+                    <h4 className="text-2xl font-bold tracking-tight text-hyco-black">ElectrifAI PH</h4>
                   </div>
-                  <h4 className="text-2xl font-serif text-[#0f172a]">ElectrifAI</h4>
+                  <p className="text-base text-gray-600 mb-8 flex-grow leading-relaxed font-light">
+                    Intelligent energy management and predictive grid optimization for utility providers and industrial complexes.
+                  </p>
+                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-hyco-blue transition-colors">
+                    Access Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+                  </div>
                 </div>
-                <p className="text-base text-slate-600 mb-8 flex-grow leading-relaxed">
-                  Intelligent energy management and predictive grid optimization for utility providers and large-scale industrial complexes.
-                </p>
-                <div className="text-xs font-bold uppercase tracking-widest text-blue-700 flex items-center group-hover:text-blue-900 transition-colors">
-                  View Subsidiary <ArrowRight size={16} className="ml-2 group-hover:translate-x-2 transition-transform duration-300" />
-                </div>
-              </div>
-            </Link>
+              </Link>
+            </motion.div>
 
             {/* Servicio AI Card */}
-            <Link href="/servicio-ai" className="portfolio-card group bg-white border border-slate-200 hover:border-blue-300 transition-all duration-500 hover:shadow-2xl overflow-hidden flex flex-col">
-              <div className="h-64 overflow-hidden relative">
-                <div className="absolute inset-0 bg-[#0f172a]/40 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" alt="Servicio AI" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
-              </div>
-              <div className="p-10 flex-grow flex flex-col bg-white relative">
-                <div className="absolute top-0 left-10 w-12 h-1 bg-blue-600 -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                <div className="flex items-center mb-6">
-                  <div className="w-10 h-10 bg-slate-50 text-blue-700 flex items-center justify-center mr-4 border border-slate-100">
-                    <Globe2 size={20} />
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Link href="/servicio-ai" className="group block bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue h-full overflow-hidden relative">
+                <div className="h-64 overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700">
+                  <div className="absolute inset-0 bg-hyco-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
+                  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" alt="Servicio AI" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
+                </div>
+                <div className="p-10 bg-white relative z-20 h-full flex flex-col">
+                  <div className="absolute top-0 left-10 w-12 h-1 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-4 transition-colors duration-300">
+                      <Globe2 size={24} />
+                    </div>
+                    <h4 className="text-2xl font-bold tracking-tight text-hyco-black">Serbisyow.AI</h4>
                   </div>
-                  <h4 className="text-2xl font-serif text-[#0f172a]">Servicio AI</h4>
+                  <p className="text-base text-gray-600 mb-8 flex-grow leading-relaxed font-light">
+                    Global verified professional talent collective. Advanced matching algorithms for home construction to legal consultation.
+                  </p>
+                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-hyco-blue transition-colors">
+                    Access Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+                  </div>
                 </div>
-                <p className="text-base text-slate-600 mb-8 flex-grow leading-relaxed">
-                  Connect with verified professional talent for your projects. From home construction to legal consultation, get it done with confidence.
-                </p>
-                <div className="text-xs font-bold uppercase tracking-widest text-blue-700 flex items-center group-hover:text-blue-900 transition-colors">
-                  View Subsidiary <ArrowRight size={16} className="ml-2 group-hover:translate-x-2 transition-transform duration-300" />
-                </div>
-              </div>
-            </Link>
+              </Link>
+            </motion.div>
 
             {/* LeasifAI Card */}
-            <Link href="/leasifai" className="portfolio-card group bg-white border border-slate-200 hover:border-blue-300 transition-all duration-500 hover:shadow-2xl overflow-hidden flex flex-col">
-              <div className="h-64 overflow-hidden relative">
-                <div className="absolute inset-0 bg-[#0f172a]/40 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
-                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop" alt="LeasifAI" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
-              </div>
-              <div className="p-10 flex-grow flex flex-col bg-white relative">
-                <div className="absolute top-0 left-10 w-12 h-1 bg-blue-600 -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                <div className="flex items-center mb-6">
-                  <div className="w-10 h-10 bg-slate-50 text-blue-700 flex items-center justify-center mr-4 border border-slate-100">
-                    <ShieldCheck size={20} />
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Link href="/leasifai" className="group block bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue h-full overflow-hidden relative">
+                <div className="h-64 overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700">
+                  <div className="absolute inset-0 bg-hyco-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
+                  <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop" alt="LeasifAI" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
+                </div>
+                <div className="p-10 bg-white relative z-20 h-full flex flex-col">
+                  <div className="absolute top-0 left-10 w-12 h-1 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-4 transition-colors duration-300">
+                      <ShieldCheck size={24} />
+                    </div>
+                    <h4 className="text-2xl font-bold tracking-tight text-hyco-black">LeasifAI</h4>
                   </div>
-                  <h4 className="text-2xl font-serif text-[#0f172a]">LeasifAI</h4>
+                  <p className="text-base text-gray-600 mb-8 flex-grow leading-relaxed font-light">
+                    Smart real estate logistics. Automated contract analysis, tenant screening, and dynamic yield optimization models.
+                  </p>
+                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-hyco-blue transition-colors">
+                    Access Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+                  </div>
                 </div>
-                <p className="text-base text-slate-600 mb-8 flex-grow leading-relaxed">
-                  Smart real estate and leasing solutions. Automated contract analysis, tenant screening, and dynamic pricing models for property managers.
-                </p>
-                <div className="text-xs font-bold uppercase tracking-widest text-blue-700 flex items-center group-hover:text-blue-900 transition-colors">
-                  View Subsidiary <ArrowRight size={16} className="ml-2 group-hover:translate-x-2 transition-transform duration-300" />
+              </Link>
+            </motion.div>
+
+            {/* Edugaite Card */}
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Link href="/edugaite" className="group block bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue h-full overflow-hidden relative">
+                <div className="h-64 overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700">
+                  <div className="absolute inset-0 bg-hyco-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
+                  <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop" alt="Edugaite" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
                 </div>
-              </div>
-            </Link>
+                <div className="p-10 bg-white relative z-20 h-full flex flex-col">
+                  <div className="absolute top-0 left-10 w-12 h-1 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-4 transition-colors duration-300">
+                      <Globe2 size={24} />
+                    </div>
+                    <h4 className="text-2xl font-bold tracking-tight text-hyco-black">Edugaite</h4>
+                  </div>
+                  <p className="text-base text-gray-600 mb-8 flex-grow leading-relaxed font-light">
+                    K-12 EdTech platform streamlining workflows with AI-powered lesson plans, quizzes, and grading for educators.
+                  </p>
+                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-hyco-blue transition-colors">
+                    Access Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" ref={aboutRef} className="py-32 bg-white">
+      <section id="about" className="py-32 bg-white text-hyco-black border-t border-gray-200">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-          <div className="about-content">
-            <h2 className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-4">Corporate Overview</h2>
-            <h3 className="text-5xl font-serif text-[#0f172a] mb-8 leading-tight">Strategic Vision. <br/>Operational Excellence.</h3>
-            <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-              Founded on the principles of rigorous engineering and market foresight, Hardy & Co. is a leading IT and AI solutions provider. We identify critical inefficiencies in traditional industries and deploy targeted technologies to solve them.
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-xs font-bold text-hyco-blue uppercase tracking-[0.3em] mb-4">The Group</h2>
+            <h3 className="text-5xl md:text-7xl font-bold text-hyco-black mb-8 leading-[1.05] tracking-tighter uppercase">Structured<br/>For Scale.</h3>
+            <div className="w-20 h-1 bg-hyco-black mb-8"></div>
+            <p className="text-xl text-gray-700 mb-6 leading-relaxed font-light">
+              Headquartered in Ortigas Center, Pasig City, <strong className="font-bold text-hyco-black">HYCO</strong> is a leading technology holding group. We identify critical inefficiencies in traditional sectors and inject targeted AI infrastructure.
             </p>
-            <p className="text-lg text-slate-600 mb-10 leading-relaxed">
-              Through our specialized divisions, we deliver enterprise-grade security, scalable infrastructure, and innovative AI models that empower organizations to operate smarter and faster.
+            <p className="text-lg text-gray-500 mb-10 leading-relaxed font-light">
+              Through our specialized subsidiaries, we deliver enterprise-grade security, scalable processing, and innovative learning models that empower global organizations to operate smarter.
             </p>
-            <Link href="/about" className="inline-flex items-center text-blue-700 font-bold tracking-widest uppercase text-sm hover:text-blue-900 transition-colors group">
-              Read Our Story <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+            <Link href="/about" className="inline-flex items-center bg-hyco-black text-white px-8 py-4 font-bold tracking-[0.2em] uppercase text-xs hover:bg-hyco-blue transition-colors group">
+              Read Corporate Strategy <ArrowRight size={16} className="ml-3 group-hover:translate-x-1 transition-transform" />
             </Link>
-          </div>
-          <div className="relative about-image">
-            <div className="absolute inset-0 bg-slate-100 translate-x-6 translate-y-6 z-0"></div>
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="absolute inset-0 bg-hyco-black translate-x-4 translate-y-4 md:translate-x-8 md:translate-y-8 z-0"></div>
             <img 
               src="https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1932&auto=format&fit=crop" 
               alt="Corporate Boardroom" 
-              className="relative z-10 w-full h-[600px] object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl"
+              className="relative z-10 w-full h-[600px] object-cover grayscale border-4 border-white shadow-2xl"
               referrerPolicy="no-referrer"
             />
-          </div>
+            {/* Glass decoration */}
+            <div className="absolute -bottom-10 -left-10 z-20 w-48 h-48 glass-panel-white hidden md:flex items-center justify-center p-6 text-hyco-black border-l-4 border-hyco-blue">
+              <div className="font-bold text-lg uppercase tracking-widest text-center">ASEAN<br/>Focused</div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>
