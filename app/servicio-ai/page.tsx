@@ -150,17 +150,21 @@ const ShaderBackground = () => {
           blobColor = mix(blobColor, scrollGreen, u_scroll * 0.85);
           colorBase = mix(colorBase, vec3(0.85, 0.96, 0.90), u_scroll * 0.3);
       
-          float n1 = snoise(vec3(uv * 1.5, u_time * 0.1));
-          float n2 = snoise(vec3(uv * 2.0 + mouse * 0.05, u_time * 0.08));
-      
-          float blob1 = 1.0 - smoothstep(0.1, 1.0, length(uv - vec2(0.2, 0.8) + n1 * 0.3));
-          float blob2 = 1.0 - smoothstep(0.1, 1.2, length(uv - vec2(0.8, 0.3) + n2 * 0.4));
+          // Organic wave noise (stretched coordinates)
+          float n1 = snoise(vec3(uv.x * 2.0, uv.y * 3.0, u_time * 0.1));
+          float n2 = snoise(vec3(uv.x * 3.0 + u_time * 0.05, uv.y * 1.5, u_time * 0.12));
+          
+          // Map noise [-1, 1] to [0, 1] and smooth it out
+          float wave1 = smoothstep(-0.5, 1.0, n1);
+          float wave2 = smoothstep(-0.5, 1.0, n2);
+          
           float mouseGlow = 1.0 - smoothstep(0.0, 0.7, length(uv - mouse));
       
           vec3 color = colorBase;
-          color = mix(color, blobColor, blob1 * 0.85);
-          color = mix(color, blobColor, blob2 * 0.75);
-          color = mix(color, colorTeal, mouseGlow * 0.15);
+          // Very soft mixing for subtle waves instead of intense blobs
+          color = mix(color, blobColor, wave1 * 0.15);
+          color = mix(color, blobColor, wave2 * 0.12);
+          color = mix(color, colorTeal, mouseGlow * 0.10);
       
           gl_FragColor = vec4(color, 1.0);
       }
@@ -237,7 +241,7 @@ const ShaderBackground = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed inset-0 w-full h-full -z-10 bg-[#FAF9F5]" />;
+  return <canvas ref={canvasRef} className="w-full h-full object-cover pointer-events-none bg-[#FAF9F5]" />;
 };
 
 // --- CHATBOT WIDGET ---
@@ -327,12 +331,17 @@ export default function ServicioLandingPage() {
 
   return (
     <div className={`${inter.variable} ${poppins.variable} font-sans text-[#091e25] min-h-screen relative overflow-x-hidden selection:bg-[#0D8C8C]/20 selection:text-[#091e25]`}>
-      <ShaderBackground />
+      {/* Sticky Background Container strictly bounded to this page */}
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <div className="sticky top-0 w-full h-screen">
+          <ShaderBackground />
+        </div>
+      </div>
       
       <header className="w-full pt-10 px-6 text-center max-w-[1280px] mx-auto relative z-40">
         <div className="font-poppins font-bold text-4xl md:text-5xl lg:text-6xl tracking-tighter text-[#0D8C8C]">Servicio.AI</div>
       </header>
-      <main className="pt-8 pb-24 px-6 max-w-[1280px] mx-auto space-y-32 md:space-y-48">
+      <main className="pt-8 pb-24 px-6 max-w-[1280px] mx-auto space-y-32 md:space-y-48 relative z-10">
         
         {/* Section 1 — Hero */}
         <section className="relative text-center flex flex-col items-center pt-4 md:pt-8">
