@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Servicio.ai | Enlightened Expertise</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Poppins:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#def4fe",
+                        "on-surface": "#091e25",
+                        "on-surface-variant": "#3d4949",
+                        "primary-fixed-dim": "#71d6d6",
+                        "on-primary-container": "#f3fffe",
+                        "inverse-surface": "#1f333a",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#008282",
+                        "secondary-container": "#dce0e0",
+                        "outline-variant": "#bdc9c8",
+                        "on-secondary-fixed": "#181c1d",
+                        "outline": "#6d7979",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#8ef3f2",
+                        "on-primary": "#ffffff",
+                        "surface": "#f2fbff",
+                        "surface-variant": "#d0e6ef",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#5a5f60",
+                        "secondary-fixed-dim": "#c3c7c7",
+                        "on-tertiary-fixed-variant": "#6e3900",
+                        "inverse-primary": "#71d6d6",
+                        "surface-container-low": "#e4f7ff",
+                        "on-tertiary-fixed": "#2f1500",
+                        "surface-bright": "#f2fbff",
+                        "background": "#f2fbff",
+                        "surface-container-high": "#d6ecf5",
+                        "surface-dim": "#c8dee7",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#d0e6ef",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdcc3",
+                        "on-secondary-container": "#5f6364",
+                        "on-tertiary-container": "#fffbff",
+                        "on-primary-fixed-variant": "#004f50",
+                        "primary": "#006767",
+                        "on-primary-fixed": "#002020",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#dfe3e3",
+                        "tertiary-container": "#b15f00",
+                        "surface-container": "#dcf1fb",
+                        "tertiary": "#8d4b00",
+                        "on-secondary-fixed-variant": "#434848",
+                        "tertiary-fixed-dim": "#ffb77d",
+                        "surface-tint": "#006a6a",
+                        "on-background": "#091e25"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Poppins"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg-mobile": ["Poppins"],
+                        "headline-lg": ["Poppins"],
+                        "display-lg": ["Poppins"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { 
+            background-color: rgba(250, 249, 245, 0.9); 
+            overflow-x: hidden; 
+            min-height: 100vh;
+        }
+        .pearl-glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(178, 222, 222, 0.5);
+            transition: all 0.3s ease;
+        }
+        .pearl-glass:hover {
+            border-color: rgba(13, 140, 140, 0.4);
+            backdrop-filter: blur(24px);
+        }
+        .bloom-primary {
+            background: radial-gradient(circle, rgba(232, 246, 246, 0.8) 0%, rgba(250, 249, 245, 0) 70%);
+        }
+        .bloom-warm {
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.1) 0%, rgba(250, 249, 245, 0) 70%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .stagger-1 { transition-delay: 100ms; }
+        .stagger-2 { transition-delay: 200ms; }
+        .stagger-3 { transition-delay: 300ms; }
+
+        /* Section backgrounds for shader visibility */
+        section {
+            background-color: transparent !important;
+        }
+        .bg-surface-container-low\/20 {
+            background-color: rgba(228, 247, 255, 0.15) !important;
+        }
+        .bg-primary\/5 {
+            background-color: rgba(0, 103, 103, 0.05) !important;
+        }
+        .bg-surface {
+            background-color: rgba(242, 251, 255, 0.8) !important;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- Fixed Shader Background -->
+<!-- STITCH_SHADER_START:ANIMATION_8 class="fixed inset-0 w-full h-full z-[-1]" -->
+<div class="fixed inset-0 w-full h-full z-[-1]" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_8" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_8');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+
+// Simplex noise for organic movement
+vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec4 permute(vec4 x) { return mod289(((x*34.0)+1.0)*x); }
+vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
+
+float snoise(vec3 v) {
+  const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;
+  const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);
+  vec3 i  = floor(v + dot(v, C.yyy) );
+  vec3 x0 =   v - i + dot(i, C.xxx) ;
+  vec3 g = step(x0.yzx, x0.xyz);
+  vec3 l = 1.0 - g;
+  vec3 i1 = min( g.xyz, l.zxy );
+  vec3 i2 = max( g.xyz, l.zxy );
+  vec3 x1 = x0 - i1 + C.xxx;
+  vec3 x2 = x0 - i2 + C.yyy;
+  vec3 x3 = x0 - D.yyy;
+  i = mod289(i); 
+  vec4 p = permute( permute( permute( 
+             i.z + vec4(0.0, i1.z, i2.z, 1.0 ))
+           + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) 
+           + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));
+  float n_ = 0.142857142857;
+  vec3  ns = n_ * D.wyz - D.xzx;
+  vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+  vec4 x_ = floor(j * ns.z);
+  vec4 y_ = floor(j - 7.0 * x_ );
+  vec4 x = x_ *ns.x + ns.yyyy;
+  vec4 y = y_ *ns.x + ns.yyyy;
+  vec4 h = 1.0 - abs(x) - abs(y);
+  vec4 b0 = vec4( x.xy, y.xy );
+  vec4 b1 = vec4( x.zw, y.zw );
+  vec4 s0 = floor(b0)*2.0 + 1.0;
+  vec4 s1 = floor(b1)*2.0 + 1.0;
+  vec4 sh = -step(h, vec4(0.0));
+  vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;
+  vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;
+  vec3 p0 = vec3(a0.xy,h.x);
+  vec3 p1 = vec3(a0.zw,h.y);
+  vec3 p2 = vec3(a1.xy,h.z);
+  vec3 p3 = vec3(a1.zw,h.w);
+  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));
+  p0 *= norm.x;
+  p1 *= norm.y;
+  p2 *= norm.z;
+  p3 *= norm.w;
+  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
+  m = m * m;
+  return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), 
+                                dot(p2,x2), dot(p3,x3) ) );
+}
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 mouse = u_mouse / u_resolution;
+
+    // Background colors: Pearl White #FAF9F5, Teal #0D8C8C
+    vec3 colorBase = vec3(0.98, 0.976, 0.96); // #FAF9F5
+    vec3 colorTeal = vec3(0.05, 0.55, 0.55); // #0D8C8C
+    vec3 colorTint = vec3(0.91, 0.965, 0.965); // #E8F6F6
+
+    // Animate blobs with noise
+    float n1 = snoise(vec3(uv * 1.5, u_time * 0.1));
+    float n2 = snoise(vec3(uv * 2.0 + mouse * 0.05, u_time * 0.08));
+
+    // Dynamic blob shapes
+    float blob1 = smoothstep(0.8, 0.3, length(uv - vec2(0.2, 0.8) + n1 * 0.2));
+    float blob2 = smoothstep(0.9, 0.4, length(uv - vec2(0.8, 0.3) + n2 * 0.3));
+    float mouseGlow = smoothstep(0.5, 0.0, length(uv - mouse));
+
+    vec3 color = colorBase;
+    color = mix(color, colorTint, blob1 * 0.6);
+    color = mix(color, colorTint, blob2 * 0.5);
+    color = mix(color, colorTeal, mouseGlow * 0.08);
+
+    gl_FragColor = vec4(color, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_8 -->
+<!-- Navbar -->
+<header class="bg-white/60 backdrop-blur-xl docked full-width top-0 sticky border-b border-outline-variant/50 z-50">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">Servicio.ai</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary" href="#">Find Talent</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="#">How It Works</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="#">Pricing</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-label-md text-label-md text-primary px-6 py-2 rounded-full border border-primary hover:bg-primary/5 transition-all">Log In</button>
+<button class="font-label-md text-label-md bg-primary text-on-primary px-6 py-2 rounded-full shadow-lg hover:shadow-primary/20 active:scale-95 transition-all">Post a Project</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 overflow-hidden">
+<div class="absolute top-20 left-1/4 w-[600px] h-[600px] bloom-primary -z-10 animate-pulse"></div>
+<div class="max-w-container-max mx-auto px-margin-desktop text-center">
+<h1 class="font-display-lg text-display-lg max-w-4xl mx-auto mb-6 reveal">
+                    Philippines' first AI-powered professional services marketplace.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12 reveal stagger-1">
+                    Connecting clients with verified Filipino professionals through intelligent curation and enlightened expertise.
+                </p>
+<!-- Search Bar -->
+<div class="max-w-2xl mx-auto mb-16 reveal stagger-2">
+<div class="pearl-glass p-2 rounded-full flex items-center shadow-xl">
+<span class="material-symbols-outlined ml-4 text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full px-4 text-on-surface placeholder-outline-variant" placeholder="What service are you looking for?" type="text"/>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-label-md">Search</button>
+</div>
+</div>
+<!-- Abstract Platform Preview -->
+<div class="relative max-w-5xl mx-auto reveal stagger-3">
+<div class="pearl-glass rounded-2xl aspect-video w-full overflow-hidden flex items-center justify-center p-8 border-2 border-white/40">
+<div class="grid grid-cols-12 gap-4 w-full h-full opacity-60">
+<div class="col-span-3 bg-surface-container rounded-lg"></div>
+<div class="col-span-9 grid grid-rows-3 gap-4">
+<div class="bg-primary/10 rounded-lg"></div>
+<div class="bg-surface-container-high rounded-lg"></div>
+<div class="bg-surface-container-highest rounded-lg"></div>
+</div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="pearl-glass p-12 rounded-full animate-bounce">
+<span class="material-symbols-outlined text-primary text-4xl">play_circle</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Bar -->
+<section class="py-12 border-y border-outline-variant/30 bg-surface/30">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex flex-wrap justify-between items-center gap-12 opacity-40 grayscale">
+<div class="font-bold text-xl">MANILA TIMES</div>
+<div class="font-bold text-xl">FINANCIAL ASIA</div>
+<div class="font-bold text-xl">TECH PH</div>
+<div class="font-bold text-xl">BPO INSIDER</div>
+<div class="font-bold text-xl">METRO STAR</div>
+</div>
+</div>
+</section>
+<!-- Problem / Solution -->
+<section class="py-32">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="p-12 rounded-3xl bg-white/40 border border-outline-variant/50 reveal">
+<span class="text-primary font-bold mb-4 block">THE PROBLEM</span>
+<h2 class="font-headline-lg text-headline-lg mb-6">Finding reliable talent shouldn't be a gamble.</h2>
+<p class="text-on-surface-variant">The current landscape is saturated with unverified profiles, inconsistent pricing, and manual vetting processes that waste weeks of your time.</p>
+</div>
+<div class="pearl-glass p-12 rounded-3xl relative overflow-hidden reveal stagger-1">
+<div class="absolute -bottom-20 -right-20 w-64 h-64 bloom-primary -z-10"></div>
+<span class="text-primary font-bold mb-4 block">THE SOLUTION</span>
+<h2 class="font-headline-lg text-headline-lg mb-6">Servicio.ai Intelligent Matching</h2>
+<p class="text-on-surface-variant">We use proprietary AI to analyze your project requirements and instantly match you with verified, top-tier Filipino professionals who have a proven track record.</p>
+</div>
+</div>
+</section>
+<!-- Bento Grid Categories -->
+<section class="py-32 bg-surface-container-low/20">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<h2 class="font-headline-lg text-headline-lg text-center mb-16">Curated Professional Ecosystem</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Engineering -->
+<div class="pearl-glass p-8 rounded-3xl md:col-span-2 h-64 flex flex-col justify-end group cursor-pointer reveal">
+<span class="material-symbols-outlined text-primary mb-auto group-hover:scale-110 transition-transform">architecture</span>
+<h3 class="font-headline-md text-headline-md">Engineering &amp; Architecture</h3>
+</div>
+<!-- Legal -->
+<div class="pearl-glass p-8 rounded-3xl h-64 flex flex-col justify-end group cursor-pointer reveal stagger-1">
+<span class="material-symbols-outlined text-primary mb-auto group-hover:scale-110 transition-transform">gavel</span>
+<h3 class="font-headline-md text-headline-md">Legal Services</h3>
+</div>
+<!-- Academic -->
+<div class="pearl-glass p-8 rounded-3xl h-64 flex flex-col justify-end group cursor-pointer reveal stagger-2">
+<span class="material-symbols-outlined text-primary mb-auto group-hover:scale-110 transition-transform">school</span>
+<h3 class="font-headline-md text-headline-md">Academic &amp; Tutoring</h3>
+</div>
+<!-- IT -->
+<div class="pearl-glass p-8 rounded-3xl md:col-span-2 h-64 flex flex-col justify-end group cursor-pointer reveal">
+<span class="material-symbols-outlined text-primary mb-auto group-hover:scale-110 transition-transform">code</span>
+<h3 class="font-headline-md text-headline-md">IT &amp; Digital</h3>
+</div>
+<!-- Local -->
+<div class="pearl-glass p-8 rounded-3xl md:col-span-2 h-64 flex flex-col justify-end group cursor-pointer reveal stagger-1">
+<span class="material-symbols-outlined text-primary mb-auto group-hover:scale-110 transition-transform">home_work</span>
+<h3 class="font-headline-md text-headline-md">Local Services</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works -->
+<section class="py-32 overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<h2 class="font-headline-lg text-headline-lg text-center mb-24">The Path to Enlightened Expertise</h2>
+<div class="relative">
+<div class="absolute top-1/2 left-0 w-full h-px bg-outline-variant/30 -z-10"></div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+<div class="flex flex-col items-center text-center reveal">
+<div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold mb-6">1</div>
+<h4 class="font-bold mb-2">Define Project</h4>
+<p class="text-sm text-on-surface-variant">AI parses your brief for core needs.</p>
+</div>
+<div class="flex flex-col items-center text-center reveal stagger-1">
+<div class="w-12 h-12 rounded-full pearl-glass text-primary flex items-center justify-center font-bold mb-6">2</div>
+<h4 class="font-bold mb-2">Instant Match</h4>
+<p class="text-sm text-on-surface-variant">Top 3 pros are selected for you.</p>
+</div>
+<div class="flex flex-col items-center text-center reveal stagger-2">
+<div class="w-12 h-12 rounded-full pearl-glass text-primary flex items-center justify-center font-bold mb-6">3</div>
+<h4 class="font-bold mb-2">Vetting Check</h4>
+<p class="text-sm text-on-surface-variant">Pros confirm their availability.</p>
+</div>
+<div class="flex flex-col items-center text-center reveal stagger-3">
+<div class="w-12 h-12 rounded-full pearl-glass text-primary flex items-center justify-center font-bold mb-6">4</div>
+<h4 class="font-bold mb-2">Secure Escrow</h4>
+<p class="text-sm text-on-surface-variant">Funds are held until delivery.</p>
+</div>
+<div class="flex flex-col items-center text-center reveal stagger-3">
+<div class="w-12 h-12 rounded-full pearl-glass text-primary flex items-center justify-center font-bold mb-6">5</div>
+<h4 class="font-bold mb-2">Project Success</h4>
+<p class="text-sm text-on-surface-variant">Expertise delivered efficiently.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Matching Spotlight -->
+<section class="py-32 bg-primary/5">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+<div class="reveal">
+<h2 class="font-display-lg text-display-lg mb-8">AI that speaks Filipino professional.</h2>
+<p class="text-body-lg text-on-surface-variant mb-8">Our engine understands the nuances of local licenses (PRC), university specializations, and regional logistics in the Philippines.</p>
+<div class="flex gap-4">
+<div class="pearl-glass p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">verified</span>
+<span class="text-sm font-bold">PRC Integrated</span>
+</div>
+<div class="pearl-glass p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="text-sm font-bold">Regional Awareness</span>
+</div>
+</div>
+</div>
+<div class="pearl-glass p-8 rounded-3xl shadow-2xl reveal stagger-1">
+<div class="space-y-6">
+<div class="flex justify-end">
+<div class="bg-primary text-on-primary p-4 rounded-2xl rounded-tr-none max-w-[80%]">
+<p class="text-sm">I need to find an architect in Makati for a residential loft renovation.</p>
+</div>
+</div>
+<div class="flex justify-start">
+<div class="pearl-glass p-4 rounded-2xl rounded-tl-none max-w-[80%] flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">smart_toy</span>
+<div>
+<p class="text-sm font-bold text-primary mb-1">Servicio AI</p>
+<p class="text-sm">Confirmed. Searching for PRC-licensed architects specifically in Makati with loft experience. 3 matches found.</p>
+</div>
+</div>
+</div>
+<div class="p-4 border border-outline-variant/30 rounded-xl bg-white/40">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-outline-variant"></div>
+<div>
+<p class="text-xs font-bold">Ar. Maria Santos</p>
+<p class="text-[10px] text-on-surface-variant">Top Match • Makati City</p>
+</div>
+</div>
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded-full text-[10px]">View Profile</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Verification & Trust -->
+<section class="py-32">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="pearl-glass p-16 rounded-[40px] text-center relative overflow-hidden reveal">
+<div class="absolute top-0 right-0 w-96 h-96 bloom-primary opacity-50"></div>
+<div class="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-8">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg mb-6">Trust built on verification.</h2>
+<p class="max-w-2xl mx-auto text-on-surface-variant mb-12">Every professional undergoes a mandatory 3-step verification: Government ID check, Professional License (PRC) validation, and phone-based OTP security.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+<div class="p-6 border border-outline-variant/30 rounded-2xl">
+<h4 class="font-bold mb-2">ID Verification</h4>
+<p class="text-xs">Secure upload of government-issued identification cards.</p>
+</div>
+<div class="p-6 border border-outline-variant/30 rounded-2xl">
+<h4 class="font-bold mb-2">License Lookup</h4>
+<p class="text-xs">Direct API integration with professional regulatory databases.</p>
+</div>
+<div class="p-6 border border-outline-variant/30 rounded-2xl">
+<h4 class="font-bold mb-2">Phone OTP</h4>
+<p class="text-xs">Two-factor authentication for every login and transaction.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Secure Payment -->
+<section class="py-32">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="pearl-glass p-16 rounded-[40px] relative reveal overflow-hidden">
+<div class="absolute -top-20 -left-20 w-80 h-80 bloom-warm -z-10"></div>
+<span class="material-symbols-outlined text-[#D97706] text-5xl mb-8">shield_with_heart</span>
+<h2 class="font-headline-lg text-headline-lg mb-6">Secure Escrow Payments</h2>
+<p class="text-on-surface-variant">Your peace of mind is our priority. Funds are held in a secure Servicio Escrow account and only released when you approve the milestone delivery.</p>
+</div>
+<div class="p-12 reveal stagger-1">
+<h3 class="font-headline-md text-headline-md mb-8">Financial Transparency</h3>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<p>Milestone-based billing for complex projects.</p>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<p>All major PH banks and e-wallets supported.</p>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<p>Detailed e-invoices for tax and corporate audits.</p>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Real-World Proof Masonry -->
+<section class="py-32 bg-surface">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<h2 class="font-headline-lg text-headline-lg text-center mb-16">Results Delivered</h2>
+<div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+<div class="pearl-glass p-12 rounded-2xl break-inside-avoid reveal">
+<p class="text-sm font-bold mb-4">IMAGE 01</p>
+<div class="aspect-[4/5] bg-surface-container rounded-lg mb-6"></div>
+<p class="font-bold">Makati Office Modernization</p>
+</div>
+<div class="pearl-glass p-12 rounded-2xl break-inside-avoid reveal stagger-1">
+<p class="text-sm font-bold mb-4">IMAGE 02</p>
+<div class="aspect-square bg-surface-container rounded-lg mb-6"></div>
+<p class="font-bold">E-commerce Legal Framework</p>
+</div>
+<div class="pearl-glass p-12 rounded-2xl break-inside-avoid reveal stagger-2">
+<p class="text-sm font-bold mb-4">IMAGE 03</p>
+<div class="aspect-[3/4] bg-surface-container rounded-lg mb-6"></div>
+<p class="font-bold">Custom ERP Development</p>
+</div>
+<div class="pearl-glass p-12 rounded-2xl break-inside-avoid reveal">
+<p class="text-sm font-bold mb-4">IMAGE 04</p>
+<div class="aspect-video bg-surface-container rounded-lg mb-6"></div>
+<p class="font-bold">Cebu High-Rise Foundation</p>
+</div>
+<div class="pearl-glass p-12 rounded-2xl break-inside-avoid reveal stagger-1">
+<p class="text-sm font-bold mb-4">IMAGE 05</p>
+<div class="aspect-square bg-surface-container rounded-lg mb-6"></div>
+<p class="font-bold">Corporate Language Training</p>
+</div>
+<div class="pearl-glass p-12 rounded-2xl break-inside-avoid reveal stagger-2">
+<p class="text-sm font-bold mb-4">IMAGE 06</p>
+<div class="aspect-[4/5] bg-surface-container rounded-lg mb-6"></div>
+<p class="font-bold">Brand Identity Suite</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-40 relative">
+<div class="absolute inset-0 bloom-primary -z-10 opacity-60"></div>
+<div class="max-w-container-max mx-auto px-margin-desktop text-center">
+<h2 class="font-display-lg text-display-lg mb-8 reveal">The future of service is enlightened.</h2>
+<p class="text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12 reveal stagger-1">Join the community of forward-thinking clients and verified professionals elevating the Filipino service standard.</p>
+<div class="flex justify-center gap-6 reveal stagger-2">
+<button class="bg-primary text-on-primary px-12 py-4 rounded-full text-lg font-bold shadow-2xl hover:scale-105 transition-transform">Get Started Today</button>
+<button class="pearl-glass text-primary px-12 py-4 rounded-full text-lg font-bold border border-primary">Post a Project</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Chatbot FAB -->
+<div class="fixed bottom-8 right-8 z-[60]">
+<button class="bg-primary text-on-primary px-6 py-4 rounded-full flex items-center gap-3 shadow-2xl hover:scale-105 active:scale-95 transition-all" onclick="toggleChat()">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-bold">Have questions?</span>
+</button>
+<!-- Chat Modal -->
+<div class="hidden absolute bottom-20 right-0 w-80 h-96 pearl-glass rounded-3xl shadow-2xl flex flex-col overflow-hidden" id="chatModal">
+<div class="bg-primary p-4 text-on-primary flex justify-between items-center">
+<span class="font-bold">Servicio Assistant</span>
+<button class="material-symbols-outlined" onclick="toggleChat()">close</button>
+</div>
+<div class="flex-1 p-4 space-y-4 overflow-y-auto">
+<div class="bg-surface p-3 rounded-xl text-sm">Hello! How can I help you find talent today?</div>
+</div>
+<div class="p-4 border-t border-outline-variant/30">
+<div class="bg-white/40 p-2 rounded-full border border-outline-variant/30 flex">
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full" placeholder="Type here..." type="text"/>
+<button class="material-symbols-outlined text-primary">send</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-surface/80 backdrop-blur-md border-t border-outline-variant/50 w-full px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="max-w-container-max mx-auto w-full flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col gap-2">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">Servicio.ai</div>
+<p class="font-label-sm text-label-sm text-on-secondary-container">© 2024 Servicio.ai. Enlightened Expertise.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-label-sm text-label-sm text-on-secondary-container hover:text-primary transition-colors" href="#">How It Works</a>
+<a class="font-label-sm text-label-sm text-on-secondary-container hover:text-primary transition-colors" href="#">Categories</a>
+<a class="font-label-sm text-label-sm text-on-secondary-container hover:text-primary transition-colors" href="#">Join as Pro</a>
+<a class="font-label-sm text-label-sm text-on-secondary-container hover:text-primary transition-colors" href="#">Terms</a>
+<a class="font-label-sm text-label-sm text-on-secondary-container hover:text-primary transition-colors" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Scroll Reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Chatbot Toggle
+        function toggleChat() {
+            const modal = document.getElementById('chatModal');
+            modal.classList.toggle('hidden');
+        }
+    </script>
+</body></html>

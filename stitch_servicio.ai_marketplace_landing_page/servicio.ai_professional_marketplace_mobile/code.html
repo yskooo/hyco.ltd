@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Servicio.ai | Enlightened Expertise</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config Verbatim -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#def4fe",
+                    "on-surface": "#091e25",
+                    "on-surface-variant": "#3d4949",
+                    "primary-fixed-dim": "#71d6d6",
+                    "on-primary-container": "#f3fffe",
+                    "inverse-surface": "#1f333a",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#008282",
+                    "secondary-container": "#dce0e0",
+                    "outline-variant": "#bdc9c8",
+                    "on-secondary-fixed": "#181c1d",
+                    "outline": "#6d7979",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#8ef3f2",
+                    "on-primary": "#ffffff",
+                    "surface": "#f2fbff",
+                    "surface-variant": "#d0e6ef",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#5a5f60",
+                    "secondary-fixed-dim": "#c3c7c7",
+                    "on-tertiary-fixed-variant": "#6e3900",
+                    "inverse-primary": "#71d6d6",
+                    "surface-container-low": "#e4f7ff",
+                    "on-tertiary-fixed": "#2f1500",
+                    "surface-bright": "#f2fbff",
+                    "background": "#f2fbff",
+                    "surface-container-high": "#d6ecf5",
+                    "surface-dim": "#c8dee7",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#d0e6ef",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffdcc3",
+                    "on-secondary-container": "#5f6364",
+                    "on-tertiary-container": "#fffbff",
+                    "on-primary-fixed-variant": "#004f50",
+                    "primary": "#006767",
+                    "on-primary-fixed": "#002020",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#dfe3e3",
+                    "tertiary-container": "#b15f00",
+                    "surface-container": "#dcf1fb",
+                    "tertiary": "#8d4b00",
+                    "on-secondary-fixed-variant": "#434848",
+                    "tertiary-fixed-dim": "#ffb77d",
+                    "surface-tint": "#006a6a",
+                    "on-background": "#091e25"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "margin-desktop": "40px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Poppins"],
+                    "label-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "display-lg-mobile": ["Poppins"],
+                    "headline-lg": ["Poppins"],
+                    "display-lg": ["Poppins"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: transparent; /* Changed to transparent for shader visibility */
+            color: #091e25;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .bg-pearl-90 {
+            background-color: rgba(250, 249, 245, 0.9);
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(178, 222, 222, 0.5);
+        }
+
+        .pearl-border {
+            border: 1px solid rgba(178, 222, 222, 0.5);
+        }
+
+        .ambient-bloom {
+            background: radial-gradient(circle at center, #E8F6F6 0%, rgba(232, 246, 246, 0) 70%);
+            filter: blur(40px);
+            z-index: -1;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .tap-target {
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-anim { animation: float 6s ease-in-out infinite; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- STITCH_SHADER_START:ANIMATION_8 class="fixed inset-0 w-full h-full z-[-1]" -->
+<div class="fixed inset-0 w-full h-full z-[-1]" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_8" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_8');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+
+// Simplex noise for organic movement
+vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec4 permute(vec4 x) { return mod289(((x*34.0)+1.0)*x); }
+vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
+
+float snoise(vec3 v) {
+  const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;
+  const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);
+  vec3 i  = floor(v + dot(v, C.yyy) );
+  vec3 x0 =   v - i + dot(i, C.xxx) ;
+  vec3 g = step(x0.yzx, x0.xyz);
+  vec3 l = 1.0 - g;
+  vec3 i1 = min( g.xyz, l.zxy );
+  vec3 i2 = max( g.xyz, l.zxy );
+  vec3 x1 = x0 - i1 + C.xxx;
+  vec3 x2 = x0 - i2 + C.yyy;
+  vec3 x3 = x0 - D.yyy;
+  i = mod289(i); 
+  vec4 p = permute( permute( permute( 
+             i.z + vec4(0.0, i1.z, i2.z, 1.0 ))
+           + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) 
+           + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));
+  float n_ = 0.142857142857;
+  vec3  ns = n_ * D.wyz - D.xzx;
+  vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+  vec4 x_ = floor(j * ns.z);
+  vec4 y_ = floor(j - 7.0 * x_ );
+  vec4 x = x_ *ns.x + ns.yyyy;
+  vec4 y = y_ *ns.x + ns.yyyy;
+  vec4 h = 1.0 - abs(x) - abs(y);
+  vec4 b0 = vec4( x.xy, y.xy );
+  vec4 b1 = vec4( x.zw, y.zw );
+  vec4 s0 = floor(b0)*2.0 + 1.0;
+  vec4 s1 = floor(b1)*2.0 + 1.0;
+  vec4 sh = -step(h, vec4(0.0));
+  vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;
+  vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;
+  vec3 p0 = vec3(a0.xy,h.x);
+  vec3 p1 = vec3(a0.zw,h.y);
+  vec3 p2 = vec3(a1.xy,h.z);
+  vec3 p3 = vec3(a1.zw,h.w);
+  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));
+  p0 *= norm.x;
+  p1 *= norm.y;
+  p2 *= norm.z;
+  p3 *= norm.w;
+  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
+  m = m * m;
+  return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), 
+                                dot(p2,x2), dot(p3,x3) ) );
+}
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 mouse = u_mouse / u_resolution;
+
+    // Background colors: Pearl White #FAF9F5, Teal #0D8C8C
+    vec3 colorBase = vec3(0.98, 0.976, 0.96); // #FAF9F5
+    vec3 colorTeal = vec3(0.05, 0.55, 0.55); // #0D8C8C
+    vec3 colorTint = vec3(0.91, 0.965, 0.965); // #E8F6F6
+
+    // Animate blobs with noise
+    float n1 = snoise(vec3(uv * 1.5, u_time * 0.1));
+    float n2 = snoise(vec3(uv * 2.0 + mouse * 0.05, u_time * 0.08));
+
+    // Dynamic blob shapes
+    float blob1 = smoothstep(0.8, 0.3, length(uv - vec2(0.2, 0.8) + n1 * 0.2));
+    float blob2 = smoothstep(0.9, 0.4, length(uv - vec2(0.8, 0.3) + n2 * 0.3));
+    float mouseGlow = smoothstep(0.5, 0.0, length(uv - mouse));
+
+    vec3 color = colorBase;
+    color = mix(color, colorTint, blob1 * 0.6);
+    color = mix(color, colorTint, blob2 * 0.5);
+    color = mix(color, colorTeal, mouseGlow * 0.08);
+
+    gl_FragColor = vec4(color, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_8 -->
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/60 backdrop-blur-xl border-b border-outline-variant/30" id="navbar">
+<div class="flex justify-between items-center w-full px-margin-mobile py-4">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Servicio.ai</span>
+<button aria-label="Open Menu" class="tap-target text-on-surface" onclick="toggleMenu()">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Mobile Navigation Drawer -->
+<div class="fixed inset-0 z-[60] glass-panel translate-x-full transition-transform duration-500 ease-in-out" id="mobile-menu">
+<div class="flex flex-col h-full px-margin-mobile pt-20">
+<button class="absolute top-4 right-margin-mobile tap-target text-on-surface" onclick="toggleMenu()">
+<span class="material-symbols-outlined">close</span>
+</button>
+<nav class="flex flex-col gap-6 mt-10">
+<a class="font-headline-md text-headline-md text-on-surface" href="#">Find Talent</a>
+<a class="font-headline-md text-headline-md text-on-surface" href="#">How It Works</a>
+<a class="font-headline-md text-headline-md text-on-surface" href="#">Pricing</a>
+<div class="h-[1px] w-full bg-outline-variant/30 my-4"></div>
+<button class="w-full py-4 text-primary font-bold border border-primary rounded-xl">Log In</button>
+<button class="w-full py-4 bg-primary text-on-primary font-bold rounded-xl shadow-lg shadow-primary/20">Post a Project</button>
+</nav>
+</div>
+</div>
+<main class="pt-24 space-y-20">
+<!-- Hero Section -->
+<section class="px-margin-mobile relative overflow-hidden bg-pearl-90 rounded-b-[3rem] pb-20 -mt-24 pt-44">
+<div class="absolute -top-20 -left-20 w-64 h-64 ambient-bloom opacity-60"></div>
+<div class="space-y-6 text-center">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-surface leading-tight">
+                    Where Intelligence <span class="text-primary italic">Meets</span> Action.
+                </h1>
+<p class="text-on-surface-variant font-body-md">
+                    Curated professional services matched by AI. Experience the future of high-end expertise.
+                </p>
+<div class="flex flex-col gap-4 mt-8">
+<div class="glass-panel rounded-full px-6 py-1 flex items-center gap-3 pearl-border">
+<span class="material-symbols-outlined text-primary">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-surface font-body-md py-3" placeholder="I need a strategic consultant..." type="text"/>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary font-bold rounded-full shadow-lg shadow-primary/20">Get Started</button>
+</div>
+</div>
+<!-- Abstract Visual -->
+<div class="mt-12 h-64 relative flex items-center justify-center">
+<div class="absolute inset-0 ambient-bloom opacity-40"></div>
+<div class="w-48 h-48 glass-panel rounded-3xl float-anim flex items-center justify-center pearl-border transform rotate-12">
+<div class="w-32 h-32 bg-primary/10 rounded-full blur-xl absolute"></div>
+<span class="material-symbols-outlined text-primary text-5xl" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+</div>
+<div class="absolute -bottom-4 right-4 glass-panel p-4 rounded-xl pearl-border flex items-center gap-3 animate-pulse">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+<span class="text-label-sm text-on-surface uppercase tracking-wider">AI Analysis Active</span>
+</div>
+</div>
+</section>
+<!-- Trust Bar (Scrollable Strip) -->
+<section class="py-8 bg-pearl-90 border-y border-outline-variant/10">
+<div class="overflow-x-auto no-scrollbar flex items-center gap-12 px-margin-mobile">
+<span class="font-label-sm uppercase tracking-widest text-on-surface-variant whitespace-nowrap">Trusted by</span>
+<div class="flex items-center gap-10 opacity-60 grayscale">
+<span class="font-headline-md font-bold text-on-surface whitespace-nowrap">NEXUS</span>
+<span class="font-headline-md font-bold text-on-surface whitespace-nowrap">AETHER</span>
+<span class="font-headline-md font-bold text-on-surface whitespace-nowrap">VANTAGE</span>
+<span class="font-headline-md font-bold text-on-surface whitespace-nowrap">ORBIT</span>
+</div>
+</div>
+</section>
+<!-- Problem / Solution -->
+<section class="px-margin-mobile py-20 bg-pearl-90 rounded-[3rem] space-y-8">
+<div class="space-y-4">
+<span class="text-primary font-label-md uppercase tracking-widest">The Evolution</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Precision over volume.</h2>
+<p class="text-on-surface-variant">Traditional marketplaces drown you in average options. Servicio.ai filters the noise to deliver enlightened expertise.</p>
+</div>
+<div class="glass-panel p-8 rounded-3xl space-y-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 ambient-bloom opacity-20"></div>
+<div class="flex flex-col gap-6">
+<div class="flex items-start gap-4">
+<div class="p-3 bg-primary/10 rounded-xl text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Curated Pros</h3>
+<p class="text-on-surface-variant font-body-md mt-1">Every professional is hand-vetted by our dual AI-human verification layer.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="p-3 bg-primary/10 rounded-xl text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Smart Matching</h3>
+<p class="text-on-surface-variant font-body-md mt-1">Our neural engine analyzes project nuance to find the perfect synergy.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Service Categories (Single Column Stack) -->
+<section class="px-margin-mobile py-20 bg-pearl-90 rounded-[3rem] space-y-10">
+<div class="text-center">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Expert Domains</h2>
+</div>
+<div class="flex flex-col gap-6">
+<!-- Card 1 -->
+<div class="glass-panel p-6 rounded-3xl pearl-border flex flex-col gap-4">
+<div class="h-40 rounded-2xl overflow-hidden bg-primary/5 flex items-center justify-center">
+<div class="w-24 h-24 ambient-bloom absolute"></div>
+<span class="material-symbols-outlined text-6xl text-primary opacity-40">strategy</span>
+</div>
+<div class="space-y-2">
+<h4 class="font-headline-md text-headline-md text-on-surface">Strategic Advisory</h4>
+<p class="text-on-surface-variant text-body-md">Executive-level guidance for scaling, pivots, and operational excellence.</p>
+</div>
+<button class="mt-2 text-primary font-bold flex items-center gap-2 tap-target self-start">
+                        Explore Pros <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Card 2 -->
+<div class="glass-panel p-6 rounded-3xl pearl-border flex flex-col gap-4">
+<div class="h-40 rounded-2xl overflow-hidden bg-primary/5 flex items-center justify-center">
+<div class="w-24 h-24 ambient-bloom absolute"></div>
+<span class="material-symbols-outlined text-6xl text-primary opacity-40">architecture</span>
+</div>
+<div class="space-y-2">
+<h4 class="font-headline-md text-headline-md text-on-surface">Digital Architecture</h4>
+<p class="text-on-surface-variant text-body-md">Systems design and technical leadership for complex infrastructure.</p>
+</div>
+<button class="mt-2 text-primary font-bold flex items-center gap-2 tap-target self-start">
+                        Explore Pros <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- How It Works (Vertical Timeline) -->
+<section class="px-margin-mobile py-20 bg-pearl-90 rounded-[3rem]">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">The Flow</h2>
+</div>
+<div class="relative pl-10 space-y-12">
+<!-- Timeline Line -->
+<div class="absolute left-4 top-2 bottom-2 w-[2px] bg-gradient-to-b from-primary to-transparent"></div>
+<!-- Step 1 -->
+<div class="relative">
+<div class="absolute -left-10 top-0 w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-label-md shadow-lg shadow-primary/30 z-10">1</div>
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Define Intent</h3>
+<p class="text-on-surface-variant">Input your project goals into our intuitive AI interface. No long forms, just natural conversation.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<div class="absolute -left-10 top-0 w-8 h-8 rounded-full bg-white text-primary pearl-border flex items-center justify-center font-bold text-label-md z-10">2</div>
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Curation &amp; Match</h3>
+<p class="text-on-surface-variant">Our algorithm scouts our elite network to find the top 3 professionals suited for your unique needs.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative">
+<div class="absolute -left-10 top-0 w-8 h-8 rounded-full bg-white text-primary pearl-border flex items-center justify-center font-bold text-label-md z-10">3</div>
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Execute Excellence</h3>
+<p class="text-on-surface-variant">Seamless onboarding and secure project management. Professionalism, automated.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Matching Spotlight -->
+<section class="px-margin-mobile py-10">
+<div class="glass-panel p-6 rounded-3xl space-y-8 bg-gradient-to-br from-white/90 to-primary/5">
+<div class="text-center space-y-2">
+<span class="text-primary font-label-md uppercase tracking-widest">Servicio AI Core</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Intelligent Curation</h2>
+</div>
+<!-- Chat Mockup -->
+<div class="space-y-4">
+<div class="flex justify-start">
+<div class="bg-white p-4 rounded-2xl rounded-bl-none shadow-sm pearl-border max-w-[85%]">
+<p class="text-body-md text-on-surface">"Looking for a consultant to help pivot our SaaS toward AI infrastructure."</p>
+</div>
+</div>
+<div class="flex justify-end">
+<div class="bg-primary p-4 rounded-2xl rounded-br-none shadow-lg shadow-primary/20 max-w-[85%]">
+<p class="text-body-md text-on-primary">Found 3 candidates with previous Exit experience in AI infrastructure. Reviewing synergy scores...</p>
+</div>
+</div>
+</div>
+<ul class="space-y-4 pt-4 border-t border-outline-variant/30">
+<li class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="text-label-md">98% Match Accuracy</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="text-label-md">Real-time market sentiment analysis</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="text-label-md">Cross-domain expertise synthesis</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- Real-World Proof (2-Column Masonry) -->
+<section class="px-margin-mobile py-20 bg-pearl-90 rounded-[3rem] space-y-6">
+<h2 class="font-headline-lg text-headline-lg text-on-surface text-center">Impact Reports</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="glass-panel p-4 rounded-2xl h-48 flex flex-col justify-between">
+<span class="text-primary font-bold text-headline-md">40%</span>
+<p class="text-label-sm text-on-surface-variant">Efficiency increase for Fintech clients</p>
+</div>
+<div class="glass-panel p-4 rounded-2xl h-60 flex flex-col justify-between mt-4">
+<span class="text-primary font-bold text-headline-md">1.2k</span>
+<p class="text-label-sm text-on-surface-variant">High-stakes projects curated this year</p>
+</div>
+<div class="glass-panel p-4 rounded-2xl h-56 flex flex-col justify-between -mt-12">
+<span class="text-primary font-bold text-headline-md">Elite</span>
+<p class="text-label-sm text-on-surface-variant">Top 3% of global talent network</p>
+</div>
+<div class="glass-panel p-4 rounded-2xl h-44 flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary text-3xl">star</span>
+<p class="text-label-sm text-on-surface-variant">NPS of 92 across all services</p>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="px-margin-mobile mb-20">
+<div class="bg-on-surface p-10 rounded-[2.5rem] text-center space-y-8 relative overflow-hidden">
+<div class="absolute inset-0 ambient-bloom opacity-10"></div>
+<h2 class="font-headline-lg text-headline-lg text-white">Elevate your trajectory today.</h2>
+<div class="flex flex-col gap-4">
+<button class="w-full py-4 bg-primary text-on-primary font-bold rounded-full">Get Started</button>
+<button class="w-full py-4 border border-white/30 text-white font-bold rounded-full">Contact Concierge</button>
+</div>
+<p class="text-white/60 font-label-sm uppercase tracking-widest">Enlightened Expertise</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-pearl-90 border-t border-outline-variant/30 py-12 px-margin-mobile">
+<div class="flex flex-col gap-10">
+<div class="space-y-4">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Servicio.ai</span>
+<p class="text-on-surface-variant font-body-md">The intelligence layer for professional growth and execution.</p>
+</div>
+<nav class="grid grid-cols-2 gap-y-6">
+<a class="text-on-secondary-container hover:text-primary font-label-md" href="#">How It Works</a>
+<a class="text-on-secondary-container hover:text-primary font-label-md" href="#">Categories</a>
+<a class="text-on-secondary-container hover:text-primary font-label-md" href="#">Join as Pro</a>
+<a class="text-on-secondary-container hover:text-primary font-label-md" href="#">Terms</a>
+<a class="text-on-secondary-container hover:text-primary font-label-md" href="#">Privacy</a>
+</nav>
+<div class="pt-10 border-t border-outline-variant/20 flex flex-col gap-4">
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-on-surface-variant">share</span>
+<span class="material-symbols-outlined text-on-surface-variant">public</span>
+<span class="material-symbols-outlined text-on-surface-variant">language</span>
+</div>
+<p class="text-label-sm text-on-surface-variant">© 2024 Servicio.ai. Enlightened Expertise.</p>
+</div>
+</div>
+</footer>
+<!-- Chatbot FAB -->
+<button class="fixed bottom-6 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center z-[70] transition-transform active:scale-95" onclick="toggleChat()">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<!-- Chatbot Bottom Sheet -->
+<div class="fixed inset-x-0 bottom-0 z-[80] glass-panel h-[80%] rounded-t-[2.5rem] translate-y-full transition-transform duration-500 ease-out flex flex-col" id="chat-sheet">
+<!-- Handle -->
+<div class="w-full flex justify-center py-4" onclick="toggleChat()">
+<div class="w-12 h-1.5 bg-outline-variant/50 rounded-full"></div>
+</div>
+<div class="px-margin-mobile flex justify-between items-center mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">AI Concierge</h3>
+<button class="text-on-surface tap-target" onclick="toggleChat()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto px-margin-mobile space-y-6 pt-4 no-scrollbar">
+<div class="flex justify-start">
+<div class="bg-primary/5 p-4 rounded-2xl rounded-bl-none pearl-border max-w-[80%]">
+<p class="text-body-md text-on-surface">Hello! I'm your Servicio.ai guide. How can I help you find the right expert today?</p>
+</div>
+</div>
+<div class="flex justify-start">
+<div class="bg-primary/5 p-4 rounded-2xl rounded-bl-none pearl-border max-w-[80%]">
+<p class="text-body-md text-on-surface">You can ask me things like "I need a technical architect" or "How does vetting work?"</p>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-6 border-t border-outline-variant/30 bg-white/40">
+<div class="flex gap-2">
+<input class="flex-1 bg-white/60 border-outline-variant/50 rounded-xl focus:ring-primary focus:border-primary px-4 py-3 font-body-md" placeholder="Type your inquiry..." type="text"/>
+<button class="w-12 h-12 bg-primary text-on-primary rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        function toggleChat() {
+            const chat = document.getElementById('chat-sheet');
+            chat.classList.toggle('translate-y-full');
+            // document.body.classList.toggle('overflow-hidden');
+        }
+
+        // Simple scroll behavior for navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('py-2', 'shadow-sm');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('py-2', 'shadow-sm');
+                nav.classList.add('py-4');
+            }
+        });
+    </script>
+</body></html>

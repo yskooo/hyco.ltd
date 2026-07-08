@@ -198,7 +198,7 @@ export default function Home() {
                     <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-6 transition-colors duration-300 shrink-0">
                       <Globe2 size={24} />
                     </div>
-                    <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-hyco-black">Serbisyow.AI</h4>
+                    <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-hyco-black">Servicio.AI</h4>
                   </div>
                   <p className="text-lg text-gray-600 mb-10 max-w-3xl leading-relaxed font-light">
                     Global verified professional talent collective. Advanced matching algorithms for home construction to legal consultation.
