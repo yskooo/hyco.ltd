@@ -144,15 +144,15 @@ const ShaderBackground = () => {
           vec2 mouse = u_mouse / u_resolution;
           vec3 colorBase = vec3(0.98, 0.976, 0.96); // #FAF9F5
           vec3 colorTeal = vec3(0.05, 0.55, 0.55); // #0D8C8C
-          vec3 blobColor = vec3(0.15, 0.75, 0.55); // Darker, apparent green on white bg
+          vec3 blobColor = vec3(0.15, 0.75, 0.55); // Darker green
           
           vec3 scrollGreen = vec3(0.05, 0.65, 0.40);
           blobColor = mix(blobColor, scrollGreen, u_scroll * 0.85);
-          colorBase = mix(colorBase, vec3(0.85, 0.96, 0.90), u_scroll * 0.3);
+          colorBase = mix(colorBase, vec3(0.90, 0.97, 0.93), u_scroll * 0.2); // Much lighter bottom tint
       
-          // Organic wave noise (stretched coordinates)
-          float n1 = snoise(vec3(uv.x * 2.0, uv.y * 3.0, u_time * 0.1));
-          float n2 = snoise(vec3(uv.x * 3.0 + u_time * 0.05, uv.y * 1.5, u_time * 0.12));
+          // Organic wave noise (stretched coordinates) with scroll-based movement
+          float n1 = snoise(vec3(uv.x * 2.0, uv.y * 3.0 - u_scroll * 1.5, u_time * 0.1));
+          float n2 = snoise(vec3(uv.x * 3.0 + u_time * 0.05, uv.y * 1.5 - u_scroll * 1.0, u_time * 0.12));
           
           // Map noise [-1, 1] to [0, 1] and smooth it out
           float wave1 = smoothstep(-0.5, 1.0, n1);
@@ -161,10 +161,10 @@ const ShaderBackground = () => {
           float mouseGlow = 1.0 - smoothstep(0.0, 0.7, length(uv - mouse));
       
           vec3 color = colorBase;
-          // Very soft mixing for subtle waves instead of intense blobs
-          color = mix(color, blobColor, wave1 * 0.15);
-          color = mix(color, blobColor, wave2 * 0.12);
-          color = mix(color, colorTeal, mouseGlow * 0.10);
+          // Extremely soft mixing to prevent eye distraction
+          color = mix(color, blobColor, wave1 * 0.03);
+          color = mix(color, blobColor, wave2 * 0.02);
+          color = mix(color, colorTeal, mouseGlow * 0.06);
       
           gl_FragColor = vec4(color, 1.0);
       }
@@ -201,10 +201,12 @@ const ShaderBackground = () => {
     const uMouse = gl.getUniformLocation(prog, 'u_mouse');
     const uScroll = gl.getUniformLocation(prog, 'u_scroll');
 
-    let scrollNorm = 0.0;
+    let targetScrollNorm = 0.0;
+    let currentScrollY = 0;
     const handleScroll = () => {
+      currentScrollY = window.scrollY;
       const maxScroll = Math.max(1, document.body.scrollHeight - window.innerHeight);
-      scrollNorm = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+      targetScrollNorm = Math.min(1, Math.max(0, currentScrollY / maxScroll));
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
@@ -220,13 +222,36 @@ const ShaderBackground = () => {
     window.addEventListener('mousemove', handleMouseMove);
 
     let reqId: number;
+    let lastTime = 0;
+    let accumulatedTime = 0;
+    let lastScrollY = 0;
+    let currentSpeedMultiplier = 1.0;
+    let smoothedScrollNorm = targetScrollNorm;
+
     function render(t: number) {
+      if (!lastTime) lastTime = t;
+      const dt = Math.min(t - lastTime, 50); // clamp dt to avoid huge jumps
+      lastTime = t;
+      
+      // Smoothly interpolate scroll position to fix choppy mouse wheel scrolling
+      smoothedScrollNorm += (targetScrollNorm - smoothedScrollNorm) * 0.08;
+      
+      // Calculate scroll velocity
+      const scrollVelocity = (currentScrollY - lastScrollY) / (dt || 16.6);
+      lastScrollY = currentScrollY;
+      
+      // Calculate target speed and smoothly interpolate towards it to prevent jerky speed changes
+      const targetSpeedMultiplier = 1.0 + Math.abs(scrollVelocity) * 4.0;
+      currentSpeedMultiplier += (targetSpeedMultiplier - currentSpeedMultiplier) * 0.08;
+      
+      accumulatedTime += (dt * currentSpeedMultiplier) * 0.001;
+
       if(canvas && gl) {
         gl.viewport(0, 0, canvas.width, canvas.height);
-        if (uTime) gl.uniform1f(uTime, t * 0.001);
+        if (uTime) gl.uniform1f(uTime, accumulatedTime);
         if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
         if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
-        if (uScroll) gl.uniform1f(uScroll, scrollNorm);
+        if (uScroll) gl.uniform1f(uScroll, smoothedScrollNorm);
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       }
       reqId = requestAnimationFrame(render);
@@ -330,7 +355,7 @@ export default function ServicioLandingPage() {
   const btnGhost = "text-[#006767] px-6 py-2.5 rounded-lg border border-[#b2dede]/80 hover:bg-[#0D8C8C]/5 hover:border-[#0D8C8C]/40 transition-all duration-300 font-medium text-sm inline-flex items-center justify-center";
 
   return (
-    <div className={`${inter.variable} ${poppins.variable} font-sans text-[#091e25] min-h-screen relative overflow-x-hidden selection:bg-[#0D8C8C]/20 selection:text-[#091e25]`}>
+    <div className={`${inter.variable} ${poppins.variable} font-sans text-[#091e25] min-h-screen relative selection:bg-[#0D8C8C]/20 selection:text-[#091e25]`}>
       {/* Sticky Background Container strictly bounded to this page */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <div className="sticky top-0 w-full h-screen">
