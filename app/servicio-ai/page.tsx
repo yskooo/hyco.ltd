@@ -705,8 +705,8 @@ export default function ServicioLandingPage() {
       <footer className="bg-white/40 backdrop-blur-lg border-t border-[#b2dede]/50 py-12 relative z-10">
         <div className="max-w-[1280px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
            <div className="text-center md:text-left">
-             <div className="font-poppins font-bold text-xl text-[#006767] mb-2">Servicio.ai</div>
-             <div className="text-[14px] text-[#6d7979]">© 2026 Servicio.ai, High-Tier Professional Marketplace.</div>
+             <div className="font-poppins font-bold text-xl text-[#006767] mb-2">Servicio.AI</div>
+             <div className="text-[14px] text-[#6d7979]">© 2026 Servicio.AI, High-Tier Professional Marketplace.</div>
            </div>
            <div className="flex flex-wrap justify-center gap-6 text-[14px] font-medium text-[#3d4949]">
              <a href="#" className="hover:text-[#0D8C8C] transition-colors">Terms of Service</a>
