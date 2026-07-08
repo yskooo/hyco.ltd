@@ -54,9 +54,9 @@ const FadeInSection = ({ children, className = "", id }: { children: React.React
 };
 
 const GlassImagePlaceholder = ({ className, label, icon }: { className?: string, label?: string, icon?: React.ReactNode }) => (
-  <div className={`relative overflow-hidden rounded-2xl bg-white/40 backdrop-blur-[12px] border border-[#b2dede]/50 flex flex-col items-center justify-center ${className}`}>
+  <div className={`relative overflow-hidden rounded-2xl bg-white/40 backdrop-blur-[12px] border border-[#b2dede]/50 flex flex-col items-center justify-center transition-transform duration-700 hover:scale-[1.02] shadow-sm hover:shadow-[0_20px_40px_rgba(13,140,140,0.1)] ${className}`}>
     <div className="absolute inset-0 bg-gradient-to-br from-[#0D8C8C]/5 to-transparent pointer-events-none" />
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#E8F6F6] rounded-full blur-[60px] opacity-60" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#E8F6F6] rounded-full blur-[60px] opacity-60 animate-pulse" />
     <div className="relative z-10 flex flex-col items-center gap-2 text-[#006a6a]/60">
       {icon || <DefaultPlaceholderIcon />}
       {label && <span className="text-[11px] font-bold tracking-widest uppercase">{label}</span>}
@@ -144,23 +144,23 @@ const ShaderBackground = () => {
           vec2 mouse = u_mouse / u_resolution;
           vec3 colorBase = vec3(0.98, 0.976, 0.96); // #FAF9F5
           vec3 colorTeal = vec3(0.05, 0.55, 0.55); // #0D8C8C
-          vec3 colorTint = vec3(0.91, 0.965, 0.965); // #E8F6F6
+          vec3 blobColor = vec3(0.15, 0.75, 0.55); // Darker, apparent green on white bg
           
           vec3 scrollGreen = vec3(0.05, 0.65, 0.40);
-          colorTint = mix(colorTint, scrollGreen, u_scroll * 0.85);
+          blobColor = mix(blobColor, scrollGreen, u_scroll * 0.85);
           colorBase = mix(colorBase, vec3(0.85, 0.96, 0.90), u_scroll * 0.3);
       
           float n1 = snoise(vec3(uv * 1.5, u_time * 0.1));
           float n2 = snoise(vec3(uv * 2.0 + mouse * 0.05, u_time * 0.08));
       
-          float blob1 = smoothstep(0.8, 0.3, length(uv - vec2(0.2, 0.8) + n1 * 0.2));
-          float blob2 = smoothstep(0.9, 0.4, length(uv - vec2(0.8, 0.3) + n2 * 0.3));
-          float mouseGlow = smoothstep(0.5, 0.0, length(uv - mouse));
+          float blob1 = 1.0 - smoothstep(0.1, 1.0, length(uv - vec2(0.2, 0.8) + n1 * 0.3));
+          float blob2 = 1.0 - smoothstep(0.1, 1.2, length(uv - vec2(0.8, 0.3) + n2 * 0.4));
+          float mouseGlow = 1.0 - smoothstep(0.0, 0.7, length(uv - mouse));
       
           vec3 color = colorBase;
-          color = mix(color, colorTint, blob1 * 0.6);
-          color = mix(color, colorTint, blob2 * 0.5);
-          color = mix(color, colorTeal, mouseGlow * 0.08);
+          color = mix(color, blobColor, blob1 * 0.85);
+          color = mix(color, blobColor, blob2 * 0.75);
+          color = mix(color, colorTeal, mouseGlow * 0.15);
       
           gl_FragColor = vec4(color, 1.0);
       }
@@ -321,7 +321,7 @@ export default function ServicioLandingPage() {
 
   // Styling Tokens
   const glassPanel = "bg-white/60 backdrop-blur-[16px] border border-[#b2dede]/50 shadow-[0_8px_32px_rgba(0,106,106,0.03)]";
-  const glassPanelHover = "hover:bg-white/75 hover:backdrop-blur-[24px] hover:border-[#0D8C8C]/40 hover:shadow-[0_12px_40px_rgba(0,106,106,0.06)] transition-all duration-300";
+  const glassPanelHover = "hover:bg-white/75 hover:backdrop-blur-[24px] hover:border-[#0D8C8C]/40 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(13,140,140,0.12)] transition-all duration-300";
   const btnPrimary = "bg-[#0D8C8C] text-white px-6 py-2.5 rounded-lg hover:bg-[#006767] hover:shadow-[0_4px_14px_rgba(13,140,140,0.3)] transition-all duration-300 font-medium text-sm inline-flex items-center justify-center";
   const btnGhost = "text-[#006767] px-6 py-2.5 rounded-lg border border-[#b2dede]/80 hover:bg-[#0D8C8C]/5 hover:border-[#0D8C8C]/40 transition-all duration-300 font-medium text-sm inline-flex items-center justify-center";
 
@@ -329,10 +329,13 @@ export default function ServicioLandingPage() {
     <div className={`${inter.variable} ${poppins.variable} font-sans text-[#091e25] min-h-screen relative overflow-x-hidden selection:bg-[#0D8C8C]/20 selection:text-[#091e25]`}>
       <ShaderBackground />
       
-      <main className="pt-16 pb-24 px-6 max-w-[1280px] mx-auto space-y-32 md:space-y-48">
+      <header className="w-full pt-10 px-6 text-center max-w-[1280px] mx-auto relative z-40">
+        <div className="font-poppins font-bold text-4xl md:text-5xl lg:text-6xl tracking-tighter text-[#0D8C8C]">Servicio.AI</div>
+      </header>
+      <main className="pt-8 pb-24 px-6 max-w-[1280px] mx-auto space-y-32 md:space-y-48">
         
         {/* Section 1 — Hero */}
-        <section className="relative text-center flex flex-col items-center pt-10 md:pt-20">
+        <section className="relative text-center flex flex-col items-center pt-4 md:pt-8">
           <FadeInSection className="max-w-4xl flex flex-col items-center">
             <h1 className="font-poppins text-[36px] md:text-[48px] font-bold leading-[1.1] md:leading-[1.2] tracking-tight text-[#091e25] mb-6">
               Philippines&apos; first AI-powered professional services marketplace.
@@ -378,7 +381,12 @@ export default function ServicioLandingPage() {
              <div className="flex items-center gap-12 md:gap-24 overflow-x-auto no-scrollbar justify-start md:justify-center px-8 pb-4 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
                 {/* Placeholders for logos */}
                 {[1,2,3,4,5].map(i => (
-                  <div key={i} className="flex-shrink-0 font-poppins font-bold text-xl text-[#3d4949] tracking-tighter">PARTNER {i}</div>
+                  <div key={i} className="flex-shrink-0 flex items-center gap-3 font-poppins font-bold text-xl text-[#3d4949]/80 hover:text-[#0D8C8C] transition-colors duration-300 tracking-tighter cursor-default">
+                    <div className="w-8 h-8 rounded-full bg-[#0D8C8C]/10 flex items-center justify-center text-[#0D8C8C]">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    PARTNER {i}
+                  </div>
                 ))}
              </div>
           </div>
