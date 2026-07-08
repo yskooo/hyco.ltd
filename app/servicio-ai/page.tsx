@@ -486,7 +486,7 @@ export default function ServicioLandingPage() {
           </div>
           <div className="relative">
             {/* Desktop Line */}
-            <div className="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#bdc9c8] to-transparent -translate-y-1/2 z-0" />
+            <div className="hidden md:block absolute top-6 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#bdc9c8] to-transparent -translate-y-1/2 z-0" />
             {/* Mobile Line */}
             <div className="md:hidden absolute top-0 left-6 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-[#bdc9c8] to-transparent z-0" />
             

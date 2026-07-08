@@ -88,7 +88,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       <div className="text-xs text-gray-500">Real Estate & Leasing Tech</div>
                     </Link>
                     <Link href="/servicio-ai" className="group/link p-3 hover:bg-gray-50 rounded-md transition-colors">
-                      <div className="text-sm font-bold text-hyco-black group-hover/link:text-hyco-blue mb-1">Serbisyow.AI</div>
+                      <div className="text-sm font-bold text-hyco-black group-hover/link:text-hyco-blue mb-1">Servicio.AI</div>
                       <div className="text-xs text-gray-500">Professional Talent Collective</div>
                     </Link>
                     <Link href="/edugaite" className="group/link p-3 hover:bg-gray-50 rounded-md transition-colors">
@@ -135,7 +135,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <div className="pl-4 flex flex-col space-y-4 border-l-2 border-slate-100">
                   <Link href="/electrifai" className="text-base font-medium text-slate-600 hover:text-blue-700">ElectrifAI PH</Link>
                   <Link href="/leasifai" className="text-base font-medium text-slate-600 hover:text-blue-700">LeasifAI</Link>
-                  <Link href="/servicio-ai" className="text-base font-medium text-slate-600 hover:text-blue-700">Serbisyow.AI</Link>
+                  <Link href="/servicio-ai" className="text-base font-medium text-slate-600 hover:text-blue-700">Servicio.AI</Link>
                   <Link href="/edugaite" className="text-base font-medium text-slate-600 hover:text-blue-700">Edugaite</Link>
                 </div>
               </div>
@@ -190,7 +190,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-4 text-[14px] text-slate-400">
                 <li><Link href="/electrifai" className="hover:text-white transition-colors">ElectrifAI PH</Link></li>
                 <li><Link href="/leasifai" className="hover:text-white transition-colors">LeasifAI</Link></li>
-                <li><Link href="/servicio-ai" className="hover:text-white transition-colors">Serbisyow.AI</Link></li>
+                <li><Link href="/servicio-ai" className="hover:text-white transition-colors">Servicio.AI</Link></li>
                 <li><Link href="/edugaite" className="hover:text-white transition-colors">Edugaite</Link></li>
               </ul>
             </div>
