@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'motion/react';
-import { ArrowRight, BarChart3, Globe2, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowRight, BarChart3, Globe2, ShieldCheck, Zap, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -217,23 +217,26 @@ export default function Home() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Link href="/leasifai" className="group flex flex-col md:flex-row bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue overflow-hidden relative">
-                <div className="w-full md:w-[400px] lg:w-[500px] h-64 md:h-auto overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 shrink-0">
-                  <div className="absolute inset-0 bg-hyco-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
-                  <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop" alt="LeasifAI" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
+              <Link href="/leasifai" className="group flex flex-col md:flex-row bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(20,75,189,0.15)] hover:border-[#144BBD] overflow-hidden relative">
+                <div className="w-full md:w-[400px] lg:w-[500px] min-h-[300px] md:min-h-0 h-auto overflow-hidden relative transition-all duration-700 shrink-0 bg-slate-50 flex flex-col items-center justify-center p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-100 group-hover:bg-white">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#144BBD]/0 to-[#144BBD]/0 group-hover:from-[#144BBD]/5 group-hover:to-transparent transition-colors duration-700"></div>
+                  <img src="/img-folder/leasifAI.png" alt="LeasifAI Logo" className="w-20 h-20 object-contain mb-8 transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500 relative z-10" />
+                  <p className="text-xl md:text-2xl font-bold text-center text-[#144BBD] leading-tight relative z-10" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                    "We don't just help businesses find a space,<br/>we help them find their place in the economy."
+                  </p>
                 </div>
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
-                  <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
+                  <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-hyco-black group-hover:bg-[#144BBD] transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-6 transition-colors duration-300 shrink-0">
-                      <ShieldCheck size={24} />
-                    </div>
-                    <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-hyco-black">LeasifAI</h4>
+                    <h4 className="text-3xl lg:text-4xl font-bold tracking-tight">
+                      <span className="text-[#144BBD]">Leasif</span>
+                      <span className="text-[#FF9500]">AI</span>
+                    </h4>
                   </div>
                   <p className="text-lg text-gray-600 mb-10 max-w-3xl leading-relaxed font-light">
-                    Smart real estate logistics. Automated contract analysis, tenant screening, and dynamic yield optimization models.
+                    Next-gen location intelligence. Eliminate the guesswork from commercial real estate with AI-driven foot traffic analysis, competitor mapping, and ROI forecasting.
                   </p>
-                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-hyco-blue transition-colors mt-auto">
+                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-[#144BBD] transition-colors mt-auto">
                     Access Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>

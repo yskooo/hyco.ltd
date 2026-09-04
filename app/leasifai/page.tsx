@@ -211,17 +211,17 @@ export default function LeasifAI() {
             backgroundSize: 'cover',
           }} />
         </div>
-        <div className="relative max-w-[1600px] mx-auto px-6 md:px-12 flex flex-col xl:flex-row items-center gap-16 xl:gap-20 w-full">
+        <div className="relative max-w-[1600px] mx-auto px-6 md:px-12 flex flex-col xl:flex-row items-center gap-10 md:gap-16 xl:gap-20 w-full">
           <div className="flex-1 max-w-3xl text-center xl:text-left z-10">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
               <div className="inline-flex items-center px-4 py-2 bg-[#FF9500]/20 text-[#FF9500] rounded-full text-[11px] font-bold uppercase tracking-[0.6px] mb-8 border border-[#FF9500]/30">
                 Next-Gen Location Intelligence
               </div>
-              <h1 className="text-5xl md:text-7xl xl:text-[80px] font-extrabold leading-[1.05] text-white mb-6" style={{ fontFamily: "'Manrope', sans-serif", letterSpacing: '-0.03em' }}>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-[80px] font-extrabold leading-[1.05] text-white mb-6" style={{ fontFamily: "'Manrope', sans-serif", letterSpacing: '-0.03em' }}>
                 Find the right space.<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF9500] to-[#FACC15]">Back it with data.</span>
               </h1>
-              <p className="text-lg md:text-2xl text-white/80 max-w-[600px] mx-auto xl:mx-0 mb-10 leading-relaxed font-medium">
+              <p className="text-base md:text-xl lg:text-2xl text-white/80 max-w-[600px] mx-auto xl:mx-0 mb-10 leading-relaxed font-medium">
                 Eliminate the guesswork from commercial real estate. Get AI-driven foot traffic analysis, competitor mapping, and ROI forecasting instantly.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center xl:justify-start">
@@ -332,7 +332,7 @@ export default function LeasifAI() {
           </div>
           
           <div className="relative max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group">
-            <div className="w-full h-[600px] bg-slate-100 relative flex items-center justify-center overflow-hidden">
+            <div className="w-full h-[400px] md:h-[600px] bg-slate-100 relative flex items-center justify-center overflow-hidden">
                {/* Static OpenStreetMap Background (Alabang Area) */}
                <iframe 
                  src="https://www.openstreetmap.org/export/embed.html?bbox=121.015%2C14.415%2C121.045%2C14.435&layer=mapnik" 
@@ -343,7 +343,7 @@ export default function LeasifAI() {
                {/* Map Nodes (Pin + Card wrappers) */}
                
                {/* Traffic Flow Node */}
-               <div className="absolute top-[38%] left-[40%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10">
+               <div className="absolute top-[25%] left-[50%] md:top-[38%] md:left-[40%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10 scale-75 md:scale-100">
                  <motion.div 
                    initial={{ opacity: 0, scale: 0.8, y: 10 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
                    className="bg-white/95 backdrop-blur shadow-xl rounded-xl p-4 border border-slate-100 flex items-center gap-3 mb-2 z-20"
@@ -370,7 +370,7 @@ export default function LeasifAI() {
                </div>
 
                {/* Competitor Node */}
-               <div className="absolute top-[48%] left-[55%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10">
+               <div className="absolute top-[45%] left-[50%] md:top-[60%] md:left-[65%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10 scale-75 md:scale-100">
                  <motion.div 
                    initial={{ opacity: 0, scale: 0.8, y: 10 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
                    className="bg-white/95 backdrop-blur shadow-xl rounded-xl p-4 border border-slate-100 flex items-center gap-3 mb-2 z-20"
@@ -397,7 +397,7 @@ export default function LeasifAI() {
                </div>
 
                {/* Ideal Location Node */}
-               <div className="absolute top-[62%] left-[45%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20">
+               <div className="absolute top-[70%] left-[50%] md:top-[62%] md:left-[45%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20 scale-75 md:scale-100">
                  <motion.div
                    initial={{ opacity: 0, scale: 0 }}
                    animate={{ opacity: 1, scale: 1, y: [0, -12, 0] }}
@@ -529,7 +529,7 @@ export default function LeasifAI() {
             </div>
             
             <div className="flex-1 w-full relative">
-               <div className="aspect-[4/3] bg-slate-800 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden flex flex-col items-center justify-center p-8">
+               <div className="aspect-auto h-[800px] md:h-auto md:aspect-[4/3] bg-slate-800 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden flex flex-col items-center justify-center p-2 md:p-8">
                   <AnimatePresence mode="wait">
                     {demoPhase === 'result' || demoPhase === 'wait' ? (
                       <motion.div 
@@ -540,7 +540,7 @@ export default function LeasifAI() {
                         className="absolute inset-0 w-full h-full bg-slate-900 flex flex-col md:flex-row p-4 gap-4"
                       >
                         {/* LEFT COLUMN: Map Only */}
-                        <div className="w-full md:w-1/2 h-full rounded-2xl overflow-hidden relative border border-white/10 shadow-lg">
+                        <div className="w-full h-[250px] md:h-full md:w-1/2 rounded-2xl overflow-hidden relative border border-white/10 shadow-lg flex-shrink-0">
                              <iframe 
                                width="100%" 
                                height="100%" 
@@ -554,7 +554,7 @@ export default function LeasifAI() {
                         </div>
                         
                         {/* RIGHT COLUMN: Data + Mockup */}
-                        <div className="w-full md:w-1/2 h-full flex flex-col gap-4">
+                        <div className="w-full md:w-1/2 flex-1 flex flex-col gap-3 overflow-y-auto pb-4 md:pb-0 pr-2 md:pr-0">
                            {/* Top: Data Card */}
                            <div className="bg-slate-800/80 backdrop-blur-md rounded-2xl p-5 border border-white/10 shadow-2xl w-full flex-shrink-0">
                              <div className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Target Area</div>
@@ -611,9 +611,9 @@ export default function LeasifAI() {
                       >
                         {/* Radar sweeping background */}
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30">
-                          <div className="w-[800px] h-[800px] rounded-full border border-[#38BDF8]/30 relative flex items-center justify-center">
-                            <div className="w-[600px] h-[600px] rounded-full border border-[#38BDF8]/20 flex items-center justify-center">
-                               <div className="w-[400px] h-[400px] rounded-full border border-[#38BDF8]/10" />
+                          <div className="w-[150vw] h-[150vw] md:w-[800px] md:h-[800px] max-w-[800px] max-h-[800px] flex-shrink-0 rounded-full border border-[#38BDF8]/30 relative flex items-center justify-center">
+                            <div className="w-[75%] h-[75%] rounded-full border border-[#38BDF8]/20 flex items-center justify-center">
+                               <div className="w-[66%] h-[66%] rounded-full border border-[#38BDF8]/10" />
                             </div>
                             <motion.div 
                                animate={{ rotate: 360 }}
