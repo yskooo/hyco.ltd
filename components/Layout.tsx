@@ -8,11 +8,17 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const HycoLogo = ({ dark = false }: { dark?: boolean }) => (
-  <img 
-    src="/logo.png" 
-    alt="HYCO Logo" 
-    className={`h-16 w-16 object-contain mr-2 ${dark ? 'invert' : ''}`} 
+  <img
+    src="/logo.png"
+    alt="HYCO Logo"
+    className={`h-16 w-16 object-contain mr-2 ${dark ? 'invert' : ''}`}
   />
+);
+
+const LeasifaiLogo = ({ dark = false }: { dark?: boolean }) => (
+  <div className="flex items-center gap-3">
+    <img src="/img-folder/leasifAI.png" alt="LeasifAI Logo" className="h-16 w-auto object-contain" />
+  </div>
 );
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -46,11 +52,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="bg-hyco-white border-b border-black/5 sticky top-0 z-50 transition-all duration-300 shadow-sm">
         <div className="max-w-[1600px] mx-auto px-6 flex justify-between items-center h-20">
           {/* Left: Logo */}
-          <Link href="/" className="flex items-center group">
+          <Link href={pathname.startsWith('/leasifai') ? '/leasifai' : '/'} className="flex items-center group">
             <HycoLogo />
             <div className="flex flex-col leading-none hidden">
               <span className="font-sans text-2xl font-bold tracking-tight text-hyco-black group-hover:text-hyco-blue transition-colors">
-                HYCO
+                {pathname.startsWith('/leasifai') ? 'LeasifAI' : 'HYCO'}
               </span>
             </div>
           </Link>
@@ -60,7 +66,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <nav className="flex items-center h-full space-x-10">
               <Link href="/" className="text-[14px] font-bold tracking-wide text-hyco-black hover:text-hyco-blue h-full flex items-center border-b-2 border-transparent hover:border-hyco-blue transition-colors">Home</Link>
               <Link href="/about" className="text-[14px] font-bold tracking-wide text-hyco-black hover:text-hyco-blue h-full flex items-center border-b-2 border-transparent hover:border-hyco-blue transition-colors">About</Link>
-              
+
               {/* Portfolio Dropdown */}
               <div className="relative group h-full flex items-center">
                 <span className="text-[14px] font-bold tracking-wide text-hyco-black hover:text-hyco-blue cursor-pointer border-b-2 border-transparent hover:border-hyco-blue transition-colors flex items-center">
@@ -69,7 +75,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </span>
-                
+
                 {/* Mega Menu Dropdown */}
                 <div className="absolute top-full right-0 w-[600px] bg-hyco-white shadow-2xl border border-black/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex p-6 gap-6 rounded-b-lg">
                   <div className="w-1/3">
@@ -109,7 +115,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button 
+          <button
             className="lg:hidden p-2 text-hyco-black"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -119,39 +125,39 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Mobile Nav */}
         <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-b border-slate-200 overflow-hidden"
-          >
-            <div className="px-6 py-6 flex flex-col space-y-6">
-              <Link href="/" className="text-lg font-serif font-bold text-[#0f172a] border-b border-slate-100 pb-2">Home</Link>
-              <Link href="/about" className="text-lg font-serif font-bold text-[#0f172a] border-b border-slate-100 pb-2">About</Link>
-              
-              <div className="flex flex-col space-y-4">
-                <div className="text-lg font-serif font-bold text-[#0f172a]">Portfolio</div>
-                <div className="pl-4 flex flex-col space-y-4 border-l-2 border-slate-100">
-                  <Link href="/electrifai" className="text-base font-medium text-slate-600 hover:text-blue-700">ElectrifAI PH</Link>
-                  <Link href="/leasifai" className="text-base font-medium text-slate-600 hover:text-blue-700">LeasifAI</Link>
-                  <Link href="/servicio-ai" className="text-base font-medium text-slate-600 hover:text-blue-700">Serbisyow.AI</Link>
-                  <Link href="/edugaite" className="text-base font-medium text-slate-600 hover:text-blue-700">Edugaite</Link>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-b border-slate-200 overflow-hidden"
+            >
+              <div className="px-6 py-6 flex flex-col space-y-6">
+                <Link href="/" className="text-lg font-serif font-bold text-[#0f172a] border-b border-slate-100 pb-2">Home</Link>
+                <Link href="/about" className="text-lg font-serif font-bold text-[#0f172a] border-b border-slate-100 pb-2">About</Link>
+
+                <div className="flex flex-col space-y-4">
+                  <div className="text-lg font-serif font-bold text-[#0f172a]">Portfolio</div>
+                  <div className="pl-4 flex flex-col space-y-4 border-l-2 border-slate-100">
+                    <Link href="/electrifai" className="text-base font-medium text-slate-600 hover:text-blue-700">ElectrifAI PH</Link>
+                    <Link href="/leasifai" className="text-base font-medium text-slate-600 hover:text-blue-700">LeasifAI</Link>
+                    <Link href="/servicio-ai" className="text-base font-medium text-slate-600 hover:text-blue-700">Serbisyow.AI</Link>
+                    <Link href="/edugaite" className="text-base font-medium text-slate-600 hover:text-blue-700">Edugaite</Link>
+                  </div>
+                </div>
+
+                <div className="pt-6 mt-2 border-t border-slate-200 flex flex-col space-y-4">
+                  <a href="#" className="text-sm font-medium text-slate-500 uppercase tracking-wider">Investor Relations</a>
+                  <a href="#" className="text-sm font-medium text-slate-500 uppercase tracking-wider">Media</a>
+                  <a href="#" className="text-sm font-medium text-slate-500 uppercase tracking-wider">Global Offices</a>
+                  <a href="#" className="text-sm font-medium text-slate-500 uppercase tracking-wider">Alumni</a>
+                  <button className="bg-[#0f172a] text-white text-sm font-bold uppercase tracking-wider px-6 py-3 mt-4 w-full text-center">
+                    Client Login
+                  </button>
                 </div>
               </div>
-              
-              <div className="pt-6 mt-2 border-t border-slate-200 flex flex-col space-y-4">
-                <a href="#" className="text-sm font-medium text-slate-500 uppercase tracking-wider">Investor Relations</a>
-                <a href="#" className="text-sm font-medium text-slate-500 uppercase tracking-wider">Media</a>
-                <a href="#" className="text-sm font-medium text-slate-500 uppercase tracking-wider">Global Offices</a>
-                <a href="#" className="text-sm font-medium text-slate-500 uppercase tracking-wider">Alumni</a>
-                <button className="bg-[#0f172a] text-white text-sm font-bold uppercase tracking-wider px-6 py-3 mt-4 w-full text-center">
-                  Client Login
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        )}
+            </motion.div>
+          )}
         </AnimatePresence>
       </header>
 
@@ -163,7 +169,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="max-w-[1600px] mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-20">
             <div className="lg:col-span-2 pr-8">
-              <Link href="/" className="flex items-center mb-8">
+              <Link href={pathname.startsWith('/leasifai') ? '/leasifai' : '/'} className="flex items-center mb-8">
                 <HycoLogo dark />
               </Link>
               <p className="text-gray-400 text-sm leading-relaxed mb-8">
@@ -173,7 +179,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 Contact Us
               </button>
             </div>
-            
+
             <div>
               <h4 className="text-[12px] font-bold uppercase tracking-widest mb-6 text-slate-300">About Us</h4>
               <ul className="space-y-4 text-[14px] text-slate-400">
