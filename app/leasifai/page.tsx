@@ -140,9 +140,41 @@ export default function LeasifAI() {
   const [typedText, setTypedText] = useState("");
   const [activeChecklist, setActiveChecklist] = useState(0);
 
+  const [formData, setFormData] = useState({ name: '', email: '', message: '', company_website: '' });
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [formMessage, setFormMessage] = useState('');
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+    setFormMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, source: 'LeasifAI Landing Page' }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setFormStatus('success');
+        setFormMessage('Thanks for reaching out! We will get back to you soon.');
+        setFormData({ name: '', email: '', message: '', company_website: '' });
+      } else {
+        setFormStatus('error');
+        setFormMessage(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setFormStatus('error');
+      setFormMessage('Failed to connect to the server.');
+    }
+  };
+
   useEffect(() => {
     let timeout: NodeJS.Timeout;
-    
+
     if (demoPhase === 'typing') {
       const targetText = demoLocations[demoStep].name;
       if (typedText.length < targetText.length) {
@@ -193,9 +225,9 @@ export default function LeasifAI() {
             <Link href="#features" className="text-sm font-bold text-slate-600 hover:text-[#144BBD] transition-colors">Features</Link>
             <Link href="#how-it-works" className="text-sm font-bold text-slate-600 hover:text-[#144BBD] transition-colors">How it Works</Link>
             <Link href="#pricing" className="text-sm font-bold text-slate-600 hover:text-[#144BBD] transition-colors">Pricing</Link>
-                <button onClick={() => setIsModalOpen(true)} className="hidden md:block bg-[#144BBD] text-white px-6 py-2 rounded-lg font-bold text-sm shadow-md hover:bg-[#0D3A94] transition-colors">
-                  Get Started
-                </button>
+            <button onClick={() => setIsModalOpen(true)} className="hidden md:block bg-[#144BBD] text-white px-6 py-2 rounded-lg font-bold text-sm shadow-md hover:bg-[#0D3A94] transition-colors">
+              Get Started
+            </button>
           </div>
           <button className="md:hidden text-slate-600" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -234,13 +266,13 @@ export default function LeasifAI() {
               </div>
             </motion.div>
           </div>
-          
+
           <div className="flex-1 w-full max-w-[650px] relative">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95, y: 0 }} 
-              animate={{ opacity: 1, scale: 1, y: [0, -15, 0] }} 
-              transition={{ 
-                duration: 0.6, 
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 0 }}
+              animate={{ opacity: 1, scale: 1, y: [0, -15, 0] }}
+              transition={{
+                duration: 0.6,
                 delay: 0.2,
                 y: {
                   duration: 6,
@@ -253,7 +285,7 @@ export default function LeasifAI() {
               <div className="relative bg-slate-900/40 backdrop-blur-2xl rounded-2xl border border-white/20 p-2 shadow-2xl overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF9500]/20 rounded-full blur-[80px]" />
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#4ADE80]/20 rounded-full blur-[80px]" />
-                
+
                 <div className="bg-slate-900/80 rounded-xl border border-white/10 overflow-hidden">
                   <div className="h-12 border-b border-white/10 flex items-center px-4 gap-2">
                     <div className="w-3 h-3 bg-[#F87171] rounded-full" />
@@ -276,7 +308,7 @@ export default function LeasifAI() {
                         <div className="text-[#4ADE80] font-black text-3xl">94%</div>
                       </div>
                     </div>
-                    
+
                     <div className="space-y-4">
                       <div className="p-4 bg-white/5 rounded-lg border border-white/5 flex items-center gap-4">
                         <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
@@ -288,7 +320,7 @@ export default function LeasifAI() {
                         </div>
                         <div className="text-[#4ADE80] text-sm font-bold">+14%</div>
                       </div>
-                      
+
                       <div className="p-4 bg-white/5 rounded-lg border border-white/5 flex items-center gap-4">
                         <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
                           <LineChart className="text-[#FACC15]" />
@@ -330,98 +362,98 @@ export default function LeasifAI() {
               Transform standard street views into rich, data-dense landscapes. We overlay the metrics that matter directly onto the physical world.
             </p>
           </div>
-          
+
           <div className="relative max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group">
             <div className="w-full h-[400px] md:h-[600px] bg-slate-100 relative flex items-center justify-center overflow-hidden">
-               {/* Static OpenStreetMap Background (Alabang Area) */}
-               <iframe 
-                 src="https://www.openstreetmap.org/export/embed.html?bbox=121.015%2C14.415%2C121.045%2C14.435&layer=mapnik" 
-                 className="absolute inset-0 pointer-events-none opacity-50 grayscale border-none"
-                 style={{ width: '100%', height: '100%', minWidth: '100%', minHeight: '100%', position: 'absolute', top: 0, left: 0 }}
-               ></iframe>
-               
-               {/* Map Nodes (Pin + Card wrappers) */}
-               
-               {/* Traffic Flow Node */}
-               <div className="absolute top-[25%] left-[50%] md:top-[38%] md:left-[40%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10 scale-75 md:scale-100">
-                 <motion.div 
-                   initial={{ opacity: 0, scale: 0.8, y: 10 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-                   className="bg-white/95 backdrop-blur shadow-xl rounded-xl p-4 border border-slate-100 flex items-center gap-3 mb-2 z-20"
-                 >
-                   <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
-                      <Users size={20} className="text-emerald-600" />
-                   </div>
-                   <div>
-                     <div className="text-xs font-bold text-slate-400 uppercase">Traffic Flow</div>
-                     <div className="font-black text-slate-800">High Density</div>
-                   </div>
-                 </motion.div>
-                 <motion.div
-                   initial={{ opacity: 0, scale: 0 }}
-                   animate={{ opacity: 1, scale: 1, y: [0, -12, 0] }}
-                   transition={{ delay: 0.8, y: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
-                   className="flex flex-col items-center z-10"
-                 >
-                   <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/40 text-white">
-                     <Users size={24} />
-                   </div>
-                   <div className="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[14px] border-t-emerald-500 -mt-[2px]" />
-                 </motion.div>
-               </div>
+              {/* Static OpenStreetMap Background (Alabang Area) */}
+              <iframe
+                src="https://www.openstreetmap.org/export/embed.html?bbox=121.015%2C14.415%2C121.045%2C14.435&layer=mapnik"
+                className="absolute inset-0 pointer-events-none opacity-50 grayscale border-none"
+                style={{ width: '100%', height: '100%', minWidth: '100%', minHeight: '100%', position: 'absolute', top: 0, left: 0 }}
+              ></iframe>
 
-               {/* Competitor Node */}
-               <div className="absolute top-[45%] left-[50%] md:top-[60%] md:left-[65%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10 scale-75 md:scale-100">
-                 <motion.div 
-                   initial={{ opacity: 0, scale: 0.8, y: 10 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
-                   className="bg-white/95 backdrop-blur shadow-xl rounded-xl p-4 border border-slate-100 flex items-center gap-3 mb-2 z-20"
-                 >
-                   <div className="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center">
-                      <Building2 size={20} className="text-rose-600" />
-                   </div>
-                   <div>
-                     <div className="text-xs font-bold text-slate-400 uppercase">Direct Competitor</div>
-                     <div className="font-black text-slate-800">0.2 mi away</div>
-                   </div>
-                 </motion.div>
-                 <motion.div
-                   initial={{ opacity: 0, scale: 0 }}
-                   animate={{ opacity: 1, scale: 1, y: [0, -12, 0] }}
-                   transition={{ delay: 1.0, y: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.3 } }}
-                   className="flex flex-col items-center z-10"
-                 >
-                   <div className="w-12 h-12 bg-rose-500 rounded-full flex items-center justify-center shadow-lg shadow-rose-500/40 text-white">
-                     <Building2 size={24} />
-                   </div>
-                   <div className="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[14px] border-t-rose-500 -mt-[2px]" />
-                 </motion.div>
-               </div>
+              {/* Map Nodes (Pin + Card wrappers) */}
 
-               {/* Ideal Location Node */}
-               <div className="absolute top-[70%] left-[50%] md:top-[62%] md:left-[45%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20 scale-75 md:scale-100">
-                 <motion.div
-                   initial={{ opacity: 0, scale: 0 }}
-                   animate={{ opacity: 1, scale: 1, y: [0, -12, 0] }}
-                   transition={{ delay: 1.2, y: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.6 } }}
-                   className="flex flex-col items-center z-10"
-                 >
-                   <div className="w-12 h-12 bg-[#144BBD] rounded-full flex items-center justify-center shadow-lg shadow-[#144BBD]/40 text-white">
-                     <Check size={24} />
-                   </div>
-                   <div className="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[14px] border-t-[#144BBD] -mt-[2px]" />
-                 </motion.div>
-                 <motion.div 
-                   initial={{ opacity: 0, scale: 0.8, y: -10 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6 }}
-                   className="bg-[#144BBD] shadow-2xl rounded-xl p-4 flex items-center gap-3 text-white border border-[#144BBD]/50 mt-2 z-20"
-                 >
-                   <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                      <Check size={20} className="text-white" />
-                   </div>
-                   <div>
-                     <div className="text-xs font-bold text-white/70 uppercase">Ideal Location</div>
-                     <div className="font-black">Available for Lease</div>
-                   </div>
-                 </motion.div>
-               </div>
+              {/* Traffic Flow Node */}
+              <div className="absolute top-[25%] left-[50%] md:top-[38%] md:left-[40%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10 scale-75 md:scale-100">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, y: 10 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+                  className="bg-white/95 backdrop-blur shadow-xl rounded-xl p-4 border border-slate-100 flex items-center gap-3 mb-2 z-20"
+                >
+                  <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                    <Users size={20} className="text-emerald-600" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-slate-400 uppercase">Traffic Flow</div>
+                    <div className="font-black text-slate-800">High Density</div>
+                  </div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1, y: [0, -12, 0] }}
+                  transition={{ delay: 0.8, y: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
+                  className="flex flex-col items-center z-10"
+                >
+                  <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/40 text-white">
+                    <Users size={24} />
+                  </div>
+                  <div className="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[14px] border-t-emerald-500 -mt-[2px]" />
+                </motion.div>
+              </div>
+
+              {/* Competitor Node */}
+              <div className="absolute top-[45%] left-[50%] md:top-[60%] md:left-[65%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10 scale-75 md:scale-100">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, y: 10 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
+                  className="bg-white/95 backdrop-blur shadow-xl rounded-xl p-4 border border-slate-100 flex items-center gap-3 mb-2 z-20"
+                >
+                  <div className="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center">
+                    <Building2 size={20} className="text-rose-600" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-slate-400 uppercase">Direct Competitor</div>
+                    <div className="font-black text-slate-800">0.2 mi away</div>
+                  </div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1, y: [0, -12, 0] }}
+                  transition={{ delay: 1.0, y: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.3 } }}
+                  className="flex flex-col items-center z-10"
+                >
+                  <div className="w-12 h-12 bg-rose-500 rounded-full flex items-center justify-center shadow-lg shadow-rose-500/40 text-white">
+                    <Building2 size={24} />
+                  </div>
+                  <div className="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[14px] border-t-rose-500 -mt-[2px]" />
+                </motion.div>
+              </div>
+
+              {/* Ideal Location Node */}
+              <div className="absolute top-[70%] left-[50%] md:top-[62%] md:left-[45%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20 scale-75 md:scale-100">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1, y: [0, -12, 0] }}
+                  transition={{ delay: 1.2, y: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.6 } }}
+                  className="flex flex-col items-center z-10"
+                >
+                  <div className="w-12 h-12 bg-[#144BBD] rounded-full flex items-center justify-center shadow-lg shadow-[#144BBD]/40 text-white">
+                    <Check size={24} />
+                  </div>
+                  <div className="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[14px] border-t-[#144BBD] -mt-[2px]" />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, y: -10 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6 }}
+                  className="bg-[#144BBD] shadow-2xl rounded-xl p-4 flex items-center gap-3 text-white border border-[#144BBD]/50 mt-2 z-20"
+                >
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                    <Check size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-white/70 uppercase">Ideal Location</div>
+                    <div className="font-black">Available for Lease</div>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </div>
         </div>
@@ -478,7 +510,7 @@ export default function LeasifAI() {
               <p className="text-xl text-white/70 mb-10">
                 Experience the power of our real-time analysis engine. Input any address and let our models generate a comprehensive feasibility report in seconds.
               </p>
-              
+
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
                 <div className="flex items-center gap-4 bg-slate-900/50 rounded-xl p-2 border border-white/10 mb-6">
                   <div className="pl-4">
@@ -498,148 +530,148 @@ export default function LeasifAI() {
                     Analyze
                   </button>
                 </div>
-                
+
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                     <div className="w-5 h-5 rounded-full border-2 border-white/20 flex items-center justify-center">
-                       {demoPhase === 'typing' ? null : 
-                        demoPhase === 'analyzing' && activeChecklist === 0 ? <Loader2 size={12} className="text-[#FF9500] animate-spin" /> : 
-                        <Check size={12} className="text-[#4ADE80]" />}
-                     </div>
-                     <span className={`font-medium ${demoPhase === 'typing' ? 'text-white/40' : 'text-white/80'}`}>Scanning local demographics...</span>
+                    <div className="w-5 h-5 rounded-full border-2 border-white/20 flex items-center justify-center">
+                      {demoPhase === 'typing' ? null :
+                        demoPhase === 'analyzing' && activeChecklist === 0 ? <Loader2 size={12} className="text-[#FF9500] animate-spin" /> :
+                          <Check size={12} className="text-[#4ADE80]" />}
+                    </div>
+                    <span className={`font-medium ${demoPhase === 'typing' ? 'text-white/40' : 'text-white/80'}`}>Scanning local demographics...</span>
                   </div>
                   <div className="flex items-center gap-3">
-                     <div className="w-5 h-5 rounded-full border-2 border-white/20 flex items-center justify-center">
-                       {demoPhase === 'typing' || (demoPhase === 'analyzing' && activeChecklist < 1) ? null : 
-                        demoPhase === 'analyzing' && activeChecklist === 1 ? <Loader2 size={12} className="text-[#FF9500] animate-spin" /> : 
-                        <Check size={12} className="text-[#4ADE80]" />}
-                     </div>
-                     <span className={`font-medium ${demoPhase === 'typing' || (demoPhase === 'analyzing' && activeChecklist < 1) ? 'text-white/40' : 'text-white/80'}`}>Mapping competitors in 5km radius...</span>
+                    <div className="w-5 h-5 rounded-full border-2 border-white/20 flex items-center justify-center">
+                      {demoPhase === 'typing' || (demoPhase === 'analyzing' && activeChecklist < 1) ? null :
+                        demoPhase === 'analyzing' && activeChecklist === 1 ? <Loader2 size={12} className="text-[#FF9500] animate-spin" /> :
+                          <Check size={12} className="text-[#4ADE80]" />}
+                    </div>
+                    <span className={`font-medium ${demoPhase === 'typing' || (demoPhase === 'analyzing' && activeChecklist < 1) ? 'text-white/40' : 'text-white/80'}`}>Mapping competitors in 5km radius...</span>
                   </div>
                   <div className="flex items-center gap-3">
-                     <div className="w-5 h-5 rounded-full border-2 border-white/20 flex items-center justify-center">
-                       {demoPhase === 'typing' || (demoPhase === 'analyzing' && activeChecklist < 2) ? null : 
-                        demoPhase === 'analyzing' && activeChecklist === 2 ? <Loader2 size={12} className="text-[#FF9500] animate-spin" /> : 
-                        <Check size={12} className="text-[#4ADE80]" />}
-                     </div>
-                     <span className={`font-medium ${demoPhase === 'typing' || (demoPhase === 'analyzing' && activeChecklist < 2) ? 'text-white/40' : 'text-white'}`}>Calculating projected ROI...</span>
+                    <div className="w-5 h-5 rounded-full border-2 border-white/20 flex items-center justify-center">
+                      {demoPhase === 'typing' || (demoPhase === 'analyzing' && activeChecklist < 2) ? null :
+                        demoPhase === 'analyzing' && activeChecklist === 2 ? <Loader2 size={12} className="text-[#FF9500] animate-spin" /> :
+                          <Check size={12} className="text-[#4ADE80]" />}
+                    </div>
+                    <span className={`font-medium ${demoPhase === 'typing' || (demoPhase === 'analyzing' && activeChecklist < 2) ? 'text-white/40' : 'text-white'}`}>Calculating projected ROI...</span>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <div className="flex-1 w-full relative">
-               <div className="aspect-auto h-[800px] md:h-auto md:aspect-[4/3] bg-slate-800 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden flex flex-col items-center justify-center p-2 md:p-8">
-                  <AnimatePresence mode="wait">
-                    {demoPhase === 'result' || demoPhase === 'wait' ? (
-                      <motion.div 
-                        key={currentLocation.name}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="absolute inset-0 w-full h-full bg-slate-900 flex flex-col md:flex-row p-4 gap-4"
-                      >
-                        {/* LEFT COLUMN: Map Only */}
-                        <div className="w-full h-[250px] md:h-full md:w-1/2 rounded-2xl overflow-hidden relative border border-white/10 shadow-lg flex-shrink-0">
-                             <iframe 
-                               width="100%" 
-                               height="100%" 
-                               frameBorder="0" 
-                               scrolling="no" 
-                               src={`https://www.openstreetmap.org/export/embed.html?bbox=${currentLocation.bbox}&layer=mapnik`}
-                               className="absolute inset-0 w-full h-full pointer-events-none opacity-80 grayscale border-none"
-                               style={{ minWidth: '100%', minHeight: '100%' }}
-                             ></iframe>
-                             <div className="absolute inset-0 bg-[#0D3A94]/20 pointer-events-none"></div>
-                        </div>
-                        
-                        {/* RIGHT COLUMN: Data + Mockup */}
-                        <div className="w-full md:w-1/2 flex-1 flex flex-col gap-3 overflow-y-auto pb-4 md:pb-0 pr-2 md:pr-0">
-                           {/* Top: Data Card */}
-                           <div className="bg-slate-800/80 backdrop-blur-md rounded-2xl p-5 border border-white/10 shadow-2xl w-full flex-shrink-0">
-                             <div className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Target Area</div>
-                             <div className="text-white font-bold text-xl flex items-center gap-2 mb-4">
-                               <MapPin size={20} className="text-[#FF9500]" /> {currentLocation.name}
-                             </div>
-                             
-                             <div className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Proposed Business</div>
-                             <div className="text-[#38BDF8] font-bold text-lg mb-4">
-                               {currentLocation.business}
-                             </div>
+              <div className="aspect-auto h-[800px] md:h-auto md:aspect-[4/3] bg-slate-800 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden flex flex-col items-center justify-center p-2 md:p-8">
+                <AnimatePresence mode="wait">
+                  {demoPhase === 'result' || demoPhase === 'wait' ? (
+                    <motion.div
+                      key={currentLocation.name}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="absolute inset-0 w-full h-full bg-slate-900 flex flex-col md:flex-row p-4 gap-4"
+                    >
+                      {/* LEFT COLUMN: Map Only */}
+                      <div className="w-full h-[250px] md:h-full md:w-1/2 rounded-2xl overflow-hidden relative border border-white/10 shadow-lg flex-shrink-0">
+                        <iframe
+                          width="100%"
+                          height="100%"
+                          frameBorder="0"
+                          scrolling="no"
+                          src={`https://www.openstreetmap.org/export/embed.html?bbox=${currentLocation.bbox}&layer=mapnik`}
+                          className="absolute inset-0 w-full h-full pointer-events-none opacity-80 grayscale border-none"
+                          style={{ minWidth: '100%', minHeight: '100%' }}
+                        ></iframe>
+                        <div className="absolute inset-0 bg-[#0D3A94]/20 pointer-events-none"></div>
+                      </div>
 
-                             <div className="grid grid-cols-2 gap-3 mb-4">
-                               <div>
-                                 <div className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Match</div>
-                                 <div className="text-[#4ADE80] font-black text-2xl">{currentLocation.data.match}</div>
-                               </div>
-                               <div>
-                                 <div className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Feasibility</div>
-                                 <div className="text-white font-bold text-lg">{currentLocation.data.feasibility}</div>
-                               </div>
-                               <div>
-                                 <div className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Foot Traffic</div>
-                                 <div className="text-white font-bold text-lg">{currentLocation.data.footfall}</div>
-                               </div>
-                               <div>
-                                 <div className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Competitors</div>
-                                 <div className="text-white font-bold text-lg">{currentLocation.data.competitors} <span className="text-xs font-normal text-white/50">within 5km</span></div>
-                               </div>
-                             </div>
-                             
-                             <div className="pt-3 border-t border-white/10">
-                               <div className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Projected ROI</div>
-                               <div className="text-[#FACC15] font-black text-xl">{currentLocation.data.roi}</div>
-                             </div>
-                           </div>
+                      {/* RIGHT COLUMN: Data + Mockup */}
+                      <div className="w-full md:w-1/2 flex-1 flex flex-col gap-3 overflow-y-auto pb-4 md:pb-0 pr-2 md:pr-0">
+                        {/* Top: Data Card */}
+                        <div className="bg-slate-800/80 backdrop-blur-md rounded-2xl p-5 border border-white/10 shadow-2xl w-full flex-shrink-0">
+                          <div className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Target Area</div>
+                          <div className="text-white font-bold text-xl flex items-center gap-2 mb-4">
+                            <MapPin size={20} className="text-[#FF9500]" /> {currentLocation.name}
+                          </div>
 
-                           {/* Bottom: Mockup Image */}
-                           <div className="flex-1 rounded-2xl overflow-hidden relative border border-white/10 shadow-lg bg-slate-800">
-                             <img src={currentLocation.img} alt={currentLocation.business} className="absolute inset-0 w-full h-full object-cover opacity-80" />
-                             <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur px-3 py-1 text-xs font-bold uppercase rounded text-white border border-white/10">
-                               Location Mockup
-                             </div>
-                           </div>
-                        </div>
-                      </motion.div>
-                    ) : (
-                      <motion.div 
-                        key="placeholder"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="flex flex-col items-center justify-center w-full h-full text-center relative overflow-hidden bg-slate-900"
-                      >
-                        {/* Radar sweeping background */}
-                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30">
-                          <div className="w-[150vw] h-[150vw] md:w-[800px] md:h-[800px] max-w-[800px] max-h-[800px] flex-shrink-0 rounded-full border border-[#38BDF8]/30 relative flex items-center justify-center">
-                            <div className="w-[75%] h-[75%] rounded-full border border-[#38BDF8]/20 flex items-center justify-center">
-                               <div className="w-[66%] h-[66%] rounded-full border border-[#38BDF8]/10" />
+                          <div className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Proposed Business</div>
+                          <div className="text-[#38BDF8] font-bold text-lg mb-4">
+                            {currentLocation.business}
+                          </div>
+
+                          <div className="grid grid-cols-2 gap-3 mb-4">
+                            <div>
+                              <div className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Match</div>
+                              <div className="text-[#4ADE80] font-black text-2xl">{currentLocation.data.match}</div>
                             </div>
-                            <motion.div 
-                               animate={{ rotate: 360 }}
-                               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                               className="absolute inset-0 rounded-full"
-                               style={{ background: 'conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(56, 189, 248, 0.4) 360deg)' }}
-                            />
+                            <div>
+                              <div className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Feasibility</div>
+                              <div className="text-white font-bold text-lg">{currentLocation.data.feasibility}</div>
+                            </div>
+                            <div>
+                              <div className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Foot Traffic</div>
+                              <div className="text-white font-bold text-lg">{currentLocation.data.footfall}</div>
+                            </div>
+                            <div>
+                              <div className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Competitors</div>
+                              <div className="text-white font-bold text-lg">{currentLocation.data.competitors} <span className="text-xs font-normal text-white/50">within 5km</span></div>
+                            </div>
+                          </div>
+
+                          <div className="pt-3 border-t border-white/10">
+                            <div className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Projected ROI</div>
+                            <div className="text-[#FACC15] font-black text-xl">{currentLocation.data.roi}</div>
                           </div>
                         </div>
 
-                        {/* Central Icon & Text */}
-                        <div className="relative z-10 flex flex-col items-center">
-                          <motion.div
-                            animate={{ scale: [1, 1.2, 1] }}
-                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                          >
-                            <Target size={64} className="text-[#38BDF8] mb-6 opacity-80" />
-                          </motion.div>
-                          <div className="text-[#38BDF8] font-mono uppercase tracking-widest text-sm animate-pulse">
-                            {demoPhase === 'typing' ? '[ AWAITING TARGET INPUT ]' : '[ RUNNING FEASIBILITY MODELS... ]'}
+                        {/* Bottom: Mockup Image */}
+                        <div className="flex-1 rounded-2xl overflow-hidden relative border border-white/10 shadow-lg bg-slate-800">
+                          <img src={currentLocation.img} alt={currentLocation.business} className="absolute inset-0 w-full h-full object-cover opacity-80" />
+                          <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur px-3 py-1 text-xs font-bold uppercase rounded text-white border border-white/10">
+                            Location Mockup
                           </div>
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-               </div>
+                      </div>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="placeholder"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="flex flex-col items-center justify-center w-full h-full text-center relative overflow-hidden bg-slate-900"
+                    >
+                      {/* Radar sweeping background */}
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30">
+                        <div className="w-[150vw] h-[150vw] md:w-[800px] md:h-[800px] max-w-[800px] max-h-[800px] flex-shrink-0 rounded-full border border-[#38BDF8]/30 relative flex items-center justify-center">
+                          <div className="w-[75%] h-[75%] rounded-full border border-[#38BDF8]/20 flex items-center justify-center">
+                            <div className="w-[66%] h-[66%] rounded-full border border-[#38BDF8]/10" />
+                          </div>
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                            className="absolute inset-0 rounded-full"
+                            style={{ background: 'conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(56, 189, 248, 0.4) 360deg)' }}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Central Icon & Text */}
+                      <div className="relative z-10 flex flex-col items-center">
+                        <motion.div
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                          <Target size={64} className="text-[#38BDF8] mb-6 opacity-80" />
+                        </motion.div>
+                        <div className="text-[#38BDF8] font-mono uppercase tracking-widest text-sm animate-pulse">
+                          {demoPhase === 'typing' ? '[ AWAITING TARGET INPUT ]' : '[ RUNNING FEASIBILITY MODELS... ]'}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
           </div>
         </div>
@@ -686,24 +718,24 @@ export default function LeasifAI() {
       <section className="py-24 bg-slate-50 border-y border-slate-200">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12">
           <div className="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden flex flex-col xl:flex-row">
-             <div className="xl:w-1/2 bg-white relative min-h-[400px] border-r border-slate-100">
-               <img src="/img-folder/milestones.jpg" alt="LeasifAI Milestones and Pitching Events" className="absolute inset-0 w-full h-full object-contain p-2 md:p-6" />
-             </div>
-             <div className="xl:w-1/2 p-10 md:p-16 flex flex-col justify-center bg-slate-50">
-                <div className="inline-flex items-center px-4 py-1.5 bg-[#144BBD]/10 text-[#144BBD] font-bold text-xs uppercase tracking-wider rounded-full mb-6 w-max">
-                  Our Philosophy
-                </div>
-                <h3 className="text-2xl md:text-4xl font-extrabold text-slate-900 mb-6 leading-tight">
-                  "The right location isn't always the busiest one."
-                </h3>
-                <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                  A high-traffic street can look like the perfect opportunity—but traffic alone doesn’t tell the whole story. Businesses need to understand who passes by, when they pass, what competitors are nearby, and whether the location actually fits their market.
-                </p>
-                <div className="h-1 w-12 bg-[#144BBD] rounded-full mb-6"></div>
-                <p className="text-slate-700 text-lg leading-relaxed font-bold">
-                  LeasifAI brings these insights together, helping businesses move beyond guesswork and make smarter, data-backed leasing decisions.
-                </p>
-             </div>
+            <div className="xl:w-1/2 bg-white relative min-h-[400px] border-r border-slate-100">
+              <img src="/img-folder/milestones.jpg" alt="LeasifAI Milestones and Pitching Events" className="absolute inset-0 w-full h-full object-contain p-2 md:p-6" />
+            </div>
+            <div className="xl:w-1/2 p-10 md:p-16 flex flex-col justify-center bg-slate-50">
+              <div className="inline-flex items-center px-4 py-1.5 bg-[#144BBD]/10 text-[#144BBD] font-bold text-xs uppercase tracking-wider rounded-full mb-6 w-max">
+                Our Philosophy
+              </div>
+              <h3 className="text-2xl md:text-4xl font-extrabold text-slate-900 mb-6 leading-tight">
+                "The right location isn't always the busiest one."
+              </h3>
+              <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                A high-traffic street can look like the perfect opportunity—but traffic alone doesn’t tell the whole story. Businesses need to understand who passes by, when they pass, what competitors are nearby, and whether the location actually fits their market.
+              </p>
+              <div className="h-1 w-12 bg-[#144BBD] rounded-full mb-6"></div>
+              <p className="text-slate-700 text-lg leading-relaxed font-bold">
+                LeasifAI brings these insights together, helping businesses move beyond guesswork and make smarter, data-backed leasing decisions.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -794,51 +826,44 @@ export default function LeasifAI() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4 }}
-                className={`relative rounded-3xl p-10 flex flex-col ${
-                  plan.dark
-                    ? "bg-[#144BBD] text-white shadow-2xl scale-105 z-10"
-                    : plan.gradient
+                className={`relative rounded-3xl p-10 flex flex-col ${plan.dark
+                  ? "bg-[#144BBD] text-white shadow-2xl scale-105 z-10"
+                  : plan.gradient
                     ? "bg-gradient-to-br from-[#0D3A94] to-[#144BBD] text-white shadow-xl"
                     : "bg-white border border-slate-200 shadow-lg"
-                }`}
+                  }`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FF9500] text-white text-xs font-black uppercase tracking-wider px-6 py-2 rounded-full shadow-lg">
                     MOST POPULAR
                   </div>
                 )}
-                <p className={`text-sm font-bold uppercase tracking-[1.5px] mb-4 ${
-                  plan.dark || plan.gradient ? "text-white/70" : "text-[#144BBD]"
-                }`}>{plan.name}</p>
-                <p className={`text-3xl font-black mb-2 ${
-                  plan.dark || plan.gradient ? "text-white" : "text-slate-900"
-                }`}>{plan.title}</p>
+                <p className={`text-sm font-bold uppercase tracking-[1.5px] mb-4 ${plan.dark || plan.gradient ? "text-white/70" : "text-[#144BBD]"
+                  }`}>{plan.name}</p>
+                <p className={`text-3xl font-black mb-2 ${plan.dark || plan.gradient ? "text-white" : "text-slate-900"
+                  }`}>{plan.title}</p>
                 <div className="flex items-baseline gap-1 mb-10">
-                  <span className={`text-5xl font-black ${
-                    plan.dark || plan.gradient ? "text-white" : "text-slate-900"
-                  }`}>{plan.price}</span>
-                  <span className={`text-base font-medium ${
-                    plan.dark || plan.gradient ? "text-white/60" : "text-slate-500"
-                  }`}>{plan.period}</span>
+                  <span className={`text-5xl font-black ${plan.dark || plan.gradient ? "text-white" : "text-slate-900"
+                    }`}>{plan.price}</span>
+                  <span className={`text-base font-medium ${plan.dark || plan.gradient ? "text-white/60" : "text-slate-500"
+                    }`}>{plan.period}</span>
                 </div>
 
                 <div className="flex-1 flex flex-col gap-5 mb-10">
                   {plan.features.map((feature) => (
                     <div key={feature} className="flex items-start gap-3">
                       <Check size={18} className={`mt-0.5 shrink-0 ${plan.dark || plan.gradient ? "text-[#FF9500]" : "text-[#144BBD]"}`} />
-                      <span className={`text-base font-medium ${
-                        plan.dark || plan.gradient ? "text-white/90" : "text-slate-600"
-                      }`}>{feature}</span>
+                      <span className={`text-base font-medium ${plan.dark || plan.gradient ? "text-white/90" : "text-slate-600"
+                        }`}>{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 <button
-                  className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${
-                    plan.dark || plan.gradient
-                      ? "bg-[#FF9500] text-white hover:bg-[#e68600] shadow-xl"
-                      : "bg-[#F8FAFF] text-[#144BBD] border border-[#E5EEFF] hover:bg-[#144BBD] hover:text-white"
-                  }`}
+                  className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${plan.dark || plan.gradient
+                    ? "bg-[#FF9500] text-white hover:bg-[#e68600] shadow-xl"
+                    : "bg-[#F8FAFF] text-[#144BBD] border border-[#E5EEFF] hover:bg-[#144BBD] hover:text-white"
+                    }`}
                 >
                   {plan.cta}
                 </button>
@@ -865,7 +890,7 @@ export default function LeasifAI() {
               Join the smart businesses that are eliminating leasing risks. Get unprecedented visibility into your next commercial space.
             </p>
             <button onClick={() => setIsModalOpen(true)} className="inline-flex items-center justify-center px-10 py-5 bg-[#FF9500] text-white text-lg font-bold rounded-xl shadow-2xl hover:bg-[#e68600] transition-colors hover:scale-105 active:scale-95 duration-200">
-              BOOK A DEMO <ArrowRight size={24} className="ml-3" />
+              CONTACT US <ArrowRight size={24} className="ml-3" />
             </button>
           </motion.div>
         </div>
@@ -874,47 +899,103 @@ export default function LeasifAI() {
       {/* MODAL (LEAD CAPTURE) */}
       <AnimatePresence>
         {isModalOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] flex items-center justify-center p-4"
           >
             <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onClick={() => setIsModalOpen(false)}></div>
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.95, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
               className="bg-white rounded-3xl shadow-2xl w-full max-w-lg relative z-10 overflow-hidden border border-slate-200"
             >
-              <button 
+              <button
                 onClick={() => setIsModalOpen(false)}
                 className="absolute top-6 right-6 text-slate-400 hover:text-slate-600 transition-colors"
               >
                 <X size={24} />
               </button>
-              
+
               <div className="p-8 md:p-12">
                 <div className="w-16 h-16 bg-[#144BBD]/10 rounded-2xl flex items-center justify-center mb-6">
                   <Target size={32} className="text-[#144BBD]" />
                 </div>
-                <h3 className="text-3xl font-extrabold text-slate-900 mb-2" style={{ fontFamily: "'Manrope', sans-serif" }}>Get Early Access</h3>
-                <p className="text-slate-600 mb-8">Enter your details and our team will reach out to schedule a personalized walkthrough.</p>
-                
-                <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-1">Work Email</label>
-                    <input type="email" placeholder="you@company.com" className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#144BBD]/50 focus:border-[#144BBD]" />
+                <h3 className="text-3xl font-extrabold text-slate-900 mb-2" style={{ fontFamily: "'Manrope', sans-serif" }}>Contact Us</h3>
+                <p className="text-slate-600 mb-8">Have a question or want a personalized walkthrough? Send us a message.</p>
+
+                {formStatus === 'success' ? (
+                  <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl p-6 text-center">
+                    <Check size={48} className="mx-auto text-emerald-500 mb-4" />
+                    <p className="font-bold text-lg mb-2">Message Sent!</p>
+                    <p className="text-sm">{formMessage}</p>
+                    <button onClick={() => setIsModalOpen(false)} className="mt-6 text-[#144BBD] font-bold text-sm hover:underline">Close Window</button>
                   </div>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-1">Company Name</label>
-                    <input type="text" placeholder="Acme Retail" className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#144BBD]/50 focus:border-[#144BBD]" />
-                  </div>
-                  <button className="w-full bg-[#144BBD] text-white font-bold py-4 rounded-xl mt-4 hover:bg-[#0D3A94] transition-colors shadow-lg">
-                    Join Waitlist
-                  </button>
-                </form>
-                <p className="text-center text-xs text-slate-400 mt-6">By joining, you agree to our Terms of Service & Privacy Policy.</p>
+                ) : (
+                  <form className="space-y-4" onSubmit={handleContactSubmit}>
+                    {formStatus === 'error' && (
+                      <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm border border-red-200">
+                        {formMessage}
+                      </div>
+                    )}
+
+                    {/* Honeypot Field - Hidden from humans */}
+                    <input
+                      type="text"
+                      name="company_website"
+                      className="hidden"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={formData.company_website}
+                      onChange={(e) => setFormData({ ...formData, company_website: e.target.value })}
+                    />
+
+                    <div>
+                      <label className="block text-sm font-bold text-slate-700 mb-1">Name</label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="John Doe"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#144BBD]/50 focus:border-[#144BBD]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold text-slate-700 mb-1">Email</label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="you@company.com"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#144BBD]/50 focus:border-[#144BBD]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold text-slate-700 mb-1">Message</label>
+                      <textarea
+                        required
+                        rows={4}
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        placeholder="How can we help you?"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#144BBD]/50 focus:border-[#144BBD] resize-none"
+                      ></textarea>
+                    </div>
+                    <button
+                      disabled={formStatus === 'submitting'}
+                      className="w-full flex items-center justify-center bg-[#144BBD] text-white font-bold py-4 rounded-xl mt-4 hover:bg-[#0D3A94] transition-colors shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+                    >
+                      {formStatus === 'submitting' ? <Loader2 className="animate-spin mr-2" size={20} /> : null}
+                      {formStatus === 'submitting' ? 'Sending...' : 'Send Message'}
+                    </button>
+                  </form>
+                )}
+
+                <p className="text-center text-xs text-slate-400 mt-6">By sending this message, you agree to our Terms of Service & Privacy Policy.</p>
               </div>
             </motion.div>
           </motion.div>
