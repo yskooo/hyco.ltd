@@ -15,38 +15,76 @@ export default function ElectrifAI() {
         </div>
         
         <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-50 border border-blue-100 text-[#0F3383] text-xs font-bold uppercase tracking-widest mb-8 font-mono">
-              <Zap size={14} className="mr-2" /> A HYCO Group Subsidiary
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="h-14 px-4 bg-white border border-slate-200 rounded-xl shadow-sm flex items-center justify-center">
+                  <img src="/electrifai-logo.svg" alt="ElectrifAI Logo" className="h-10 w-auto object-contain" />
+                </div>
+                <div className="inline-flex items-center px-4 py-2 bg-blue-50 border border-blue-100 text-[#0F3383] text-xs font-bold uppercase tracking-widest font-mono rounded-lg">
+                  <Zap size={14} className="mr-2" /> A HYCO Group Subsidiary
+                </div>
+              </div>
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-5xl md:text-7xl font-serif text-[#0f172a] mb-8 leading-[1.1]"
+              >
+                Intelligent Energy <br/> Management.
+              </motion.h1>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-lg md:text-xl text-slate-600 mb-12 leading-relaxed"
+              >
+                ElectrifAI leverages advanced machine learning to optimize power grids, predict consumption patterns, and reduce energy waste for utility providers and industrial complexes.
+              </motion.p>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="flex flex-col sm:flex-row gap-6"
+              >
+                <a
+                  href="https://electrifaiph.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-700 text-white px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-blue-800 transition-colors text-center font-mono inline-flex items-center justify-center gap-2"
+                >
+                  Launch App Prototype ↗
+                </a>
+                <button className="border border-slate-300 text-[#0f172a] px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-slate-50 hover:border-slate-400 transition-colors font-mono">
+                  Read Whitepaper
+                </button>
+              </motion.div>
             </div>
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-7xl font-serif text-[#0f172a] mb-8 leading-[1.1]"
-            >
-              Intelligent Energy <br/> Management.
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-lg md:text-xl text-slate-600 mb-12 leading-relaxed"
-            >
-              ElectrifAI leverages advanced machine learning to optimize power grids, predict consumption patterns, and reduce energy waste for utility providers and industrial complexes.
-            </motion.p>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="flex flex-col sm:flex-row gap-6"
-            >
-              <button className="bg-blue-700 text-white px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-blue-800 transition-colors">
-                Request Demo
-              </button>
-              <button className="border border-slate-300 text-[#0f172a] px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-slate-50 hover:border-slate-400 transition-colors">
-                Read Whitepaper
-              </button>
-            </motion.div>
+
+            {/* Prototype Showcase Card */}
+            <div className="lg:col-span-5">
+              <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xl relative overflow-hidden">
+                <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse"></span>
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-600">Hardware &amp; Energy Prototype</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-[#0F3383] bg-blue-50 px-2 py-0.5 rounded font-bold">Live v1.0</span>
+                </div>
+                <div className="rounded-xl overflow-hidden bg-slate-950/5 border border-slate-200/80 p-4 flex items-center justify-center min-h-[260px]">
+                  <img
+                    src="/electrifai-eli.svg"
+                    alt="ElectrifAI Prototype Interface"
+                    className="w-full h-auto max-h-[300px] object-contain hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-500 flex items-center justify-between font-mono">
+                  <span>Prototype: Intelligent Telemetry</span>
+                  <a href="https://electrifaiph.vercel.app" target="_blank" rel="noopener noreferrer" className="text-blue-700 font-bold hover:underline">
+                    View Interactive →
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

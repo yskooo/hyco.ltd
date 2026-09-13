@@ -116,6 +116,108 @@ export default function Home() {
             </motion.div>
           </div>
 
+          {/* Static Marquee-Style Portfolio Venture Bar Below Hero Card */}
+          <div className="mt-8 pt-8 border-t border-slate-200">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#0F3383] animate-pulse"></span>
+                <span className="text-[11px] font-mono font-bold uppercase tracking-[0.25em] text-slate-500">
+                  Portfolio Ventures &amp; Operating Entities
+                </span>
+              </div>
+              <span className="text-xs text-slate-400 font-mono">
+                Four Active Platforms Across AI &amp; Infrastructure
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+              {/* 1. Servicio.AI */}
+              <Link
+                href="/servicio-ai"
+                className="group p-5 bg-slate-50/80 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#0F3383]/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              >
+                <div className="h-16 flex items-center justify-center mb-3 px-2">
+                  <img
+                    src="/servicio-logo.png"
+                    alt="Servicio.AI"
+                    className="h-9 sm:h-11 w-auto max-w-[160px] object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="text-center pt-3 border-t border-slate-200/70">
+                  <div className="font-bold text-slate-900 text-sm group-hover:text-[#0F3383] transition-colors flex items-center justify-center gap-1">
+                    <span>Servicio.AI</span>
+                    <ArrowRight size={13} className="text-slate-400 group-hover:text-[#0F3383] group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <div className="text-[11px] text-slate-500 font-mono mt-0.5">Flagship Service AI</div>
+                </div>
+              </Link>
+
+              {/* 2. ElectrifAI */}
+              <Link
+                href="/electrifai"
+                className="group p-5 bg-slate-50/80 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#0F3383]/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              >
+                <div className="h-16 flex items-center justify-center mb-3 px-2">
+                  <img
+                    src="/electrifai-logo.svg"
+                    alt="ElectrifAI"
+                    className="h-11 sm:h-13 w-auto max-w-[160px] object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="text-center pt-3 border-t border-slate-200/70">
+                  <div className="font-bold text-slate-900 text-sm group-hover:text-[#0F3383] transition-colors flex items-center justify-center gap-1">
+                    <span>ElectrifAI</span>
+                    <ArrowRight size={13} className="text-slate-400 group-hover:text-[#0F3383] group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <div className="text-[11px] text-slate-500 font-mono mt-0.5">Next-Gen EV Mobility</div>
+                </div>
+              </Link>
+
+              {/* 3. LeasifAI */}
+              <Link
+                href="/leasifai"
+                className="group p-5 bg-slate-50/80 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#0F3383]/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              >
+                <div className="h-16 flex items-center justify-center mb-3 px-2">
+                  <img
+                    src="/leasifai-logo.png"
+                    alt="LeasifAI"
+                    className="h-9 sm:h-11 w-auto max-w-[160px] object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="text-center pt-3 border-t border-slate-200/70">
+                  <div className="font-bold text-slate-900 text-sm group-hover:text-[#0F3383] transition-colors flex items-center justify-center gap-1">
+                    <span>LeasifAI</span>
+                    <ArrowRight size={13} className="text-slate-400 group-hover:text-[#0F3383] group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <div className="text-[11px] text-slate-500 font-mono mt-0.5">Commercial Underwriting</div>
+                </div>
+              </Link>
+
+              {/* 4. BerdEV (BlackGreen Text Logo) */}
+              <Link
+                href="/berdev"
+                className="group p-5 bg-slate-50/80 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-emerald-600/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              >
+                <div className="h-16 flex items-center justify-center mb-3 px-2">
+                  <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-950 border border-emerald-500/40 shadow-sm group-hover:scale-105 transition-transform duration-300">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span className="font-extrabold text-lg sm:text-xl tracking-tight font-sans text-white">
+                      Berd<span className="text-emerald-400">EV</span>
+                    </span>
+                  </div>
+                </div>
+                <div className="text-center pt-3 border-t border-slate-200/70">
+                  <div className="font-bold text-slate-900 text-sm group-hover:text-emerald-700 transition-colors flex items-center justify-center gap-1">
+                    <span>BerdEV</span>
+                    <ArrowRight size={13} className="text-slate-400 group-hover:text-emerald-700 group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <div className="text-[11px] text-emerald-600 font-mono mt-0.5">Clean Energy EV Network</div>
+                </div>
+              </Link>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -235,8 +337,8 @@ export default function Home() {
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
                   <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-[#1A46B0]"></div>
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-[#0F3383] text-white flex items-center justify-center mr-6 shrink-0 shadow-md">
-                      <ShieldCheck size={24} />
+                    <div className="h-12 px-3.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center mr-6 shrink-0 shadow-sm">
+                      <img src="/servicio-logo.png" alt="Servicio.AI" className="h-8 w-auto object-contain" />
                     </div>
                     <div>
                       <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-black font-serif">Servicio.AI</h4>
@@ -281,11 +383,11 @@ export default function Home() {
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
                   <div className="absolute top-0 md:top-10 right-10 md:-right-1 w-12 md:w-1 h-1 md:h-12 bg-black group-hover:bg-[#1A46B0] transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-[#0F3383] text-white group-hover:bg-[#1A46B0] flex items-center justify-center mr-6 transition-colors duration-300 shrink-0">
-                      <Zap size={24} />
+                    <div className="h-12 px-3.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center mr-6 shrink-0 shadow-sm">
+                      <img src="/electrifai-logo.svg" alt="ElectrifAI" className="h-9 w-auto object-contain" />
                     </div>
                     <div>
-                      <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-black font-serif">ElectrifAI PH</h4>
+                      <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-black font-serif">ElectrifAI</h4>
                       <p className="text-xs font-mono uppercase tracking-widest text-[#0F3383] font-bold mt-1">Energy Intelligence</p>
                     </div>
                   </div>
@@ -301,7 +403,7 @@ export default function Home() {
                     <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">Peak Shaving AI</span>
                   </div>
                   <div className="text-xs font-bold uppercase tracking-widest text-black flex items-center group-hover:text-[#1A46B0] transition-colors mt-auto">
-                    Explore ElectrifAI PH Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+                    Explore ElectrifAI Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>
               </Link>
@@ -319,20 +421,20 @@ export default function Home() {
                   <span>● Status: GTM Phase</span>
                 </div>
 
-                <div className="w-full md:w-[400px] lg:w-[500px] min-h-[280px] md:min-h-0 h-auto overflow-hidden relative transition-all duration-700 shrink-0 bg-slate-50 flex flex-col items-center justify-center p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-100 group-hover:bg-white">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#1A46B0]/0 to-[#1A46B0]/0 group-hover:from-[#1A46B0]/5 group-hover:to-transparent transition-colors duration-700"></div>
-                  <img src="/img-folder/leasifAI.png" alt="LeasifAI Logo" className="w-20 h-20 object-contain mb-8 transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500 relative z-10" />
-                  <p className="text-xl md:text-2xl font-bold text-center text-[#1A46B0] leading-tight relative z-10 font-serif">
-                    &quot;We don&apos;t just help businesses find a space,<br />we help them find their place in the economy.&quot;
-                  </p>
+                <div className="w-full md:w-[400px] lg:w-[500px] h-64 md:h-auto overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 shrink-0">
+                  <div className="absolute inset-0 bg-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
+                  <img src="/img-folder/leasifAI.png" alt="LeasifAI Workspace" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
                 </div>
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
                   <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-black group-hover:bg-[#1A46B0] transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
-                    <h4 className="text-3xl lg:text-4xl font-bold tracking-tight font-serif">
-                      <span className="text-[#0F3383]">Leasif</span>
-                      <span className="text-[#FF9500]">AI</span>
-                    </h4>
+                    <div className="h-12 px-3.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center mr-6 shrink-0 shadow-sm">
+                      <img src="/leasifai-logo.png" alt="LeasifAI" className="h-8 w-auto object-contain" />
+                    </div>
+                    <div>
+                      <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-black font-serif">LeasifAI</h4>
+                      <p className="text-xs font-mono uppercase tracking-widest text-[#0F3383] font-bold mt-1">Commercial Underwriting</p>
+                    </div>
                   </div>
                   <p className="text-lg text-gray-700 mb-6 max-w-3xl leading-relaxed font-light">
                     AI-powered commercial real estate matching and automated leasing workflows.
@@ -359,15 +461,15 @@ export default function Home() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Link href="/berdev" className="group flex flex-col md:flex-row-reverse bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(40,164,231,0.15)] hover:border-[#28A4E7] overflow-hidden relative">
-                <div className="absolute top-0 right-0 md:right-auto md:left-0 z-30 bg-[#0F3383] text-[#28A4E7] text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 flex items-center gap-1.5 shadow-sm font-mono border-b border-[#28A4E7]/30">
-                  <span>⚡ Smart EV Mobility &amp; Charging</span>
+              <Link href="/berdev" className="group flex flex-col md:flex-row-reverse bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(40,164,231,0.15)] hover:border-emerald-600 overflow-hidden relative">
+                <div className="absolute top-0 right-0 md:right-auto md:left-0 z-30 bg-slate-950 text-emerald-400 text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 flex items-center gap-1.5 shadow-sm font-mono border-b border-emerald-500/40">
+                  <span>⚡ Clean EV Mobility &amp; Charging</span>
                 </div>
 
                 <div className="w-full md:w-[400px] lg:w-[500px] h-64 md:h-auto overflow-hidden relative transition-all duration-700 shrink-0 bg-slate-950 flex flex-col justify-between p-8 border-b md:border-b-0 md:border-l border-slate-800">
-                  <div className="flex items-center justify-between text-xs font-mono text-[#28A4E7]">
+                  <div className="flex items-center justify-between text-xs font-mono text-emerald-400">
                     <span className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-[#28A4E7] animate-ping"></span>
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
                       LIVE EV RADAR
                     </span>
                     <span className="text-slate-400">METRO MANILA &amp; SLEX</span>
@@ -377,7 +479,7 @@ export default function Home() {
                   <div className="my-auto bg-slate-900/90 border border-slate-800 rounded-lg p-4 shadow-xl">
                     <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-800">
                       <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded bg-[#1A46B0]/30 text-[#28A4E7] flex items-center justify-center font-bold text-xs">
+                        <div className="w-8 h-8 rounded bg-emerald-950/80 text-emerald-400 flex items-center justify-center font-bold text-xs border border-emerald-500/30">
                           ⚡ DC
                         </div>
                         <div>
@@ -385,14 +487,14 @@ export default function Home() {
                           <div className="text-[10px] text-slate-400">SLEX Mamplasan • 4 Bays</div>
                         </div>
                       </div>
-                      <span className="text-[10px] font-bold text-[#28A4E7] bg-blue-950/80 border border-[#28A4E7]/30 px-2 py-0.5 rounded">
+                      <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-400/30 px-2 py-0.5 rounded">
                         98% Uptime
                       </span>
                     </div>
                     <div className="grid grid-cols-3 gap-2 text-center text-[10px] font-mono">
                       <div className="bg-slate-950 p-1.5 rounded border border-slate-800/80">
                         <div className="text-slate-400 text-[9px]">Available</div>
-                        <div className="text-[#28A4E7] font-bold">2 of 4 Plugs</div>
+                        <div className="text-emerald-400 font-bold">2 of 4 Plugs</div>
                       </div>
                       <div className="bg-slate-950 p-1.5 rounded border border-slate-800/80">
                         <div className="text-slate-400 text-[9px]">Reliability</div>
@@ -406,20 +508,23 @@ export default function Home() {
                   </div>
 
                   <div className="text-center font-mono text-xs text-slate-400 flex items-center justify-center gap-2">
-                    <Navigation size={13} className="text-[#28A4E7]" />
+                    <Navigation size={13} className="text-emerald-400" />
                     <span>&quot;The Waze for Electric Vehicles&quot;</span>
                   </div>
                 </div>
 
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
-                  <div className="absolute top-0 md:top-10 right-10 md:-right-1 w-12 md:w-1 h-1 md:h-12 bg-black group-hover:bg-[#28A4E7] transition-colors duration-300"></div>
+                  <div className="absolute top-0 md:top-10 right-10 md:-right-1 w-12 md:w-1 h-1 md:h-12 bg-black group-hover:bg-emerald-600 transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-[#0F3383] text-[#28A4E7] group-hover:bg-[#1A46B0] group-hover:text-white flex items-center justify-center mr-6 transition-colors duration-300 shrink-0">
-                      <Navigation size={24} />
+                    <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-950 border border-emerald-500/40 shadow-sm mr-6 shrink-0">
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      <span className="font-extrabold text-xl tracking-tight font-sans text-white">
+                        Berd<span className="text-emerald-400">EV</span>
+                      </span>
                     </div>
                     <div>
                       <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-black font-serif">BerdEV</h4>
-                      <p className="text-xs font-mono uppercase tracking-widest text-[#0F3383] font-bold mt-1">
+                      <p className="text-xs font-mono uppercase tracking-widest text-emerald-700 font-bold mt-1">
                         EV Charging &amp; Navigation Network
                       </p>
                     </div>
