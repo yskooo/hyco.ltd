@@ -778,10 +778,10 @@ export default function BerdEV() {
                   <span className="text-slate-400 text-[11px] font-sans">Turn 45-minute EV charging sessions into verifiable in-store retail foot traffic.</span>
                 </div>
                 <a
-                  href="mailto:partners@hyco.ltd?subject=BerdEV%20Partnership%20Inquiry"
+                  href="mailto:contact@hyco.ltd?subject=BerdEV%20Partnership%20Inquiry"
                   className="block text-center w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3.5 text-xs uppercase tracking-[0.2em] rounded transition-all duration-300 font-mono shadow-lg"
                 >
-                  Contact Ecosystem Team (partners@hyco.ltd)
+                  Contact Ecosystem Team (contact@hyco.ltd)
                 </a>
               </div>
             </div>

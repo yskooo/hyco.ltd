@@ -124,48 +124,30 @@ export default function ContactPage() {
             {/* Department Directory */}
             <div className="border border-slate-200 p-8 rounded-xl bg-white shadow-sm space-y-6">
               <h3 className="text-sm font-mono font-bold uppercase tracking-widest text-[#0F3383]">
-                Dedicated Communication Lines
+                Official Communication Channel
               </h3>
 
-              <div className="space-y-4 text-sm">
-                <div className="p-3.5 bg-slate-50 rounded-lg border border-slate-100 flex items-center justify-between">
-                  <div>
-                    <div className="font-bold text-slate-900">General Executive Secretariat</div>
-                    <div className="text-xs text-slate-500">Corporate &amp; commercial inquiries</div>
-                  </div>
-                  <a href="mailto:contact@hyco.ltd" className="text-xs font-mono font-bold text-[#0F3383] hover:underline">
-                    contact@hyco.ltd
-                  </a>
-                </div>
+              <div className="p-4 bg-slate-50 rounded-lg border border-slate-200/80 space-y-3">
+                <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Primary Email</div>
+                <a
+                  href="mailto:contact@hyco.ltd"
+                  className="inline-block text-lg font-bold text-[#0F3383] hover:underline"
+                >
+                  contact@hyco.ltd
+                </a>
+                <p className="text-xs text-slate-600 leading-relaxed pt-1">
+                  All correspondence — including institutional partnerships, venture inquiries, media requests, and data protection matters — are monitored and routed directly through our central desk.
+                </p>
+              </div>
 
-                <div className="p-3.5 bg-slate-50 rounded-lg border border-slate-100 flex items-center justify-between">
-                  <div>
-                    <div className="font-bold text-slate-900">Investor Relations</div>
-                    <div className="text-xs text-slate-500">Institutional capital &amp; LP inquiries</div>
-                  </div>
-                  <a href="mailto:investors@hyco.ltd" className="text-xs font-mono font-bold text-[#0F3383] hover:underline">
-                    investors@hyco.ltd
-                  </a>
+              <div className="grid grid-cols-2 gap-2 text-xs text-slate-600">
+                <div className="p-2.5 bg-slate-50 rounded border border-slate-100">
+                  <span className="font-semibold text-slate-900 block">Partnerships</span>
+                  Servicio, ElectrifAI, LeasifAI, BerdEV
                 </div>
-
-                <div className="p-3.5 bg-slate-50 rounded-lg border border-slate-100 flex items-center justify-between">
-                  <div>
-                    <div className="font-bold text-slate-900">Data Protection Officer (DPO)</div>
-                    <div className="text-xs text-slate-500">RA 10173 compliance &amp; privacy rights</div>
-                  </div>
-                  <a href="mailto:dpo@hyco.ltd" className="text-xs font-mono font-bold text-[#0F3383] hover:underline">
-                    dpo@hyco.ltd
-                  </a>
-                </div>
-
-                <div className="p-3.5 bg-slate-50 rounded-lg border border-slate-100 flex items-center justify-between">
-                  <div>
-                    <div className="font-bold text-slate-900">Press &amp; Media Office</div>
-                    <div className="text-xs text-slate-500">Broadcast, press kits &amp; interviews</div>
-                  </div>
-                  <a href="mailto:media@hyco.ltd" className="text-xs font-mono font-bold text-[#0F3383] hover:underline">
-                    media@hyco.ltd
-                  </a>
+                <div className="p-2.5 bg-slate-50 rounded border border-slate-100">
+                  <span className="font-semibold text-slate-900 block">Governance &amp; DPO</span>
+                  RA 10173 &amp; Legal Compliance
                 </div>
               </div>
             </div>

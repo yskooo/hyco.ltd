@@ -73,7 +73,7 @@ export default function PrivacyPolicyPage() {
             To exercise your privacy rights or submit privacy-related questions, contact our Data Protection Officer at:
           </p>
           <div className="text-xs font-mono text-slate-800 space-y-0.5 pt-1">
-            <div>Email: <a href="mailto:dpo@hyco.ltd" className="text-[#0F3383] underline">dpo@hyco.ltd</a></div>
+            <div>Email: <a href="mailto:contact@hyco.ltd?subject=Data%20Privacy%20Inquiry" className="text-[#0F3383] underline">contact@hyco.ltd</a> (Attn: Data Protection)</div>
             <div>Office: Ortigas Center, Pasig City, Metro Manila, Philippines</div>
           </div>
         </section>
