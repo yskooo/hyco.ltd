@@ -4,14 +4,14 @@
     "name": "Servicio.AI",
     "shortName": "Servicio.AI",
     "slug": "servicio-ai",
-    "tagline": "High-Tier Verified Professional Marketplace & AI Smart Matching",
-    "description": "Hardy & Co.'s premier lead horse and flagship platform. Connecting clients with verified Filipino professionals—from licensed engineers and lawyers to IT experts—through intelligent natural language matching, credential verification, and secure escrow payments.",
-    "status": "Main Focus",
-    "statusBadge": "Primary Focus / Flagship",
+    "tagline": "Accessible, compliant AI-driven service solutions for Filipino SMEs and consumers.",
+    "description": "Accessible, compliant AI-driven service solutions for Filipino SMEs and consumers. Connecting clients with verified Filipino professionals through intelligent localized matching, verified credentials, and secure escrow payments.",
+    "status": "Active Venture",
+    "statusBadge": "Lead Horse / Flagship",
     "leadHorse": true,
-    "category": "Professional Services & AI Matching",
+    "category": "AI Service Solutions & Marketplace",
     "features": [
-      "AI-Powered Smart Matching (English & Tagalog)",
+      "Accessible & Compliant AI Service Solutions for SMEs",
       "Verified Professional Credentials (PRC License & Gov ID)",
       "PCI-Compliant Escrow Vault & Milestone Protection",
       "Integrated Real-Time Scope & Project Communication"
@@ -19,21 +19,40 @@
     "href": "/servicio-ai"
   },
   {
+    "id": "electrifai",
+    "name": "ElectrifAI PH",
+    "shortName": "ElectrifAI",
+    "slug": "electrifai",
+    "tagline": "Intelligent, data-driven smart energy monitoring and connected hardware",
+    "description": "Intelligent, data-driven smart energy monitoring and connected hardware. Enabling utility providers, commercial complexes, and industrial estates to optimize loads and improve energy efficiency.",
+    "status": "Active Venture",
+    "statusBadge": "Active Platform",
+    "leadHorse": false,
+    "category": "Smart Energy & Connected Hardware",
+    "features": [
+      "Data-Driven Smart Energy Monitoring & Telemetry",
+      "Connected IoT Hardware & Distributed Sensors",
+      "Predictive Load Balancing & Peak Shaving",
+      "Automated Power Leak & Anomaly Detection"
+    ],
+    "href": "/electrifai"
+  },
+  {
     "id": "leasifai",
     "name": "LeasifAI",
     "shortName": "LeasifAI",
     "slug": "leasifai",
-    "tagline": "Commercial Real Estate Location Intelligence & ROI Forecasting",
-    "description": "Currently in active Go-To-Market (GTM). Eliminating guesswork from commercial leasing through AI foot traffic analysis, competitor mapping, and ROI prediction for businesses and property developers.",
-    "status": "Active (GTM)",
+    "tagline": "AI-powered commercial real estate matching and automated leasing workflows.",
+    "description": "AI-powered commercial real estate matching and automated leasing workflows. Eliminating guesswork from commercial leasing through AI foot traffic analysis, competitor mapping, and ROI forecasting.",
+    "status": "Active Venture",
     "statusBadge": "GTM Phase",
     "leadHorse": false,
-    "category": "Real Estate & Spatial Intelligence",
+    "category": "Real Estate AI & Leasing Workflows",
     "features": [
+      "AI-Powered Commercial Real Estate Matching",
+      "Automated Leasing Workflows & Digital Contracting",
       "Footfall & Demographic Geospatial Analytics",
-      "Competitor Heatmaps & Density Mapping",
-      "AI Predictive Revenue & Payback Forecasting",
-      "Verified Commercial Space Matching Engine"
+      "Predictive Revenue & ROI Payback Forecasting"
     ],
     "href": "/leasifai"
   },
@@ -42,56 +61,18 @@
     "name": "BerdEV",
     "shortName": "BerdEV",
     "slug": "berdev",
-    "tagline": "The Waze for Electric Vehicles | Smart Navigation & Charging Rewards",
-    "description": "The community-powered EV navigation and station finder platform. Real-time charger availability, crowd-verified reliability scoring, driver rewards & credits, and integrated brand partnerships.",
-    "status": "Active Platform",
-    "statusBadge": "Smart EV Mobility",
+    "tagline": "Seamless EV charging locator and payment infrastructure for Philippine mobility.",
+    "description": "Seamless EV charging locator and payment infrastructure for Philippine mobility. Community-powered navigation, crowdsourced charger reliability scoring, driver credits, and charging network integrations.",
+    "status": "Active Venture",
+    "statusBadge": "EV Mobility",
     "leadHorse": false,
-    "category": "EV Mobility & Charging Platform",
+    "category": "EV Charging & Mobility Infrastructure",
     "features": [
-      "Real-Time EV Charger & 'Gas Station' Discovery",
+      "Seamless EV Charging Locator & Station Finder",
+      "Integrated Payment Infrastructure & Driver Credits",
       "Crowdsourced Reliability Scoring & Queue Telemetry",
-      "Driver Credits, Loyalty Rewards & In-App Perks",
-      "Software & CPO Partnership Ecosystem"
+      "CPO Network & Brand Partner Marketing Hub"
     ],
     "href": "/berdev"
-  },
-  {
-    "id": "electrifai",
-    "name": "ElectrifAI PH",
-    "shortName": "ElectrifAI",
-    "slug": "electrifai",
-    "tagline": "Intelligent Energy Management & Grid Optimization",
-    "description": "Predictive energy analytics and AI-driven grid optimization enabling utility providers, industrial complexes, and commercial estates to balance loads dynamically and reduce carbon footprints.",
-    "status": "Active",
-    "statusBadge": "Active Platform",
-    "leadHorse": false,
-    "category": "Energy & Infrastructure Tech",
-    "features": [
-      "Predictive Load Balancing & Peak Demand Smoothing",
-      "Legacy IoT & Smart Grid Distributed Integration",
-      "Automated Power Leak & Anomaly Detection",
-      "Industrial Carbon Reduction Analytics"
-    ],
-    "href": "/electrifai"
-  },
-  {
-    "id": "edugaite",
-    "name": "Edugaite",
-    "shortName": "Edugaite",
-    "slug": "edugaite",
-    "tagline": "K-12 EdTech Platform & Teacher Productivity Workflow",
-    "description": "Specialized AI workflow software designed to streamline lesson planning, automated quiz generation, and grading for educators.",
-    "status": "Paused",
-    "statusBadge": "Paused / R&D Incubator",
-    "leadHorse": false,
-    "category": "Education Technology",
-    "features": [
-      "Curriculum-Aligned Lesson Plan Generation",
-      "Automated Assessment & Rubric Builder",
-      "Collaborative Educator Resource Collective",
-      "Currently Paused in Corporate R&D Reserve"
-    ],
-    "href": "/edugaite"
   }
 ]

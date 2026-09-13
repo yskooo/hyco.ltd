@@ -80,44 +80,48 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7"
           >
-            <div className="w-12 h-1 bg-blue-600 mb-6"></div>
-            <h2 className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-4">Our Mission & Structure</h2>
-            <h1 className="text-5xl md:text-6xl font-serif text-[#0f172a] mb-8 leading-tight">
-              Hardy & Co. PH Inc.
+            <div className="w-12 h-1 bg-[#1A46B0] mb-6"></div>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-xs font-mono font-bold text-[#0F3383] uppercase tracking-widest">Hardy&amp;Co. Group</span>
+              <span className="text-slate-300">•</span>
+              <span className="text-xs font-mono text-[#28A4E7] font-bold uppercase tracking-wider">One Company. Four Ventures.</span>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-serif text-black mb-8 leading-tight">
+              Hardy&amp;Co. Group
             </h1>
             <p className="text-xl font-medium text-slate-800 mb-6 leading-relaxed">
-              A premier technology holding company engineering scalable AI infrastructure, venture products, and intelligent enterprise services across Southeast Asia.
+              A premier technology holding group engineering scalable AI infrastructure, venture products, and intelligent enterprise platforms across Southeast Asia.
             </p>
             <p className="text-base text-slate-600 mb-6 leading-relaxed">
-              We identify fundamental operational friction across traditional commerce, enterprise services, and property markets—deploying purpose-built AI engines and technical talent to transform industry performance.
+              Under our unified operating model of <strong>&quot;One Company. Four Ventures.&quot;</strong>, we identify fundamental operational friction across traditional commerce, enterprise services, grid infrastructure, and mobility—deploying purpose-built AI engines and world-class technical talent.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200">
               <div className="flex items-start gap-3">
-                <CheckCircle2 className="text-blue-600 shrink-0 mt-1" size={18} />
+                <CheckCircle2 className="text-[#1A46B0] shrink-0 mt-1" size={18} />
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">Lead Horse: Servicio.AI</h4>
-                  <p className="text-xs text-slate-500">High-tier verified professional services marketplace &amp; AI smart matching.</p>
+                  <h4 className="text-sm font-bold text-black">Servicio.AI (Flagship)</h4>
+                  <p className="text-xs text-slate-500">Accessible, compliant AI-driven service solutions for Filipino SMEs and consumers.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle2 className="text-blue-600 shrink-0 mt-1" size={18} />
+                <CheckCircle2 className="text-[#1A46B0] shrink-0 mt-1" size={18} />
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">EV Mobility: BerdEV</h4>
-                  <p className="text-xs text-slate-500">Smart EV navigation, crowdsourced charger reliability &amp; rewards.</p>
+                  <h4 className="text-sm font-bold text-black">ElectrifAI PH</h4>
+                  <p className="text-xs text-slate-500">Intelligent, data-driven smart energy monitoring and connected hardware.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle2 className="text-blue-600 shrink-0 mt-1" size={18} />
+                <CheckCircle2 className="text-[#1A46B0] shrink-0 mt-1" size={18} />
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">Commercial GTM: LeasifAI</h4>
-                  <p className="text-xs text-slate-500">Commercial real estate location intelligence & ROI models.</p>
+                  <h4 className="text-sm font-bold text-black">LeasifAI</h4>
+                  <p className="text-xs text-slate-500">AI-powered commercial real estate matching and automated leasing workflows.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle2 className="text-blue-600 shrink-0 mt-1" size={18} />
+                <CheckCircle2 className="text-[#1A46B0] shrink-0 mt-1" size={18} />
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">Energy AI: ElectrifAI PH</h4>
-                  <p className="text-xs text-slate-500">Predictive energy load balancing and grid intelligence.</p>
+                  <h4 className="text-sm font-bold text-black">BerdEV</h4>
+                  <p className="text-xs text-slate-500">Seamless EV charging locator and payment infrastructure for Philippine mobility.</p>
                 </div>
               </div>
             </div>
@@ -130,27 +134,27 @@ export default function About() {
             className="lg:col-span-5 relative"
           >
             <div className="absolute inset-0 bg-slate-100 translate-x-6 translate-y-6 z-0"></div>
-            <div className="relative z-10 bg-slate-900 text-white p-8 md:p-12 shadow-2xl border border-slate-800">
-              <div className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-4">Corporate Snapshot</div>
-              <h3 className="text-2xl font-serif font-bold text-white mb-6">Capital Allocation & Operating Group</h3>
+            <div className="relative z-10 bg-black text-white p-8 md:p-12 shadow-2xl border border-slate-800">
+              <div className="text-xs font-mono font-bold text-[#28A4E7] uppercase tracking-widest mb-4">Corporate Snapshot</div>
+              <h3 className="text-2xl font-serif font-bold text-white mb-6">Capital Allocation &amp; Operating Group</h3>
               <p className="text-sm text-slate-300 leading-relaxed mb-8">
-                Operating with institutional rigor from Pasig City, Metro Manila, Hardy & Co. anchors core governance, compliance, and IP while empowering each subsidiary with autonomous engineering and commercial acceleration.
+                Operating with institutional rigor from Pasig City, Metro Manila, Hardy&amp;Co. Group anchors core governance, compliance, and IP while empowering each of the four ventures with autonomous engineering and commercial acceleration.
               </p>
-              <div className="space-y-4 text-xs tracking-wider uppercase text-slate-400">
+              <div className="space-y-4 text-xs tracking-wider uppercase text-slate-400 font-mono">
                 <div className="flex justify-between border-b border-white/10 pb-2">
                   <span>Headquarters</span>
                   <span className="text-white font-bold">Ortigas Center, Pasig City, PH</span>
                 </div>
                 <div className="flex justify-between border-b border-white/10 pb-2">
                   <span>Holding Entity</span>
-                  <span className="text-white font-bold">Hardy & Co. PH Inc.</span>
+                  <span className="text-white font-bold">Hardy&amp;Co. Group</span>
                 </div>
                 <div className="flex justify-between border-b border-white/10 pb-2">
-                  <span>Primary Focus</span>
-                  <span className="text-blue-400 font-bold">Servicio (Product & Servicing)</span>
+                  <span>Structure</span>
+                  <span className="text-[#28A4E7] font-bold">One Company. Four Ventures.</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Total Key Leaders</span>
+                  <span>Leadership Bench</span>
                   <span className="text-white font-bold">{totalMembers} Members</span>
                 </div>
               </div>

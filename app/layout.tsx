@@ -14,8 +14,11 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "HYCO",
-  description: "Hardy & Co. PH Corp - Technology Holding Company / AI Venture Group",
+  title: "Hardy&Co. Group | One Company. Four Ventures.",
+  description: "Hardy&Co. Group — One Company. Four Ventures. Deploying Servicio.AI, ElectrifAI PH, LeasifAI, and BerdEV across Southeast Asia.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

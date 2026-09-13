@@ -39,15 +39,6 @@
       "initials": "HP"
     },
     {
-      "id": "lawrenz-garcia",
-      "name": "Lawrenz Matthew Garcia",
-      "role": "Chief Technology Officer",
-      "category": "Executive Leadership",
-      "image": "",
-      "bio": "Architecting the overarching technology infrastructure, AI platform engineering, and enterprise systems security across the group.",
-      "initials": "LG"
-    },
-    {
       "id": "christian-lazo",
       "name": "Christian Joel C. Lazo",
       "role": "Chief Operating Officer",
@@ -55,6 +46,15 @@
       "image": "",
       "bio": "Overseeing operational excellence, organizational scaling, internal execution, and cross-subsidiary alignment.",
       "initials": "CL"
+    },
+    {
+      "id": "lawrenz-garcia",
+      "name": "Lawrenz Matthew Garcia",
+      "role": "Chief Technology Officer",
+      "category": "Executive Leadership",
+      "image": "",
+      "bio": "Architecting the overarching technology infrastructure, AI platform engineering, and enterprise systems security across the group.",
+      "initials": "LG"
     },
     {
       "id": "raeselyn-macorol",
