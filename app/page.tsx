@@ -470,9 +470,17 @@ export default function Home() {
                   <span>● Status: GTM Phase</span>
                 </div>
 
-                <div className="w-full md:w-[400px] lg:w-[500px] h-64 md:h-auto overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 shrink-0">
-                  <div className="absolute inset-0 bg-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
-                  <img src="/img-folder/leasifAI.png" alt="LeasifAI Workspace" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                <div className="w-full md:w-[420px] lg:w-[480px] min-h-[300px] md:min-h-0 h-auto overflow-hidden relative transition-all duration-700 shrink-0 bg-slate-50 flex flex-col items-center justify-center p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-100 group-hover:bg-white">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#144BBD]/0 to-[#144BBD]/0 group-hover:from-[#144BBD]/5 group-hover:to-transparent transition-colors duration-700 pointer-events-none"></div>
+                  <div className="w-24 h-24 mb-6 flex items-center justify-center relative z-10 transform group-hover:scale-105 group-hover:-translate-y-1 transition-all duration-500">
+                    <img src="/img-folder/leasifAI.png" alt="LeasifAI Logo" className="w-full h-full object-contain drop-shadow-sm" />
+                  </div>
+                  <p className="text-xl md:text-2xl font-bold text-center text-[#144BBD] leading-snug relative z-10 font-serif max-w-sm">
+                    &ldquo;We don&apos;t just help businesses find a space,<br className="hidden sm:inline" /> we help them find their place in the economy.&rdquo;
+                  </p>
+                  <span className="mt-5 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-400 font-bold relative z-10">
+                    Commercial Location Intelligence
+                  </span>
                 </div>
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
                   <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-black group-hover:bg-[#1A46B0] transition-colors duration-300"></div>
