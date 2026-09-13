@@ -134,85 +134,85 @@ export default function Home() {
               {/* 1. Servicio.AI */}
               <Link
                 href="/servicio-ai"
-                className="group p-5 bg-slate-50/80 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#0F3383]/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="group p-6 md:p-7 bg-slate-50/90 hover:bg-white rounded-2xl border border-slate-200/90 hover:border-[#0F3383]/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
-                <div className="h-16 flex items-center justify-center mb-3 px-2">
+                <div className="h-28 md:h-32 flex items-center justify-center mb-4 px-4">
                   <img
                     src="/servicio-logo.png"
                     alt="Servicio.AI"
-                    className="h-9 sm:h-11 w-auto max-w-[160px] object-contain group-hover:scale-105 transition-transform duration-300"
+                    className="h-16 sm:h-20 md:h-22 w-auto max-w-[220px] object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
                   />
                 </div>
-                <div className="text-center pt-3 border-t border-slate-200/70">
-                  <div className="font-bold text-slate-900 text-sm group-hover:text-[#0F3383] transition-colors flex items-center justify-center gap-1">
+                <div className="text-center pt-4 border-t border-slate-200/80">
+                  <div className="font-bold text-slate-900 text-base md:text-lg group-hover:text-[#0F3383] transition-colors flex items-center justify-center gap-1.5">
                     <span>Servicio.AI</span>
-                    <ArrowRight size={13} className="text-slate-400 group-hover:text-[#0F3383] group-hover:translate-x-1 transition-all" />
+                    <ArrowRight size={15} className="text-slate-400 group-hover:text-[#0F3383] group-hover:translate-x-1 transition-all" />
                   </div>
-                  <div className="text-[11px] text-slate-500 font-mono mt-0.5">Flagship Service AI</div>
+                  <div className="text-xs text-slate-500 font-mono mt-1">Flagship Service AI</div>
                 </div>
               </Link>
 
               {/* 2. ElectrifAI */}
               <Link
                 href="/electrifai"
-                className="group p-5 bg-slate-50/80 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#0F3383]/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="group p-6 md:p-7 bg-slate-50/90 hover:bg-white rounded-2xl border border-slate-200/90 hover:border-[#0F3383]/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
-                <div className="h-16 flex items-center justify-center mb-3 px-2">
+                <div className="h-28 md:h-32 flex items-center justify-center mb-4 px-4">
                   <img
                     src="/electrifai-logo.svg"
                     alt="ElectrifAI"
-                    className="h-11 sm:h-13 w-auto max-w-[160px] object-contain group-hover:scale-105 transition-transform duration-300"
+                    className="h-18 sm:h-22 md:h-24 w-auto max-w-[220px] object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
                   />
                 </div>
-                <div className="text-center pt-3 border-t border-slate-200/70">
-                  <div className="font-bold text-slate-900 text-sm group-hover:text-[#0F3383] transition-colors flex items-center justify-center gap-1">
+                <div className="text-center pt-4 border-t border-slate-200/80">
+                  <div className="font-bold text-slate-900 text-base md:text-lg group-hover:text-[#0F3383] transition-colors flex items-center justify-center gap-1.5">
                     <span>ElectrifAI</span>
-                    <ArrowRight size={13} className="text-slate-400 group-hover:text-[#0F3383] group-hover:translate-x-1 transition-all" />
+                    <ArrowRight size={15} className="text-slate-400 group-hover:text-[#0F3383] group-hover:translate-x-1 transition-all" />
                   </div>
-                  <div className="text-[11px] text-slate-500 font-mono mt-0.5">Next-Gen EV Mobility</div>
+                  <div className="text-xs text-slate-500 font-mono mt-1">Next-Gen EV Mobility</div>
                 </div>
               </Link>
 
               {/* 3. LeasifAI */}
               <Link
                 href="/leasifai"
-                className="group p-5 bg-slate-50/80 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#0F3383]/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="group p-6 md:p-7 bg-slate-50/90 hover:bg-white rounded-2xl border border-slate-200/90 hover:border-[#0F3383]/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
-                <div className="h-16 flex items-center justify-center mb-3 px-2">
+                <div className="h-28 md:h-32 flex items-center justify-center mb-4 px-4">
                   <img
                     src="/leasifai-logo.png"
                     alt="LeasifAI"
-                    className="h-9 sm:h-11 w-auto max-w-[160px] object-contain group-hover:scale-105 transition-transform duration-300"
+                    className="h-16 sm:h-20 md:h-22 w-auto max-w-[220px] object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
                   />
                 </div>
-                <div className="text-center pt-3 border-t border-slate-200/70">
-                  <div className="font-bold text-slate-900 text-sm group-hover:text-[#0F3383] transition-colors flex items-center justify-center gap-1">
+                <div className="text-center pt-4 border-t border-slate-200/80">
+                  <div className="font-bold text-slate-900 text-base md:text-lg group-hover:text-[#0F3383] transition-colors flex items-center justify-center gap-1.5">
                     <span>LeasifAI</span>
-                    <ArrowRight size={13} className="text-slate-400 group-hover:text-[#0F3383] group-hover:translate-x-1 transition-all" />
+                    <ArrowRight size={15} className="text-slate-400 group-hover:text-[#0F3383] group-hover:translate-x-1 transition-all" />
                   </div>
-                  <div className="text-[11px] text-slate-500 font-mono mt-0.5">Commercial Underwriting</div>
+                  <div className="text-xs text-slate-500 font-mono mt-1">Commercial Underwriting</div>
                 </div>
               </Link>
 
               {/* 4. BerdEV (BlackGreen Text Logo) */}
               <Link
                 href="/berdev"
-                className="group p-5 bg-slate-50/80 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-emerald-600/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="group p-6 md:p-7 bg-slate-50/90 hover:bg-white rounded-2xl border border-slate-200/90 hover:border-emerald-600/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
-                <div className="h-16 flex items-center justify-center mb-3 px-2">
-                  <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-950 border border-emerald-500/40 shadow-sm group-hover:scale-105 transition-transform duration-300">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span className="font-extrabold text-lg sm:text-xl tracking-tight font-sans text-white">
+                <div className="h-28 md:h-32 flex items-center justify-center mb-4 px-4">
+                  <div className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-slate-950 border-2 border-emerald-500/50 shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <span className="w-3.5 h-3.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span className="font-extrabold text-2xl sm:text-3xl tracking-tight font-sans text-white">
                       Berd<span className="text-emerald-400">EV</span>
                     </span>
                   </div>
                 </div>
-                <div className="text-center pt-3 border-t border-slate-200/70">
-                  <div className="font-bold text-slate-900 text-sm group-hover:text-emerald-700 transition-colors flex items-center justify-center gap-1">
+                <div className="text-center pt-4 border-t border-slate-200/80">
+                  <div className="font-bold text-slate-900 text-base md:text-lg group-hover:text-emerald-700 transition-colors flex items-center justify-center gap-1.5">
                     <span>BerdEV</span>
-                    <ArrowRight size={13} className="text-slate-400 group-hover:text-emerald-700 group-hover:translate-x-1 transition-all" />
+                    <ArrowRight size={15} className="text-slate-400 group-hover:text-emerald-700 group-hover:translate-x-1 transition-all" />
                   </div>
-                  <div className="text-[11px] text-emerald-600 font-mono mt-0.5">Clean Energy EV Network</div>
+                  <div className="text-xs text-emerald-600 font-mono mt-1">Clean Energy EV Network</div>
                 </div>
               </Link>
             </div>
@@ -337,8 +337,8 @@ export default function Home() {
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
                   <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-[#1A46B0]"></div>
                   <div className="flex items-center mb-6">
-                    <div className="h-12 px-3.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center mr-6 shrink-0 shadow-sm">
-                      <img src="/servicio-logo.png" alt="Servicio.AI" className="h-8 w-auto object-contain" />
+                    <div className="h-16 px-5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center mr-6 shrink-0 shadow-sm">
+                      <img src="/servicio-logo.png" alt="Servicio.AI" className="h-11 w-auto object-contain" />
                     </div>
                     <div>
                       <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-black font-serif">Servicio.AI</h4>
@@ -383,8 +383,8 @@ export default function Home() {
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
                   <div className="absolute top-0 md:top-10 right-10 md:-right-1 w-12 md:w-1 h-1 md:h-12 bg-black group-hover:bg-[#1A46B0] transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
-                    <div className="h-12 px-3.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center mr-6 shrink-0 shadow-sm">
-                      <img src="/electrifai-logo.svg" alt="ElectrifAI" className="h-9 w-auto object-contain" />
+                    <div className="h-16 px-5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center mr-6 shrink-0 shadow-sm">
+                      <img src="/electrifai-logo.svg" alt="ElectrifAI" className="h-12 w-auto object-contain" />
                     </div>
                     <div>
                       <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-black font-serif">ElectrifAI</h4>
@@ -428,8 +428,8 @@ export default function Home() {
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
                   <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-black group-hover:bg-[#1A46B0] transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
-                    <div className="h-12 px-3.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center mr-6 shrink-0 shadow-sm">
-                      <img src="/leasifai-logo.png" alt="LeasifAI" className="h-8 w-auto object-contain" />
+                    <div className="h-16 px-5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center mr-6 shrink-0 shadow-sm">
+                      <img src="/leasifai-logo.png" alt="LeasifAI" className="h-11 w-auto object-contain" />
                     </div>
                     <div>
                       <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-black font-serif">LeasifAI</h4>
@@ -516,9 +516,9 @@ export default function Home() {
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
                   <div className="absolute top-0 md:top-10 right-10 md:-right-1 w-12 md:w-1 h-1 md:h-12 bg-black group-hover:bg-emerald-600 transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
-                    <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-950 border border-emerald-500/40 shadow-sm mr-6 shrink-0">
+                    <div className="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-slate-950 border border-emerald-500/40 shadow-sm mr-6 shrink-0">
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                      <span className="font-extrabold text-xl tracking-tight font-sans text-white">
+                      <span className="font-extrabold text-2xl tracking-tight font-sans text-white">
                         Berd<span className="text-emerald-400">EV</span>
                       </span>
                     </div>
