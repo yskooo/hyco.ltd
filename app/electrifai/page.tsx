@@ -16,8 +16,8 @@ export default function ElectrifAI() {
         
         <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-50 border border-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest mb-8">
-              <Zap size={14} className="mr-2" /> A Hardy & Co. Subsidiary
+            <div className="inline-flex items-center px-4 py-2 bg-blue-50 border border-blue-100 text-[#0F3383] text-xs font-bold uppercase tracking-widest mb-8 font-mono">
+              <Zap size={14} className="mr-2" /> A HYCO Group Subsidiary
             </div>
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}

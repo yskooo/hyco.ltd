@@ -10,7 +10,7 @@ export default function ContactPage() {
     name: '',
     email: '',
     department: 'General Inquiries',
-    subsidiary: 'Hardy&Co. Group',
+    subsidiary: 'HYCO Group',
     message: '',
     company_website: '', // honeypot
   });
@@ -47,7 +47,7 @@ export default function ContactPage() {
         name: '',
         email: '',
         department: 'General Inquiries',
-        subsidiary: 'Hardy&Co. Group',
+        subsidiary: 'HYCO Group',
         message: '',
         company_website: '',
       });
@@ -66,7 +66,7 @@ export default function ContactPage() {
             <div className="flex items-center gap-2 mb-4">
               <span className="text-xs font-mono font-bold text-[#0F3383] uppercase tracking-widest">Contact &amp; Inquiries</span>
               <span className="text-slate-300">•</span>
-              <span className="text-xs font-mono text-slate-500 uppercase tracking-wider">Hardy&amp;Co. Group</span>
+              <span className="text-xs font-mono text-slate-500 uppercase tracking-wider">HYCO Group</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold font-serif text-slate-950 tracking-tight mb-6">
               Connect With The Group.
@@ -192,7 +192,7 @@ export default function ContactPage() {
                   </div>
                   <h3 className="text-xl font-bold text-slate-950 font-serif">Inquiry Transmitted Successfully</h3>
                   <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out to Hardy&amp;Co. Group. Your message has been logged in our corporate ticketing system and routed to the designated division.
+                    Thank you for reaching out to HYCO Group. Your message has been logged in our corporate ticketing system and routed to the designated division.
                   </p>
                   <button
                     onClick={() => setStatus('idle')}
@@ -274,7 +274,7 @@ export default function ContactPage() {
                         onChange={(e) => setFormData({ ...formData, subsidiary: e.target.value })}
                         className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-[#0F3383] transition-colors"
                       >
-                        <option value="Hardy&Co. Group">Hardy&amp;Co. Group (Holding Entity)</option>
+                        <option value="HYCO Group">HYCO Group (Holding Entity)</option>
                         <option value="Servicio.AI">Servicio.AI (Flagship Marketplace)</option>
                         <option value="ElectrifAI PH">ElectrifAI PH (Smart Energy &amp; Hardware)</option>
                         <option value="LeasifAI">LeasifAI (Commercial Real Estate)</option>

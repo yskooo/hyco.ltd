@@ -50,7 +50,7 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-3 mb-6">
               <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-blue-50 border border-blue-200/90 text-[#0F3383] text-xs font-mono font-bold tracking-widest uppercase rounded">
                 <span className="w-2 h-2 rounded-full bg-[#1A46B0] animate-pulse"></span>
-                Hardy&amp;Co. Group
+                HYCO Group
               </span>
               <span className="text-slate-300 font-mono">•</span>
               <span className="text-slate-600 text-xs font-mono font-semibold uppercase tracking-wider">
@@ -80,7 +80,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.7 }}
               className="text-lg md:text-2xl text-slate-600 mb-10 font-light leading-relaxed max-w-2xl"
             >
-              <strong className="font-bold text-slate-900 tracking-wider">Hardy&amp;Co. Group</strong> builds AI that matters, for people who deserve it. Deploying transformative AI and intelligent infrastructure across four high-impact ventures.
+              <strong className="font-bold text-slate-900 tracking-wider">HYCO Group</strong> builds AI that matters, for people who deserve it. Deploying transformative AI and intelligent infrastructure across four high-impact ventures.
             </motion.p>
 
             <motion.div
@@ -163,13 +163,13 @@ export default function Home() {
             <div className="max-w-3xl">
               <div className="flex items-center mb-4">
                 <Zap className="text-[#1A46B0] mr-2" size={20} />
-                <h2 className="text-xs font-bold text-[#0F3383] uppercase tracking-[0.3em] font-mono">Hardy&amp;Co. Group</h2>
+                <h2 className="text-xs font-bold text-[#0F3383] uppercase tracking-[0.3em] font-mono">HYCO Group</h2>
               </div>
               <h3 className="text-5xl md:text-6xl font-bold text-black mb-6 tracking-tighter uppercase font-serif">
                 One Company. Four Ventures.
               </h3>
               <p className="text-lg text-gray-600 leading-relaxed font-light">
-                By centralizing our four venture operations under <strong className="font-bold text-black">Hardy&amp;Co. Group</strong>, we optimize capital deployment, cross-pollinate proprietary AI models, and deliver scalable value across Southeast Asia.
+                By centralizing our four venture operations under <strong className="font-bold text-black">HYCO Group</strong>, we optimize capital deployment, cross-pollinate proprietary AI models, and deliver scalable value across Southeast Asia.
               </p>
             </div>
           </div>
@@ -439,7 +439,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section: Hardy&Co. Group */}
+      {/* About Section: HYCO Group */}
       <section id="about" className="py-32 bg-white text-black border-t border-gray-200">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <motion.div
@@ -454,7 +454,7 @@ export default function Home() {
             </h3>
             <div className="w-20 h-1 bg-[#1A46B0] mb-8"></div>
             <p className="text-xl text-gray-700 mb-6 leading-relaxed font-light">
-              Headquartered in Ortigas Center, Pasig City, <strong className="font-bold text-black">Hardy&amp;Co. Group</strong> is a pioneering technology holding firm operating under the model of <em>&quot;One Company. Four Ventures.&quot;</em>
+              Headquartered in Ortigas Center, Pasig City, <strong className="font-bold text-black">HYCO Group</strong> is a pioneering technology holding firm operating under the model of <em>&quot;One Company. Four Ventures.&quot;</em>
             </p>
             <p className="text-lg text-gray-500 mb-10 leading-relaxed font-light">
               We identify critical infrastructure bottlenecks across Southeast Asia and inject targeted AI solutions—powering high-tier professional marketplaces, intelligent grid telemetry, predictive commercial leasing, and electrified mobility networks.
@@ -473,14 +473,14 @@ export default function Home() {
             <div className="absolute inset-0 bg-[#0F3383] translate-x-4 translate-y-4 md:translate-x-8 md:translate-y-8 z-0"></div>
             <img
               src="https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1932&auto=format&fit=crop"
-              alt="Hardy&Co. Boardroom"
+              alt="HYCO Group Boardroom"
               className="relative z-10 w-full h-[600px] object-cover grayscale border-4 border-white shadow-2xl"
               referrerPolicy="no-referrer"
             />
             {/* Glass decoration */}
             <div className="absolute -bottom-10 -left-10 z-20 w-52 h-48 glass-panel-white hidden md:flex items-center justify-center p-6 text-black border-l-4 border-[#28A4E7]">
               <div className="font-bold text-sm uppercase tracking-widest text-center font-mono">
-                Hardy&amp;Co.<br /><span className="text-[#0F3383]">Four Ventures</span>
+                HYCO<br /><span className="text-[#0F3383]">GROUP</span>
               </div>
             </div>
           </motion.div>

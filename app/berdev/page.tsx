@@ -571,7 +571,7 @@ export default function BerdEV() {
                 Why Software &amp; Partnerships Win the EV Race.
               </h2>
               <p className="text-base md:text-lg text-slate-300 font-light leading-relaxed mb-6">
-                Building proprietary physical charging stations requires tens of millions in hardware, grid permits, and real estate leasing. Hardy &amp; Co. recognized that the greatest bottleneck isn&apos;t just physical plugs—it is <strong>software fragmentation and driver uncertainty</strong>.
+                Building proprietary physical charging stations requires tens of millions in hardware, grid permits, and real estate leasing. HYCO Group recognized that the greatest bottleneck isn&apos;t just physical plugs—it is <strong>software fragmentation and driver uncertainty</strong>.
               </p>
               <p className="text-sm text-slate-400 font-light leading-relaxed mb-8">
                 BerdEV is the neutral, high-utility layer that sits between fragmented Charging Point Operators (CPOs) and daily EV drivers. By focusing purely on user experience, real-time telemetry, gamified rewards, and commercial marketing partnerships, BerdEV scales nationwide with zero hardware capital expenditure.
@@ -607,9 +607,9 @@ export default function BerdEV() {
                     <Sparkles size={16} />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Synergy with Hardy &amp; Co. Ecosystem</h4>
+                    <h4 className="text-sm font-bold text-white">Synergy with HYCO Group Ecosystem</h4>
                     <p className="text-xs text-slate-400 mt-1">
-                      BerdEV leverages <strong className="text-white">Servicio</strong> for automated 24/7 AI driver assistance and customer support, and <strong className="text-white">LeasifAI</strong> for high-yield commercial site selection data.
+                      BerdEV leverages <strong className="text-white">Servicio.AI</strong> for automated 24/7 AI driver assistance and customer support, and <strong className="text-white">LeasifAI</strong> for high-yield commercial site selection data.
                     </p>
                   </div>
                 </div>
@@ -793,7 +793,7 @@ export default function BerdEV() {
       {/* Ecosystem Footer CTA */}
       <section className="py-16 border-t border-slate-800/80 bg-slate-950 text-center relative z-10">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="text-xs font-mono text-slate-400 mb-2">HARDY &amp; CO. PH INC. PORTFOLIO</div>
+          <div className="text-xs font-mono text-slate-400 mb-2">HYCO GROUP VENTURES</div>
           <h3 className="text-2xl font-bold text-white uppercase tracking-tight mb-4">
             Discover Our Other Strategic Ventures
           </h3>

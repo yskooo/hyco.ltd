@@ -80,14 +80,14 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7"
           >
-            <div className="w-12 h-1 bg-[#1A46B0] mb-6"></div>
+            <div className="w-12 h-1 bg-[#0F3383] mb-6"></div>
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-xs font-mono font-bold text-[#0F3383] uppercase tracking-widest">Hardy&amp;Co. Group</span>
+              <span className="text-xs font-mono font-bold text-[#0F3383] uppercase tracking-widest">HYCO Group</span>
               <span className="text-slate-300">•</span>
-              <span className="text-xs font-mono text-[#28A4E7] font-bold uppercase tracking-wider">One Company. Four Ventures.</span>
+              <span className="text-xs font-mono text-[#1A46B0] font-bold uppercase tracking-wider">One Company. Four Ventures.</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-serif text-black mb-8 leading-tight">
-              Hardy&amp;Co. Group
+            <h1 className="text-5xl md:text-6xl font-serif text-slate-950 mb-8 leading-tight">
+              HYCO Group
             </h1>
             <p className="text-xl font-medium text-slate-800 mb-6 leading-relaxed">
               A premier technology holding group engineering scalable AI infrastructure, venture products, and intelligent enterprise platforms across Southeast Asia.
@@ -138,7 +138,7 @@ export default function About() {
               <div className="text-xs font-mono font-bold text-[#28A4E7] uppercase tracking-widest mb-4">Corporate Snapshot</div>
               <h3 className="text-2xl font-serif font-bold text-white mb-6">Capital Allocation &amp; Operating Group</h3>
               <p className="text-sm text-slate-300 leading-relaxed mb-8">
-                Operating with institutional rigor from Pasig City, Metro Manila, Hardy&amp;Co. Group anchors core governance, compliance, and IP while empowering each of the four ventures with autonomous engineering and commercial acceleration.
+                Operating with institutional rigor from Pasig City, Metro Manila, HYCO Group anchors core governance, compliance, and IP while empowering each of the four ventures with autonomous engineering and commercial acceleration.
               </p>
               <div className="space-y-4 text-xs tracking-wider uppercase text-slate-400 font-mono">
                 <div className="flex justify-between border-b border-white/10 pb-2">
@@ -146,8 +146,8 @@ export default function About() {
                   <span className="text-white font-bold">Ortigas Center, Pasig City, PH</span>
                 </div>
                 <div className="flex justify-between border-b border-white/10 pb-2">
-                  <span>Holding Entity</span>
-                  <span className="text-white font-bold">Hardy&amp;Co. Group</span>
+                  <span>Operating Name</span>
+                  <span className="text-white font-bold">HYCO Group</span>
                 </div>
                 <div className="flex justify-between border-b border-white/10 pb-2">
                   <span>Structure</span>
@@ -187,10 +187,10 @@ export default function About() {
 
             <div className="md:col-span-8">
               <blockquote className="text-2xl md:text-3xl font-serif text-slate-200 italic leading-relaxed mb-8">
-                &quot;Engineering sustainable, high-impact enterprise technology requires more than novelty—it demands unwavering governance, architectural rigor, and relentless focus on market-tested value. At Hardy & Co., we are positioning ASEAN as a crucible for practical, transformative artificial intelligence.&quot;
+                &quot;Engineering sustainable, high-impact enterprise technology requires more than novelty—it demands unwavering governance, architectural rigor, and relentless focus on market-tested value. At HYCO Group, we are positioning ASEAN as a crucible for practical, transformative artificial intelligence.&quot;
               </blockquote>
               <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-6">
-                Under Engr. Gerhard P. Tan&apos;s board guidance, Hardy & Co. PH Inc. combines technical engineering standards with disciplined commercialization—ensuring our flagship operations like <strong>Servicio</strong>, smart EV mobility platform <strong>BerdEV</strong>, and geospatial platform <strong>LeasifAI</strong> scale on resilient foundations.
+                Under Engr. Gerhard P. Tan&apos;s board guidance, HYCO Group combines technical engineering standards with disciplined commercialization—ensuring our flagship operations like <strong>Servicio.AI</strong>, smart EV mobility platform <strong>BerdEV</strong>, and geospatial platform <strong>LeasifAI</strong> scale on resilient foundations.
               </p>
               <div className="p-4 bg-white/5 border border-white/10 rounded max-w-xl text-xs text-slate-400 flex items-center gap-3">
                 <Sparkles className="text-blue-400 shrink-0" size={20} />
@@ -211,7 +211,7 @@ export default function About() {
               <div className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-2">Our People</div>
               <h2 className="text-4xl md:text-5xl font-serif text-[#0f172a]">Leadership & Team</h2>
               <p className="text-base text-slate-600 mt-3 max-w-2xl">
-                The executives, engineers, advisors, and strategists driving Hardy & Co. and its operating subsidiaries.
+                The executives, engineers, advisors, and strategists driving HYCO Group and its operating subsidiaries.
               </p>
             </div>
 
