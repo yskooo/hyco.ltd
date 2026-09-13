@@ -1,0 +1,97 @@
+[
+  {
+    "id": "servicio",
+    "name": "Servicio.AI",
+    "shortName": "Servicio.AI",
+    "slug": "servicio-ai",
+    "tagline": "High-Tier Verified Professional Marketplace & AI Smart Matching",
+    "description": "Hardy & Co.'s premier lead horse and flagship platform. Connecting clients with verified Filipino professionals—from licensed engineers and lawyers to IT experts—through intelligent natural language matching, credential verification, and secure escrow payments.",
+    "status": "Main Focus",
+    "statusBadge": "Primary Focus / Flagship",
+    "leadHorse": true,
+    "category": "Professional Services & AI Matching",
+    "features": [
+      "AI-Powered Smart Matching (English & Tagalog)",
+      "Verified Professional Credentials (PRC License & Gov ID)",
+      "PCI-Compliant Escrow Vault & Milestone Protection",
+      "Integrated Real-Time Scope & Project Communication"
+    ],
+    "href": "/servicio-ai"
+  },
+  {
+    "id": "leasifai",
+    "name": "LeasifAI",
+    "shortName": "LeasifAI",
+    "slug": "leasifai",
+    "tagline": "Commercial Real Estate Location Intelligence & ROI Forecasting",
+    "description": "Currently in active Go-To-Market (GTM). Eliminating guesswork from commercial leasing through AI foot traffic analysis, competitor mapping, and ROI prediction for businesses and property developers.",
+    "status": "Active (GTM)",
+    "statusBadge": "GTM Phase",
+    "leadHorse": false,
+    "category": "Real Estate & Spatial Intelligence",
+    "features": [
+      "Footfall & Demographic Geospatial Analytics",
+      "Competitor Heatmaps & Density Mapping",
+      "AI Predictive Revenue & Payback Forecasting",
+      "Verified Commercial Space Matching Engine"
+    ],
+    "href": "/leasifai"
+  },
+  {
+    "id": "berdev",
+    "name": "BerdEV",
+    "shortName": "BerdEV",
+    "slug": "berdev",
+    "tagline": "The Waze for Electric Vehicles | Smart Navigation & Charging Rewards",
+    "description": "The community-powered EV navigation and station finder platform. Real-time charger availability, crowd-verified reliability scoring, driver rewards & credits, and integrated brand partnerships.",
+    "status": "Active Platform",
+    "statusBadge": "Smart EV Mobility",
+    "leadHorse": false,
+    "category": "EV Mobility & Charging Platform",
+    "features": [
+      "Real-Time EV Charger & 'Gas Station' Discovery",
+      "Crowdsourced Reliability Scoring & Queue Telemetry",
+      "Driver Credits, Loyalty Rewards & In-App Perks",
+      "Software & CPO Partnership Ecosystem"
+    ],
+    "href": "/berdev"
+  },
+  {
+    "id": "electrifai",
+    "name": "ElectrifAI PH",
+    "shortName": "ElectrifAI",
+    "slug": "electrifai",
+    "tagline": "Intelligent Energy Management & Grid Optimization",
+    "description": "Predictive energy analytics and AI-driven grid optimization enabling utility providers, industrial complexes, and commercial estates to balance loads dynamically and reduce carbon footprints.",
+    "status": "Active",
+    "statusBadge": "Active Platform",
+    "leadHorse": false,
+    "category": "Energy & Infrastructure Tech",
+    "features": [
+      "Predictive Load Balancing & Peak Demand Smoothing",
+      "Legacy IoT & Smart Grid Distributed Integration",
+      "Automated Power Leak & Anomaly Detection",
+      "Industrial Carbon Reduction Analytics"
+    ],
+    "href": "/electrifai"
+  },
+  {
+    "id": "edugaite",
+    "name": "Edugaite",
+    "shortName": "Edugaite",
+    "slug": "edugaite",
+    "tagline": "K-12 EdTech Platform & Teacher Productivity Workflow",
+    "description": "Specialized AI workflow software designed to streamline lesson planning, automated quiz generation, and grading for educators.",
+    "status": "Paused",
+    "statusBadge": "Paused / R&D Incubator",
+    "leadHorse": false,
+    "category": "Education Technology",
+    "features": [
+      "Curriculum-Aligned Lesson Plan Generation",
+      "Automated Assessment & Rubric Builder",
+      "Collaborative Educator Resource Collective",
+      "Currently Paused in Corporate R&D Reserve"
+    ],
+    "href": "/edugaite"
+  }
+]

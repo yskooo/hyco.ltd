@@ -3,14 +3,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Poppins, Inter } from 'next/font/google';
 
-const poppins = Poppins({ 
-  subsets: ['latin'], 
+const poppins = Poppins({
+  subsets: ['latin'],
   weight: ['600', '700'],
   variable: '--font-poppins',
 });
 
-const inter = Inter({ 
-  subsets: ['latin'], 
+const inter = Inter({
+  subsets: ['latin'],
   weight: ['400', '500', '600'],
   variable: '--font-inter',
 });
@@ -37,7 +37,7 @@ const FadeInSection = ({ children, className = "", id }: { children: React.React
         }
       });
     }, { threshold: 0.1 });
-    
+
     if (domRef.current) observer.observe(domRef.current);
     return () => observer.disconnect();
   }, []);
@@ -67,11 +67,11 @@ const GlassImagePlaceholder = ({ className, label, icon }: { className?: string,
 // --- SHADER COMPONENT ---
 const ShaderBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     function syncSize() {
       const w = window.innerWidth;
       const h = window.innerHeight;
@@ -85,7 +85,7 @@ const ShaderBackground = () => {
 
     const gl = (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')) as WebGLRenderingContext | null;
     if (!gl) return;
-    
+
     const vs = `attribute vec2 a_position; varying vec2 v_texCoord; void main() { v_texCoord = a_position * 0.5 + 0.5; gl_Position = vec4(a_position, 0.0, 1.0); }`;
     const fs = `precision highp float;
       varying vec2 v_texCoord;
@@ -172,30 +172,30 @@ const ShaderBackground = () => {
 
     function compileShader(type: number, src: string) {
       const s = gl?.createShader(type);
-      if(!s || !gl) return null;
+      if (!s || !gl) return null;
       gl.shaderSource(s, src);
       gl.compileShader(s);
       return s;
     }
-    
+
     const prog = gl.createProgram();
-    if(!prog) return;
-    
+    if (!prog) return;
+
     const vertexShader = compileShader(gl.VERTEX_SHADER, vs);
     const fragmentShader = compileShader(gl.FRAGMENT_SHADER, fs);
-    if(vertexShader) gl.attachShader(prog, vertexShader);
-    if(fragmentShader) gl.attachShader(prog, fragmentShader);
+    if (vertexShader) gl.attachShader(prog, vertexShader);
+    if (fragmentShader) gl.attachShader(prog, fragmentShader);
     gl.linkProgram(prog);
     gl.useProgram(prog);
-    
+
     const buf = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
-    
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+
     const pos = gl.getAttribLocation(prog, 'a_position');
     gl.enableVertexAttribArray(pos);
     gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
-    
+
     const uTime = gl.getUniformLocation(prog, 'u_time');
     const uRes = gl.getUniformLocation(prog, 'u_resolution');
     const uMouse = gl.getUniformLocation(prog, 'u_mouse');
@@ -232,21 +232,21 @@ const ShaderBackground = () => {
       if (!lastTime) lastTime = t;
       const dt = Math.min(t - lastTime, 50); // clamp dt to avoid huge jumps
       lastTime = t;
-      
+
       // Smoothly interpolate scroll position to fix choppy mouse wheel scrolling
       smoothedScrollNorm += (targetScrollNorm - smoothedScrollNorm) * 0.08;
-      
+
       // Calculate scroll velocity
       const scrollVelocity = (currentScrollY - lastScrollY) / (dt || 16.6);
       lastScrollY = currentScrollY;
-      
+
       // Calculate target speed and smoothly interpolate towards it to prevent jerky speed changes
       const targetSpeedMultiplier = 1.0 + Math.abs(scrollVelocity) * 4.0;
       currentSpeedMultiplier += (targetSpeedMultiplier - currentSpeedMultiplier) * 0.08;
-      
+
       accumulatedTime += (dt * currentSpeedMultiplier) * 0.001;
 
-      if(canvas && gl) {
+      if (canvas && gl) {
         gl.viewport(0, 0, canvas.width, canvas.height);
         if (uTime) gl.uniform1f(uTime, accumulatedTime);
         if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
@@ -257,7 +257,7 @@ const ShaderBackground = () => {
       reqId = requestAnimationFrame(render);
     }
     render(0);
-    
+
     return () => {
       window.removeEventListener('resize', syncSize);
       window.removeEventListener('mousemove', handleMouseMove);
@@ -275,15 +275,15 @@ const ChatWidget = ({ open, setOpen }: { open: boolean, setOpen: (v: boolean) =>
     <>
       {/* Mobile Backdrop */}
       {open && (
-        <div 
+        <div
           className="fixed inset-0 bg-[#091e25]/20 backdrop-blur-sm z-40 sm:hidden transition-opacity duration-300"
           onClick={() => setOpen(false)}
         />
       )}
-      
+
       <div className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end w-full sm:w-auto">
         {/* Modal Panel */}
-        <div 
+        <div
           className={`
             transition-all duration-300 origin-bottom sm:origin-bottom-right
             w-full h-[85vh] sm:w-[360px] sm:h-auto sm:mb-4
@@ -299,23 +299,23 @@ const ChatWidget = ({ open, setOpen }: { open: boolean, setOpen: (v: boolean) =>
           </div>
 
           <div className="bg-[#0D8C8C] text-white p-4 flex justify-between items-center sm:rounded-t-2xl">
-             <div className="flex items-center gap-3">
-               <div className="w-2.5 h-2.5 rounded-full bg-[#8ef3f2] animate-pulse shadow-[0_0_8px_#8ef3f2]"></div>
-               <span className="font-semibold text-sm font-poppins tracking-wide">Servicio Assistant</span>
-             </div>
-             <button onClick={() => setOpen(false)} aria-label="Close Chat" className="hover:bg-black/10 p-1.5 rounded-md transition-colors"><CloseIcon /></button>
+            <div className="flex items-center gap-3">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#8ef3f2] animate-pulse shadow-[0_0_8px_#8ef3f2]"></div>
+              <span className="font-semibold text-sm font-poppins tracking-wide">Servicio Assistant</span>
+            </div>
+            <button onClick={() => setOpen(false)} aria-label="Close Chat" className="hover:bg-black/10 p-1.5 rounded-md transition-colors"><CloseIcon /></button>
           </div>
-          
+
           <div className="p-5 flex-1 sm:h-[320px] overflow-y-auto flex flex-col gap-4">
-             <div className="bg-[#FAF9F5] border border-[#dcf1fb] text-[#091e25] text-[15px] p-3.5 rounded-2xl rounded-tl-sm w-[90%] shadow-sm leading-relaxed">
-               Hi! How can I help you today? Are you looking for a specific service or professional?
-             </div>
-             <div className="flex flex-wrap gap-2 mt-1">
-               <button className="text-[13px] font-medium bg-white border border-[#0D8C8C]/30 text-[#0D8C8C] px-3.5 py-1.5 rounded-full hover:bg-[#0D8C8C]/5 transition-colors">How does it work?</button>
-               <button className="text-[13px] font-medium bg-white border border-[#0D8C8C]/30 text-[#0D8C8C] px-3.5 py-1.5 rounded-full hover:bg-[#0D8C8C]/5 transition-colors">View pricing</button>
-             </div>
+            <div className="bg-[#FAF9F5] border border-[#dcf1fb] text-[#091e25] text-[15px] p-3.5 rounded-2xl rounded-tl-sm w-[90%] shadow-sm leading-relaxed">
+              Hi! How can I help you today? Are you looking for a specific service or professional?
+            </div>
+            <div className="flex flex-wrap gap-2 mt-1">
+              <button className="text-[13px] font-medium bg-white border border-[#0D8C8C]/30 text-[#0D8C8C] px-3.5 py-1.5 rounded-full hover:bg-[#0D8C8C]/5 transition-colors">How does it work?</button>
+              <button className="text-[13px] font-medium bg-white border border-[#0D8C8C]/30 text-[#0D8C8C] px-3.5 py-1.5 rounded-full hover:bg-[#0D8C8C]/5 transition-colors">View pricing</button>
+            </div>
           </div>
-          
+
           <div className="p-4 border-t border-[#b2dede]/30 bg-white/60 backdrop-blur-md">
             <div className="relative group">
               <input type="text" placeholder="Type your message..." className="w-full bg-white/80 border border-[#bdc9c8] rounded-full pl-5 pr-12 py-3 text-sm focus:outline-none focus:border-[#0D8C8C] focus:ring-1 focus:ring-[#0D8C8C] transition-all shadow-inner text-[#091e25] placeholder:text-[#6d7979]" />
@@ -323,10 +323,10 @@ const ChatWidget = ({ open, setOpen }: { open: boolean, setOpen: (v: boolean) =>
             </div>
           </div>
         </div>
-        
+
         {/* FAB */}
         <div className="hidden sm:block">
-          <button 
+          <button
             onClick={() => setOpen(!open)}
             className="w-14 h-14 bg-[#0D8C8C] text-white rounded-full flex items-center justify-center shadow-[0_4px_24px_rgba(13,140,140,0.3)] hover:scale-105 hover:bg-[#006767] transition-all group relative z-50"
             aria-label="Have questions?"
@@ -362,12 +362,12 @@ export default function ServicioLandingPage() {
           <ShaderBackground />
         </div>
       </div>
-      
+
       <header className="w-full pt-10 px-6 text-center max-w-[1280px] mx-auto relative z-40">
         <div className="font-poppins font-bold text-4xl md:text-5xl lg:text-6xl tracking-tighter text-[#0D8C8C]">Servicio.AI</div>
       </header>
       <main className="pt-8 pb-24 px-6 max-w-[1280px] mx-auto space-y-32 md:space-y-48 relative z-10">
-        
+
         {/* Section 1 — Hero */}
         <section className="relative text-center flex flex-col items-center pt-4 md:pt-8">
           <FadeInSection className="max-w-4xl flex flex-col items-center">
@@ -377,14 +377,14 @@ export default function ServicioLandingPage() {
             <p className="text-[16px] md:text-[18px] text-[#3d4949] leading-[1.6] max-w-2xl mb-10">
               Connecting clients with verified Filipino professionals—from home construction to legal consultation—through secure, intelligent, and localized technology.
             </p>
-            
+
             <div className="w-full max-w-xl relative mb-10 flex">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#6d7979]">
                 <SearchIcon />
               </div>
-              <input 
-                type="text" 
-                placeholder="What service are you looking for?" 
+              <input
+                type="text"
+                placeholder="What service are you looking for?"
                 className="w-full bg-white/80 backdrop-blur-md border border-[#b2dede] rounded-full pl-12 pr-36 py-4 text-[15px] shadow-sm focus:outline-none focus:border-[#0D8C8C] focus:ring-2 focus:ring-[#0D8C8C]/20 transition-all placeholder:text-[#6d7979]"
               />
               <div className="absolute right-2 top-1/2 -translate-y-1/2">
@@ -401,8 +401,8 @@ export default function ServicioLandingPage() {
           </FadeInSection>
 
           <FadeInSection className="w-full mt-20 relative">
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#E8F6F6] rounded-full blur-[100px] -z-10 opacity-80" />
-             <GlassImagePlaceholder className="w-full aspect-[16/9] md:aspect-[21/9] shadow-2xl" label="Interface Preview" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#E8F6F6] rounded-full blur-[100px] -z-10 opacity-80" />
+            <GlassImagePlaceholder className="w-full aspect-[16/9] md:aspect-[21/9] shadow-2xl" label="Interface Preview" />
           </FadeInSection>
         </section>
 
@@ -410,59 +410,59 @@ export default function ServicioLandingPage() {
         <FadeInSection className="flex flex-col items-center">
           <p className="text-[12px] font-semibold tracking-[0.1em] uppercase text-[#6d7979] mb-8">Trusted by</p>
           <div className="w-full overflow-hidden relative">
-             <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#FAF9F5] to-transparent z-10" />
-             <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#FAF9F5] to-transparent z-10" />
-             <div className="flex items-center gap-12 md:gap-24 overflow-x-auto no-scrollbar justify-start md:justify-center px-8 pb-4 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
-                {/* Placeholders for logos */}
-                {[1,2,3,4,5].map(i => (
-                  <div key={i} className="flex-shrink-0 flex items-center gap-3 font-poppins font-bold text-xl text-[#3d4949]/80 hover:text-[#0D8C8C] transition-colors duration-300 tracking-tighter cursor-default">
-                    <div className="w-8 h-8 rounded-full bg-[#0D8C8C]/10 flex items-center justify-center text-[#0D8C8C]">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    </div>
-                    PARTNER {i}
+            <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#FAF9F5] to-transparent z-10" />
+            <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#FAF9F5] to-transparent z-10" />
+            <div className="flex items-center gap-12 md:gap-24 overflow-x-auto no-scrollbar justify-start md:justify-center px-8 pb-4 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
+              {/* Placeholders for logos */}
+              {[1, 2, 3, 4, 5].map(i => (
+                <div key={i} className="flex-shrink-0 flex items-center gap-3 font-poppins font-bold text-xl text-[#3d4949]/80 hover:text-[#0D8C8C] transition-colors duration-300 tracking-tighter cursor-default">
+                  <div className="w-8 h-8 rounded-full bg-[#0D8C8C]/10 flex items-center justify-center text-[#0D8C8C]">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                   </div>
-                ))}
-             </div>
+                  PARTNER {i}
+                </div>
+              ))}
+            </div>
           </div>
         </FadeInSection>
 
         {/* Section 3 — The Problem & Solution */}
         <FadeInSection>
           <div className="grid md:grid-cols-2 gap-12 md:gap-8 lg:gap-24 items-center">
-             <div>
-               <h2 className="font-poppins text-[28px] md:text-[32px] font-bold leading-tight text-[#091e25] mb-8">
-                 The complexity of modern sourcing.
-               </h2>
-               <ul className="space-y-5 text-[16px] text-[#3d4949]">
-                 <li className="flex items-start gap-4">
-                   <div className="w-6 h-6 rounded-full bg-[#ffdad6] text-[#ba1a1a] flex items-center justify-center flex-shrink-0 mt-0.5"><CloseIcon /></div>
-                   <span>Endless scrolling through unverified profiles</span>
-                 </li>
-                 <li className="flex items-start gap-4">
-                   <div className="w-6 h-6 rounded-full bg-[#ffdad6] text-[#ba1a1a] flex items-center justify-center flex-shrink-0 mt-0.5"><CloseIcon /></div>
-                   <span>Language barriers and mismatched expectations</span>
-                 </li>
-                 <li className="flex items-start gap-4">
-                   <div className="w-6 h-6 rounded-full bg-[#ffdad6] text-[#ba1a1a] flex items-center justify-center flex-shrink-0 mt-0.5"><CloseIcon /></div>
-                   <span>Insecure payment methods and &quot;ghosting&quot; risks</span>
-                 </li>
-               </ul>
-             </div>
-             
-             <div className={`${glassPanel} rounded-3xl p-8 md:p-10 relative overflow-hidden`}>
-                <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#E8F6F6] blur-[60px] rounded-full pointer-events-none" />
-                <div className="inline-block text-[12px] font-semibold tracking-widest uppercase text-[#006767] bg-[#e4f7ff] px-3 py-1 rounded-full mb-6">
-                  The Servicio Standard
-                </div>
-                <p className="text-[16px] md:text-[18px] text-[#091e25] font-medium leading-relaxed mb-8 relative z-10">
-                  An AI-powered marketplace connecting Filipino clients with verified providers — from licensed engineers to local businesses — functioning like a booking-app experience but purpose-built for services.
-                </p>
-                <div className="space-y-4 text-[15px] font-medium text-[#3d4949] relative z-10">
-                  <div className="flex items-center gap-3"><CheckIcon /> 1. Professional Services Marketplace</div>
-                  <div className="flex items-center gap-3"><CheckIcon /> 2. AI-Powered Smart Matching</div>
-                  <div className="flex items-center gap-3"><CheckIcon /> 3. Trusted & Secure Transactions</div>
-                </div>
-             </div>
+            <div>
+              <h2 className="font-poppins text-[28px] md:text-[32px] font-bold leading-tight text-[#091e25] mb-8">
+                The complexity of modern sourcing.
+              </h2>
+              <ul className="space-y-5 text-[16px] text-[#3d4949]">
+                <li className="flex items-start gap-4">
+                  <div className="w-6 h-6 rounded-full bg-[#ffdad6] text-[#ba1a1a] flex items-center justify-center flex-shrink-0 mt-0.5"><CloseIcon /></div>
+                  <span>Endless scrolling through unverified profiles</span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="w-6 h-6 rounded-full bg-[#ffdad6] text-[#ba1a1a] flex items-center justify-center flex-shrink-0 mt-0.5"><CloseIcon /></div>
+                  <span>Language barriers and mismatched expectations</span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="w-6 h-6 rounded-full bg-[#ffdad6] text-[#ba1a1a] flex items-center justify-center flex-shrink-0 mt-0.5"><CloseIcon /></div>
+                  <span>Insecure payment methods and &quot;ghosting&quot; risks</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className={`${glassPanel} rounded-3xl p-8 md:p-10 relative overflow-hidden`}>
+              <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#E8F6F6] blur-[60px] rounded-full pointer-events-none" />
+              <div className="inline-block text-[12px] font-semibold tracking-widest uppercase text-[#006767] bg-[#e4f7ff] px-3 py-1 rounded-full mb-6">
+                The Servicio Standard
+              </div>
+              <p className="text-[16px] md:text-[18px] text-[#091e25] font-medium leading-relaxed mb-8 relative z-10">
+                An AI-powered marketplace connecting Filipino clients with verified providers — from licensed engineers to local businesses — functioning like a booking-app experience but purpose-built for services.
+              </p>
+              <div className="space-y-4 text-[15px] font-medium text-[#3d4949] relative z-10">
+                <div className="flex items-center gap-3"><CheckIcon /> 1. Professional Services Marketplace</div>
+                <div className="flex items-center gap-3"><CheckIcon /> 2. AI-Powered Smart Matching</div>
+                <div className="flex items-center gap-3"><CheckIcon /> 3. Trusted & Secure Transactions</div>
+              </div>
+            </div>
           </div>
         </FadeInSection>
 
@@ -472,7 +472,7 @@ export default function ServicioLandingPage() {
             <div className="inline-block text-[12px] font-semibold tracking-widest uppercase text-[#6d7979] mb-3">Categories</div>
             <h2 className="font-poppins text-[32px] md:text-[36px] font-bold text-[#091e25]">The Elite Tier.</h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Category 1 */}
             <div className={`${glassPanel} ${glassPanelHover} rounded-2xl p-8 group cursor-pointer`}>
@@ -482,7 +482,7 @@ export default function ServicioLandingPage() {
               <h3 className="font-poppins font-bold text-[18px] text-[#091e25] mb-3">Engineering & Architecture</h3>
               <p className="text-[14px] text-[#6d7979] leading-relaxed">Structural Engineering Consultation · Architectural Drafting & Design · Civil Engineering Services</p>
             </div>
-            
+
             {/* Category 2 */}
             <div className={`${glassPanel} ${glassPanelHover} rounded-2xl p-8 group cursor-pointer`}>
               <div className="w-12 h-12 rounded-xl bg-[#e4f7ff] text-[#006767] flex items-center justify-center mb-6 transition-transform group-hover:scale-110">
@@ -491,7 +491,7 @@ export default function ServicioLandingPage() {
               <h3 className="font-poppins font-bold text-[18px] text-[#091e25] mb-3">Legal Services</h3>
               <p className="text-[14px] text-[#6d7979] leading-relaxed">Contract Review & Draft · Legal Consultation · Document Notarization</p>
             </div>
-            
+
             {/* Category 3 */}
             <div className={`${glassPanel} ${glassPanelHover} rounded-2xl p-8 group cursor-pointer`}>
               <div className="w-12 h-12 rounded-xl bg-[#e4f7ff] text-[#006767] flex items-center justify-center mb-6 transition-transform group-hover:scale-110">
@@ -500,7 +500,7 @@ export default function ServicioLandingPage() {
               <h3 className="font-poppins font-bold text-[18px] text-[#091e25] mb-3">Academic & Tutoring</h3>
               <p className="text-[14px] text-[#6d7979] leading-relaxed">Academic Research Assistance · Professional Tutoring · Technical Writing Services</p>
             </div>
-            
+
             {/* Category 4 */}
             <div className={`${glassPanel} ${glassPanelHover} rounded-2xl p-8 group cursor-pointer`}>
               <div className="w-12 h-12 rounded-xl bg-[#e4f7ff] text-[#006767] flex items-center justify-center mb-6 transition-transform group-hover:scale-110">
@@ -509,7 +509,7 @@ export default function ServicioLandingPage() {
               <h3 className="font-poppins font-bold text-[18px] text-[#091e25] mb-3">IT & Digital</h3>
               <p className="text-[14px] text-[#6d7979] leading-relaxed">Web Development · Mobile App Development · Digital Marketing</p>
             </div>
-            
+
             {/* Category 5 */}
             <div className={`${glassPanel} ${glassPanelHover} rounded-2xl p-8 group cursor-pointer md:col-span-2 lg:col-span-1`}>
               <div className="w-12 h-12 rounded-xl bg-[#e4f7ff] text-[#006767] flex items-center justify-center mb-6 transition-transform group-hover:scale-110">
@@ -531,7 +531,7 @@ export default function ServicioLandingPage() {
             <div className="hidden md:block absolute top-6 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#bdc9c8] to-transparent -translate-y-1/2 z-0" />
             {/* Mobile Line */}
             <div className="md:hidden absolute top-0 left-6 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-[#bdc9c8] to-transparent z-0" />
-            
+
             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4 relative z-10">
               {[
                 { n: "1", title: "Describe", desc: "Tell us in your own words. English or Tagalog." },
@@ -560,8 +560,8 @@ export default function ServicioLandingPage() {
             {/* Chat Panel visual */}
             <div className={`${glassPanel} rounded-3xl overflow-hidden`}>
               <div className="bg-white/80 border-b border-[#b2dede]/30 p-4 px-6 flex items-center gap-3">
-                 <div className="w-2.5 h-2.5 rounded-full bg-[#8ef3f2]"></div>
-                 <span className="font-poppins font-semibold text-[14px] text-[#091e25]">Servicio AI Assistant</span>
+                <div className="w-2.5 h-2.5 rounded-full bg-[#8ef3f2]"></div>
+                <span className="font-poppins font-semibold text-[14px] text-[#091e25]">Servicio AI Assistant</span>
               </div>
               <div className="p-6 md:p-8 space-y-6">
                 <div className="flex justify-end">
@@ -576,7 +576,7 @@ export default function ServicioLandingPage() {
                 </div>
               </div>
             </div>
-            
+
             {/* Right Panel */}
             <div>
               <h2 className="font-poppins text-[28px] md:text-[32px] font-bold text-[#091e25] mb-6">
@@ -605,46 +605,46 @@ export default function ServicioLandingPage() {
 
         {/* Section 7 — Verification & Trust */}
         <FadeInSection className="text-center max-w-4xl mx-auto">
-           <div className="w-16 h-16 mx-auto bg-[#e4f7ff] rounded-2xl flex items-center justify-center text-[#006767] mb-8">
-             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-           </div>
-           <h2 className="font-poppins text-[32px] md:text-[36px] font-bold text-[#091e25] mb-6">
-             Verified Professionals, Real Protection.
-           </h2>
-           <p className="text-[16px] md:text-[18px] text-[#3d4949] leading-relaxed mb-6">
-             Every provider on Servicio.ai submits a government ID and, where applicable, a professional license and portfolio for review. Our admin team manually reviews every credential before a provider earns the Verified badge. Clients also confirm their phone number via OTP before their first booking.
-           </p>
-           <p className="text-[16px] font-semibold italic text-[#006767]">
-             This isn&apos;t a hurdle for providers — it&apos;s protection for you.
-           </p>
+          <div className="w-16 h-16 mx-auto bg-[#e4f7ff] rounded-2xl flex items-center justify-center text-[#006767] mb-8">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+          </div>
+          <h2 className="font-poppins text-[32px] md:text-[36px] font-bold text-[#091e25] mb-6">
+            Verified Professionals, Real Protection.
+          </h2>
+          <p className="text-[16px] md:text-[18px] text-[#3d4949] leading-relaxed mb-6">
+            Every provider on Servicio.ai submits a government ID and, where applicable, a professional license and portfolio for review. Our admin team manually reviews every credential before a provider earns the Verified badge. Clients also confirm their phone number via OTP before their first booking.
+          </p>
+          <p className="text-[16px] font-semibold italic text-[#006767]">
+            This isn&apos;t a hurdle for providers — it&apos;s protection for you.
+          </p>
         </FadeInSection>
 
         {/* Section 8 — Secure Payment / Escrow & Communication */}
         <FadeInSection>
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             <div className={`${glassPanel} rounded-3xl p-8 md:p-12 border-t-4 border-t-[#D97706]`}>
-               <h3 className="font-poppins text-[24px] font-bold text-[#091e25] mb-4">Secured by Escrow Protection</h3>
-               <p className="text-[16px] text-[#3d4949] leading-relaxed mb-8">
-                 No more upfront risk. Your payment is held in a secure, PCI-compliant vault and only released once you approve the final deliverable. Zero fraud. 100% peace of mind.
-               </p>
-               <div className="space-y-3 font-medium text-[15px] text-[#091e25]">
-                 <div className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-[#D97706]" /> Fraud Monitoring</div>
-                 <div className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-[#D97706]" /> Secure Withdrawals</div>
-                 <div className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-[#D97706]" /> Dispute Resolution</div>
-               </div>
+              <h3 className="font-poppins text-[24px] font-bold text-[#091e25] mb-4">Secured by Escrow Protection</h3>
+              <p className="text-[16px] text-[#3d4949] leading-relaxed mb-8">
+                No more upfront risk. Your payment is held in a secure, PCI-compliant vault and only released once you approve the final deliverable. Zero fraud. 100% peace of mind.
+              </p>
+              <div className="space-y-3 font-medium text-[15px] text-[#091e25]">
+                <div className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-[#D97706]" /> Fraud Monitoring</div>
+                <div className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-[#D97706]" /> Secure Withdrawals</div>
+                <div className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-[#D97706]" /> Dispute Resolution</div>
+              </div>
             </div>
-            
+
             <div className={`${glassPanel} rounded-3xl p-8 md:p-12 border-t-4 border-t-[#006767]`}>
-               <h3 className="font-poppins text-[24px] font-bold text-[#091e25] mb-4">Real-time Communication</h3>
-               <p className="text-[16px] text-[#3d4949] leading-relaxed">
-                 Once booked, chat directly with your provider in real time — share files, clarify scope, and track progress, all inside the app.
-               </p>
-               <div className="mt-8 flex justify-end opacity-50 pointer-events-none">
-                 <div className="bg-[#e4f7ff] border border-[#b2dede]/50 p-4 rounded-xl rounded-br-sm w-3/4 flex items-center gap-3">
-                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#006a6a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
-                   <span className="text-[14px] text-[#006a6a] font-medium">project_specs.pdf attached</span>
-                 </div>
-               </div>
+              <h3 className="font-poppins text-[24px] font-bold text-[#091e25] mb-4">Real-time Communication</h3>
+              <p className="text-[16px] text-[#3d4949] leading-relaxed">
+                Once booked, chat directly with your provider in real time — share files, clarify scope, and track progress, all inside the app.
+              </p>
+              <div className="mt-8 flex justify-end opacity-50 pointer-events-none">
+                <div className="bg-[#e4f7ff] border border-[#b2dede]/50 p-4 rounded-xl rounded-br-sm w-3/4 flex items-center gap-3">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#006a6a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+                  <span className="text-[14px] text-[#006a6a] font-medium">project_specs.pdf attached</span>
+                </div>
+              </div>
             </div>
           </div>
         </FadeInSection>
@@ -655,7 +655,7 @@ export default function ServicioLandingPage() {
             <h2 className="font-poppins text-[32px] md:text-[36px] font-bold text-[#091e25] mb-4">Quality Delivered</h2>
             <p className="text-[16px] md:text-[18px] text-[#6d7979]">Exceptional work from our verified professionals.</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="space-y-6">
               <GlassImagePlaceholder className="w-full aspect-[4/5]" label="IMAGE 01" />
@@ -669,11 +669,11 @@ export default function ServicioLandingPage() {
               <GlassImagePlaceholder className="w-full aspect-[2/3]" label="IMAGE 05" />
             </div>
           </div>
-          
+
           <div className="mt-16 text-center">
-             <p className="text-[18px] md:text-[20px] font-poppins font-semibold text-[#006767]">
-               Built for the Philippines, in English and Tagalog — from Metro Manila to every barangay beyond.
-             </p>
+            <p className="text-[18px] md:text-[20px] font-poppins font-semibold text-[#006767]">
+              Built for the Philippines, in English and Tagalog — from Metro Manila to every barangay beyond.
+            </p>
           </div>
         </FadeInSection>
 
@@ -704,16 +704,16 @@ export default function ServicioLandingPage() {
       {/* Section 11 — Footer */}
       <footer className="bg-white/40 backdrop-blur-lg border-t border-[#b2dede]/50 py-12 relative z-10">
         <div className="max-w-[1280px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-           <div className="text-center md:text-left">
-             <div className="font-poppins font-bold text-xl text-[#006767] mb-2">Servicio.AI</div>
-             <div className="text-[14px] text-[#6d7979]">© 2026 Servicio.AI, High-Tier Professional Marketplace.</div>
-           </div>
-           <div className="flex flex-wrap justify-center gap-6 text-[14px] font-medium text-[#3d4949]">
-             <a href="#" className="hover:text-[#0D8C8C] transition-colors">Terms of Service</a>
-             <a href="#" className="hover:text-[#0D8C8C] transition-colors">Privacy Policy</a>
-             <a href="#" className="hover:text-[#0D8C8C] transition-colors">Escrow Protection</a>
-             <a href="#" className="hover:text-[#0D8C8C] transition-colors">Help Center</a>
-           </div>
+          <div className="text-center md:text-left">
+            <div className="font-poppins font-bold text-xl text-[#006767] mb-2">Servicio.AI</div>
+            <div className="text-[14px] text-[#6d7979]">© 2026 Servicio.AI, High-Tier Professional Marketplace.</div>
+          </div>
+          <div className="flex flex-wrap justify-center gap-6 text-[14px] font-medium text-[#3d4949]">
+            <a href="#" className="hover:text-[#0D8C8C] transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-[#0D8C8C] transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-[#0D8C8C] transition-colors">Escrow Protection</a>
+            <a href="#" className="hover:text-[#0D8C8C] transition-colors">Help Center</a>
+          </div>
         </div>
       </footer>
 
