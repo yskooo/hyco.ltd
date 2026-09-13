@@ -45,7 +45,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center gap-2 text-xs font-mono">
             <span className="text-[#0F3383] font-bold">HYCO Group</span>
             <span className="text-slate-300">•</span>
-            <span className="text-slate-600">One Company. Four Ventures.</span>
+            <span className="text-slate-600">Transformative AI &amp; Intelligent Infrastructure</span>
             <span className="text-slate-300">•</span>
             <span className="text-slate-400">Ortigas Center, Pasig City</span>
           </div>
@@ -93,9 +93,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     <div className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#0F3383] mb-1">
                       HYCO Group
                     </div>
-                    <h4 className="text-lg font-bold font-serif text-slate-950 mb-2">One Company. <br />Four Ventures.</h4>
+                    <h4 className="text-lg font-bold font-serif text-slate-950 mb-2">AI That Matters.</h4>
                     <p className="text-xs text-slate-500 leading-relaxed mb-4 font-light">
-                      Engineering transformative AI and intelligent infrastructure across Southeast Asia.
+                      Deploying transformative AI and intelligent infrastructure across four high-impact ventures.
                     </p>
                     <div className="text-[10px] uppercase font-bold tracking-widest text-[#0F3383] bg-blue-50 p-2.5 rounded border border-blue-100 font-mono">
                       ★ Flagship: Servicio.AI
@@ -190,7 +190,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
                 <div className="flex flex-col space-y-3 pt-2">
                   <div className="text-xs font-mono font-bold text-[#0F3383] uppercase tracking-widest">
-                    One Company. Four Ventures.
+                    Four High-Impact Ventures
                   </div>
                   <div className="pl-4 flex flex-col space-y-3 border-l-2 border-slate-100">
                     <Link href="/servicio-ai" className="text-sm font-semibold text-slate-800 flex items-center justify-between">
@@ -240,7 +240,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <HycoLogo />
               </Link>
               <p className="text-slate-500 text-sm leading-relaxed mb-6 max-w-sm font-light">
-                Engineering intelligent AI infrastructure and specialized venture platforms across Southeast Asia. One Company. Four Ventures.
+                HYCO Group builds AI that matters, for people who deserve it. Deploying transformative AI and intelligent infrastructure across four high-impact ventures.
               </p>
               <div className="text-xs text-slate-400 font-mono space-y-1">
                 <div>Ortigas Center, Pasig City, Metro Manila</div>

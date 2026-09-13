@@ -66,7 +66,7 @@ export default function LegalPage() {
             </div>
             <div>
               <span className="text-slate-400 block mb-0.5">Corporate Structure</span>
-              <strong className="text-slate-900 font-sans text-sm">One Company. Four Ventures.</strong>
+              <strong className="text-slate-900 font-sans text-sm">Four High-Impact Operating Ventures</strong>
             </div>
             <div>
               <span className="text-slate-400 block mb-0.5">Contact Inquiries</span>

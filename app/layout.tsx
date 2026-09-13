@@ -11,8 +11,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "HYCO Group | One Company. Four Ventures.",
-  description: "HYCO Group — One Company. Four Ventures. Deploying Servicio.AI, ElectrifAI PH, LeasifAI, and BerdEV across Southeast Asia.",
+  title: "HYCO Group | Transformative AI & Intelligent Infrastructure",
+  description: "HYCO Group builds AI that matters, for people who deserve it. Deploying transformative AI and intelligent infrastructure across four high-impact ventures.",
   icons: {
     icon: "/logo.png",
   },

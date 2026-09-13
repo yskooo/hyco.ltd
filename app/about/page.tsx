@@ -84,7 +84,7 @@ export default function About() {
             <div className="flex items-center gap-2 mb-4">
               <span className="text-xs font-mono font-bold text-[#0F3383] uppercase tracking-widest">HYCO Group</span>
               <span className="text-slate-300">•</span>
-              <span className="text-xs font-mono text-[#1A46B0] font-bold uppercase tracking-wider">One Company. Four Ventures.</span>
+              <span className="text-xs font-mono text-[#1A46B0] font-bold uppercase tracking-wider">Four High-Impact Ventures</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-serif text-slate-950 mb-8 leading-tight">
               HYCO Group
@@ -93,7 +93,7 @@ export default function About() {
               A premier technology holding group engineering scalable AI infrastructure, venture products, and intelligent enterprise platforms across Southeast Asia.
             </p>
             <p className="text-base text-slate-600 mb-6 leading-relaxed">
-              Under our unified operating model of <strong>&quot;One Company. Four Ventures.&quot;</strong>, we identify fundamental operational friction across traditional commerce, enterprise services, grid infrastructure, and mobility—deploying purpose-built AI engines and world-class technical talent.
+              <strong>HYCO Group builds AI that matters, for people who deserve it.</strong> We identify fundamental operational friction across traditional commerce, enterprise services, grid infrastructure, and mobility—deploying transformative AI and intelligent infrastructure across four high-impact ventures.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200">
               <div className="flex items-start gap-3">
@@ -151,7 +151,7 @@ export default function About() {
                 </div>
                 <div className="flex justify-between border-b border-white/10 pb-2">
                   <span>Structure</span>
-                  <span className="text-[#28A4E7] font-bold">One Company. Four Ventures.</span>
+                  <span className="text-[#28A4E7] font-bold">Four High-Impact Ventures</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Leadership Bench</span>

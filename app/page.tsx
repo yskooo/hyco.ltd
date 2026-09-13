@@ -33,18 +33,28 @@ function Counter({ value, suffix = "" }: { value: number, suffix?: string }) {
 export default function Home() {
   return (
     <div className="w-full bg-white text-slate-900">
-      {/* Executive Light Hero Section */}
-      <section className="relative min-h-[780px] lg:min-h-[850px] flex items-center overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-100/70 border-b border-slate-200">
-        {/* Subtle geometric grid background */}
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(#0F3383_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.06] pointer-events-none"></div>
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-blue-100/40 via-blue-50/20 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+      {/* Executive Hero Section with Atmospheric Architecture Background */}
+      <section className="relative min-h-[820px] lg:min-h-[880px] flex items-center overflow-hidden bg-slate-950 border-b border-slate-200">
+        {/* Background Image with subtle atmospheric gradient masks */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <img
+            src="/hero-bg.jpg"
+            alt="HYCO Group AI Tech Headquarters"
+            className="w-full h-full object-cover object-center scale-105"
+          />
+          {/* Refined gradient scrim: crisp overlay ensuring text readability while letting the architectural glass and light glow through */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/90 to-white/30 lg:to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/40"></div>
+          {/* Subtle geometric dot grid for precision engineering feel */}
+          <div className="absolute inset-0 bg-[radial-gradient(#0F3383_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.07] pointer-events-none"></div>
+        </div>
 
         <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 py-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="max-w-4xl bg-white/95 backdrop-blur-md p-8 md:p-14 border border-slate-200/90 shadow-[0_20px_50px_rgba(15,51,131,0.07)] rounded-xl"
+            className="max-w-4xl bg-white/90 backdrop-blur-md p-8 md:p-14 border border-slate-200/90 shadow-[0_20px_60px_rgba(15,51,131,0.08)] rounded-2xl"
           >
             {/* Top pill badge */}
             <div className="flex flex-wrap items-center gap-3 mb-6">
@@ -54,7 +64,7 @@ export default function Home() {
               </span>
               <span className="text-slate-300 font-mono">•</span>
               <span className="text-slate-600 text-xs font-mono font-semibold uppercase tracking-wider">
-                One Company. Four Ventures.
+                Four High-Impact Ventures
               </span>
             </div>
 
@@ -156,7 +166,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Portfolio Section: One Company. Four Ventures. */}
+      {/* Portfolio Section: Four High-Impact Ventures */}
       <section id="ventures" className="py-32 bg-[#f8fafc] text-black">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12">
           <div className="mb-20 md:flex justify-between items-end">
@@ -166,10 +176,10 @@ export default function Home() {
                 <h2 className="text-xs font-bold text-[#0F3383] uppercase tracking-[0.3em] font-mono">HYCO Group</h2>
               </div>
               <h3 className="text-5xl md:text-6xl font-bold text-black mb-6 tracking-tighter uppercase font-serif">
-                One Company. Four Ventures.
+                Four High-Impact Ventures.
               </h3>
               <p className="text-lg text-gray-600 leading-relaxed font-light">
-                By centralizing our four venture operations under <strong className="font-bold text-black">HYCO Group</strong>, we optimize capital deployment, cross-pollinate proprietary AI models, and deliver scalable value across Southeast Asia.
+                Deploying transformative AI and intelligent infrastructure across four specialized operations—scaling high-value platforms across Southeast Asia.
               </p>
             </div>
           </div>
@@ -454,7 +464,7 @@ export default function Home() {
             </h3>
             <div className="w-20 h-1 bg-[#1A46B0] mb-8"></div>
             <p className="text-xl text-gray-700 mb-6 leading-relaxed font-light">
-              Headquartered in Ortigas Center, Pasig City, <strong className="font-bold text-black">HYCO Group</strong> is a pioneering technology holding firm operating under the model of <em>&quot;One Company. Four Ventures.&quot;</em>
+              Headquartered in Ortigas Center, Pasig City, <strong className="font-bold text-black">HYCO Group</strong> builds AI that matters, for people who deserve it—deploying transformative AI and intelligent infrastructure across four high-impact ventures.
             </p>
             <p className="text-lg text-gray-500 mb-10 leading-relaxed font-light">
               We identify critical infrastructure bottlenecks across Southeast Asia and inject targeted AI solutions—powering high-tier professional marketplaces, intelligent grid telemetry, predictive commercial leasing, and electrified mobility networks.
