@@ -33,83 +33,107 @@ function Counter({ value, suffix = "" }: { value: number, suffix?: string }) {
 export default function Home() {
   return (
     <div className="w-full bg-white text-slate-900">
-      {/* Citadel-Inspired Full-Bleed Cinematic Hero with AI Engineering Architecture */}
-      <section className="relative w-full h-[84vh] min-h-[680px] max-h-[880px] flex flex-col justify-between overflow-hidden bg-slate-950 border-b border-slate-200">
-        
-        {/* Cinematic Background AI Lab Visual */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster="/hero-ai-lab.jpg"
-            className="w-full h-full object-cover object-center scale-105 transition-transform duration-10000 ease-out"
-          >
-            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
-          </video>
+      {/* Citadel-Inspired Framed Cinematic Hero with White Frame Margins */}
+      <section className="bg-white py-4 sm:py-6 md:py-8 relative overflow-hidden">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative">
           
-          {/* High-Fidelity AI Engineering Lab Image */}
-          <img
-            src="/hero-ai-lab.jpg"
-            alt="HYCO Group AI & Autonomous Systems Research Laboratory"
-            className="absolute inset-0 w-full h-full object-cover object-center -z-10"
-          />
-
-          {/* Left-side Dark Vignette Scrim (Ensures 100% crisp typography over the lab environment) */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/25"></div>
-          
-          {/* Precision Engineering Dot Matrix */}
-          <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none"></div>
-        </div>
-
-        {/* Upper Title Area with Premium Left Margin */}
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-8 md:px-16 lg:px-24 xl:px-32 pt-20 md:pt-28">
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="max-w-4xl"
+          {/* Decorative Citadel-Style Brand Ribbon in the Left White Frame */}
+          <svg
+            className="absolute -left-6 md:-left-2 top-0 bottom-0 h-full w-36 pointer-events-none z-10 hidden sm:block"
+            viewBox="0 0 140 760"
+            fill="none"
+            preserveAspectRatio="none"
           >
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[82px] font-serif font-bold text-white tracking-tight leading-[1.05] drop-shadow-2xl">
-              Together, We <br className="hidden sm:inline" />
-              Turn Ambition <br className="hidden sm:inline" />
-              Into Action
-            </h1>
-          </motion.div>
-        </div>
+            <path
+              d="M 120 0 C 10 160, 20 380, 70 540 C 110 680, 20 740, 10 760"
+              stroke="#F97316"
+              strokeWidth="4"
+              strokeLinecap="round"
+              className="drop-shadow-sm"
+              opacity="0.9"
+            />
+          </svg>
 
-        {/* Bottom Overlay Bar for Description with Matching Left Margin */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="relative z-20 w-full bg-[#0F3383]/95 backdrop-blur-md border-t border-white/20 py-8 md:py-10 px-8 md:px-16 lg:px-24 xl:px-32"
-        >
-          <div className="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-            <div className="max-w-3xl">
-              <p className="text-base sm:text-lg md:text-xl text-white font-light leading-relaxed font-sans">
-                HYCO Group builds AI that matters, for people who deserve it. Deploying transformative AI and intelligent infrastructure across four high-impact ventures.
-              </p>
+          {/* Framed Cinematic Card */}
+          <div className="relative w-full h-[74vh] min-h-[580px] max-h-[780px] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 bg-slate-950 flex flex-col justify-between">
+            
+            {/* Cinematic Background AI Lab Visual */}
+            <div className="absolute inset-0 z-0 overflow-hidden">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster="/hero-ai-lab.jpg"
+                className="w-full h-full object-cover object-center scale-105 transition-transform duration-10000 ease-out"
+              >
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+              </video>
+              
+              {/* High-Fidelity AI Engineering Lab Image */}
+              <img
+                src="/hero-ai-lab.jpg"
+                alt="HYCO Group AI & Autonomous Systems Research Laboratory"
+                className="absolute inset-0 w-full h-full object-cover object-center -z-10"
+              />
+
+              {/* Left-side Dark Vignette Scrim (Ensures 100% crisp typography over the lab environment) */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/25"></div>
+              
+              {/* Precision Engineering Dot Matrix */}
+              <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none"></div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4 shrink-0">
-              <a
-                href="#ventures"
-                className="inline-flex items-center gap-2 bg-white text-[#0F3383] hover:bg-slate-100 font-bold px-7 py-3.5 text-xs uppercase tracking-[0.2em] rounded transition-all shadow-md font-mono"
+            {/* Upper Title Area with Citadel-Grade Spacing */}
+            <div className="relative z-10 w-full px-8 sm:px-12 md:px-16 lg:px-20 pt-12 sm:pt-16 md:pt-20">
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="max-w-4xl"
               >
-                Explore Ventures <ArrowRight size={15} />
-              </a>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 border border-white/40 hover:border-white text-white px-6 py-3.5 text-xs font-bold uppercase tracking-[0.2em] rounded transition-all hover:bg-white/10 font-mono"
-              >
-                Who We Are
-              </Link>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] font-serif font-bold text-white tracking-tight leading-[1.08] drop-shadow-2xl">
+                  Together, We <br className="hidden sm:inline" />
+                  Turn Ambition <br className="hidden sm:inline" />
+                  Into Action
+                </h1>
+              </motion.div>
             </div>
+
+            {/* Bottom Overlay Bar for Description (Framed inside the card with Citadel Blue Wash) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="relative z-20 w-full bg-gradient-to-r from-[#0F3383]/95 via-[#133F9C]/95 to-[#1E52BF]/90 backdrop-blur-md border-t border-white/20 py-6 sm:py-8 px-8 sm:px-12 md:px-16"
+            >
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                <div className="max-w-3xl">
+                  <p className="text-base sm:text-lg md:text-xl text-white font-light leading-relaxed font-sans">
+                    HYCO Group builds AI that matters, for people who deserve it. Deploying transformative AI and intelligent infrastructure across four high-impact ventures.
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-4 shrink-0">
+                  <a
+                    href="#ventures"
+                    className="inline-flex items-center gap-2 bg-white text-[#0F3383] hover:bg-slate-100 font-bold px-7 py-3.5 text-xs uppercase tracking-[0.2em] rounded transition-all shadow-md font-mono"
+                  >
+                    Explore Ventures <ArrowRight size={15} />
+                  </a>
+                  <Link
+                    href="/about"
+                    className="inline-flex items-center gap-2 border border-white/40 hover:border-white text-white px-6 py-3.5 text-xs font-bold uppercase tracking-[0.2em] rounded transition-all hover:bg-white/10 font-mono"
+                  >
+                    Who We Are
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+
+        </div>
       </section>
 
       {/* Stats / Trust Bar (Executive Light) */}
