@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from 'motion/react';
-import { Target, Users, MapPin, Eye, Layers, ShieldCheck, Building2, ChevronRight, BarChart3, Search, Zap, Check, Menu, X, ArrowRight, Play, LineChart, Loader2 } from 'lucide-react';
+import { Target, Users, MapPin, Eye, ShieldCheck, Building2, Search, Zap, Check, Menu, X, ArrowRight, Play, LineChart, Loader2 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
@@ -166,7 +166,7 @@ export default function LeasifAI() {
         setFormStatus('error');
         setFormMessage(data.error || 'Something went wrong. Please try again.');
       }
-    } catch (error) {
+    } catch {
       setFormStatus('error');
       setFormMessage('Failed to connect to the server.');
     }
@@ -202,6 +202,7 @@ export default function LeasifAI() {
         setDemoPhase('wait');
       }, 5000);
     } else if (demoPhase === 'wait') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTypedText("");
       setActiveChecklist(0);
       setDemoStep((prev) => (prev + 1) % demoLocations.length);
@@ -345,7 +346,7 @@ export default function LeasifAI() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl">
           <Target size={48} className="text-[#144BBD] mx-auto mb-8 opacity-20" />
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#0D3A94] leading-tight" style={{ fontFamily: "'Manrope', sans-serif" }}>
-            "Commercial real estate shouldn't be a guessing game."
+            &quot;Commercial real estate shouldn&apos;t be a guessing game.&quot;
           </h2>
           <div className="w-24 h-1 bg-[#FF9500] mx-auto mt-12 rounded-full"></div>
         </motion.div>
@@ -356,7 +357,7 @@ export default function LeasifAI() {
         <div className="max-w-[1600px] mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6" style={{ fontFamily: "'Manrope', sans-serif" }}>
-              See what others can't.
+              See what others can&apos;t.
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               Transform standard street views into rich, data-dense landscapes. We overlay the metrics that matter directly onto the physical world.
@@ -726,7 +727,7 @@ export default function LeasifAI() {
                 Our Philosophy
               </div>
               <h3 className="text-2xl md:text-4xl font-extrabold text-slate-900 mb-6 leading-tight">
-                "The right location isn't always the busiest one."
+                &quot;The right location isn&apos;t always the busiest one.&quot;
               </h3>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
                 A high-traffic street can look like the perfect opportunity—but traffic alone doesn’t tell the whole story. Businesses need to understand who passes by, when they pass, what competitors are nearby, and whether the location actually fits their market.

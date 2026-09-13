@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { createAdminClient } from '@/utils/supabase';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 // Define the exact shape and constraints of expected incoming data
 const contactSchema = z.object({
@@ -35,7 +35,7 @@ export async function POST(request: Request) {
     // Helper function for admin alerts
     const sendAlert = async (subject: string, html: string) => {
       const adminEmail = process.env.ADMIN_EMAIL;
-      if (adminEmail) {
+      if (adminEmail && resend) {
         try {
           await resend.emails.send({
             from: 'Acme <onboarding@resend.dev>',
@@ -78,7 +78,7 @@ export async function POST(request: Request) {
 
     // 6. Send Email Notification via Resend (Optional/Configurable)
     const contactEmail = process.env.CONTACT_EMAIL;
-    if (contactEmail) {
+    if (contactEmail && resend) {
       try {
         await resend.emails.send({
           from: 'Acme <onboarding@resend.dev>', // Update with your verified domain later

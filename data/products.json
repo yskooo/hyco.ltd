@@ -1,0 +1,97 @@
+[
+  {
+    "id": "servicio",
+    "name": "Servicio (Serbisyow.AI)",
+    "shortName": "Servicio",
+    "slug": "servicio-ai",
+    "tagline": "Next-Gen AI Customer Support & Enterprise Servicing Collective",
+    "description": "Our premier lead horse and primary focus. Combines an intelligent, context-aware omnichannel AI customer service platform with an enterprise tech and professional talent servicing organization.",
+    "status": "Main Focus",
+    "statusBadge": "Primary Focus / Flagship",
+    "leadHorse": true,
+    "category": "Customer Support & Enterprise Servicing",
+    "features": [
+      "Dual-Engine: SaaS Product + Enterprise Servicing Operations",
+      "Multilingual Voice & Chat CX Agents (40+ Languages)",
+      "Contextual Memory & Omnichannel BPO Workflows",
+      "Managed Tech Servicing & Professional Talent Deployment"
+    ],
+    "href": "/servicio-ai"
+  },
+  {
+    "id": "leasifai",
+    "name": "LeasifAI",
+    "shortName": "LeasifAI",
+    "slug": "leasifai",
+    "tagline": "Commercial Real Estate Location Intelligence & ROI Forecasting",
+    "description": "Currently in active Go-To-Market (GTM). Eliminating guesswork from commercial leasing through AI foot traffic analysis, competitor mapping, and ROI prediction for businesses and property developers.",
+    "status": "Active (GTM)",
+    "statusBadge": "GTM Phase",
+    "leadHorse": false,
+    "category": "Real Estate & Spatial Intelligence",
+    "features": [
+      "Footfall & Demographic Geospatial Analytics",
+      "Competitor Heatmaps & Density Mapping",
+      "AI Predictive Revenue & Payback Forecasting",
+      "Verified Commercial Space Matching Engine"
+    ],
+    "href": "/leasifai"
+  },
+  {
+    "id": "berdev",
+    "name": "BerdEV",
+    "shortName": "BerdEV",
+    "slug": "berdev",
+    "tagline": "The Waze for Electric Vehicles | Smart Navigation & Charging Rewards",
+    "description": "The community-powered EV navigation and station finder platform. Real-time charger availability, crowd-verified reliability scoring, driver rewards & credits, and integrated brand partnerships.",
+    "status": "Active Platform",
+    "statusBadge": "Smart EV Mobility",
+    "leadHorse": false,
+    "category": "EV Mobility & Charging Platform",
+    "features": [
+      "Real-Time EV Charger & 'Gas Station' Discovery",
+      "Crowdsourced Reliability Scoring & Queue Telemetry",
+      "Driver Credits, Loyalty Rewards & In-App Perks",
+      "Software & CPO Partnership Ecosystem"
+    ],
+    "href": "/berdev"
+  },
+  {
+    "id": "electrifai",
+    "name": "ElectrifAI PH",
+    "shortName": "ElectrifAI",
+    "slug": "electrifai",
+    "tagline": "Intelligent Energy Management & Grid Optimization",
+    "description": "Predictive energy analytics and AI-driven grid optimization enabling utility providers, industrial complexes, and commercial estates to balance loads dynamically and reduce carbon footprints.",
+    "status": "Active",
+    "statusBadge": "Active Platform",
+    "leadHorse": false,
+    "category": "Energy & Infrastructure Tech",
+    "features": [
+      "Predictive Load Balancing & Peak Demand Smoothing",
+      "Legacy IoT & Smart Grid Distributed Integration",
+      "Automated Power Leak & Anomaly Detection",
+      "Industrial Carbon Reduction Analytics"
+    ],
+    "href": "/electrifai"
+  },
+  {
+    "id": "edugaite",
+    "name": "Edugaite",
+    "shortName": "Edugaite",
+    "slug": "edugaite",
+    "tagline": "K-12 EdTech Platform & Teacher Productivity Workflow",
+    "description": "Specialized AI workflow software designed to streamline lesson planning, automated quiz generation, and grading for educators.",
+    "status": "Paused",
+    "statusBadge": "Paused / R&D Incubator",
+    "leadHorse": false,
+    "category": "Education Technology",
+    "features": [
+      "Curriculum-Aligned Lesson Plan Generation",
+      "Automated Assessment & Rubric Builder",
+      "Collaborative Educator Resource Collective",
+      "Currently Paused in Corporate R&D Reserve"
+    ],
+    "href": "/edugaite"
+  }
+]

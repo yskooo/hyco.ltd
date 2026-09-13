@@ -1,0 +1,157 @@
+{
+  "board": [
+    {
+      "id": "gerhard-tan",
+      "name": "Engr. Gerhard P. Tan",
+      "role": "Chairman of the Board",
+      "category": "Board of Directors",
+      "image": "",
+      "bio": "Distinguished engineering leader and corporate director guiding Hardy & Co.'s governance, high-level technology strategy, and global venture expansion.",
+      "initials": "GT"
+    },
+    {
+      "id": "jc-tuzon",
+      "name": "Engr. JC Tuzon",
+      "role": "Board of Director",
+      "category": "Board of Directors",
+      "image": "",
+      "bio": "Strategic board advisor and engineering executive providing operational oversight, institutional partnerships, and board-level counsel across our portfolio.",
+      "initials": "JT"
+    }
+  ],
+  "executives": [
+    {
+      "id": "daniel-caparro",
+      "name": "Daniel S. Caparro",
+      "role": "Chief Executive Officer & Co-Founder",
+      "category": "Executive Leadership",
+      "image": "",
+      "bio": "Leading group corporate vision, capital allocation, and venture scaling across Hardy & Co.'s AI and software subsidiaries.",
+      "initials": "DC"
+    },
+    {
+      "id": "harold-patacsil",
+      "name": "Harold Martin Patacsil",
+      "role": "Co-CEO & Co-Founder",
+      "category": "Executive Leadership",
+      "image": "",
+      "bio": "Directing corporate growth, institutional capitalization, strategic venture relationships, and executive execution.",
+      "initials": "HP"
+    },
+    {
+      "id": "lawrenz-garcia",
+      "name": "Lawrenz Matthew Garcia",
+      "role": "Chief Technology Officer",
+      "category": "Executive Leadership",
+      "image": "",
+      "bio": "Architecting the overarching technology infrastructure, AI platform engineering, and enterprise systems security across the group.",
+      "initials": "LG"
+    },
+    {
+      "id": "christian-lazo",
+      "name": "Christian Joel C. Lazo",
+      "role": "Chief Operating Officer",
+      "category": "Executive Leadership",
+      "image": "",
+      "bio": "Overseeing operational excellence, organizational scaling, internal execution, and cross-subsidiary alignment.",
+      "initials": "CL"
+    },
+    {
+      "id": "raeselyn-macorol",
+      "name": "Eng. Raeselyn C. Macorol",
+      "role": "Chief Human Resources Officer",
+      "category": "Executive Leadership",
+      "image": "",
+      "bio": "Directing human capital strategy, executive talent recruitment, organizational culture, and people leadership across all ventures.",
+      "initials": "RM"
+    },
+    {
+      "id": "arjay-rosel",
+      "name": "Arjay Rosel",
+      "role": "Chief Marketing Officer",
+      "category": "Executive Leadership",
+      "image": "",
+      "bio": "Spearheading brand narrative, strategic communications, ecosystem marketing, and corporate market positioning.",
+      "initials": "AR"
+    },
+    {
+      "id": "siegfred-mina",
+      "name": "Siegfred Lorelle Mina",
+      "role": "Chief AI Officer",
+      "category": "Executive Leadership",
+      "image": "",
+      "bio": "Pioneering state-of-the-art machine learning models, proprietary LLM agent frameworks, and applied AI research.",
+      "initials": "SM"
+    },
+    {
+      "id": "krishan",
+      "name": "Krishan",
+      "role": "Chief Strategy and Sales Officer",
+      "category": "Executive Leadership",
+      "image": "",
+      "bio": "Leading enterprise revenue acceleration, high-impact commercial partnerships, and go-to-market strategies.",
+      "initials": "K"
+    }
+  ],
+  "growthAndOperations": [
+    {
+      "id": "argee-bueno",
+      "name": "Argee Bueno",
+      "role": "Head of Growth",
+      "category": "Growth & Strategy",
+      "image": "",
+      "bio": "Driving user acquisition, pipeline velocity, growth experimentation, and market expansion across subsidiaries.",
+      "initials": "AB"
+    },
+    {
+      "id": "mcallen-fradejas",
+      "name": "Mcallen Fradejas",
+      "role": "Executive Assistant",
+      "category": "Executive Office",
+      "image": "",
+      "bio": "Managing executive operations, coordination across subsidiaries, and leadership office logistics.",
+      "initials": "MF"
+    },
+    {
+      "id": "rey-m-ond",
+      "name": "Rey M Ond",
+      "role": "Executive Assistant",
+      "category": "Executive Office",
+      "image": "",
+      "bio": "Supporting executive communications, stakeholder administration, and corporate governance workflows.",
+      "initials": "RO"
+    }
+  ],
+  "productAndEngineering": [
+    {
+      "id": "erin-comendador",
+      "name": "Erin Comendador",
+      "role": "Product Manager | LeasifAI",
+      "category": "Product & Engineering",
+      "subsidiary": "LeasifAI",
+      "image": "",
+      "bio": "Directing product lifecycle, user research, and commercial real estate feature execution for LeasifAI.",
+      "initials": "EC"
+    },
+    {
+      "id": "gabriel-palattao",
+      "name": "Gabriel Palattao",
+      "role": "Senior AI Developer | LeasifAI",
+      "category": "Product & Engineering",
+      "subsidiary": "LeasifAI",
+      "image": "",
+      "bio": "Engineering predictive geospatial models, demographic scoring pipelines, and intelligent matching algorithms.",
+      "initials": "GP"
+    },
+    {
+      "id": "wency-geraldo",
+      "name": "Wency A Geraldo",
+      "role": "Senior Software Developer | LeasifAI",
+      "category": "Product & Engineering",
+      "subsidiary": "LeasifAI",
+      "image": "",
+      "bio": "Leading full-stack cloud architecture, high-performance spatial querying, and enterprise-grade frontend systems.",
+      "initials": "WG"
+    }
+  ]
+}

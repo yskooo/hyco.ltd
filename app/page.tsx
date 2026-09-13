@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'motion/react';
-import { ArrowRight, BarChart3, Globe2, ShieldCheck, Zap, MapPin } from 'lucide-react';
+import { ArrowRight, BarChart3, Globe2, Zap, Navigation, BatteryCharging, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -150,23 +150,195 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col gap-10">
-            {/* ElectrifAI Card */}
+            {/* 1. Servicio Card (Main Focus / Lead Horse) */}
             <motion.div 
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <Link href="/electrifai" className="group flex flex-col md:flex-row bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue overflow-hidden relative">
+              <Link href="/servicio-ai" className="group flex flex-col md:flex-row bg-white border-2 border-hyco-blue transition-all duration-500 hover:shadow-[0_25px_50px_rgba(0,85,255,0.15)] overflow-hidden relative">
+                <div className="absolute top-0 right-0 z-30 bg-hyco-blue text-white text-[11px] font-bold uppercase tracking-widest px-5 py-2 flex items-center gap-2 shadow-md">
+                  <span>★ Lead Horse &amp; Primary Focus</span>
+                </div>
+
+                <div className="w-full md:w-[420px] lg:w-[500px] h-72 md:h-auto overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 shrink-0">
+                  <div className="absolute inset-0 bg-hyco-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
+                  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" alt="Servicio AI" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
+                </div>
+                <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
+                  <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-hyco-blue"></div>
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-hyco-blue text-white flex items-center justify-center mr-6 shrink-0 shadow-md">
+                      <Globe2 size={24} />
+                    </div>
+                    <div>
+                      <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-hyco-black">Servicio</h4>
+                      <p className="text-xs font-bold uppercase tracking-widest text-hyco-blue mt-1">Dual Model: AI Product + Enterprise Servicing</p>
+                    </div>
+                  </div>
+                  <p className="text-lg text-gray-700 mb-6 max-w-3xl leading-relaxed font-light">
+                    Hardy &amp; Co.&apos;s primary commercial focus. Combining next-gen multilingual AI customer support agents (40+ languages) with bespoke enterprise technology servicing, managed operations, and technical talent deployment.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-blue-50 text-blue-800 px-3 py-1 rounded border border-blue-200">Autonomous CX Agents</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-blue-50 text-blue-800 px-3 py-1 rounded border border-blue-200">Enterprise Tech Servicing</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-blue-50 text-blue-800 px-3 py-1 rounded border border-blue-200">Omnichannel BPO Workflows</span>
+                  </div>
+                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-blue flex items-center transition-colors mt-auto">
+                    Access Servicio Platform &amp; Servicing <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+
+            {/* 2. LeasifAI Card (Active GTM) */}
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Link href="/leasifai" className="group flex flex-col md:flex-row-reverse bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(20,75,189,0.15)] hover:border-[#144BBD] overflow-hidden relative">
+                <div className="absolute top-0 left-0 z-30 bg-amber-500 text-slate-950 text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 flex items-center gap-1.5 shadow-sm font-mono">
+                  <span>● Status: GTM Phase</span>
+                </div>
+
+                <div className="w-full md:w-[400px] lg:w-[500px] min-h-[300px] md:min-h-0 h-auto overflow-hidden relative transition-all duration-700 shrink-0 bg-slate-50 flex flex-col items-center justify-center p-8 md:p-12 border-b md:border-b-0 md:border-l border-gray-100 group-hover:bg-white">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#144BBD]/0 to-[#144BBD]/0 group-hover:from-[#144BBD]/5 group-hover:to-transparent transition-colors duration-700"></div>
+                  <img src="/img-folder/leasifAI.png" alt="LeasifAI Logo" className="w-20 h-20 object-contain mb-8 transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500 relative z-10" />
+                  <p className="text-xl md:text-2xl font-bold text-center text-[#144BBD] leading-tight relative z-10" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                    &quot;We don&apos;t just help businesses find a space,<br/>we help them find their place in the economy.&quot;
+                  </p>
+                </div>
+                <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
+                  <div className="absolute top-0 md:top-10 right-10 md:-right-1 w-12 md:w-1 h-1 md:h-12 bg-hyco-black group-hover:bg-[#144BBD] transition-colors duration-300"></div>
+                  <div className="flex items-center mb-6">
+                    <h4 className="text-3xl lg:text-4xl font-bold tracking-tight">
+                      <span className="text-[#144BBD]">Leasif</span>
+                      <span className="text-[#FF9500]">AI</span>
+                    </h4>
+                  </div>
+                  <p className="text-lg text-gray-600 mb-6 max-w-3xl leading-relaxed font-light">
+                    Next-gen location intelligence in active Go-To-Market execution. Eliminating guesswork from commercial real estate with AI-driven foot traffic analysis, competitor mapping, and ROI forecasting.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">Footfall Heatmaps</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">ROI Forecasting</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">Commercial Matching</span>
+                  </div>
+                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-[#144BBD] transition-colors mt-auto">
+                    Explore LeasifAI Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+
+            {/* 3. BerdEV Card (Smart EV Mobility & Navigation) */}
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Link href="/berdev" className="group flex flex-col md:flex-row bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-emerald-600 overflow-hidden relative">
+                <div className="absolute top-0 right-0 z-30 bg-emerald-600 text-white text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 flex items-center gap-1.5 shadow-sm font-mono">
+                  <span>⚡ Smart EV Mobility</span>
+                </div>
+
+                <div className="w-full md:w-[400px] lg:w-[500px] h-64 md:h-auto overflow-hidden relative transition-all duration-700 shrink-0 bg-slate-950 flex flex-col justify-between p-8 border-b md:border-b-0 md:border-r border-slate-800">
+                  <div className="flex items-center justify-between text-xs font-mono text-emerald-400">
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                      LIVE EV RADAR
+                    </span>
+                    <span className="text-slate-400">METRO MANILA &amp; SLEX</span>
+                  </div>
+
+                  {/* Simulated App Route Card */}
+                  <div className="my-auto bg-slate-900/90 border border-slate-800 rounded-lg p-4 shadow-xl">
+                    <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-800">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs">
+                          ⚡ DC
+                        </div>
+                        <div>
+                          <div className="text-xs font-bold text-white leading-tight">Shell Recharge • 120kW</div>
+                          <div className="text-[10px] text-slate-400">SLEX Mamplasan • 4 Bays</div>
+                        </div>
+                      </div>
+                      <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-2 py-0.5 rounded">
+                        98% Uptime
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2 text-center text-[10px] font-mono">
+                      <div className="bg-slate-950 p-1.5 rounded border border-slate-800/80">
+                        <div className="text-slate-400 text-[9px]">Available</div>
+                        <div className="text-emerald-400 font-bold">2 of 4 Plugs</div>
+                      </div>
+                      <div className="bg-slate-950 p-1.5 rounded border border-slate-800/80">
+                        <div className="text-slate-400 text-[9px]">Reliability</div>
+                        <div className="text-white font-bold">Verified Today</div>
+                      </div>
+                      <div className="bg-slate-950 p-1.5 rounded border border-slate-800/80">
+                        <div className="text-slate-400 text-[9px]">Credits</div>
+                        <div className="text-amber-400 font-bold">+50 Berd Pts</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-center font-mono text-xs text-slate-400 flex items-center justify-center gap-2">
+                    <Navigation size={13} className="text-emerald-400" />
+                    <span>&quot;The Waze for Electric Vehicles&quot;</span>
+                  </div>
+                </div>
+
+                <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
+                  <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-hyco-black group-hover:bg-emerald-600 transition-colors duration-300"></div>
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-emerald-600 flex items-center justify-center mr-6 transition-colors duration-300 shrink-0">
+                      <Navigation size={24} />
+                    </div>
+                    <div>
+                      <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-hyco-black">BerdEV</h4>
+                      <p className="text-xs font-mono uppercase tracking-widest text-emerald-600 font-bold mt-1">
+                        Community EV Navigation &amp; Charging Rewards
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-lg text-gray-600 mb-6 max-w-3xl leading-relaxed font-light">
+                    The community-powered navigation and charging platform for EV owners. Locate the most reliable and preferred charging stations in real-time, avoid broken plugs and long queues, and earn driver credits redeemable across partner retail and charging networks.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">EV Charger Finder</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">Crowdsourced Reliability</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">Driver Credits &amp; Perks</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">CPO &amp; Brand Network</span>
+                  </div>
+                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-emerald-600 transition-colors mt-auto">
+                    Explore BerdEV Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+
+            {/* 4. ElectrifAI Card */}
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Link href="/electrifai" className="group flex flex-col md:flex-row-reverse bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue overflow-hidden relative">
                 <div className="w-full md:w-[400px] lg:w-[500px] h-64 md:h-auto overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 shrink-0">
                   <div className="absolute inset-0 bg-hyco-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
                   <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop" alt="ElectrifAI" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
                 </div>
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
-                  <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
+                  <div className="absolute top-0 md:top-10 right-10 md:-right-1 w-12 md:w-1 h-1 md:h-12 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-6 transition-colors duration-300 shrink-0">
-                      <BarChart3 size={24} />
+                      <Zap size={24} />
                     </div>
                     <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-hyco-black">ElectrifAI PH</h4>
                   </div>
@@ -180,94 +352,37 @@ export default function Home() {
               </Link>
             </motion.div>
 
-            {/* Servicio AI Card */}
+            {/* 5. Edugaite Card (Paused) */}
             <motion.div 
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <Link href="/servicio-ai" className="group flex flex-col md:flex-row-reverse bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue overflow-hidden relative">
-                <div className="w-full md:w-[400px] lg:w-[500px] h-64 md:h-auto overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 shrink-0">
-                  <div className="absolute inset-0 bg-hyco-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
-                  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" alt="Servicio AI" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
+              <Link href="/edugaite" className="group flex flex-col md:flex-row bg-white border border-gray-200 opacity-80 hover:opacity-100 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] overflow-hidden relative">
+                <div className="absolute top-0 right-0 z-30 bg-amber-100 text-amber-900 border-b border-l border-amber-200 text-[10px] font-bold uppercase tracking-widest px-4 py-1.5">
+                  Paused (R&amp;D Reserve)
+                </div>
+
+                <div className="w-full md:w-[400px] lg:w-[500px] h-64 md:h-auto overflow-hidden relative grayscale transition-all duration-700 shrink-0">
+                  <div className="absolute inset-0 bg-hyco-black/30 z-10"></div>
+                  <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop" alt="Edugaite" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                 </div>
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
-                  <div className="absolute top-0 md:top-10 left-10 md:-right-1 w-12 md:w-1 h-1 md:h-12 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-6 transition-colors duration-300 shrink-0">
+                    <div className="w-12 h-12 bg-slate-100 text-slate-500 flex items-center justify-center mr-6 shrink-0">
                       <Globe2 size={24} />
                     </div>
-                    <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-hyco-black">Serbisyow.AI</h4>
-                  </div>
-                  <p className="text-lg text-gray-600 mb-10 max-w-3xl leading-relaxed font-light">
-                    Global verified professional talent collective. Advanced matching algorithms for home construction to legal consultation.
-                  </p>
-                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-hyco-blue transition-colors mt-auto">
-                    Access Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-
-            {/* LeasifAI Card */}
-            <motion.div 
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <Link href="/leasifai" className="group flex flex-col md:flex-row bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(20,75,189,0.15)] hover:border-[#144BBD] overflow-hidden relative">
-                <div className="w-full md:w-[400px] lg:w-[500px] min-h-[300px] md:min-h-0 h-auto overflow-hidden relative transition-all duration-700 shrink-0 bg-slate-50 flex flex-col items-center justify-center p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-100 group-hover:bg-white">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#144BBD]/0 to-[#144BBD]/0 group-hover:from-[#144BBD]/5 group-hover:to-transparent transition-colors duration-700"></div>
-                  <img src="/img-folder/leasifAI.png" alt="LeasifAI Logo" className="w-20 h-20 object-contain mb-8 transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500 relative z-10" />
-                  <p className="text-xl md:text-2xl font-bold text-center text-[#144BBD] leading-tight relative z-10" style={{ fontFamily: "'Manrope', sans-serif" }}>
-                    "We don't just help businesses find a space,<br/>we help them find their place in the economy."
-                  </p>
-                </div>
-                <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
-                  <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-hyco-black group-hover:bg-[#144BBD] transition-colors duration-300"></div>
-                  <div className="flex items-center mb-6">
-                    <h4 className="text-3xl lg:text-4xl font-bold tracking-tight">
-                      <span className="text-[#144BBD]">Leasif</span>
-                      <span className="text-[#FF9500]">AI</span>
-                    </h4>
-                  </div>
-                  <p className="text-lg text-gray-600 mb-10 max-w-3xl leading-relaxed font-light">
-                    Next-gen location intelligence. Eliminate the guesswork from commercial real estate with AI-driven foot traffic analysis, competitor mapping, and ROI forecasting.
-                  </p>
-                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-[#144BBD] transition-colors mt-auto">
-                    Access Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-
-            {/* Edugaite Card */}
-            <motion.div 
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <Link href="/edugaite" className="group flex flex-col md:flex-row-reverse bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-hyco-blue overflow-hidden relative">
-                <div className="w-full md:w-[400px] lg:w-[500px] h-64 md:h-auto overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 shrink-0">
-                  <div className="absolute inset-0 bg-hyco-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
-                  <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop" alt="Edugaite" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
-                </div>
-                <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
-                  <div className="absolute top-0 md:top-10 left-10 md:-right-1 w-12 md:w-1 h-1 md:h-12 bg-hyco-black group-hover:bg-hyco-blue transition-colors duration-300"></div>
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-hyco-black text-white group-hover:bg-hyco-blue flex items-center justify-center mr-6 transition-colors duration-300 shrink-0">
-                      <Globe2 size={24} />
+                    <div>
+                      <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-gray-800">Edugaite</h4>
+                      <p className="text-xs font-mono text-amber-700 uppercase tracking-widest mt-1">Project Paused</p>
                     </div>
-                    <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-hyco-black">Edugaite</h4>
                   </div>
-                  <p className="text-lg text-gray-600 mb-10 max-w-3xl leading-relaxed font-light">
-                    K-12 EdTech platform streamlining workflows with AI-powered lesson plans, quizzes, and grading for educators.
+                  <p className="text-base text-gray-500 mb-6 max-w-3xl leading-relaxed font-light">
+                    K-12 EdTech platform streamlining workflows with AI-powered lesson plans, quizzes, and grading for educators. Development is paused while prioritizing enterprise operations.
                   </p>
-                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-black flex items-center group-hover:text-hyco-blue transition-colors mt-auto">
-                    Access Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+                  <div className="text-xs font-bold uppercase tracking-widest text-slate-500 flex items-center group-hover:text-hyco-black transition-colors mt-auto">
+                    View Edugaite Overview <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>
               </Link>
