@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react';
 import { useState } from 'react';
-import { Shield, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Shield, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import teamData from '@/data/team.json';
 
@@ -40,8 +40,8 @@ function MemberPortrait({ member, size = "large" }: { member: TeamMember; size?:
             {member.initials || member.name.slice(0, 2).toUpperCase()}
           </div>
           <div className="relative z-10">
-            <span className="text-[10px] tracking-[0.2em] font-bold uppercase text-slate-400 bg-white/5 px-2.5 py-1 rounded border border-white/10">
-              Photo Placeholder
+            <span className="text-[9px] tracking-[0.2em] font-mono uppercase text-slate-400 bg-white/5 px-2.5 py-1 rounded border border-white/10">
+              HYCO Leadership
             </span>
           </div>
         </div>
@@ -192,11 +192,29 @@ export default function About() {
               <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-6">
                 Under Engr. Gerhard P. Tan&apos;s board guidance, HYCO Group combines technical engineering standards with disciplined commercialization—ensuring our flagship operations like <strong>Servicio.AI</strong>, smart EV mobility platform <strong>BerdEV</strong>, and geospatial platform <strong>LeasifAI</strong> scale on resilient foundations.
               </p>
-              <div className="p-4 bg-white/5 border border-white/10 rounded max-w-xl text-xs text-slate-400 flex items-center gap-3">
-                <Sparkles className="text-blue-400 shrink-0" size={20} />
-                <span>
-                  Photo placeholders are configured in <code className="text-blue-300 font-mono">/data/team.json</code> for seamless image updates.
-                </span>
+
+              {/* Boardroom Feature Showcase */}
+              <div className="mt-8 rounded-xl overflow-hidden border border-white/15 relative group shadow-2xl">
+                <img
+                  src="/boardroom.jpg"
+                  alt="HYCO Group Boardroom"
+                  className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end p-5">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between w-full gap-2">
+                    <div>
+                      <div className="text-[10px] font-mono uppercase tracking-widest text-blue-400 font-semibold">
+                        Ortigas Center Executive Chambers
+                      </div>
+                      <div className="text-sm font-bold text-white">
+                        HYCO Group Boardroom &amp; Governance Center
+                      </div>
+                    </div>
+                    <span className="text-[10px] font-mono bg-white/10 text-slate-300 px-2.5 py-1 rounded border border-white/20 self-start sm:self-auto">
+                      Strategic Advisory Desk
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

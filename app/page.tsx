@@ -468,20 +468,34 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative group"
           >
-            <div className="absolute inset-0 bg-[#0F3383] translate-x-4 translate-y-4 md:translate-x-8 md:translate-y-8 z-0"></div>
-            <img
-              src="https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1932&auto=format&fit=crop"
-              alt="HYCO Group Boardroom"
-              className="relative z-10 w-full h-[600px] object-cover grayscale border-4 border-white shadow-2xl"
-              referrerPolicy="no-referrer"
-            />
-            {/* Glass decoration */}
-            <div className="absolute -bottom-10 -left-10 z-20 w-52 h-48 glass-panel-white hidden md:flex items-center justify-center p-6 text-black border-l-4 border-[#28A4E7]">
-              <div className="font-bold text-sm uppercase tracking-widest text-center font-mono">
-                HYCO<br /><span className="text-[#0F3383]">GROUP</span>
+            <div className="relative z-10 overflow-hidden rounded-2xl border border-slate-200/80 shadow-[0_20px_50px_rgba(15,51,131,0.12)] bg-slate-950">
+              <img
+                src="/boardroom.jpg"
+                alt="HYCO Group Executive Boardroom"
+                className="w-full h-[560px] object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent flex flex-col justify-end p-8 md:p-10 text-white">
+                <div className="inline-flex items-center gap-2 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.25em] text-[#28A4E7]">
+                    Executive Governance Suite • Ortigas Center
+                  </span>
+                </div>
+                <h4 className="text-2xl font-bold font-serif text-white tracking-tight">
+                  HYCO Group Boardroom
+                </h4>
+                <p className="text-xs text-slate-300 mt-2 max-w-md font-light leading-relaxed">
+                  Where capital allocation, AI infrastructure strategy, and operational governance converge across our four venture ecosystems.
+                </p>
               </div>
+            </div>
+
+            {/* Lean Floating Metrics Tag */}
+            <div className="absolute -bottom-6 -left-6 z-20 bg-white/95 backdrop-blur-md border border-slate-200 p-5 rounded-xl shadow-xl hidden md:block">
+              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Active Portfolio Oversight</div>
+              <div className="text-lg font-bold font-serif text-[#0F3383] mt-0.5">4 Ventures • 1 Holding</div>
             </div>
           </motion.div>
         </div>
