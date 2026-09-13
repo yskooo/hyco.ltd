@@ -242,7 +242,7 @@ export default function About() {
                 <h3 className="text-2xl font-serif font-bold text-[#0f172a]">Board of Directors</h3>
                 <div className="h-px bg-slate-300 flex-grow"></div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {allBoard.map((member, idx) => (
                   <motion.div
                     key={member.id}
@@ -250,17 +250,17 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.08 }}
-                    className="group bg-white p-4 border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300"
+                    className="group bg-white p-4 border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300 flex flex-col h-full"
                   >
                     <MemberPortrait member={member} />
-                    <div className="mt-4">
-                      <h4 className="text-xl font-serif font-semibold text-[#0f172a] group-hover:text-blue-600 transition-colors">
+                    <div className="mt-4 flex flex-col flex-grow">
+                      <h4 className="text-lg font-serif font-bold text-[#0f172a] group-hover:text-blue-600 transition-colors">
                         {member.name}
                       </h4>
-                      <p className="text-xs text-blue-700 font-bold uppercase tracking-wider mt-1">
+                      <p className="text-xs text-blue-700 font-bold uppercase tracking-wider mt-1 min-h-[32px] flex items-center">
                         {member.role}
                       </p>
-                      <p className="text-xs text-slate-500 mt-2 line-clamp-3 leading-relaxed">
+                      <p className="text-xs text-slate-500 mt-2 line-clamp-3 leading-relaxed flex-grow">
                         {member.bio}
                       </p>
                     </div>
@@ -277,7 +277,7 @@ export default function About() {
                 <h3 className="text-2xl font-serif font-bold text-[#0f172a]">Executive Leadership (C-Suite)</h3>
                 <div className="h-px bg-slate-300 flex-grow"></div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {executives.map((member, idx) => (
                   <motion.div
                     key={member.id}
@@ -285,17 +285,17 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.08 }}
-                    className="group bg-white p-4 border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300"
+                    className="group bg-white p-4 border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300 flex flex-col h-full"
                   >
                     <MemberPortrait member={member} />
-                    <div className="mt-4">
-                      <h4 className="text-lg font-serif font-semibold text-[#0f172a] group-hover:text-blue-600 transition-colors">
+                    <div className="mt-4 flex flex-col flex-grow">
+                      <h4 className="text-lg font-serif font-bold text-[#0f172a] group-hover:text-blue-600 transition-colors">
                         {member.name}
                       </h4>
-                      <p className="text-xs text-blue-700 font-bold uppercase tracking-wider mt-1">
+                      <p className="text-xs text-blue-700 font-bold uppercase tracking-wider mt-1 min-h-[32px] flex items-center">
                         {member.role}
                       </p>
-                      <p className="text-xs text-slate-500 mt-2 line-clamp-3 leading-relaxed">
+                      <p className="text-xs text-slate-500 mt-2 line-clamp-3 leading-relaxed flex-grow">
                         {member.bio}
                       </p>
                     </div>
@@ -312,7 +312,7 @@ export default function About() {
                 <h3 className="text-2xl font-serif font-bold text-[#0f172a]">Growth & Executive Office</h3>
                 <div className="h-px bg-slate-300 flex-grow"></div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {growthOps.map((member, idx) => (
                   <motion.div
                     key={member.id}
@@ -320,17 +320,17 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.08 }}
-                    className="group bg-white p-4 border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300"
+                    className="group bg-white p-4 border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300 flex flex-col h-full"
                   >
                     <MemberPortrait member={member} />
-                    <div className="mt-4">
-                      <h4 className="text-lg font-serif font-semibold text-[#0f172a] group-hover:text-blue-600 transition-colors">
+                    <div className="mt-4 flex flex-col flex-grow">
+                      <h4 className="text-lg font-serif font-bold text-[#0f172a] group-hover:text-blue-600 transition-colors">
                         {member.name}
                       </h4>
-                      <p className="text-xs text-blue-700 font-bold uppercase tracking-wider mt-1">
+                      <p className="text-xs text-blue-700 font-bold uppercase tracking-wider mt-1 min-h-[32px] flex items-center">
                         {member.role}
                       </p>
-                      <p className="text-xs text-slate-500 mt-2 line-clamp-3 leading-relaxed">
+                      <p className="text-xs text-slate-500 mt-2 line-clamp-3 leading-relaxed flex-grow">
                         {member.bio}
                       </p>
                     </div>
@@ -347,7 +347,7 @@ export default function About() {
                 <h3 className="text-2xl font-serif font-bold text-[#0f172a]">Product & Engineering</h3>
                 <div className="h-px bg-slate-300 flex-grow"></div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {productEng.map((member, idx) => (
                   <motion.div
                     key={member.id}
@@ -355,17 +355,17 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.08 }}
-                    className="group bg-white p-4 border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300"
+                    className="group bg-white p-4 border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300 flex flex-col h-full"
                   >
                     <MemberPortrait member={member} />
-                    <div className="mt-4">
-                      <h4 className="text-lg font-serif font-semibold text-[#0f172a] group-hover:text-blue-600 transition-colors">
+                    <div className="mt-4 flex flex-col flex-grow">
+                      <h4 className="text-lg font-serif font-bold text-[#0f172a] group-hover:text-blue-600 transition-colors">
                         {member.name}
                       </h4>
-                      <p className="text-xs text-blue-700 font-bold uppercase tracking-wider mt-1">
+                      <p className="text-xs text-blue-700 font-bold uppercase tracking-wider mt-1 min-h-[32px] flex items-center">
                         {member.role}
                       </p>
-                      <p className="text-xs text-slate-500 mt-2 line-clamp-3 leading-relaxed">
+                      <p className="text-xs text-slate-500 mt-2 line-clamp-3 leading-relaxed flex-grow">
                         {member.bio}
                       </p>
                     </div>
