@@ -9,42 +9,36 @@ import { useEffect, useState } from 'react';
 export default function Home() {
   return (
     <div className="w-full bg-white text-slate-900">
-      {/* Citadel-Inspired Framed Cinematic Hero with Clean White Margins */}
-      <section className="bg-white py-4 sm:py-6 md:py-8 relative">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-12">
+      {/* Asymmetrical Full-Width Cinematic Hero (Flush to Right Margin, Framed on Left) */}
+      <section className="bg-white pt-3 sm:pt-5 pb-6 sm:pb-8 relative overflow-hidden">
+        <div className="w-full pl-4 sm:pl-8 md:pl-12 lg:pl-16 pr-0">
           
-          {/* Framed Cinematic Card with Grand Scale Height */}
-          <div className="relative w-full h-[86vh] min-h-[740px] max-h-[960px] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 bg-slate-950 flex flex-col justify-between">
+          {/* Framed Cinematic Card: Bleeds 100% flush to right edge, elegant radius on left */}
+          <div className="relative w-full h-[88vh] min-h-[760px] max-h-[980px] rounded-l-2xl sm:rounded-l-3xl md:rounded-l-[36px] rounded-r-none overflow-hidden shadow-[0_25px_60px_rgba(15,51,131,0.18)] border-y border-l border-r-0 border-slate-200/90 bg-slate-950 flex flex-col justify-between">
             
-            {/* Cinematic Background AI Lab Visual */}
+            {/* High-Resolution Cinematic Command Center Visual */}
             <div className="absolute inset-0 z-0 overflow-hidden">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster="/hero-ai-lab.jpg"
-                className="w-full h-full object-cover object-center scale-105 transition-transform duration-10000 ease-out"
-              >
-                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
-              </video>
-              
-              {/* High-Fidelity AI Engineering Lab Image */}
               <img
-                src="/hero-ai-lab.jpg"
-                alt="HYCO Group AI & Autonomous Systems Research Laboratory"
-                className="absolute inset-0 w-full h-full object-cover object-center -z-10"
+                src="/hero-command-center.jpg"
+                alt="HYCO Group AI & Autonomous Technology Enterprise Command Center"
+                className="w-full h-full object-cover object-center scale-105 transition-transform duration-[12000ms] ease-out"
               />
 
-              {/* Left-side Dark Vignette Scrim (Ensures 100% crisp typography over the lab environment) */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/25"></div>
+              {/* Sophisticated Dark Gradient Scrim: Deep contrast on left for pristine typography readability */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/60 via-45% to-black/20"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/35"></div>
               
-              {/* Precision Engineering Dot Matrix */}
-              <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none"></div>
+              {/* Precision Engineering Dot Matrix Grid */}
+              <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none"></div>
+
+              {/* Real-time Telemetry Status Pill (Top Right) */}
+              <div className="absolute top-8 right-8 z-10 hidden sm:flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-950/75 backdrop-blur-md border border-white/15 text-[11px] font-mono text-emerald-400 shadow-xl">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span className="font-semibold tracking-wider">HYCO GRID &amp; AI TELEMETRY • ACTIVE</span>
+              </div>
             </div>
 
-            {/* Upper Title Area with Grand Executive Spacing */}
+            {/* Upper Title Area with Grand Executive Spacing & Refined Typography */}
             <div className="relative z-10 w-full px-8 sm:px-12 md:px-16 lg:px-20 pt-16 sm:pt-24 md:pt-28">
               <motion.div
                 initial={{ opacity: 0, y: 25 }}
@@ -52,22 +46,28 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.1 }}
                 className="max-w-4xl"
               >
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[84px] font-serif font-bold text-white tracking-tight leading-[1.04] drop-shadow-2xl">
+                {/* Executive Brand Category Pill */}
+                <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-mono tracking-[0.25em] uppercase mb-8 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-[#00A5FF] animate-pulse"></span>
+                  <span>HYCO Group • AI &amp; Intelligent Infrastructure</span>
+                </div>
+
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[86px] xl:text-[94px] font-serif font-bold text-white tracking-tight leading-[1.02] drop-shadow-2xl">
                   Together, We <br className="hidden sm:inline" />
-                  Turn Ambition <br className="hidden sm:inline" />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-sky-200">Turn Ambition</span> <br className="hidden sm:inline" />
                   Into Action
                 </h1>
               </motion.div>
             </div>
 
-            {/* Bottom Overlay Bar for Description (Framed inside the card with Citadel Blue Wash) */}
+            {/* Bottom Overlay Bar for Description (Reaches all the way to right margin) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               className="relative z-20 w-full bg-gradient-to-r from-[#0F3383]/95 via-[#133F9C]/95 to-[#1E52BF]/90 backdrop-blur-md border-t border-white/20 py-8 sm:py-10 px-8 sm:px-14 md:px-18"
             >
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pr-4 sm:pr-8 md:pr-12">
                 <div className="max-w-3xl">
                   <p className="text-base sm:text-lg md:text-xl text-white font-light leading-relaxed font-sans">
                     HYCO Group builds AI that matters, for people who deserve it. Deploying transformative AI and intelligent infrastructure across four high-impact ventures.
@@ -91,9 +91,10 @@ export default function Home() {
               </div>
             </motion.div>
           </div>
+        </div>
 
-          {/* Static Marquee-Style Portfolio Venture Bar Below Hero Card */}
-          <div className="mt-8 pt-8 border-t border-slate-200">
+        {/* Static Marquee-Style Portfolio Venture Bar Below Hero Card */}
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12 mt-10 pt-8 border-t border-slate-200">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#0F3383] animate-pulse"></span>
@@ -193,9 +194,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-
-        </div>
-      </section>
+        </section>
 
       {/* Portfolio Section: Four High-Impact Ventures */}
       <section id="ventures" className="py-32 bg-[#f8fafc] text-black">
