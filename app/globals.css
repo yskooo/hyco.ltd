@@ -4,11 +4,13 @@
   --font-sans: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-serif: var(--font-space-grotesk), "Helvetica Neue", Helvetica, Arial, sans-serif;
   
-  --color-hyco-black: #050505;
+  --color-hyco-black: #000000;
   --color-hyco-white: #ffffff;
-  --color-hyco-blue: #0055ff;
+  --color-hyco-navy: #0F3383;
+  --color-hyco-blue: #1A46B0;
+  --color-hyco-cerulean: #28A4E7;
   --color-hyco-gray: #1a1a1a;
-  --color-hyco-light-gray: #f5f5f5;
+  --color-hyco-light-gray: #f8fafc;
 }
 
 body {
