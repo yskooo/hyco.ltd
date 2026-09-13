@@ -475,7 +475,7 @@ export default function Home() {
                   <div className="w-24 h-24 mb-6 flex items-center justify-center relative z-10 transform group-hover:scale-105 group-hover:-translate-y-1 transition-all duration-500">
                     <img src="/img-folder/leasifAI.png" alt="LeasifAI Logo" className="w-full h-full object-contain drop-shadow-sm" />
                   </div>
-                  <p className="text-xl md:text-2xl font-bold text-center text-[#144BBD] leading-snug relative z-10 font-serif max-w-sm">
+                  <p className="text-xl md:text-2xl font-bold text-center text-[#144BBD] leading-tight relative z-10 max-w-sm" style={{ fontFamily: "'Manrope', sans-serif" }}>
                     &ldquo;We don&apos;t just help businesses find a space,<br className="hidden sm:inline" /> we help them find their place in the economy.&rdquo;
                   </p>
                   <span className="mt-5 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-400 font-bold relative z-10">
@@ -489,7 +489,10 @@ export default function Home() {
                       <img src="/leasifai-logo.png" alt="LeasifAI" className="h-11 w-auto object-contain" />
                     </div>
                     <div>
-                      <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-black font-serif">LeasifAI</h4>
+                      <h4 className="text-3xl lg:text-4xl font-bold tracking-tight font-serif">
+                        <span className="text-[#144BBD]">Leasif</span>
+                        <span className="text-[#FF9500]">AI</span>
+                      </h4>
                       <p className="text-xs font-mono uppercase tracking-widest text-[#0F3383] font-bold mt-1">Commercial Underwriting</p>
                     </div>
                   </div>
