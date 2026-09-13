@@ -32,35 +32,28 @@ function Counter({ value, suffix = "" }: { value: number, suffix?: string }) {
 
 export default function Home() {
   return (
-    <div className="w-full bg-[#000000] text-white">
-      {/* Hero Section */}
-      <section className="relative h-screen min-h-[800px] flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
-            alt="Futuristic Technology Background"
-            className="w-full h-full object-cover opacity-60 grayscale"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-black/75 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-        </div>
+    <div className="w-full bg-white text-slate-900">
+      {/* Executive Light Hero Section */}
+      <section className="relative min-h-[780px] lg:min-h-[850px] flex items-center overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-100/70 border-b border-slate-200">
+        {/* Subtle geometric grid background */}
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(#0F3383_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.06] pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-blue-100/40 via-blue-50/20 to-transparent rounded-full blur-3xl pointer-events-none"></div>
 
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 mt-16">
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 py-20">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-4xl glass-panel p-8 md:p-12 border-white/10"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="max-w-4xl bg-white/95 backdrop-blur-md p-8 md:p-14 border border-slate-200/90 shadow-[0_20px_50px_rgba(15,51,131,0.07)] rounded-xl"
           >
             {/* Top pill badge */}
-            <div className="flex items-center gap-3 mb-6">
-              <span className="inline-flex items-center gap-2 px-3 py-1 bg-[#0F3383]/80 border border-[#28A4E7]/40 text-[#28A4E7] text-xs font-mono font-bold tracking-widest uppercase rounded">
-                <span className="w-2 h-2 rounded-full bg-[#28A4E7] animate-pulse"></span>
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-blue-50 border border-blue-200/90 text-[#0F3383] text-xs font-mono font-bold tracking-widest uppercase rounded">
+                <span className="w-2 h-2 rounded-full bg-[#1A46B0] animate-pulse"></span>
                 Hardy&amp;Co. Group
               </span>
-              <span className="text-white/40 text-xs font-mono">•</span>
-              <span className="text-slate-300 text-xs font-mono uppercase tracking-wider">
+              <span className="text-slate-300 font-mono">•</span>
+              <span className="text-slate-600 text-xs font-mono font-semibold uppercase tracking-wider">
                 One Company. Four Ventures.
               </span>
             </div>
@@ -68,63 +61,69 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
               animate={{ opacity: 1, scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="w-20 h-1 bg-[#28A4E7] mb-8 origin-left"
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="w-20 h-1.5 bg-[#0F3383] mb-8 origin-left"
             ></motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="relative z-20 text-5xl md:text-7xl lg:text-[86px] font-bold text-white mb-8 tracking-tighter leading-[1.05] uppercase font-serif"
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="relative z-20 text-5xl md:text-7xl lg:text-[82px] font-bold text-slate-950 mb-8 tracking-tighter leading-[1.05] uppercase font-serif"
             >
               The Catalyst<br />For ASEAN AI.
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-lg md:text-2xl text-gray-300 mb-10 font-light leading-relaxed max-w-2xl"
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="text-lg md:text-2xl text-slate-600 mb-10 font-light leading-relaxed max-w-2xl"
             >
-              <strong className="font-bold text-white tracking-wider">Hardy&amp;Co. Group</strong> builds AI that matters, for people who deserve it. Deploying transformative AI and intelligent infrastructure across four high-impact ventures.
+              <strong className="font-bold text-slate-900 tracking-wider">Hardy&amp;Co. Group</strong> builds AI that matters, for people who deserve it. Deploying transformative AI and intelligent infrastructure across four high-impact ventures.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
-              className="flex flex-col sm:flex-row items-start gap-5"
+              transition={{ duration: 0.8, delay: 0.9 }}
+              className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
             >
               <a
                 href="#ventures"
-                className="bg-[#1A46B0] hover:bg-[#28A4E7] text-white px-10 py-5 text-sm font-bold tracking-[0.2em] uppercase transition-all duration-300 flex items-center shadow-[0_0_25px_rgba(26,70,176,0.5)] hover:shadow-[0_0_25px_rgba(40,164,231,0.6)]"
+                className="bg-[#0F3383] hover:bg-[#1A46B0] text-white px-9 py-4 text-xs font-bold tracking-[0.2em] uppercase rounded transition-all duration-300 flex items-center shadow-md shadow-blue-900/10 hover:shadow-blue-900/25"
               >
-                Explore Four Ventures <ArrowRight size={18} className="ml-3" />
+                Explore Four Ventures <ArrowRight size={16} className="ml-3" />
               </a>
               <Link
                 href="/about"
-                className="border border-white/20 hover:border-white text-white px-8 py-5 text-sm font-bold tracking-[0.2em] uppercase transition-all duration-300 flex items-center hover:bg-white/10"
+                className="border border-slate-300 hover:border-slate-400 bg-white text-slate-800 px-8 py-4 text-xs font-bold tracking-[0.2em] uppercase rounded transition-all duration-300 flex items-center hover:bg-slate-50 shadow-sm"
               >
                 Corporate Overview
+              </Link>
+              <Link
+                href="/contact"
+                className="text-slate-600 hover:text-[#0F3383] px-4 py-4 text-xs font-bold tracking-[0.15em] uppercase font-mono transition-colors"
+              >
+                Get In Touch →
               </Link>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Stats / Trust Bar */}
-      <section className="bg-[#000000] py-16 border-y border-white/10 relative z-20">
+      {/* Stats / Trust Bar (Executive Light) */}
+      <section className="bg-white py-16 border-b border-slate-200 relative z-20">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-slate-200">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <div className="text-5xl font-bold text-white mb-2 font-serif"><Counter value={4} /></div>
-              <div className="text-xs font-bold text-[#28A4E7] uppercase tracking-[0.2em] font-mono">Core Ventures</div>
+              <div className="text-5xl font-bold text-[#0F3383] mb-2 font-serif"><Counter value={4} /></div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] font-mono">Core Ventures</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -132,8 +131,8 @@ export default function Home() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="text-5xl font-bold text-white mb-2 font-serif">₱<Counter value={80} suffix="M+" /></div>
-              <div className="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] font-mono">Target ARR</div>
+              <div className="text-5xl font-bold text-slate-900 mb-2 font-serif">₱<Counter value={80} suffix="M+" /></div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] font-mono">Target ARR</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -141,8 +140,8 @@ export default function Home() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <div className="text-5xl font-bold text-white mb-2 font-serif"><Counter value={100} suffix="k+" /></div>
-              <div className="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] font-mono">Target Users</div>
+              <div className="text-5xl font-bold text-slate-900 mb-2 font-serif"><Counter value={100} suffix="k+" /></div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] font-mono">Target Users</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -150,8 +149,8 @@ export default function Home() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <div className="text-5xl font-bold text-white mb-2 font-serif"><Counter value={100} suffix="%" /></div>
-              <div className="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] font-mono">ASEAN Focus</div>
+              <div className="text-5xl font-bold text-[#0F3383] mb-2 font-serif"><Counter value={100} suffix="%" /></div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] font-mono">ASEAN Focus</div>
             </motion.div>
           </div>
         </div>
