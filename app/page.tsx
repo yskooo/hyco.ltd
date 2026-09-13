@@ -33,29 +33,12 @@ function Counter({ value, suffix = "" }: { value: number, suffix?: string }) {
 export default function Home() {
   return (
     <div className="w-full bg-white text-slate-900">
-      {/* Citadel-Inspired Framed Cinematic Hero with White Frame Margins */}
-      <section className="bg-white py-4 sm:py-6 md:py-8 relative overflow-hidden">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative">
+      {/* Citadel-Inspired Framed Cinematic Hero with Clean White Margins */}
+      <section className="bg-white py-4 sm:py-6 md:py-8 relative">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12">
           
-          {/* Decorative Citadel-Style Brand Ribbon in the Left White Frame */}
-          <svg
-            className="absolute -left-6 md:-left-2 top-0 bottom-0 h-full w-36 pointer-events-none z-10 hidden sm:block"
-            viewBox="0 0 140 760"
-            fill="none"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M 120 0 C 10 160, 20 380, 70 540 C 110 680, 20 740, 10 760"
-              stroke="#F97316"
-              strokeWidth="4"
-              strokeLinecap="round"
-              className="drop-shadow-sm"
-              opacity="0.9"
-            />
-          </svg>
-
-          {/* Framed Cinematic Card */}
-          <div className="relative w-full h-[74vh] min-h-[580px] max-h-[780px] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 bg-slate-950 flex flex-col justify-between">
+          {/* Framed Cinematic Card with Grand Scale Height */}
+          <div className="relative w-full h-[86vh] min-h-[740px] max-h-[960px] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 bg-slate-950 flex flex-col justify-between">
             
             {/* Cinematic Background AI Lab Visual */}
             <div className="absolute inset-0 z-0 overflow-hidden">
@@ -85,15 +68,15 @@ export default function Home() {
               <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none"></div>
             </div>
 
-            {/* Upper Title Area with Citadel-Grade Spacing */}
-            <div className="relative z-10 w-full px-8 sm:px-12 md:px-16 lg:px-20 pt-12 sm:pt-16 md:pt-20">
+            {/* Upper Title Area with Grand Executive Spacing */}
+            <div className="relative z-10 w-full px-8 sm:px-12 md:px-16 lg:px-20 pt-16 sm:pt-24 md:pt-28">
               <motion.div
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
                 className="max-w-4xl"
               >
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] font-serif font-bold text-white tracking-tight leading-[1.08] drop-shadow-2xl">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[84px] font-serif font-bold text-white tracking-tight leading-[1.04] drop-shadow-2xl">
                   Together, We <br className="hidden sm:inline" />
                   Turn Ambition <br className="hidden sm:inline" />
                   Into Action
@@ -106,7 +89,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative z-20 w-full bg-gradient-to-r from-[#0F3383]/95 via-[#133F9C]/95 to-[#1E52BF]/90 backdrop-blur-md border-t border-white/20 py-6 sm:py-8 px-8 sm:px-12 md:px-16"
+              className="relative z-20 w-full bg-gradient-to-r from-[#0F3383]/95 via-[#133F9C]/95 to-[#1E52BF]/90 backdrop-blur-md border-t border-white/20 py-8 sm:py-10 px-8 sm:px-14 md:px-18"
             >
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                 <div className="max-w-3xl">
