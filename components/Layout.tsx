@@ -111,14 +111,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       </div>
                     </Link>
 
-                    {/* 2. ElectrifAI PH */}
+                    {/* 2. ElectrifAI */}
                     <Link href="/electrifai" className="group/link p-3 hover:bg-slate-50 rounded-lg transition-colors border border-transparent hover:border-slate-200">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-sm font-bold text-slate-900 group-hover/link:text-[#0F3383]">ElectrifAI PH</span>
-                        <span className="text-[9px] font-bold uppercase bg-slate-800 text-white px-1.5 py-0.5 rounded font-mono">Energy</span>
+                        <span className="text-sm font-bold text-slate-900 group-hover/link:text-[#0F3383]">ElectrifAI</span>
+                        <span className="text-[9px] font-bold uppercase bg-blue-600 text-white px-1.5 py-0.5 rounded font-mono">IoT &amp; Energy</span>
                       </div>
                       <div className="text-[11px] text-slate-500 leading-tight font-light">
-                        Intelligent, data-driven smart energy monitoring and connected hardware.
+                        IoT smart meters &amp; ELI smart plugs saving up to ₱2,400/mo on electricity.
                       </div>
                     </Link>
 

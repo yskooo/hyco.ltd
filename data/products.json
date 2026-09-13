@@ -20,20 +20,20 @@
   },
   {
     "id": "electrifai",
-    "name": "ElectrifAI PH",
+    "name": "ElectrifAI",
     "shortName": "ElectrifAI",
     "slug": "electrifai",
-    "tagline": "Intelligent, data-driven smart energy monitoring and connected hardware",
-    "description": "Intelligent, data-driven smart energy monitoring and connected hardware. Enabling utility providers, commercial complexes, and industrial estates to optimize loads and improve energy efficiency.",
+    "tagline": "IoT Smart Meters & ELI Smart Plugs: Make Each kWh Count.",
+    "description": "AI-driven IoT hardware platform turning ordinary electrical outlets into intelligent energy monitors. Cutting Meralco electricity bills by up to 26% with ELI smart plugs and delivering enterprise-grade smart meters with anti-pilferage theft detection.",
     "status": "Active Venture",
-    "statusBadge": "Active Platform",
+    "statusBadge": "Active Hardware & IoT",
     "leadHorse": false,
-    "category": "Smart Energy & Connected Hardware",
+    "category": "IoT Smart Meters & Smart Plugs",
     "features": [
-      "Data-Driven Smart Energy Monitoring & Telemetry",
-      "Connected IoT Hardware & Distributed Sensors",
-      "Predictive Load Balancing & Peak Shaving",
-      "Automated Power Leak & Anomaly Detection"
+      "ELI Smart Plug: Live Peso Bill Tracking & Standby Draw Killer",
+      "IoT Smart Energy Meters for Utilities, B2B & Real Estate",
+      "AI Anti-Pilferage & Power Theft Anomaly Detection",
+      "PnL & Automated ESG Energy Analytics"
     ],
     "href": "/electrifai"
   },

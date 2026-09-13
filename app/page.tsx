@@ -169,7 +169,7 @@ export default function Home() {
                     <span>ElectrifAI</span>
                     <ArrowRight size={15} className="text-slate-400 group-hover:text-[#0F3383] group-hover:translate-x-1 transition-all" />
                   </div>
-                  <div className="text-xs text-slate-500 font-mono mt-1">Next-Gen EV Mobility</div>
+                  <div className="text-xs text-slate-500 font-mono mt-1">Smart Meters &amp; ELI Smart Plugs</div>
                 </div>
               </Link>
 
@@ -317,11 +317,11 @@ export default function Home() {
                         <span className="text-xs font-bold text-white flex items-center gap-1.5">
                           <ShieldCheck size={14} className="text-[#28A4E7]" /> Engr. Marco V., PE
                         </span>
-                        <span className="text-[10px] font-mono text-blue-300 font-bold bg-blue-900/50 px-1.5 py-0.5 rounded">
-                          PRC Verified
+                        <span className="text-[10px] font-mono text-[#28A4E7] bg-blue-900/50 px-1.5 py-0.5 rounded">
+                          PRC #0148922
                         </span>
                       </div>
-                      <div className="text-[10px] text-slate-400 flex items-center justify-between font-mono">
+                      <div className="flex items-center justify-between text-[10px] text-slate-400">
                         <span>Civil &amp; Structural · 12 yrs exp</span>
                         <span className="text-emerald-400 font-bold">Escrow Protected</span>
                       </div>
@@ -364,22 +364,57 @@ export default function Home() {
               </Link>
             </motion.div>
 
-            {/* 2. ElectrifAI PH */}
+            {/* 2. ElectrifAI (IoT Smart Meters & ELI Smart Plugs) */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Link href="/electrifai" className="group flex flex-col md:flex-row-reverse bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(15,51,131,0.12)] hover:border-[#1A46B0] overflow-hidden relative">
+              <div className="flex flex-col md:flex-row-reverse bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(15,51,131,0.12)] hover:border-[#1A46B0] overflow-hidden relative">
                 <div className="absolute top-0 right-0 md:right-auto md:left-0 z-30 bg-[#0F3383] text-white text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 flex items-center gap-1.5 shadow-sm font-mono">
-                  <span>⚡ Smart Energy &amp; Hardware</span>
+                  <span>⚡ IoT Smart Meters &amp; Smart Plugs</span>
                 </div>
 
-                <div className="w-full md:w-[400px] lg:w-[500px] h-64 md:h-auto overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 shrink-0">
-                  <div className="absolute inset-0 bg-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
-                  <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop" alt="ElectrifAI PH" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
+                <div className="w-full md:w-[420px] lg:w-[500px] min-h-[300px] md:min-h-0 bg-slate-950 flex flex-col justify-between p-8 border-b md:border-b-0 md:border-l border-slate-800 shrink-0">
+                  <div className="flex items-center justify-between text-xs font-mono text-[#00A5FF]">
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-[#00A5FF] animate-pulse"></span>
+                      ELI LIVE LOAD TELEMETRY
+                    </span>
+                    <span className="text-emerald-400 font-bold">-26% Meralco Cut</span>
+                  </div>
+
+                  {/* Simulated ELI Smart Plug Screen */}
+                  <div className="my-auto bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-2xl">
+                    <div className="flex items-center justify-between mb-2 text-[10px] font-mono text-slate-400">
+                      <span>LIVE APPLIANCE DRAW</span>
+                      <span className="text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/30 font-bold">ELI Active</span>
+                    </div>
+                    <div className="text-3xl font-bold font-mono text-white mb-1">
+                      1,284<span className="text-sm font-normal text-slate-400"> W</span>
+                    </div>
+                    <div className="text-xs text-[#00A5FF] font-mono mb-3">
+                      ₱14.62 / hr · Aircon Sala
+                    </div>
+                    <div className="grid grid-cols-2 gap-2 text-[10px] font-mono pt-3 border-t border-slate-800">
+                      <div className="bg-slate-950 p-2 rounded border border-slate-800">
+                        <div className="text-slate-500">Phantom Power</div>
+                        <div className="text-emerald-400 font-bold">Killed (0W)</div>
+                      </div>
+                      <div className="bg-slate-950 p-2 rounded border border-slate-800">
+                        <div className="text-slate-500">Monthly Savings</div>
+                        <div className="text-white font-bold">₱2,400 / mo</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-center font-mono text-xs text-slate-400 flex items-center justify-center gap-2">
+                    <Zap size={13} className="text-[#00A5FF]" />
+                    <span>&quot;Make Each kWh Count!&quot;</span>
+                  </div>
                 </div>
+
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
                   <div className="absolute top-0 md:top-10 right-10 md:-right-1 w-12 md:w-1 h-1 md:h-12 bg-black group-hover:bg-[#1A46B0] transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
@@ -388,25 +423,39 @@ export default function Home() {
                     </div>
                     <div>
                       <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-black font-serif">ElectrifAI</h4>
-                      <p className="text-xs font-mono uppercase tracking-widest text-[#0F3383] font-bold mt-1">Energy Intelligence</p>
+                      <p className="text-xs font-mono uppercase tracking-widest text-[#0F3383] font-bold mt-1">IoT Smart Meters &amp; Smart Plugs</p>
                     </div>
                   </div>
-                  <p className="text-lg text-gray-700 mb-6 max-w-3xl leading-relaxed font-light">
-                    Intelligent, data-driven smart energy monitoring and connected hardware.
+                  <p className="text-lg text-gray-700 mb-4 max-w-3xl leading-relaxed font-light">
+                    Transforming ordinary electrical outlets and power lines into intelligent, bill-reducing IoT infrastructure.
                   </p>
                   <p className="text-sm text-gray-500 mb-6 max-w-3xl leading-relaxed">
-                    Predictive grid telemetry and IoT-enabled energy monitoring solutions empowering utility operators, industrial plants, and commercial real estate to minimize peak surge costs and optimize carbon efficiency.
+                    ElectrifAI empowers Filipino homes with the <strong>ELI Smart Plug</strong>—cutting Meralco bills by up to ₱2,400/month by killing phantom-load draw and automating off-peak schedules. For utilities and commercial estates, our <strong>IoT Smart Energy Meters</strong> provide real-time consumption telemetry, AI anti-pilferage theft alerts, and automated PnL/ESG intelligence.
                   </p>
                   <div className="flex flex-wrap gap-2 mb-8">
-                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">IoT Connected Hardware</span>
-                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">Telemetry &amp; Analytics</span>
-                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">Peak Shaving AI</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-blue-50 text-[#0F3383] px-3 py-1 rounded border border-blue-200">ELI Smart Plug (Cut ₱2,400/mo)</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">IoT Smart Meters</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">AI Anti-Pilferage Theft Alert</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">Phantom Load Eliminator</span>
                   </div>
-                  <div className="text-xs font-bold uppercase tracking-widest text-black flex items-center group-hover:text-[#1A46B0] transition-colors mt-auto">
-                    Explore ElectrifAI Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+                  <div className="flex flex-wrap items-center gap-4 mt-auto">
+                    <Link
+                      href="/electrifai"
+                      className="inline-flex items-center gap-2 bg-[#0F3383] hover:bg-[#1A46B0] text-white font-bold text-xs uppercase tracking-[0.15em] px-5 py-3 rounded transition-colors font-mono"
+                    >
+                      Explore ElectrifAI <ArrowRight size={14} />
+                    </Link>
+                    <a
+                      href="https://electrifai.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 border border-slate-300 hover:border-slate-400 text-slate-800 font-bold text-xs uppercase tracking-[0.15em] px-5 py-3 rounded transition-colors hover:bg-slate-50 font-mono"
+                    >
+                      Pre-Order ELI Plug ↗
+                    </a>
                   </div>
                 </div>
-              </Link>
+              </div>
             </motion.div>
 
             {/* 3. LeasifAI */}
