@@ -1,120 +1,396 @@
 "use client";
 
 import { motion } from 'motion/react';
+import { useState } from 'react';
+import { Shield, Sparkles, CheckCircle2 } from 'lucide-react';
+import Link from 'next/link';
+import teamData from '@/data/team.json';
 
-export default function About() {
-  const boardMembers = [
-    { name: "Sarah Jenkins", role: "Board Member", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" },
-    { name: "David Chen", role: "Board Member", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" },
-    { name: "Michael Ross", role: "Board Member", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" },
-    { name: "Elena Rodriguez", role: "Board Member", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop" }
-  ];
+type TeamMember = {
+  id: string;
+  name: string;
+  role: string;
+  category: string;
+  image?: string;
+  bio?: string;
+  initials?: string;
+  subsidiary?: string;
+};
 
-  const executives = [
-    { name: "James Hardy", role: "Chief Executive Officer", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" },
-    { name: "Anita Patel", role: "Chief Technology Officer", img: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?q=80&w=800&auto=format&fit=crop" },
-    { name: "Marcus Thorne", role: "Chief Operating Officer", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop" }
-  ];
+function MemberPortrait({ member, size = "large" }: { member: TeamMember; size?: "small" | "large" | "chairman" }) {
+  const [imgError, setImgError] = useState(false);
+  const hasImage = Boolean(member.image && member.image.trim().length > 0 && !imgError);
+
+  const aspectClass = size === "chairman" ? "aspect-[3/4] w-full" : "aspect-square w-full";
 
   return (
-    <div className="w-full bg-white pt-28">
+    <div className={`relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 ${aspectClass} border border-white/10 group-hover:border-blue-500/50 transition-all duration-500 shadow-xl`}>
+      {hasImage ? (
+        <img
+          src={member.image}
+          alt={member.name}
+          onError={() => setImgError(true)}
+          className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+          referrerPolicy="no-referrer"
+        />
+      ) : (
+        <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center select-none bg-slate-900 relative">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,85,255,0.15),transparent_70%)]"></div>
+          <div className="w-20 h-20 rounded-full bg-blue-600/10 border border-blue-500/30 flex items-center justify-center mb-4 text-2xl font-serif font-bold text-blue-400 group-hover:scale-110 group-hover:bg-blue-600/20 transition-all duration-300 relative z-10">
+            {member.initials || member.name.slice(0, 2).toUpperCase()}
+          </div>
+          <div className="relative z-10">
+            <span className="text-[10px] tracking-[0.2em] font-bold uppercase text-slate-400 bg-white/5 px-2.5 py-1 rounded border border-white/10">
+              Photo Placeholder
+            </span>
+          </div>
+        </div>
+      )}
+
+      {member.subsidiary && (
+        <div className="absolute top-3 right-3 z-20">
+          <span className="text-[9px] font-bold uppercase tracking-widest bg-blue-600 text-white px-2.5 py-1 rounded shadow-md">
+            {member.subsidiary}
+          </span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function About() {
+  const [activeTab, setActiveTab] = useState<string>("all");
+
+  const chairman = teamData.board.find((m) => m.role.toLowerCase().includes("chairman")) || teamData.board[0];
+  const allBoard = teamData.board;
+  const executives = teamData.executives;
+  const growthOps = teamData.growthAndOperations;
+  const productEng = teamData.productAndEngineering;
+
+  const totalMembers = allBoard.length + executives.length + growthOps.length + productEng.length;
+
+  return (
+    <div className="w-full bg-white pt-20">
       {/* Story Section */}
-      <section className="py-20 md:py-32 max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
+      <section className="py-20 md:py-28 max-w-[1600px] mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7"
+          >
             <div className="w-12 h-1 bg-blue-600 mb-6"></div>
-            <h2 className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-4">Our Story</h2>
+            <h2 className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-4">Our Mission & Structure</h2>
             <h1 className="text-5xl md:text-6xl font-serif text-[#0f172a] mb-8 leading-tight">
-              Engineering the Future of IT & AI Solutions.
+              Hardy & Co. PH Inc.
             </h1>
-            <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-              Hardy & Co. began with a singular vision: to bridge the gap between cutting-edge artificial intelligence research and practical, enterprise-grade IT solutions. Founded by industry veterans, we recognized that traditional businesses were struggling to integrate rapidly evolving technologies.
+            <p className="text-xl font-medium text-slate-800 mb-6 leading-relaxed">
+              A premier technology holding company engineering scalable AI infrastructure, venture products, and intelligent enterprise services across Southeast Asia.
             </p>
-            <p className="text-lg text-slate-600 leading-relaxed">
-              Today, we are a premier holding company. Through our specialized divisions—ElectrifAI, Serbisyow AI, and LeasifAI—we deliver transformative technologies that optimize operations, enhance customer experiences, and drive sustainable growth across global markets.
+            <p className="text-base text-slate-600 mb-6 leading-relaxed">
+              We identify fundamental operational friction across traditional commerce, enterprise services, and property markets—deploying purpose-built AI engines and technical talent to transform industry performance.
             </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="text-blue-600 shrink-0 mt-1" size={18} />
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900">Lead Horse: Servicio</h4>
+                  <p className="text-xs text-slate-500">AI Customer Support SaaS & Enterprise Servicing Business.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="text-blue-600 shrink-0 mt-1" size={18} />
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900">EV Mobility: BerdEV</h4>
+                  <p className="text-xs text-slate-500">Smart EV navigation, crowdsourced charger reliability &amp; rewards.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="text-blue-600 shrink-0 mt-1" size={18} />
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900">Commercial GTM: LeasifAI</h4>
+                  <p className="text-xs text-slate-500">Commercial real estate location intelligence & ROI models.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="text-blue-600 shrink-0 mt-1" size={18} />
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900">Energy AI: ElectrifAI PH</h4>
+                  <p className="text-xs text-slate-500">Predictive energy load balancing and grid intelligence.</p>
+                </div>
+              </div>
+            </div>
           </motion.div>
-          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="relative">
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-5 relative"
+          >
             <div className="absolute inset-0 bg-slate-100 translate-x-6 translate-y-6 z-0"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" 
-              alt="Hardy & Co. Office" 
-              className="relative z-10 w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl"
-              referrerPolicy="no-referrer"
-            />
+            <div className="relative z-10 bg-slate-900 text-white p-8 md:p-12 shadow-2xl border border-slate-800">
+              <div className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-4">Corporate Snapshot</div>
+              <h3 className="text-2xl font-serif font-bold text-white mb-6">Capital Allocation & Operating Group</h3>
+              <p className="text-sm text-slate-300 leading-relaxed mb-8">
+                Operating with institutional rigor from Pasig City, Metro Manila, Hardy & Co. anchors core governance, compliance, and IP while empowering each subsidiary with autonomous engineering and commercial acceleration.
+              </p>
+              <div className="space-y-4 text-xs tracking-wider uppercase text-slate-400">
+                <div className="flex justify-between border-b border-white/10 pb-2">
+                  <span>Headquarters</span>
+                  <span className="text-white font-bold">Ortigas Center, Pasig City, PH</span>
+                </div>
+                <div className="flex justify-between border-b border-white/10 pb-2">
+                  <span>Holding Entity</span>
+                  <span className="text-white font-bold">Hardy & Co. PH Inc.</span>
+                </div>
+                <div className="flex justify-between border-b border-white/10 pb-2">
+                  <span>Primary Focus</span>
+                  <span className="text-blue-400 font-bold">Servicio (Product & Servicing)</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Total Key Leaders</span>
+                  <span className="text-white font-bold">{totalMembers} Members</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Chairman Section */}
-      <section className="py-32 bg-slate-50 border-y border-slate-200">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-          <div className="max-w-3xl mx-auto text-center mb-20">
-            <h2 className="text-4xl font-serif text-[#0f172a] mb-6">Message from the Chairman</h2>
-            <div className="w-16 h-1 bg-blue-600 mx-auto"></div>
+      <section className="py-24 bg-slate-900 text-white border-y border-slate-800 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(0,85,255,0.15),transparent_50%)] pointer-events-none"></div>
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative z-10">
+          <div className="max-w-3xl mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-400/30 text-blue-400 text-xs font-bold uppercase tracking-widest mb-4">
+              <Shield size={14} /> Board Leadership
+            </div>
+            <h2 className="text-4xl md:text-5xl font-serif mb-4">Message from the Chairman of the Board</h2>
+            <div className="w-16 h-1 bg-blue-500"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 items-center">
-            <div className="md:col-span-1">
-              <img 
-                src="https://images.unsplash.com/photo-1558222218-b7b54eede3f3?q=80&w=800&auto=format&fit=crop" 
-                alt="Robert Hardy, Chairman" 
-                className="w-full aspect-[3/4] object-cover grayscale shadow-xl"
-                referrerPolicy="no-referrer"
-              />
-              <div className="mt-6 text-center md:text-left">
-                <h3 className="text-2xl font-serif font-semibold text-[#0f172a]">Robert Hardy</h3>
-                <p className="text-xs text-blue-700 font-bold uppercase tracking-widest mt-2">Chairman & Founder</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="md:col-span-4 group">
+              <MemberPortrait member={chairman} size="chairman" />
+              <div className="mt-6">
+                <h3 className="text-2xl font-serif font-semibold text-white">{chairman.name}</h3>
+                <p className="text-xs text-blue-400 font-bold uppercase tracking-widest mt-1.5">{chairman.role}</p>
+                <p className="text-xs text-slate-400 mt-2">{chairman.category}</p>
               </div>
             </div>
-            <div className="md:col-span-2">
-              <blockquote className="text-2xl md:text-3xl font-serif text-slate-700 italic leading-relaxed mb-10">
-                &quot;At Hardy & Co., we believe that technology should serve as an amplifier of human potential. Our commitment is to build robust, scalable IT and AI solutions that not only solve today&apos;s complex challenges but also anticipate the needs of tomorrow&apos;s enterprise.&quot;
+
+            <div className="md:col-span-8">
+              <blockquote className="text-2xl md:text-3xl font-serif text-slate-200 italic leading-relaxed mb-8">
+                &quot;Engineering sustainable, high-impact enterprise technology requires more than novelty—it demands unwavering governance, architectural rigor, and relentless focus on market-tested value. At Hardy & Co., we are positioning ASEAN as a crucible for practical, transformative artificial intelligence.&quot;
               </blockquote>
-              <p className="text-lg text-slate-600 leading-relaxed mb-8">
-                With over three decades of experience in enterprise technology and strategic investments, Robert founded Hardy & Co. to consolidate fragmented technological innovations into cohesive, market-ready solutions.
+              <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-6">
+                Under Engr. Gerhard P. Tan&apos;s board guidance, Hardy & Co. PH Inc. combines technical engineering standards with disciplined commercialization—ensuring our flagship operations like <strong>Servicio</strong>, smart EV mobility platform <strong>BerdEV</strong>, and geospatial platform <strong>LeasifAI</strong> scale on resilient foundations.
               </p>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Signature_of_John_Hancock.svg/1200px-Signature_of_John_Hancock.svg.png" alt="Signature" className="h-16 opacity-40" style={{ filter: 'invert(1)' }} referrerPolicy="no-referrer" />
+              <div className="p-4 bg-white/5 border border-white/10 rounded max-w-xl text-xs text-slate-400 flex items-center gap-3">
+                <Sparkles className="text-blue-400 shrink-0" size={20} />
+                <span>
+                  Photo placeholders are configured in <code className="text-blue-300 font-mono">/data/team.json</code> for seamless image updates.
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Executives Section */}
-      <section className="py-32">
+      {/* Team Showcase & Navigation Tabs */}
+      <section className="py-28 bg-slate-50" id="team">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-          <div className="mb-20">
-            <h2 className="text-4xl font-serif text-[#0f172a] mb-6">Executive Leadership</h2>
-            <p className="text-lg text-slate-600 max-w-2xl">Our executive team brings together decades of expertise in artificial intelligence, enterprise software, and global operations.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {executives.map((exec, idx) => (
-              <motion.div key={exec.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }} className="group">
-                <div className="overflow-hidden mb-6 shadow-lg">
-                  <img src={exec.img} alt={exec.name} className="w-full aspect-square object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" referrerPolicy="no-referrer" />
-                </div>
-                <h3 className="text-2xl font-serif font-semibold text-[#0f172a]">{exec.name}</h3>
-                <p className="text-xs text-blue-700 font-bold uppercase tracking-widest mt-2">{exec.role}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+              <div className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-2">Our People</div>
+              <h2 className="text-4xl md:text-5xl font-serif text-[#0f172a]">Leadership & Team</h2>
+              <p className="text-base text-slate-600 mt-3 max-w-2xl">
+                The executives, engineers, advisors, and strategists driving Hardy & Co. and its operating subsidiaries.
+              </p>
+            </div>
 
-      {/* Board of Directors */}
-      <section className="py-32 bg-[#0f172a] text-white">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-          <div className="mb-20">
-            <h2 className="text-4xl font-serif mb-6">Board of Directors</h2>
-            <div className="w-16 h-1 bg-blue-600"></div>
+            {/* Filter Tabs */}
+            <div className="flex flex-wrap gap-2">
+              {[
+                { id: "all", label: "All Team" },
+                { id: "board", label: "Board of Directors" },
+                { id: "executives", label: "Executive Leadership" },
+                { id: "growth", label: "Growth & Operations" },
+                { id: "engineering", label: "Product & Engineering" },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200 border ${
+                    activeTab === tab.id
+                      ? "bg-[#0f172a] text-white border-[#0f172a] shadow-md"
+                      : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-            {boardMembers.map((member, idx) => (
-              <motion.div key={member.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}>
-                <img src={member.img} alt={member.name} className="w-full aspect-square object-cover mb-6 opacity-70 hover:opacity-100 transition-opacity duration-500 grayscale" referrerPolicy="no-referrer" />
-                <h3 className="text-xl font-serif font-semibold">{member.name}</h3>
-                <p className="text-sm text-slate-400 mt-2">{member.role}</p>
-              </motion.div>
-            ))}
+
+          {/* Section: Board of Directors */}
+          {(activeTab === "all" || activeTab === "board") && (
+            <div className="mb-20">
+              <div className="flex items-center gap-4 mb-8">
+                <h3 className="text-2xl font-serif font-bold text-[#0f172a]">Board of Directors</h3>
+                <div className="h-px bg-slate-300 flex-grow"></div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {allBoard.map((member, idx) => (
+                  <motion.div
+                    key={member.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.08 }}
+                    className="group bg-white p-4 border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300"
+                  >
+                    <MemberPortrait member={member} />
+                    <div className="mt-4">
+                      <h4 className="text-xl font-serif font-semibold text-[#0f172a] group-hover:text-blue-600 transition-colors">
+                        {member.name}
+                      </h4>
+                      <p className="text-xs text-blue-700 font-bold uppercase tracking-wider mt-1">
+                        {member.role}
+                      </p>
+                      <p className="text-xs text-slate-500 mt-2 line-clamp-3 leading-relaxed">
+                        {member.bio}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Section: Executive Leadership */}
+          {(activeTab === "all" || activeTab === "executives") && (
+            <div className="mb-20">
+              <div className="flex items-center gap-4 mb-8">
+                <h3 className="text-2xl font-serif font-bold text-[#0f172a]">Executive Leadership (C-Suite)</h3>
+                <div className="h-px bg-slate-300 flex-grow"></div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {executives.map((member, idx) => (
+                  <motion.div
+                    key={member.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.08 }}
+                    className="group bg-white p-4 border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300"
+                  >
+                    <MemberPortrait member={member} />
+                    <div className="mt-4">
+                      <h4 className="text-lg font-serif font-semibold text-[#0f172a] group-hover:text-blue-600 transition-colors">
+                        {member.name}
+                      </h4>
+                      <p className="text-xs text-blue-700 font-bold uppercase tracking-wider mt-1">
+                        {member.role}
+                      </p>
+                      <p className="text-xs text-slate-500 mt-2 line-clamp-3 leading-relaxed">
+                        {member.bio}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Section: Growth & Operations */}
+          {(activeTab === "all" || activeTab === "growth") && (
+            <div className="mb-20">
+              <div className="flex items-center gap-4 mb-8">
+                <h3 className="text-2xl font-serif font-bold text-[#0f172a]">Growth & Executive Office</h3>
+                <div className="h-px bg-slate-300 flex-grow"></div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {growthOps.map((member, idx) => (
+                  <motion.div
+                    key={member.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.08 }}
+                    className="group bg-white p-4 border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300"
+                  >
+                    <MemberPortrait member={member} />
+                    <div className="mt-4">
+                      <h4 className="text-lg font-serif font-semibold text-[#0f172a] group-hover:text-blue-600 transition-colors">
+                        {member.name}
+                      </h4>
+                      <p className="text-xs text-blue-700 font-bold uppercase tracking-wider mt-1">
+                        {member.role}
+                      </p>
+                      <p className="text-xs text-slate-500 mt-2 line-clamp-3 leading-relaxed">
+                        {member.bio}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Section: Product & Engineering */}
+          {(activeTab === "all" || activeTab === "engineering") && (
+            <div className="mb-10">
+              <div className="flex items-center gap-4 mb-8">
+                <h3 className="text-2xl font-serif font-bold text-[#0f172a]">Product & Engineering</h3>
+                <div className="h-px bg-slate-300 flex-grow"></div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {productEng.map((member, idx) => (
+                  <motion.div
+                    key={member.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.08 }}
+                    className="group bg-white p-4 border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300"
+                  >
+                    <MemberPortrait member={member} />
+                    <div className="mt-4">
+                      <h4 className="text-lg font-serif font-semibold text-[#0f172a] group-hover:text-blue-600 transition-colors">
+                        {member.name}
+                      </h4>
+                      <p className="text-xs text-blue-700 font-bold uppercase tracking-wider mt-1">
+                        {member.role}
+                      </p>
+                      <p className="text-xs text-slate-500 mt-2 line-clamp-3 leading-relaxed">
+                        {member.bio}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* JSON Info Banner for the User */}
+          <div className="mt-16 p-6 bg-blue-50 border border-blue-200 rounded-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div>
+              <h4 className="text-sm font-bold text-blue-900 uppercase tracking-wide">
+                Easily Update Images and Bios via JSON
+              </h4>
+              <p className="text-xs text-blue-700 mt-1">
+                To replace any placeholder with an actual photo, simply open <code className="font-mono bg-blue-100 px-1.5 py-0.5 rounded text-blue-950 font-bold">data/team.json</code> and paste your image URL or path in the <code className="font-mono">&quot;image&quot;</code> property.
+              </p>
+            </div>
+            <Link
+              href="/#portfolio"
+              className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold uppercase tracking-widest rounded transition-colors shrink-0"
+            >
+              Explore Portfolio
+            </Link>
           </div>
         </div>
       </section>
