@@ -5,30 +5,6 @@ import { ArrowRight, BarChart3, Globe2, Zap, Navigation, BatteryCharging, Shield
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-// Simple counter component for trust stats
-function Counter({ value, suffix = "" }: { value: number, suffix?: string }) {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    let start = 0;
-    const duration = 2000;
-    const increment = value / (duration / 16);
-
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= value) {
-        setCount(value);
-        clearInterval(timer);
-      } else {
-        setCount(start);
-      }
-    }, 16);
-
-    return () => clearInterval(timer);
-  }, [value]);
-
-  return <span>{count % 1 !== 0 && count > 10 ? count.toFixed(1) : Math.floor(count)}{suffix}</span>;
-}
 
 export default function Home() {
   return (
@@ -218,50 +194,6 @@ export default function Home() {
             </div>
           </div>
 
-        </div>
-      </section>
-
-      {/* Stats / Trust Bar (Executive Light) */}
-      <section className="bg-white py-16 border-b border-slate-200 relative z-20">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-slate-200">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <div className="text-5xl font-bold text-[#0F3383] mb-2 font-serif"><Counter value={4} /></div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] font-mono">Core Ventures</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="text-5xl font-bold text-slate-900 mb-2 font-serif">₱<Counter value={80} suffix="M+" /></div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] font-mono">Target ARR</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <div className="text-5xl font-bold text-slate-900 mb-2 font-serif"><Counter value={100} suffix="k+" /></div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] font-mono">Target Users</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <div className="text-5xl font-bold text-[#0F3383] mb-2 font-serif"><Counter value={100} suffix="%" /></div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] font-mono">ASEAN Focus</div>
-            </motion.div>
-          </div>
         </div>
       </section>
 
