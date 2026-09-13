@@ -77,7 +77,7 @@ export async function POST(request: Request) {
     }
 
     // 6. Send Email Notification via Resend (Optional/Configurable)
-    const contactEmail = process.env.CONTACT_EMAIL;
+    const contactEmail = process.env.CONTACT_EMAIL || 'contact@hyco.ltd';
     if (contactEmail && resend) {
       try {
         await resend.emails.send({

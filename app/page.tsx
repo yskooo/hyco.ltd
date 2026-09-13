@@ -5,171 +5,211 @@ import { ArrowRight, BarChart3, Globe2, Zap, Navigation, BatteryCharging, Shield
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-// Simple counter component for trust stats
-function Counter({ value, suffix = "" }: { value: number, suffix?: string }) {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    let start = 0;
-    const duration = 2000;
-    const increment = value / (duration / 16);
-
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= value) {
-        setCount(value);
-        clearInterval(timer);
-      } else {
-        setCount(start);
-      }
-    }, 16);
-
-    return () => clearInterval(timer);
-  }, [value]);
-
-  return <span>{count % 1 !== 0 && count > 10 ? count.toFixed(1) : Math.floor(count)}{suffix}</span>;
-}
 
 export default function Home() {
   return (
     <div className="w-full bg-white text-slate-900">
-      {/* Executive Light Hero Section */}
-      <section className="relative min-h-[780px] lg:min-h-[850px] flex items-center overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-100/70 border-b border-slate-200">
-        {/* Subtle geometric grid background */}
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(#0F3383_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.06] pointer-events-none"></div>
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-blue-100/40 via-blue-50/20 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+      {/* Asymmetrical Full-Width Cinematic Hero (Flush to Right Margin, Framed on Left) */}
+      <section className="bg-white pt-3 sm:pt-5 pb-6 sm:pb-8 relative overflow-hidden">
+        <div className="w-full pl-4 sm:pl-8 md:pl-12 lg:pl-16 pr-0">
+          
+          {/* Framed Cinematic Card: Bleeds 100% flush to right edge, elegant radius on left */}
+          <div className="relative w-full h-[88vh] min-h-[760px] max-h-[980px] rounded-l-2xl sm:rounded-l-3xl md:rounded-l-[36px] rounded-r-none overflow-hidden shadow-[0_25px_60px_rgba(15,51,131,0.18)] border-y border-l border-r-0 border-slate-200/90 bg-slate-950 flex flex-col justify-between">
+            
+            {/* High-Resolution Cinematic Command Center Visual */}
+            <div className="absolute inset-0 z-0 overflow-hidden">
+              <img
+                src="/hero-command-center.jpg"
+                alt="HYCO Group AI & Autonomous Technology Enterprise Command Center"
+                className="w-full h-full object-cover object-center scale-105 transition-transform duration-[12000ms] ease-out"
+              />
 
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 py-20">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="max-w-4xl bg-white/95 backdrop-blur-md p-8 md:p-14 border border-slate-200/90 shadow-[0_20px_50px_rgba(15,51,131,0.07)] rounded-xl"
-          >
-            {/* Top pill badge */}
-            <div className="flex flex-wrap items-center gap-3 mb-6">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-blue-50 border border-blue-200/90 text-[#0F3383] text-xs font-mono font-bold tracking-widest uppercase rounded">
-                <span className="w-2 h-2 rounded-full bg-[#1A46B0] animate-pulse"></span>
-                Hardy&amp;Co. Group
-              </span>
-              <span className="text-slate-300 font-mono">•</span>
-              <span className="text-slate-600 text-xs font-mono font-semibold uppercase tracking-wider">
-                One Company. Four Ventures.
-              </span>
+              {/* Sophisticated Dark Gradient Scrim: Deep contrast on left for pristine typography readability */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/60 via-45% to-black/20"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/35"></div>
+              
+              {/* Precision Engineering Dot Matrix Grid */}
+              <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none"></div>
+
+              {/* Real-time Telemetry Status Pill (Top Right) */}
+              <div className="absolute top-8 right-8 z-10 hidden sm:flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-950/75 backdrop-blur-md border border-white/15 text-[11px] font-mono text-emerald-400 shadow-xl">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span className="font-semibold tracking-wider">HYCO GRID &amp; AI TELEMETRY • ACTIVE</span>
+              </div>
             </div>
 
+            {/* Upper Title Area with Grand Executive Spacing & Refined Typography */}
+            <div className="relative z-10 w-full px-8 sm:px-12 md:px-16 lg:px-20 pt-16 sm:pt-24 md:pt-28">
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="max-w-4xl"
+              >
+                {/* Executive Brand Category Pill */}
+                <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-mono tracking-[0.25em] uppercase mb-8 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-[#00A5FF] animate-pulse"></span>
+                  <span>HYCO Group • AI &amp; Intelligent Infrastructure</span>
+                </div>
+
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[86px] xl:text-[94px] font-serif font-bold text-white tracking-tight leading-[1.02] drop-shadow-2xl">
+                  Together, We <br className="hidden sm:inline" />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-sky-200">Turn Ambition</span> <br className="hidden sm:inline" />
+                  Into Action
+                </h1>
+              </motion.div>
+            </div>
+
+            {/* Bottom Overlay Bar for Description (Reaches all the way to right margin) */}
             <motion.div
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={{ opacity: 1, scaleX: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="w-20 h-1.5 bg-[#0F3383] mb-8 origin-left"
-            ></motion.div>
+              className="relative z-20 w-full bg-gradient-to-r from-[#0F3383]/95 via-[#133F9C]/95 to-[#1E52BF]/90 backdrop-blur-md border-t border-white/20 py-8 sm:py-10 px-8 sm:px-14 md:px-18"
+            >
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pr-4 sm:pr-8 md:pr-12">
+                <div className="max-w-3xl">
+                  <p className="text-base sm:text-lg md:text-xl text-white font-light leading-relaxed font-sans">
+                    HYCO Group builds AI that matters, for people who deserve it. Deploying transformative AI and intelligent infrastructure across four high-impact ventures.
+                  </p>
+                </div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="relative z-20 text-5xl md:text-7xl lg:text-[82px] font-bold text-slate-950 mb-8 tracking-tighter leading-[1.05] uppercase font-serif"
-            >
-              The Catalyst<br />For ASEAN AI.
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="text-lg md:text-2xl text-slate-600 mb-10 font-light leading-relaxed max-w-2xl"
-            >
-              <strong className="font-bold text-slate-900 tracking-wider">Hardy&amp;Co. Group</strong> builds AI that matters, for people who deserve it. Deploying transformative AI and intelligent infrastructure across four high-impact ventures.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
-            >
-              <a
-                href="#ventures"
-                className="bg-[#0F3383] hover:bg-[#1A46B0] text-white px-9 py-4 text-xs font-bold tracking-[0.2em] uppercase rounded transition-all duration-300 flex items-center shadow-md shadow-blue-900/10 hover:shadow-blue-900/25"
-              >
-                Explore Four Ventures <ArrowRight size={16} className="ml-3" />
-              </a>
-              <Link
-                href="/about"
-                className="border border-slate-300 hover:border-slate-400 bg-white text-slate-800 px-8 py-4 text-xs font-bold tracking-[0.2em] uppercase rounded transition-all duration-300 flex items-center hover:bg-slate-50 shadow-sm"
-              >
-                Corporate Overview
-              </Link>
-              <Link
-                href="/contact"
-                className="text-slate-600 hover:text-[#0F3383] px-4 py-4 text-xs font-bold tracking-[0.15em] uppercase font-mono transition-colors"
-              >
-                Get In Touch →
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Stats / Trust Bar (Executive Light) */}
-      <section className="bg-white py-16 border-b border-slate-200 relative z-20">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-slate-200">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <div className="text-5xl font-bold text-[#0F3383] mb-2 font-serif"><Counter value={4} /></div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] font-mono">Core Ventures</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="text-5xl font-bold text-slate-900 mb-2 font-serif">₱<Counter value={80} suffix="M+" /></div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] font-mono">Target ARR</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <div className="text-5xl font-bold text-slate-900 mb-2 font-serif"><Counter value={100} suffix="k+" /></div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] font-mono">Target Users</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <div className="text-5xl font-bold text-[#0F3383] mb-2 font-serif"><Counter value={100} suffix="%" /></div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] font-mono">ASEAN Focus</div>
+                <div className="flex flex-wrap items-center gap-4 shrink-0">
+                  <a
+                    href="#ventures"
+                    className="inline-flex items-center gap-2 bg-white text-[#0F3383] hover:bg-slate-100 font-bold px-7 py-3.5 text-xs uppercase tracking-[0.2em] rounded transition-all shadow-md font-mono"
+                  >
+                    Explore Ventures <ArrowRight size={15} />
+                  </a>
+                  <Link
+                    href="/about"
+                    className="inline-flex items-center gap-2 border border-white/40 hover:border-white text-white px-6 py-3.5 text-xs font-bold uppercase tracking-[0.2em] rounded transition-all hover:bg-white/10 font-mono"
+                  >
+                    Who We Are
+                  </Link>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
-      </section>
 
-      {/* Portfolio Section: One Company. Four Ventures. */}
+        {/* Static Marquee-Style Portfolio Venture Bar Below Hero Card */}
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12 mt-10 pt-8 border-t border-slate-200">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#0F3383] animate-pulse"></span>
+                <span className="text-[11px] font-mono font-bold uppercase tracking-[0.25em] text-slate-500">
+                  Portfolio Ventures &amp; Operating Entities
+                </span>
+              </div>
+              <span className="text-xs text-slate-400 font-mono">
+                Four Active Platforms Across AI &amp; Infrastructure
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+              {/* 1. Servicio.AI */}
+              <Link
+                href="/servicio-ai"
+                className="group p-6 md:p-7 bg-slate-50/90 hover:bg-white rounded-2xl border border-slate-200/90 hover:border-[#0F3383]/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              >
+                <div className="h-28 md:h-32 flex items-center justify-center mb-4 px-4">
+                  <img
+                    src="/servicio-logo.png"
+                    alt="Servicio.AI"
+                    className="h-16 sm:h-20 md:h-22 w-auto max-w-[220px] object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
+                  />
+                </div>
+                <div className="text-center pt-4 border-t border-slate-200/80">
+                  <div className="font-bold text-slate-900 text-base md:text-lg group-hover:text-[#0F3383] transition-colors flex items-center justify-center gap-1.5">
+                    <span>Servicio.AI</span>
+                    <ArrowRight size={15} className="text-slate-400 group-hover:text-[#0F3383] group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <div className="text-xs text-slate-500 font-mono mt-1">Flagship Service AI</div>
+                </div>
+              </Link>
+
+              {/* 2. ElectrifAI */}
+              <Link
+                href="/electrifai"
+                className="group p-6 md:p-7 bg-slate-50/90 hover:bg-white rounded-2xl border border-slate-200/90 hover:border-[#0F3383]/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              >
+                <div className="h-28 md:h-32 flex items-center justify-center mb-4 px-4">
+                  <img
+                    src="/electrifai-logo.svg"
+                    alt="ElectrifAI"
+                    className="h-18 sm:h-22 md:h-24 w-auto max-w-[220px] object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
+                  />
+                </div>
+                <div className="text-center pt-4 border-t border-slate-200/80">
+                  <div className="font-bold text-slate-900 text-base md:text-lg group-hover:text-[#0F3383] transition-colors flex items-center justify-center gap-1.5">
+                    <span>ElectrifAI</span>
+                    <ArrowRight size={15} className="text-slate-400 group-hover:text-[#0F3383] group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <div className="text-xs text-slate-500 font-mono mt-1">Smart Meters &amp; ELI Smart Plugs</div>
+                </div>
+              </Link>
+
+              {/* 3. LeasifAI */}
+              <Link
+                href="/leasifai"
+                className="group p-6 md:p-7 bg-slate-50/90 hover:bg-white rounded-2xl border border-slate-200/90 hover:border-[#0F3383]/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              >
+                <div className="h-28 md:h-32 flex items-center justify-center mb-4 px-4">
+                  <img
+                    src="/leasifai-logo.png"
+                    alt="LeasifAI"
+                    className="h-16 sm:h-20 md:h-22 w-auto max-w-[220px] object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
+                  />
+                </div>
+                <div className="text-center pt-4 border-t border-slate-200/80">
+                  <div className="font-bold text-slate-900 text-base md:text-lg group-hover:text-[#0F3383] transition-colors flex items-center justify-center gap-1.5">
+                    <span>LeasifAI</span>
+                    <ArrowRight size={15} className="text-slate-400 group-hover:text-[#0F3383] group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <div className="text-xs text-slate-500 font-mono mt-1">Commercial Underwriting</div>
+                </div>
+              </Link>
+
+              {/* 4. BerdEV (BlackGreen Text Logo) */}
+              <Link
+                href="/berdev"
+                className="group p-6 md:p-7 bg-slate-50/90 hover:bg-white rounded-2xl border border-slate-200/90 hover:border-emerald-600/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              >
+                <div className="h-28 md:h-32 flex items-center justify-center mb-4 px-4">
+                  <div className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-slate-950 border-2 border-emerald-500/50 shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <span className="w-3.5 h-3.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span className="font-extrabold text-2xl sm:text-3xl tracking-tight font-sans text-white">
+                      Berd<span className="text-emerald-400">EV</span>
+                    </span>
+                  </div>
+                </div>
+                <div className="text-center pt-4 border-t border-slate-200/80">
+                  <div className="font-bold text-slate-900 text-base md:text-lg group-hover:text-emerald-700 transition-colors flex items-center justify-center gap-1.5">
+                    <span>BerdEV</span>
+                    <ArrowRight size={15} className="text-slate-400 group-hover:text-emerald-700 group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <div className="text-xs text-emerald-600 font-mono mt-1">Clean Energy EV Network</div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+      {/* Portfolio Section: Four High-Impact Ventures */}
       <section id="ventures" className="py-32 bg-[#f8fafc] text-black">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12">
           <div className="mb-20 md:flex justify-between items-end">
             <div className="max-w-3xl">
               <div className="flex items-center mb-4">
                 <Zap className="text-[#1A46B0] mr-2" size={20} />
-                <h2 className="text-xs font-bold text-[#0F3383] uppercase tracking-[0.3em] font-mono">Hardy&amp;Co. Group</h2>
+                <h2 className="text-xs font-bold text-[#0F3383] uppercase tracking-[0.3em] font-mono">HYCO Group</h2>
               </div>
               <h3 className="text-5xl md:text-6xl font-bold text-black mb-6 tracking-tighter uppercase font-serif">
-                One Company. Four Ventures.
+                Four High-Impact Ventures.
               </h3>
               <p className="text-lg text-gray-600 leading-relaxed font-light">
-                By centralizing our four venture operations under <strong className="font-bold text-black">Hardy&amp;Co. Group</strong>, we optimize capital deployment, cross-pollinate proprietary AI models, and deliver scalable value across Southeast Asia.
+                Deploying transformative AI and intelligent infrastructure across four specialized operations—scaling high-value platforms across Southeast Asia.
               </p>
             </div>
           </div>
@@ -208,11 +248,11 @@ export default function Home() {
                         <span className="text-xs font-bold text-white flex items-center gap-1.5">
                           <ShieldCheck size={14} className="text-[#28A4E7]" /> Engr. Marco V., PE
                         </span>
-                        <span className="text-[10px] font-mono text-blue-300 font-bold bg-blue-900/50 px-1.5 py-0.5 rounded">
-                          PRC Verified
+                        <span className="text-[10px] font-mono text-[#28A4E7] bg-blue-900/50 px-1.5 py-0.5 rounded">
+                          PRC #0148922
                         </span>
                       </div>
-                      <div className="text-[10px] text-slate-400 flex items-center justify-between font-mono">
+                      <div className="flex items-center justify-between text-[10px] text-slate-400">
                         <span>Civil &amp; Structural · 12 yrs exp</span>
                         <span className="text-emerald-400 font-bold">Escrow Protected</span>
                       </div>
@@ -228,8 +268,8 @@ export default function Home() {
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
                   <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-[#1A46B0]"></div>
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-[#0F3383] text-white flex items-center justify-center mr-6 shrink-0 shadow-md">
-                      <ShieldCheck size={24} />
+                    <div className="h-16 px-5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center mr-6 shrink-0 shadow-sm">
+                      <img src="/servicio-logo.png" alt="Servicio.AI" className="h-11 w-auto object-contain" />
                     </div>
                     <div>
                       <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-black font-serif">Servicio.AI</h4>
@@ -255,49 +295,98 @@ export default function Home() {
               </Link>
             </motion.div>
 
-            {/* 2. ElectrifAI PH */}
+            {/* 2. ElectrifAI (IoT Smart Meters & ELI Smart Plugs) */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Link href="/electrifai" className="group flex flex-col md:flex-row-reverse bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(15,51,131,0.12)] hover:border-[#1A46B0] overflow-hidden relative">
+              <div className="flex flex-col md:flex-row-reverse bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(15,51,131,0.12)] hover:border-[#1A46B0] overflow-hidden relative">
                 <div className="absolute top-0 right-0 md:right-auto md:left-0 z-30 bg-[#0F3383] text-white text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 flex items-center gap-1.5 shadow-sm font-mono">
-                  <span>⚡ Smart Energy &amp; Hardware</span>
+                  <span>⚡ IoT Smart Meters &amp; Smart Plugs</span>
                 </div>
 
-                <div className="w-full md:w-[400px] lg:w-[500px] h-64 md:h-auto overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 shrink-0">
-                  <div className="absolute inset-0 bg-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
-                  <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop" alt="ElectrifAI PH" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
+                <div className="w-full md:w-[420px] lg:w-[500px] min-h-[300px] md:min-h-0 bg-slate-950 flex flex-col justify-between p-8 border-b md:border-b-0 md:border-l border-slate-800 shrink-0">
+                  <div className="flex items-center justify-between text-xs font-mono text-[#00A5FF]">
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-[#00A5FF] animate-pulse"></span>
+                      ELI LIVE LOAD TELEMETRY
+                    </span>
+                    <span className="text-emerald-400 font-bold">-26% Meralco Cut</span>
+                  </div>
+
+                  {/* Simulated ELI Smart Plug Screen */}
+                  <div className="my-auto bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-2xl">
+                    <div className="flex items-center justify-between mb-2 text-[10px] font-mono text-slate-400">
+                      <span>LIVE APPLIANCE DRAW</span>
+                      <span className="text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/30 font-bold">ELI Active</span>
+                    </div>
+                    <div className="text-3xl font-bold font-mono text-white mb-1">
+                      1,284<span className="text-sm font-normal text-slate-400"> W</span>
+                    </div>
+                    <div className="text-xs text-[#00A5FF] font-mono mb-3">
+                      ₱14.62 / hr · Aircon Sala
+                    </div>
+                    <div className="grid grid-cols-2 gap-2 text-[10px] font-mono pt-3 border-t border-slate-800">
+                      <div className="bg-slate-950 p-2 rounded border border-slate-800">
+                        <div className="text-slate-500">Phantom Power</div>
+                        <div className="text-emerald-400 font-bold">Killed (0W)</div>
+                      </div>
+                      <div className="bg-slate-950 p-2 rounded border border-slate-800">
+                        <div className="text-slate-500">Monthly Savings</div>
+                        <div className="text-white font-bold">₱2,400 / mo</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-center font-mono text-xs text-slate-400 flex items-center justify-center gap-2">
+                    <Zap size={13} className="text-[#00A5FF]" />
+                    <span>&quot;Make Each kWh Count!&quot;</span>
+                  </div>
                 </div>
+
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
                   <div className="absolute top-0 md:top-10 right-10 md:-right-1 w-12 md:w-1 h-1 md:h-12 bg-black group-hover:bg-[#1A46B0] transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-[#0F3383] text-white group-hover:bg-[#1A46B0] flex items-center justify-center mr-6 transition-colors duration-300 shrink-0">
-                      <Zap size={24} />
+                    <div className="h-16 px-5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center mr-6 shrink-0 shadow-sm">
+                      <img src="/electrifai-logo.svg" alt="ElectrifAI" className="h-12 w-auto object-contain" />
                     </div>
                     <div>
-                      <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-black font-serif">ElectrifAI PH</h4>
-                      <p className="text-xs font-mono uppercase tracking-widest text-[#0F3383] font-bold mt-1">Energy Intelligence</p>
+                      <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-black font-serif">ElectrifAI</h4>
+                      <p className="text-xs font-mono uppercase tracking-widest text-[#0F3383] font-bold mt-1">IoT Smart Meters &amp; Smart Plugs</p>
                     </div>
                   </div>
-                  <p className="text-lg text-gray-700 mb-6 max-w-3xl leading-relaxed font-light">
-                    Intelligent, data-driven smart energy monitoring and connected hardware.
+                  <p className="text-lg text-gray-700 mb-4 max-w-3xl leading-relaxed font-light">
+                    Transforming ordinary electrical outlets and power lines into intelligent, bill-reducing IoT infrastructure.
                   </p>
                   <p className="text-sm text-gray-500 mb-6 max-w-3xl leading-relaxed">
-                    Predictive grid telemetry and IoT-enabled energy monitoring solutions empowering utility operators, industrial plants, and commercial real estate to minimize peak surge costs and optimize carbon efficiency.
+                    ElectrifAI empowers Filipino homes with the <strong>ELI Smart Plug</strong>—cutting Meralco bills by up to ₱2,400/month by killing phantom-load draw and automating off-peak schedules. For utilities and commercial estates, our <strong>IoT Smart Energy Meters</strong> provide real-time consumption telemetry, AI anti-pilferage theft alerts, and automated PnL/ESG intelligence.
                   </p>
                   <div className="flex flex-wrap gap-2 mb-8">
-                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">IoT Connected Hardware</span>
-                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">Telemetry &amp; Analytics</span>
-                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">Peak Shaving AI</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-blue-50 text-[#0F3383] px-3 py-1 rounded border border-blue-200">ELI Smart Plug (Cut ₱2,400/mo)</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">IoT Smart Meters</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">AI Anti-Pilferage Theft Alert</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 px-3 py-1 rounded">Phantom Load Eliminator</span>
                   </div>
-                  <div className="text-xs font-bold uppercase tracking-widest text-black flex items-center group-hover:text-[#1A46B0] transition-colors mt-auto">
-                    Explore ElectrifAI PH Platform <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+                  <div className="flex flex-wrap items-center gap-4 mt-auto">
+                    <Link
+                      href="/electrifai"
+                      className="inline-flex items-center gap-2 bg-[#0F3383] hover:bg-[#1A46B0] text-white font-bold text-xs uppercase tracking-[0.15em] px-5 py-3 rounded transition-colors font-mono"
+                    >
+                      Explore ElectrifAI <ArrowRight size={14} />
+                    </Link>
+                    <a
+                      href="https://electrifai.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 border border-slate-300 hover:border-slate-400 text-slate-800 font-bold text-xs uppercase tracking-[0.15em] px-5 py-3 rounded transition-colors hover:bg-slate-50 font-mono"
+                    >
+                      Pre-Order ELI Plug ↗
+                    </a>
                   </div>
                 </div>
-              </Link>
+              </div>
             </motion.div>
 
             {/* 3. LeasifAI */}
@@ -312,20 +401,31 @@ export default function Home() {
                   <span>● Status: GTM Phase</span>
                 </div>
 
-                <div className="w-full md:w-[400px] lg:w-[500px] min-h-[280px] md:min-h-0 h-auto overflow-hidden relative transition-all duration-700 shrink-0 bg-slate-50 flex flex-col items-center justify-center p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-100 group-hover:bg-white">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#1A46B0]/0 to-[#1A46B0]/0 group-hover:from-[#1A46B0]/5 group-hover:to-transparent transition-colors duration-700"></div>
-                  <img src="/img-folder/leasifAI.png" alt="LeasifAI Logo" className="w-20 h-20 object-contain mb-8 transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500 relative z-10" />
-                  <p className="text-xl md:text-2xl font-bold text-center text-[#1A46B0] leading-tight relative z-10 font-serif">
-                    &quot;We don&apos;t just help businesses find a space,<br />we help them find their place in the economy.&quot;
+                <div className="w-full md:w-[420px] lg:w-[480px] min-h-[300px] md:min-h-0 h-auto overflow-hidden relative transition-all duration-700 shrink-0 bg-slate-50 flex flex-col items-center justify-center p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-100 group-hover:bg-white">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#144BBD]/0 to-[#144BBD]/0 group-hover:from-[#144BBD]/5 group-hover:to-transparent transition-colors duration-700 pointer-events-none"></div>
+                  <div className="w-24 h-24 mb-6 flex items-center justify-center relative z-10 transform group-hover:scale-105 group-hover:-translate-y-1 transition-all duration-500">
+                    <img src="/img-folder/leasifAI.png" alt="LeasifAI Logo" className="w-full h-full object-contain drop-shadow-sm" />
+                  </div>
+                  <p className="text-xl md:text-2xl font-bold text-center text-[#144BBD] leading-tight relative z-10 max-w-sm" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                    &ldquo;We don&apos;t just help businesses find a space,<br className="hidden sm:inline" /> we help them find their place in the economy.&rdquo;
                   </p>
+                  <span className="mt-5 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-400 font-bold relative z-10">
+                    Commercial Location Intelligence
+                  </span>
                 </div>
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
                   <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-black group-hover:bg-[#1A46B0] transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
-                    <h4 className="text-3xl lg:text-4xl font-bold tracking-tight font-serif">
-                      <span className="text-[#0F3383]">Leasif</span>
-                      <span className="text-[#FF9500]">AI</span>
-                    </h4>
+                    <div className="h-16 px-5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center mr-6 shrink-0 shadow-sm">
+                      <img src="/leasifai-logo.png" alt="LeasifAI" className="h-11 w-auto object-contain" />
+                    </div>
+                    <div>
+                      <h4 className="text-3xl lg:text-4xl font-bold tracking-tight font-serif">
+                        <span className="text-[#144BBD]">Leasif</span>
+                        <span className="text-[#FF9500]">AI</span>
+                      </h4>
+                      <p className="text-xs font-mono uppercase tracking-widest text-[#0F3383] font-bold mt-1">Commercial Underwriting</p>
+                    </div>
                   </div>
                   <p className="text-lg text-gray-700 mb-6 max-w-3xl leading-relaxed font-light">
                     AI-powered commercial real estate matching and automated leasing workflows.
@@ -352,15 +452,15 @@ export default function Home() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Link href="/berdev" className="group flex flex-col md:flex-row-reverse bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(40,164,231,0.15)] hover:border-[#28A4E7] overflow-hidden relative">
-                <div className="absolute top-0 right-0 md:right-auto md:left-0 z-30 bg-[#0F3383] text-[#28A4E7] text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 flex items-center gap-1.5 shadow-sm font-mono border-b border-[#28A4E7]/30">
-                  <span>⚡ Smart EV Mobility &amp; Charging</span>
+              <Link href="/berdev" className="group flex flex-col md:flex-row-reverse bg-white border border-gray-200 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(40,164,231,0.15)] hover:border-emerald-600 overflow-hidden relative">
+                <div className="absolute top-0 right-0 md:right-auto md:left-0 z-30 bg-slate-950 text-emerald-400 text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 flex items-center gap-1.5 shadow-sm font-mono border-b border-emerald-500/40">
+                  <span>⚡ Clean EV Mobility &amp; Charging</span>
                 </div>
 
                 <div className="w-full md:w-[400px] lg:w-[500px] h-64 md:h-auto overflow-hidden relative transition-all duration-700 shrink-0 bg-slate-950 flex flex-col justify-between p-8 border-b md:border-b-0 md:border-l border-slate-800">
-                  <div className="flex items-center justify-between text-xs font-mono text-[#28A4E7]">
+                  <div className="flex items-center justify-between text-xs font-mono text-emerald-400">
                     <span className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-[#28A4E7] animate-ping"></span>
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
                       LIVE EV RADAR
                     </span>
                     <span className="text-slate-400">METRO MANILA &amp; SLEX</span>
@@ -370,7 +470,7 @@ export default function Home() {
                   <div className="my-auto bg-slate-900/90 border border-slate-800 rounded-lg p-4 shadow-xl">
                     <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-800">
                       <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded bg-[#1A46B0]/30 text-[#28A4E7] flex items-center justify-center font-bold text-xs">
+                        <div className="w-8 h-8 rounded bg-emerald-950/80 text-emerald-400 flex items-center justify-center font-bold text-xs border border-emerald-500/30">
                           ⚡ DC
                         </div>
                         <div>
@@ -378,14 +478,14 @@ export default function Home() {
                           <div className="text-[10px] text-slate-400">SLEX Mamplasan • 4 Bays</div>
                         </div>
                       </div>
-                      <span className="text-[10px] font-bold text-[#28A4E7] bg-blue-950/80 border border-[#28A4E7]/30 px-2 py-0.5 rounded">
+                      <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-400/30 px-2 py-0.5 rounded">
                         98% Uptime
                       </span>
                     </div>
                     <div className="grid grid-cols-3 gap-2 text-center text-[10px] font-mono">
                       <div className="bg-slate-950 p-1.5 rounded border border-slate-800/80">
                         <div className="text-slate-400 text-[9px]">Available</div>
-                        <div className="text-[#28A4E7] font-bold">2 of 4 Plugs</div>
+                        <div className="text-emerald-400 font-bold">2 of 4 Plugs</div>
                       </div>
                       <div className="bg-slate-950 p-1.5 rounded border border-slate-800/80">
                         <div className="text-slate-400 text-[9px]">Reliability</div>
@@ -399,20 +499,23 @@ export default function Home() {
                   </div>
 
                   <div className="text-center font-mono text-xs text-slate-400 flex items-center justify-center gap-2">
-                    <Navigation size={13} className="text-[#28A4E7]" />
+                    <Navigation size={13} className="text-emerald-400" />
                     <span>&quot;The Waze for Electric Vehicles&quot;</span>
                   </div>
                 </div>
 
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
-                  <div className="absolute top-0 md:top-10 right-10 md:-right-1 w-12 md:w-1 h-1 md:h-12 bg-black group-hover:bg-[#28A4E7] transition-colors duration-300"></div>
+                  <div className="absolute top-0 md:top-10 right-10 md:-right-1 w-12 md:w-1 h-1 md:h-12 bg-black group-hover:bg-emerald-600 transition-colors duration-300"></div>
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-[#0F3383] text-[#28A4E7] group-hover:bg-[#1A46B0] group-hover:text-white flex items-center justify-center mr-6 transition-colors duration-300 shrink-0">
-                      <Navigation size={24} />
+                    <div className="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-slate-950 border border-emerald-500/40 shadow-sm mr-6 shrink-0">
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      <span className="font-extrabold text-2xl tracking-tight font-sans text-white">
+                        Berd<span className="text-emerald-400">EV</span>
+                      </span>
                     </div>
                     <div>
                       <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-black font-serif">BerdEV</h4>
-                      <p className="text-xs font-mono uppercase tracking-widest text-[#0F3383] font-bold mt-1">
+                      <p className="text-xs font-mono uppercase tracking-widest text-emerald-700 font-bold mt-1">
                         EV Charging &amp; Navigation Network
                       </p>
                     </div>
@@ -439,7 +542,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section: Hardy&Co. Group */}
+      {/* About Section: HYCO Group */}
       <section id="about" className="py-32 bg-white text-black border-t border-gray-200">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <motion.div
@@ -454,7 +557,7 @@ export default function Home() {
             </h3>
             <div className="w-20 h-1 bg-[#1A46B0] mb-8"></div>
             <p className="text-xl text-gray-700 mb-6 leading-relaxed font-light">
-              Headquartered in Ortigas Center, Pasig City, <strong className="font-bold text-black">Hardy&amp;Co. Group</strong> is a pioneering technology holding firm operating under the model of <em>&quot;One Company. Four Ventures.&quot;</em>
+              Headquartered in Ortigas Center, Pasig City, <strong className="font-bold text-black">HYCO Group</strong> builds AI that matters, for people who deserve it—deploying transformative AI and intelligent infrastructure across four high-impact ventures.
             </p>
             <p className="text-lg text-gray-500 mb-10 leading-relaxed font-light">
               We identify critical infrastructure bottlenecks across Southeast Asia and inject targeted AI solutions—powering high-tier professional marketplaces, intelligent grid telemetry, predictive commercial leasing, and electrified mobility networks.
@@ -468,20 +571,34 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative group"
           >
-            <div className="absolute inset-0 bg-[#0F3383] translate-x-4 translate-y-4 md:translate-x-8 md:translate-y-8 z-0"></div>
-            <img
-              src="https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1932&auto=format&fit=crop"
-              alt="Hardy&Co. Boardroom"
-              className="relative z-10 w-full h-[600px] object-cover grayscale border-4 border-white shadow-2xl"
-              referrerPolicy="no-referrer"
-            />
-            {/* Glass decoration */}
-            <div className="absolute -bottom-10 -left-10 z-20 w-52 h-48 glass-panel-white hidden md:flex items-center justify-center p-6 text-black border-l-4 border-[#28A4E7]">
-              <div className="font-bold text-sm uppercase tracking-widest text-center font-mono">
-                Hardy&amp;Co.<br /><span className="text-[#0F3383]">Four Ventures</span>
+            <div className="relative z-10 overflow-hidden rounded-2xl border border-slate-200/80 shadow-[0_20px_50px_rgba(15,51,131,0.12)] bg-slate-950">
+              <img
+                src="/boardroom.jpg"
+                alt="HYCO Group Executive Boardroom"
+                className="w-full h-[560px] object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent flex flex-col justify-end p-8 md:p-10 text-white">
+                <div className="inline-flex items-center gap-2 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.25em] text-[#28A4E7]">
+                    Executive Governance Suite • Ortigas Center
+                  </span>
+                </div>
+                <h4 className="text-2xl font-bold font-serif text-white tracking-tight">
+                  HYCO Group Boardroom
+                </h4>
+                <p className="text-xs text-slate-300 mt-2 max-w-md font-light leading-relaxed">
+                  Where capital allocation, AI infrastructure strategy, and operational governance converge across our four venture ecosystems.
+                </p>
               </div>
+            </div>
+
+            {/* Lean Floating Metrics Tag */}
+            <div className="absolute -bottom-6 -left-6 z-20 bg-white/95 backdrop-blur-md border border-slate-200 p-5 rounded-xl shadow-xl hidden md:block">
+              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Active Portfolio Oversight</div>
+              <div className="text-lg font-bold font-serif text-[#0F3383] mt-0.5">4 Ventures • 1 Holding</div>
             </div>
           </motion.div>
         </div>

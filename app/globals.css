@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-serif: var(--font-space-grotesk), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: var(--font-space-grotesk), "Space Grotesk", "Space Grotesk Fallback", sans-serif;
+  --font-serif: var(--font-space-grotesk), "Space Grotesk", "Space Grotesk Fallback", sans-serif;
+  --font-display: var(--font-space-grotesk), "Space Grotesk", "Space Grotesk Fallback", sans-serif;
   
   --color-hyco-black: #000000;
   --color-hyco-white: #ffffff;
@@ -13,16 +15,21 @@
   --color-hyco-light-gray: #f8fafc;
 }
 
+html, body {
+  font-family: var(--font-space-grotesk), "Space Grotesk", "Space Grotesk Fallback", sans-serif;
+}
+
 body {
-  @apply font-sans text-hyco-black bg-hyco-white antialiased;
+  @apply text-hyco-black bg-hyco-white antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-serif font-bold tracking-tight;
+  font-family: var(--font-space-grotesk), "Space Grotesk", "Space Grotesk Fallback", sans-serif;
+  @apply font-bold tracking-tight;
 }
 
-p {
-  @apply font-sans;
+p, span, a, button, input, textarea, select {
+  font-family: var(--font-space-grotesk), "Space Grotesk", "Space Grotesk Fallback", sans-serif;
 }
 
 .glass-panel {

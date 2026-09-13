@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react';
 import { useState } from 'react';
-import { Shield, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Shield, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import teamData from '@/data/team.json';
 
@@ -40,8 +40,8 @@ function MemberPortrait({ member, size = "large" }: { member: TeamMember; size?:
             {member.initials || member.name.slice(0, 2).toUpperCase()}
           </div>
           <div className="relative z-10">
-            <span className="text-[10px] tracking-[0.2em] font-bold uppercase text-slate-400 bg-white/5 px-2.5 py-1 rounded border border-white/10">
-              Photo Placeholder
+            <span className="text-[9px] tracking-[0.2em] font-mono uppercase text-slate-400 bg-white/5 px-2.5 py-1 rounded border border-white/10">
+              HYCO Leadership
             </span>
           </div>
         </div>
@@ -80,20 +80,20 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7"
           >
-            <div className="w-12 h-1 bg-[#1A46B0] mb-6"></div>
+            <div className="w-12 h-1 bg-[#0F3383] mb-6"></div>
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-xs font-mono font-bold text-[#0F3383] uppercase tracking-widest">Hardy&amp;Co. Group</span>
+              <span className="text-xs font-mono font-bold text-[#0F3383] uppercase tracking-widest">HYCO Group</span>
               <span className="text-slate-300">•</span>
-              <span className="text-xs font-mono text-[#28A4E7] font-bold uppercase tracking-wider">One Company. Four Ventures.</span>
+              <span className="text-xs font-mono text-[#1A46B0] font-bold uppercase tracking-wider">Four High-Impact Ventures</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-serif text-black mb-8 leading-tight">
-              Hardy&amp;Co. Group
+            <h1 className="text-5xl md:text-6xl font-serif text-slate-950 mb-8 leading-tight">
+              HYCO Group
             </h1>
             <p className="text-xl font-medium text-slate-800 mb-6 leading-relaxed">
               A premier technology holding group engineering scalable AI infrastructure, venture products, and intelligent enterprise platforms across Southeast Asia.
             </p>
             <p className="text-base text-slate-600 mb-6 leading-relaxed">
-              Under our unified operating model of <strong>&quot;One Company. Four Ventures.&quot;</strong>, we identify fundamental operational friction across traditional commerce, enterprise services, grid infrastructure, and mobility—deploying purpose-built AI engines and world-class technical talent.
+              <strong>HYCO Group builds AI that matters, for people who deserve it.</strong> We identify fundamental operational friction across traditional commerce, enterprise services, grid infrastructure, and mobility—deploying transformative AI and intelligent infrastructure across four high-impact ventures.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200">
               <div className="flex items-start gap-3">
@@ -138,7 +138,7 @@ export default function About() {
               <div className="text-xs font-mono font-bold text-[#28A4E7] uppercase tracking-widest mb-4">Corporate Snapshot</div>
               <h3 className="text-2xl font-serif font-bold text-white mb-6">Capital Allocation &amp; Operating Group</h3>
               <p className="text-sm text-slate-300 leading-relaxed mb-8">
-                Operating with institutional rigor from Pasig City, Metro Manila, Hardy&amp;Co. Group anchors core governance, compliance, and IP while empowering each of the four ventures with autonomous engineering and commercial acceleration.
+                Operating with institutional rigor from Pasig City, Metro Manila, HYCO Group anchors core governance, compliance, and IP while empowering each of the four ventures with autonomous engineering and commercial acceleration.
               </p>
               <div className="space-y-4 text-xs tracking-wider uppercase text-slate-400 font-mono">
                 <div className="flex justify-between border-b border-white/10 pb-2">
@@ -146,12 +146,12 @@ export default function About() {
                   <span className="text-white font-bold">Ortigas Center, Pasig City, PH</span>
                 </div>
                 <div className="flex justify-between border-b border-white/10 pb-2">
-                  <span>Holding Entity</span>
-                  <span className="text-white font-bold">Hardy&amp;Co. Group</span>
+                  <span>Operating Name</span>
+                  <span className="text-white font-bold">HYCO Group</span>
                 </div>
                 <div className="flex justify-between border-b border-white/10 pb-2">
                   <span>Structure</span>
-                  <span className="text-[#28A4E7] font-bold">One Company. Four Ventures.</span>
+                  <span className="text-[#28A4E7] font-bold">Four High-Impact Ventures</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Leadership Bench</span>
@@ -187,16 +187,34 @@ export default function About() {
 
             <div className="md:col-span-8">
               <blockquote className="text-2xl md:text-3xl font-serif text-slate-200 italic leading-relaxed mb-8">
-                &quot;Engineering sustainable, high-impact enterprise technology requires more than novelty—it demands unwavering governance, architectural rigor, and relentless focus on market-tested value. At Hardy & Co., we are positioning ASEAN as a crucible for practical, transformative artificial intelligence.&quot;
+                &quot;Engineering sustainable, high-impact enterprise technology requires more than novelty—it demands unwavering governance, architectural rigor, and relentless focus on market-tested value. At HYCO Group, we are positioning ASEAN as a crucible for practical, transformative artificial intelligence.&quot;
               </blockquote>
               <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-6">
-                Under Engr. Gerhard P. Tan&apos;s board guidance, Hardy & Co. PH Inc. combines technical engineering standards with disciplined commercialization—ensuring our flagship operations like <strong>Servicio</strong>, smart EV mobility platform <strong>BerdEV</strong>, and geospatial platform <strong>LeasifAI</strong> scale on resilient foundations.
+                Under Engr. Gerhard P. Tan&apos;s board guidance, HYCO Group combines technical engineering standards with disciplined commercialization—ensuring our flagship operations like <strong>Servicio.AI</strong>, smart EV mobility platform <strong>BerdEV</strong>, and geospatial platform <strong>LeasifAI</strong> scale on resilient foundations.
               </p>
-              <div className="p-4 bg-white/5 border border-white/10 rounded max-w-xl text-xs text-slate-400 flex items-center gap-3">
-                <Sparkles className="text-blue-400 shrink-0" size={20} />
-                <span>
-                  Photo placeholders are configured in <code className="text-blue-300 font-mono">/data/team.json</code> for seamless image updates.
-                </span>
+
+              {/* Boardroom Feature Showcase */}
+              <div className="mt-8 rounded-xl overflow-hidden border border-white/15 relative group shadow-2xl">
+                <img
+                  src="/boardroom.jpg"
+                  alt="HYCO Group Boardroom"
+                  className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end p-5">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between w-full gap-2">
+                    <div>
+                      <div className="text-[10px] font-mono uppercase tracking-widest text-blue-400 font-semibold">
+                        Ortigas Center Executive Chambers
+                      </div>
+                      <div className="text-sm font-bold text-white">
+                        HYCO Group Boardroom &amp; Governance Center
+                      </div>
+                    </div>
+                    <span className="text-[10px] font-mono bg-white/10 text-slate-300 px-2.5 py-1 rounded border border-white/20 self-start sm:self-auto">
+                      Strategic Advisory Desk
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -211,7 +229,7 @@ export default function About() {
               <div className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-2">Our People</div>
               <h2 className="text-4xl md:text-5xl font-serif text-[#0f172a]">Leadership & Team</h2>
               <p className="text-base text-slate-600 mt-3 max-w-2xl">
-                The executives, engineers, advisors, and strategists driving Hardy & Co. and its operating subsidiaries.
+                The executives, engineers, advisors, and strategists driving HYCO Group and its operating subsidiaries.
               </p>
             </div>
 

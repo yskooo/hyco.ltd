@@ -1,21 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Layout from "../components/Layout";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Hardy&Co. Group | One Company. Four Ventures.",
-  description: "Hardy&Co. Group — One Company. Four Ventures. Deploying Servicio.AI, ElectrifAI PH, LeasifAI, and BerdEV across Southeast Asia.",
+  title: "HYCO Group | Transformative AI & Intelligent Infrastructure",
+  description: "HYCO Group builds AI that matters, for people who deserve it. Deploying transformative AI and intelligent infrastructure across four high-impact ventures.",
   icons: {
     icon: "/logo.png",
   },
@@ -27,10 +24,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
-      >  <Layout>{children}</Layout>
+        suppressHydrationWarning
+        className={`${spaceGrotesk.className} ${spaceGrotesk.variable} antialiased text-slate-900 bg-white selection:bg-[#0F3383] selection:text-white`}
+      >
+        <Layout>{children}</Layout>
       </body>
     </html>
   );
