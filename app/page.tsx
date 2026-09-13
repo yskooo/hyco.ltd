@@ -33,93 +33,83 @@ function Counter({ value, suffix = "" }: { value: number, suffix?: string }) {
 export default function Home() {
   return (
     <div className="w-full bg-white text-slate-900">
-      {/* Executive Hero Section with Atmospheric Architecture Background */}
-      <section className="relative min-h-[820px] lg:min-h-[880px] flex items-center overflow-hidden bg-slate-950 border-b border-slate-200">
-        {/* Background Image with subtle atmospheric gradient masks */}
+      {/* Citadel-Inspired Full-Bleed Cinematic Hero */}
+      <section className="relative w-full h-[82vh] min-h-[660px] max-h-[860px] flex flex-col justify-between overflow-hidden bg-slate-950 border-b border-slate-200">
+        
+        {/* Cinematic Background Video / Command Center Visual */}
         <div className="absolute inset-0 z-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/hero-command-center.jpg"
+            className="w-full h-full object-cover object-center scale-105 transition-transform duration-10000 ease-out"
+          >
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+          </video>
+          
+          {/* Fallback Image Layer */}
           <img
-            src="/hero-bg.jpg"
-            alt="HYCO Group AI Tech Headquarters"
-            className="w-full h-full object-cover object-center scale-105"
+            src="/hero-command-center.jpg"
+            alt="HYCO Group Technology & AI Engineering Center"
+            className="absolute inset-0 w-full h-full object-cover object-center -z-10"
           />
-          {/* Refined gradient scrim: crisp overlay ensuring text readability while letting the architectural glass and light glow through */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/90 to-white/30 lg:to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/40"></div>
-          {/* Subtle geometric dot grid for precision engineering feel */}
-          <div className="absolute inset-0 bg-[radial-gradient(#0F3383_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.07] pointer-events-none"></div>
+
+          {/* Cinematic Vignette & Text Scrim (Citadel Style) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
+          
+          {/* Subtle Grid Accent */}
+          <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none"></div>
         </div>
 
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 py-20">
+        {/* Upper Title Area (Citadel Placement & Typographic Scale) */}
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 pt-16 md:pt-24">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="max-w-4xl bg-white/90 backdrop-blur-md p-8 md:p-14 border border-slate-200/90 shadow-[0_20px_60px_rgba(15,51,131,0.08)] rounded-2xl"
+            className="max-w-4xl"
           >
-            {/* Top pill badge */}
-            <div className="flex flex-wrap items-center gap-3 mb-6">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-blue-50 border border-blue-200/90 text-[#0F3383] text-xs font-mono font-bold tracking-widest uppercase rounded">
-                <span className="w-2 h-2 rounded-full bg-[#1A46B0] animate-pulse"></span>
-                HYCO Group
-              </span>
-              <span className="text-slate-300 font-mono">•</span>
-              <span className="text-slate-600 text-xs font-mono font-semibold uppercase tracking-wider">
-                Four High-Impact Ventures
-              </span>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[80px] font-serif font-bold text-white tracking-tight leading-[1.06] drop-shadow-2xl">
+              Together, We <br className="hidden sm:inline" />
+              Turn Ambition <br className="hidden sm:inline" />
+              Into Action
+            </h1>
+          </motion.div>
+        </div>
+
+        {/* Bottom Overlay Bar for Description (Citadel Signature Element) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="relative z-20 w-full bg-[#0F3383]/95 backdrop-blur-md border-t border-white/20 py-8 md:py-10 px-6 md:px-12"
+        >
+          <div className="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div className="max-w-3xl">
+              <p className="text-base sm:text-lg md:text-xl text-white font-light leading-relaxed font-sans">
+                HYCO Group builds AI that matters, for people who deserve it. Deploying transformative AI and intelligent infrastructure across four high-impact ventures.
+              </p>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={{ opacity: 1, scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="w-20 h-1.5 bg-[#0F3383] mb-8 origin-left"
-            ></motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="relative z-20 text-5xl md:text-7xl lg:text-[82px] font-bold text-slate-950 mb-8 tracking-tighter leading-[1.05] uppercase font-serif"
-            >
-              The Catalyst<br />For ASEAN AI.
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="text-lg md:text-2xl text-slate-600 mb-10 font-light leading-relaxed max-w-2xl"
-            >
-              <strong className="font-bold text-slate-900 tracking-wider">HYCO Group</strong> builds AI that matters, for people who deserve it. Deploying transformative AI and intelligent infrastructure across four high-impact ventures.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
-            >
+            <div className="flex flex-wrap items-center gap-4 shrink-0">
               <a
                 href="#ventures"
-                className="bg-[#0F3383] hover:bg-[#1A46B0] text-white px-9 py-4 text-xs font-bold tracking-[0.2em] uppercase rounded transition-all duration-300 flex items-center shadow-md shadow-blue-900/10 hover:shadow-blue-900/25"
+                className="inline-flex items-center gap-2 bg-white text-[#0F3383] hover:bg-slate-100 font-bold px-7 py-3.5 text-xs uppercase tracking-[0.2em] rounded transition-all shadow-md font-mono"
               >
-                Explore Four Ventures <ArrowRight size={16} className="ml-3" />
+                Explore Ventures <ArrowRight size={15} />
               </a>
               <Link
                 href="/about"
-                className="border border-slate-300 hover:border-slate-400 bg-white text-slate-800 px-8 py-4 text-xs font-bold tracking-[0.2em] uppercase rounded transition-all duration-300 flex items-center hover:bg-slate-50 shadow-sm"
+                className="inline-flex items-center gap-2 border border-white/40 hover:border-white text-white px-6 py-3.5 text-xs font-bold uppercase tracking-[0.2em] rounded transition-all hover:bg-white/10 font-mono"
               >
-                Corporate Overview
+                Who We Are
               </Link>
-              <Link
-                href="/contact"
-                className="text-slate-600 hover:text-[#0F3383] px-4 py-4 text-xs font-bold tracking-[0.15em] uppercase font-mono transition-colors"
-              >
-                Get In Touch →
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* Stats / Trust Bar (Executive Light) */}

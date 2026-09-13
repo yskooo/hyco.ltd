@@ -60,35 +60,32 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </div>
 
-      {/* Main Header */}
-      <header className="bg-white/95 backdrop-blur-md border-b border-slate-200/80 sticky top-0 z-50 transition-all duration-300">
-        <div className="max-w-[1600px] mx-auto px-6 flex justify-between items-center h-20">
+      {/* Main Header (Citadel-Inspired Clean Executive Scale) */}
+      <header className="bg-white border-b border-slate-200 sticky top-0 z-50 transition-all duration-300">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12 flex justify-between items-center h-24">
           {/* Left: Logo */}
           <Link href="/" className="flex items-center group">
             <HycoLogo />
           </Link>
 
           {/* Center/Right: Main Nav */}
-          <div className="hidden lg:flex items-center h-full ml-auto space-x-8">
-            <nav className="flex items-center h-full space-x-8">
-              <Link href="/" className="text-[14px] font-semibold text-slate-800 hover:text-[#0F3383] h-full flex items-center border-b-2 border-transparent hover:border-[#0F3383] transition-colors">
-                Home
-              </Link>
-              <Link href="/about" className="text-[14px] font-semibold text-slate-800 hover:text-[#0F3383] h-full flex items-center border-b-2 border-transparent hover:border-[#0F3383] transition-colors">
-                About
+          <div className="hidden lg:flex items-center h-full ml-auto space-x-10">
+            <nav className="flex items-center h-full space-x-10">
+              <Link href="/about" className="text-[15px] font-medium text-slate-800 hover:text-[#0F3383] h-full flex items-center transition-colors">
+                Who We Are
               </Link>
 
               {/* Portfolio Dropdown */}
               <div className="relative group h-full flex items-center">
-                <span className="text-[14px] font-semibold text-slate-800 hover:text-[#0F3383] cursor-pointer border-b-2 border-transparent hover:border-[#0F3383] transition-colors flex items-center">
-                  Four Ventures
-                  <svg className="w-4 h-4 ml-1 text-slate-400 group-hover:text-[#0F3383] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <span className="text-[15px] font-medium text-slate-800 hover:text-[#0F3383] cursor-pointer h-full flex items-center transition-colors">
+                  What We Do
+                  <svg className="w-4 h-4 ml-1.5 text-slate-400 group-hover:text-[#0F3383] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </span>
 
                 {/* Mega Menu Dropdown */}
-                <div className="absolute top-full right-0 w-[720px] bg-white shadow-xl border border-slate-200/90 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex p-6 gap-6 rounded-b-xl">
+                <div className="absolute top-full right-0 w-[720px] bg-white shadow-2xl border border-slate-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex p-6 gap-6 rounded-b-xl z-50">
                   <div className="w-1/3">
                     <div className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#0F3383] mb-1">
                       HYCO Group
@@ -150,12 +147,36 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </div>
               </div>
 
-              <Link href="/contact" className="text-[14px] font-semibold text-slate-800 hover:text-[#0F3383] h-full flex items-center border-b-2 border-transparent hover:border-[#0F3383] transition-colors">
+              <Link href="/legal" className="text-[15px] font-medium text-slate-800 hover:text-[#0F3383] h-full flex items-center transition-colors">
+                Governance
+              </Link>
+              <Link href="/about#team" className="text-[15px] font-medium text-slate-800 hover:text-[#0F3383] h-full flex items-center transition-colors">
+                Leadership
+              </Link>
+              <Link href="/contact" className="text-[15px] font-medium text-slate-800 hover:text-[#0F3383] h-full flex items-center transition-colors">
                 Contact
               </Link>
             </nav>
 
-            <div className="flex items-center pl-2">
+            <div className="flex items-center space-x-6 pl-4 border-l border-slate-200">
+              {/* Search Icon */}
+              <button 
+                onClick={() => alert("Search HYCO Group ventures: Servicio.AI, ElectrifAI, LeasifAI, BerdEV")}
+                className="text-slate-600 hover:text-[#0F3383] transition-colors p-1"
+                title="Search"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </button>
+
+              <Link
+                href="/contact"
+                className="text-[14px] font-medium text-slate-900 hover:text-[#0F3383] transition-colors"
+              >
+                Client Login
+              </Link>
+
               <Link
                 href="/contact"
                 className="bg-[#0F3383] hover:bg-[#1A46B0] text-white px-5 py-2.5 rounded-lg text-xs font-semibold tracking-wider transition-colors shadow-sm"
