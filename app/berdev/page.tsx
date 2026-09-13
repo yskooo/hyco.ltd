@@ -50,6 +50,8 @@ interface Station {
   offPeakHour: string;
   ecoSavingsKg: number;
   coordinates: { x: number; y: number }; // Relative map coordinate percentages
+  lat: number;
+  lon: number;
 }
 
 const mockStations: Station[] = [
@@ -72,7 +74,9 @@ const mockStations: Station[] = [
     reportType: 'working',
     offPeakHour: '10:00 PM – 06:00 AM (₱22/kWh vs ₱28)',
     ecoSavingsKg: 28.4,
-    coordinates: { x: 52, y: 64 }
+    coordinates: { x: 52, y: 64 },
+    lat: 14.3039,
+    lon: 121.0827
   },
   {
     id: '2',
@@ -93,7 +97,9 @@ const mockStations: Station[] = [
     reportType: 'working',
     offPeakHour: '08:00 PM – 11:00 PM (100% Solar Offset)',
     ecoSavingsKg: 19.8,
-    coordinates: { x: 44, y: 46 }
+    coordinates: { x: 44, y: 46 },
+    lat: 14.5352,
+    lon: 120.9822
   },
   {
     id: '3',
@@ -114,7 +120,9 @@ const mockStations: Station[] = [
     reportType: 'working',
     offPeakHour: '01:00 PM – 04:00 PM (Solar Peak)',
     ecoSavingsKg: 12.5,
-    coordinates: { x: 50, y: 32 }
+    coordinates: { x: 50, y: 32 },
+    lat: 14.6534,
+    lon: 121.0360
   },
   {
     id: '4',
@@ -135,7 +143,9 @@ const mockStations: Station[] = [
     reportType: 'working',
     offPeakHour: '09:00 PM – 05:00 AM',
     ecoSavingsKg: 24.1,
-    coordinates: { x: 54, y: 48 }
+    coordinates: { x: 54, y: 48 },
+    lat: 14.5518,
+    lon: 121.0506
   },
   {
     id: '5',
@@ -156,7 +166,9 @@ const mockStations: Station[] = [
     reportType: 'working',
     offPeakHour: '11:00 PM – 05:00 AM (Eco Grid Rate)',
     ecoSavingsKg: 35.0,
-    coordinates: { x: 42, y: 22 }
+    coordinates: { x: 42, y: 22 },
+    lat: 14.8197,
+    lon: 120.9136
   },
   {
     id: '6',
@@ -177,7 +189,9 @@ const mockStations: Station[] = [
     reportType: 'working',
     offPeakHour: '10:00 AM – 03:00 PM (100% Solar Microgrid)',
     ecoSavingsKg: 18.2,
-    coordinates: { x: 38, y: 78 }
+    coordinates: { x: 38, y: 78 },
+    lat: 14.1352,
+    lon: 121.0267
   },
   {
     id: '7',
@@ -198,7 +212,9 @@ const mockStations: Station[] = [
     reportType: 'working',
     offPeakHour: '09:00 PM – 06:00 AM',
     ecoSavingsKg: 21.6,
-    coordinates: { x: 68, y: 82 }
+    coordinates: { x: 68, y: 82 },
+    lat: 10.3297,
+    lon: 123.9063
   },
   {
     id: '8',
@@ -219,7 +235,9 @@ const mockStations: Station[] = [
     reportType: 'caution',
     offPeakHour: '01:00 PM – 05:00 PM',
     ecoSavingsKg: 14.3,
-    coordinates: { x: 48, y: 38 }
+    coordinates: { x: 48, y: 38 },
+    lat: 14.6152,
+    lon: 121.0344
   }
 ];
 
@@ -645,65 +663,76 @@ export default function BerdEV() {
                 </span>
               </div>
 
-              {/* Graphical Map Board */}
-              <div className="relative h-[480px] bg-gradient-to-br from-[#EEF7EC] via-[#F4FAF2] to-[#E9F3E6] rounded-xl overflow-hidden border border-emerald-200/90 shadow-inner flex items-center justify-center">
-                
-                {/* Geographic Grid Pattern */}
-                <div className="absolute inset-0 bg-[radial-gradient(#059669_1px,transparent_1px)] [background-size:24px_24px] opacity-15"></div>
-                
-                {/* Visual Island Outline / Highway Traces */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20 stroke-emerald-600" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  {/* NLEX / SLEX Backbone */}
-                  <path d="M 40 10 Q 48 30 50 50 T 52 80 T 65 95" fill="none" strokeWidth="1.2" strokeDasharray="2 2" />
-                  <circle cx="50" cy="50" r="12" fill="none" strokeWidth="0.8" />
-                  <circle cx="50" cy="50" r="28" fill="none" strokeWidth="0.5" />
-                </svg>
+              {/* Station Quick Selector Carousel */}
+              <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-3 border-b border-slate-100 no-scrollbar">
+                {filteredStations.map((station) => (
+                  <button
+                    key={station.id}
+                    onClick={() => setActiveStationId(station.id)}
+                    className={`px-3 py-1.5 rounded-lg text-[11px] font-mono whitespace-nowrap transition-all flex items-center gap-1.5 ${
+                      activeStationId === station.id
+                        ? 'bg-emerald-600 text-white font-bold shadow-sm'
+                        : 'bg-slate-100 text-slate-700 hover:bg-emerald-50 hover:text-emerald-800'
+                    }`}
+                  >
+                    <Zap size={11} className={activeStationId === station.id ? 'text-white' : 'text-emerald-600'} />
+                    <span>{station.name.split(' ')[0]} {station.name.split(' ')[1]}</span>
+                    <span className="opacity-80">({station.powerKw}kW)</span>
+                  </button>
+                ))}
+              </div>
 
-                {/* Clickable Station Pins */}
-                {filteredStations.map((station) => {
-                  const isSelected = station.id === activeStationId;
-                  return (
-                    <button
-                      key={station.id}
-                      onClick={() => setActiveStationId(station.id)}
-                      style={{
-                        top: `${station.coordinates.y}%`,
-                        left: `${station.coordinates.x}%`
-                      }}
-                      className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-300 z-20 group focus:outline-none`}
-                    >
-                      {/* Pulsing ring when selected */}
-                      {isSelected && (
-                        <span className="absolute -inset-2 rounded-full bg-emerald-500/30 animate-ping pointer-events-none"></span>
-                      )}
+              {/* Real OpenStreetMap Viewport (100% Free • No API Key Needed) */}
+              <div className="relative h-[480px] rounded-xl overflow-hidden border border-emerald-200 shadow-inner bg-slate-100">
+                <iframe
+                  title={`OpenStreetMap for ${activeStation.name}`}
+                  className="w-full h-full border-0"
+                  src={`https://www.openstreetmap.org/export/embed.html?bbox=${activeStation.lon - 0.015}%2C${activeStation.lat - 0.010}%2C${activeStation.lon + 0.015}%2C${activeStation.lat + 0.010}&layer=mapnik&marker=${activeStation.lat}%2C${activeStation.lon}`}
+                  loading="lazy"
+                ></iframe>
 
-                      <div className={`px-2.5 py-1.5 rounded-lg flex items-center gap-1.5 shadow-md border transition-transform ${
-                        isSelected 
-                          ? 'bg-emerald-600 text-white border-emerald-700 scale-110' 
-                          : 'bg-white text-slate-800 border-emerald-300 hover:scale-105'
-                      }`}>
-                        <Zap size={12} className={isSelected ? 'text-white' : 'text-emerald-600'} />
-                        <span className="text-[11px] font-mono font-bold whitespace-nowrap">
-                          {station.powerKw}kW ({station.availableBays}/{station.totalBays})
-                        </span>
-                      </div>
-
-                      {/* Tooltip on hover */}
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 hidden group-hover:block bg-slate-900 text-white text-[10px] font-mono py-1 px-2 rounded whitespace-nowrap z-30 shadow-lg">
-                        {station.name}
-                      </div>
-                    </button>
-                  );
-                })}
-
-                {/* Map Control Bar Overlay */}
-                <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-md border border-emerald-200 py-1.5 px-3 rounded-lg text-[11px] font-mono text-slate-600 shadow-sm">
-                  Click any pin to inspect station diagnostics
+                {/* Floating Map Live Card Overlay */}
+                <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md border border-emerald-200 py-2 px-3 rounded-lg shadow-md max-w-xs pointer-events-none">
+                  <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-emerald-700 uppercase">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Live GPS Pin: {activeStation.lat.toFixed(4)}, {activeStation.lon.toFixed(4)}
+                  </div>
+                  <div className="text-xs font-bold text-slate-900 mt-0.5 truncate">
+                    {activeStation.name}
+                  </div>
                 </div>
 
-                <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-md border border-emerald-200 py-1.5 px-3 rounded-lg text-[11px] font-mono text-emerald-800 font-bold shadow-sm flex items-center gap-1.5">
-                  <Leaf size={13} className="text-emerald-600" />
-                  Eco-Roamed Network
+                {/* Map Action Controls Overlay */}
+                <div className="absolute bottom-3 left-3 flex flex-wrap items-center gap-2">
+                  <a
+                    href={`https://www.openstreetmap.org/?mlat=${activeStation.lat}&mlon=${activeStation.lon}#map=16/${activeStation.lat}/${activeStation.lon}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white/95 hover:bg-white text-slate-800 border border-slate-300 py-1.5 px-3 rounded-lg text-[11px] font-mono shadow-sm transition-colors flex items-center gap-1.5"
+                  >
+                    <span>🗺️ Full OpenStreetMap</span>
+                  </a>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${activeStation.lat},${activeStation.lon}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-emerald-600 hover:bg-emerald-700 text-white py-1.5 px-3 rounded-lg text-[11px] font-mono font-bold shadow-sm transition-colors flex items-center gap-1.5"
+                  >
+                    <Navigation size={12} />
+                    <span>Google Maps</span>
+                  </a>
+                  <a
+                    href={`https://waze.com/ul?ll=${activeStation.lat},${activeStation.lon}&navigate=yes`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-teal-700 hover:bg-teal-800 text-white py-1.5 px-3 rounded-lg text-[11px] font-mono font-bold shadow-sm transition-colors flex items-center gap-1.5"
+                  >
+                    <span>🚗 Waze</span>
+                  </a>
+                </div>
+
+                <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-md border border-emerald-200 py-1 px-2.5 rounded-lg text-[10px] font-mono text-slate-500 shadow-sm hidden sm:block">
+                  OpenStreetMap • No API Key Required
                 </div>
               </div>
 

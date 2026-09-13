@@ -33,46 +33,46 @@ function Counter({ value, suffix = "" }: { value: number, suffix?: string }) {
 export default function Home() {
   return (
     <div className="w-full bg-white text-slate-900">
-      {/* Citadel-Inspired Full-Bleed Cinematic Hero */}
-      <section className="relative w-full h-[82vh] min-h-[660px] max-h-[860px] flex flex-col justify-between overflow-hidden bg-slate-950 border-b border-slate-200">
+      {/* Citadel-Inspired Full-Bleed Cinematic Hero with AI Engineering Architecture */}
+      <section className="relative w-full h-[84vh] min-h-[680px] max-h-[880px] flex flex-col justify-between overflow-hidden bg-slate-950 border-b border-slate-200">
         
-        {/* Cinematic Background Video / Command Center Visual */}
+        {/* Cinematic Background AI Lab Visual */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
             autoPlay
             loop
             muted
             playsInline
-            poster="/hero-command-center.jpg"
+            poster="/hero-ai-lab.jpg"
             className="w-full h-full object-cover object-center scale-105 transition-transform duration-10000 ease-out"
           >
             <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
           </video>
           
-          {/* Fallback Image Layer */}
+          {/* High-Fidelity AI Engineering Lab Image */}
           <img
-            src="/hero-command-center.jpg"
-            alt="HYCO Group Technology & AI Engineering Center"
+            src="/hero-ai-lab.jpg"
+            alt="HYCO Group AI & Autonomous Systems Research Laboratory"
             className="absolute inset-0 w-full h-full object-cover object-center -z-10"
           />
 
-          {/* Cinematic Vignette & Text Scrim (Citadel Style) */}
+          {/* Left-side Dark Vignette Scrim (Ensures 100% crisp typography over the lab environment) */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/25"></div>
           
-          {/* Subtle Grid Accent */}
-          <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none"></div>
+          {/* Precision Engineering Dot Matrix */}
+          <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none"></div>
         </div>
 
-        {/* Upper Title Area (Citadel Placement & Typographic Scale) */}
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 pt-16 md:pt-24">
+        {/* Upper Title Area with Premium Left Margin */}
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-8 md:px-16 lg:px-24 xl:px-32 pt-20 md:pt-28">
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             className="max-w-4xl"
           >
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[80px] font-serif font-bold text-white tracking-tight leading-[1.06] drop-shadow-2xl">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[82px] font-serif font-bold text-white tracking-tight leading-[1.05] drop-shadow-2xl">
               Together, We <br className="hidden sm:inline" />
               Turn Ambition <br className="hidden sm:inline" />
               Into Action
@@ -80,12 +80,12 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Bottom Overlay Bar for Description (Citadel Signature Element) */}
+        {/* Bottom Overlay Bar for Description with Matching Left Margin */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="relative z-20 w-full bg-[#0F3383]/95 backdrop-blur-md border-t border-white/20 py-8 md:py-10 px-6 md:px-12"
+          className="relative z-20 w-full bg-[#0F3383]/95 backdrop-blur-md border-t border-white/20 py-8 md:py-10 px-8 md:px-16 lg:px-24 xl:px-32"
         >
           <div className="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="max-w-3xl">
