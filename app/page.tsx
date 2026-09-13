@@ -8,12 +8,12 @@ import { useEffect, useState } from 'react';
 // Simple counter component for trust stats
 function Counter({ value, suffix = "" }: { value: number, suffix?: string }) {
   const [count, setCount] = useState(0);
-  
+
   useEffect(() => {
     let start = 0;
     const duration = 2000;
     const increment = value / (duration / 16);
-    
+
     const timer = setInterval(() => {
       start += increment;
       if (start >= value) {
@@ -23,7 +23,7 @@ function Counter({ value, suffix = "" }: { value: number, suffix?: string }) {
         setCount(start);
       }
     }, 16);
-    
+
     return () => clearInterval(timer);
   }, [value]);
 
@@ -36,38 +36,38 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-screen min-h-[800px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" 
-            alt="Futuristic Technology Background" 
+          <img
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+            alt="Futuristic Technology Background"
             className="w-full h-full object-cover opacity-60 grayscale"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-hyco-black/70 mix-blend-multiply"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-hyco-black via-transparent to-transparent"></div>
         </div>
-        
+
         <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 mt-20">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-4xl glass-panel p-8 md:p-12"
           >
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
               animate={{ opacity: 1, scaleX: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="w-16 h-1 bg-hyco-blue mb-8 origin-left"
             ></motion.div>
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               className="relative z-20 text-5xl md:text-7xl lg:text-[90px] font-bold text-white mb-8 tracking-tighter leading-[1.05] uppercase"
             >
-              The Catalyst<br/>For ASEAN AI.
+              The Catalyst<br />For ASEAN AI.
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
@@ -75,7 +75,7 @@ export default function Home() {
             >
               <strong className="font-bold text-white tracking-widest">HYCO</strong> is building AI that matters, for people who deserve it. Deploying transformative AI and infrastructure solutions across energy, talent, real estate, and education.
             </motion.p>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0 }}
@@ -93,7 +93,7 @@ export default function Home() {
       <section className="bg-hyco-black py-16 border-y border-white/10 relative z-20">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -102,7 +102,7 @@ export default function Home() {
               <div className="text-5xl font-bold text-white mb-2"><Counter value={4} /></div>
               <div className="text-xs font-bold text-gray-500 uppercase tracking-[0.2em]">Core Subsidiaries</div>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -111,7 +111,7 @@ export default function Home() {
               <div className="text-5xl font-bold text-white mb-2">₱<Counter value={80} suffix="M+" /></div>
               <div className="text-xs font-bold text-gray-500 uppercase tracking-[0.2em]">Target ARR</div>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -120,7 +120,7 @@ export default function Home() {
               <div className="text-5xl font-bold text-white mb-2"><Counter value={100} suffix="k+" /></div>
               <div className="text-xs font-bold text-gray-500 uppercase tracking-[0.2em]">Target Users</div>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -151,49 +151,84 @@ export default function Home() {
 
           <div className="flex flex-col gap-10">
             {/* 1. Servicio Card (Main Focus / Lead Horse) */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <Link href="/servicio-ai" className="group flex flex-col md:flex-row bg-white border-2 border-hyco-blue transition-all duration-500 hover:shadow-[0_25px_50px_rgba(0,85,255,0.15)] overflow-hidden relative">
-                <div className="absolute top-0 right-0 z-30 bg-hyco-blue text-white text-[11px] font-bold uppercase tracking-widest px-5 py-2 flex items-center gap-2 shadow-md">
-                  <span>★ Lead Horse &amp; Primary Focus</span>
+              <Link href="/servicio-ai" className="group flex flex-col md:flex-row bg-white border-2 border-[#0D8C8C] transition-all duration-500 hover:shadow-[0_25px_50px_rgba(13,140,140,0.18)] overflow-hidden relative">
+                <div className="absolute top-0 right-0 z-30 bg-[#0D8C8C] text-white text-[11px] font-bold uppercase tracking-widest px-5 py-2 flex items-center gap-2 shadow-md">
+                  <span>★ Lead Horse &amp; Flagship Platform</span>
                 </div>
 
-                <div className="w-full md:w-[420px] lg:w-[500px] h-72 md:h-auto overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 shrink-0">
-                  <div className="absolute inset-0 bg-hyco-black/20 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
-                  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" alt="Servicio AI" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer" />
+                <div className="w-full md:w-[420px] lg:w-[500px] h-72 md:h-auto overflow-hidden relative transition-all duration-700 shrink-0 bg-slate-950 flex flex-col justify-between p-8 border-b md:border-b-0 md:border-r border-slate-800">
+                  <div className="flex items-center justify-between text-xs font-mono text-[#8ef3f2]">
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-[#8ef3f2] animate-pulse"></span>
+                      SERVICIO AI MATCHING
+                    </span>
+                    <span className="text-slate-400">METRO MANILA &amp; NATIONWIDE</span>
+                  </div>
+
+                  {/* Simulated Marketplace Matching Card */}
+                  <div className="my-auto bg-slate-900/95 border border-slate-800 rounded-xl p-4 shadow-xl">
+                    <div className="text-[11px] text-slate-300 font-sans mb-3 bg-slate-950 p-2.5 rounded border border-slate-800 flex items-start gap-2">
+                      <span className="text-[#8ef3f2] font-mono font-bold text-xs mt-0.5">Prompt:</span>
+                      <span>&quot;Need a licensed structural engineer in Ortigas for retrofitting review&quot;</span>
+                    </div>
+
+                    <div className="p-2.5 bg-emerald-950/40 border border-emerald-500/30 rounded-lg">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-xs font-bold text-white flex items-center gap-1.5">
+                          <ShieldCheck size={14} className="text-[#8ef3f2]" /> Engr. Marco V., PE
+                        </span>
+                        <span className="text-[10px] font-mono text-emerald-300 font-bold bg-emerald-900/50 px-1.5 py-0.5 rounded">
+                          PRC Verified
+                        </span>
+                      </div>
+                      <div className="text-[10px] text-slate-400 flex items-center justify-between font-mono">
+                        <span>Civil &amp; Structural · 12 yrs exp</span>
+                        <span className="text-amber-400 font-bold">Escrow Protected</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-center font-mono text-xs text-slate-400 flex items-center justify-center gap-2">
+                    <Globe2 size={13} className="text-[#8ef3f2]" />
+                    <span>&quot;Connecting clients with verified Filipino professionals&quot;</span>
+                  </div>
                 </div>
+
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
-                  <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-hyco-blue"></div>
+                  <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-[#0D8C8C]"></div>
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-hyco-blue text-white flex items-center justify-center mr-6 shrink-0 shadow-md">
-                      <Globe2 size={24} />
+                    <div className="w-12 h-12 bg-[#0D8C8C] text-white flex items-center justify-center mr-6 shrink-0 shadow-md">
+                      <ShieldCheck size={24} />
                     </div>
                     <div>
-                      <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-hyco-black">Servicio</h4>
-                      <p className="text-xs font-bold uppercase tracking-widest text-hyco-blue mt-1">Dual Model: AI Product + Enterprise Servicing</p>
+                      <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-hyco-black">Servicio.AI</h4>
+                      <p className="text-xs font-bold uppercase tracking-widest text-[#0D8C8C] mt-1">High-Tier Verified Professional Marketplace</p>
                     </div>
                   </div>
                   <p className="text-lg text-gray-700 mb-6 max-w-3xl leading-relaxed font-light">
-                    Hardy &amp; Co.&apos;s primary commercial focus. Combining next-gen multilingual AI customer support agents (40+ languages) with bespoke enterprise technology servicing, managed operations, and technical talent deployment.
+                    Hardy &amp; Co.&apos;s flagship consumer and enterprise marketplace. Connecting clients with verified Filipino professionals—from licensed engineers and lawyers to academic tutors and IT experts—through intelligent natural language matching, manual credential verification, and secure escrow protection.
                   </p>
                   <div className="flex flex-wrap gap-2 mb-8">
-                    <span className="text-[11px] font-bold uppercase tracking-wider bg-blue-50 text-blue-800 px-3 py-1 rounded border border-blue-200">Autonomous CX Agents</span>
-                    <span className="text-[11px] font-bold uppercase tracking-wider bg-blue-50 text-blue-800 px-3 py-1 rounded border border-blue-200">Enterprise Tech Servicing</span>
-                    <span className="text-[11px] font-bold uppercase tracking-wider bg-blue-50 text-blue-800 px-3 py-1 rounded border border-blue-200">Omnichannel BPO Workflows</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-teal-50 text-[#006767] px-3 py-1 rounded border border-teal-200">Verified PRC &amp; Gov ID</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-teal-50 text-[#006767] px-3 py-1 rounded border border-teal-200">AI Natural Language Match</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-teal-50 text-[#006767] px-3 py-1 rounded border border-teal-200">Escrow Payment Protection</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-teal-50 text-[#006767] px-3 py-1 rounded border border-teal-200">English &amp; Tagalog</span>
                   </div>
-                  <div className="text-xs font-bold uppercase tracking-widest text-hyco-blue flex items-center transition-colors mt-auto">
-                    Access Servicio Platform &amp; Servicing <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+                  <div className="text-xs font-bold uppercase tracking-widest text-[#0D8C8C] flex items-center transition-colors mt-auto group-hover:text-[#006767]">
+                    Access Servicio.AI Marketplace <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>
               </Link>
             </motion.div>
 
             {/* 2. LeasifAI Card (Active GTM) */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -208,7 +243,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-br from-[#144BBD]/0 to-[#144BBD]/0 group-hover:from-[#144BBD]/5 group-hover:to-transparent transition-colors duration-700"></div>
                   <img src="/img-folder/leasifAI.png" alt="LeasifAI Logo" className="w-20 h-20 object-contain mb-8 transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500 relative z-10" />
                   <p className="text-xl md:text-2xl font-bold text-center text-[#144BBD] leading-tight relative z-10" style={{ fontFamily: "'Manrope', sans-serif" }}>
-                    &quot;We don&apos;t just help businesses find a space,<br/>we help them find their place in the economy.&quot;
+                    &quot;We don&apos;t just help businesses find a space,<br />we help them find their place in the economy.&quot;
                   </p>
                 </div>
                 <div className="p-10 md:p-12 lg:p-16 bg-white relative z-20 flex-grow flex flex-col justify-center">
@@ -235,7 +270,7 @@ export default function Home() {
             </motion.div>
 
             {/* 3. BerdEV Card (Smart EV Mobility & Navigation) */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -323,7 +358,7 @@ export default function Home() {
             </motion.div>
 
             {/* 4. ElectrifAI Card */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -353,7 +388,7 @@ export default function Home() {
             </motion.div>
 
             {/* 5. Edugaite Card (Paused) */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -394,14 +429,14 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-32 bg-white text-hyco-black border-t border-gray-200">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-xs font-bold text-hyco-blue uppercase tracking-[0.3em] mb-4">The Group</h2>
-            <h3 className="text-5xl md:text-7xl font-bold text-hyco-black mb-8 leading-[1.05] tracking-tighter uppercase">Structured<br/>For Scale.</h3>
+            <h3 className="text-5xl md:text-7xl font-bold text-hyco-black mb-8 leading-[1.05] tracking-tighter uppercase">Structured<br />For Scale.</h3>
             <div className="w-20 h-1 bg-hyco-black mb-8"></div>
             <p className="text-xl text-gray-700 mb-6 leading-relaxed font-light">
               Headquartered in Ortigas Center, Pasig City, <strong className="font-bold text-hyco-black">HYCO</strong> is a leading technology holding group. We identify critical inefficiencies in traditional sectors and inject targeted AI infrastructure.
@@ -413,7 +448,7 @@ export default function Home() {
               Read Corporate Strategy <ArrowRight size={16} className="ml-3 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -421,15 +456,15 @@ export default function Home() {
             className="relative"
           >
             <div className="absolute inset-0 bg-hyco-black translate-x-4 translate-y-4 md:translate-x-8 md:translate-y-8 z-0"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1932&auto=format&fit=crop" 
-              alt="Corporate Boardroom" 
+            <img
+              src="https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1932&auto=format&fit=crop"
+              alt="Corporate Boardroom"
               className="relative z-10 w-full h-[600px] object-cover grayscale border-4 border-white shadow-2xl"
               referrerPolicy="no-referrer"
             />
             {/* Glass decoration */}
             <div className="absolute -bottom-10 -left-10 z-20 w-48 h-48 glass-panel-white hidden md:flex items-center justify-center p-6 text-hyco-black border-l-4 border-hyco-blue">
-              <div className="font-bold text-lg uppercase tracking-widest text-center">ASEAN<br/>Focused</div>
+              <div className="font-bold text-lg uppercase tracking-widest text-center">ASEAN<br />Focused</div>
             </div>
           </motion.div>
         </div>

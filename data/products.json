@@ -1,20 +1,20 @@
 [
   {
     "id": "servicio",
-    "name": "Servicio (Serbisyow.AI)",
-    "shortName": "Servicio",
+    "name": "Servicio.AI",
+    "shortName": "Servicio.AI",
     "slug": "servicio-ai",
-    "tagline": "Next-Gen AI Customer Support & Enterprise Servicing Collective",
-    "description": "Our premier lead horse and primary focus. Combines an intelligent, context-aware omnichannel AI customer service platform with an enterprise tech and professional talent servicing organization.",
+    "tagline": "High-Tier Verified Professional Marketplace & AI Smart Matching",
+    "description": "Hardy & Co.'s premier lead horse and flagship platform. Connecting clients with verified Filipino professionals—from licensed engineers and lawyers to IT experts—through intelligent natural language matching, credential verification, and secure escrow payments.",
     "status": "Main Focus",
     "statusBadge": "Primary Focus / Flagship",
     "leadHorse": true,
-    "category": "Customer Support & Enterprise Servicing",
+    "category": "Professional Services & AI Matching",
     "features": [
-      "Dual-Engine: SaaS Product + Enterprise Servicing Operations",
-      "Multilingual Voice & Chat CX Agents (40+ Languages)",
-      "Contextual Memory & Omnichannel BPO Workflows",
-      "Managed Tech Servicing & Professional Talent Deployment"
+      "AI-Powered Smart Matching (English & Tagalog)",
+      "Verified Professional Credentials (PRC License & Gov ID)",
+      "PCI-Compliant Escrow Vault & Milestone Protection",
+      "Integrated Real-Time Scope & Project Communication"
     ],
     "href": "/servicio-ai"
   },

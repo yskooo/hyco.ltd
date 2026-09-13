@@ -95,8 +95,8 @@ export default function About() {
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="text-blue-600 shrink-0 mt-1" size={18} />
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">Lead Horse: Servicio</h4>
-                  <p className="text-xs text-slate-500">AI Customer Support SaaS & Enterprise Servicing Business.</p>
+                  <h4 className="text-sm font-bold text-slate-900">Lead Horse: Servicio.AI</h4>
+                  <p className="text-xs text-slate-500">High-tier verified professional services marketplace &amp; AI smart matching.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">

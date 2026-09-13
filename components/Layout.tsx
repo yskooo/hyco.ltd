@@ -83,10 +83,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <div className="w-2/3 grid grid-cols-2 gap-x-4 gap-y-2 border-l border-black/5 pl-6">
                     <Link href="/servicio-ai" className="group/link p-2.5 hover:bg-blue-50/60 rounded-md transition-colors border border-transparent hover:border-blue-200">
                       <div className="flex items-center justify-between">
-                        <span className="text-sm font-bold text-hyco-black group-hover/link:text-hyco-blue">Servicio</span>
-                        <span className="text-[9px] font-bold uppercase bg-blue-600 text-white px-1.5 py-0.5 rounded">Focus</span>
+                        <span className="text-sm font-bold text-hyco-black group-hover/link:text-hyco-blue">Servicio.AI</span>
+                        <span className="text-[9px] font-bold uppercase bg-blue-600 text-white px-1.5 py-0.5 rounded">Lead Horse</span>
                       </div>
-                      <div className="text-xs text-gray-500">AI Customer Support & Servicing</div>
+                      <div className="text-xs text-gray-500">High-Tier Verified Services Marketplace</div>
                     </Link>
                     <Link href="/berdev" className="group/link p-2.5 hover:bg-gray-50 rounded-md transition-colors border border-transparent hover:border-gray-200">
                       <div className="flex items-center justify-between">
@@ -154,8 +154,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <div className="text-lg font-serif font-bold text-[#0f172a]">Portfolio</div>
                   <div className="pl-4 flex flex-col space-y-4 border-l-2 border-slate-100">
                     <Link href="/servicio-ai" className="text-base font-bold text-blue-600 hover:text-blue-700 flex items-center justify-between">
-                      <span>Servicio</span>
-                      <span className="text-[10px] bg-blue-100 text-blue-700 px-2 py-0.5 rounded font-sans">Main Focus</span>
+                      <span>Servicio.AI</span>
+                      <span className="text-[10px] bg-blue-100 text-blue-700 px-2 py-0.5 rounded font-sans">Lead Horse</span>
                     </Link>
                     <Link href="/berdev" className="text-base font-medium text-slate-700 hover:text-blue-700 flex items-center justify-between">
                       <span>BerdEV</span>
@@ -200,7 +200,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <HycoLogo dark />
               </Link>
               <p className="text-gray-400 text-sm leading-relaxed mb-8">
-                Hardy &amp; Co. PH Inc. — Pioneering scalable IT and AI solutions across Southeast Asia. Powering Servicio (Customer CX &amp; Enterprise Servicing), BerdEV (Smart EV Mobility &amp; Charging Rewards), LeasifAI (Real Estate GTM), and ElectrifAI.
+                Hardy &amp; Co. PH Inc. — Pioneering scalable IT and AI solutions across Southeast Asia. Powering Servicio.AI (High-Tier Professional Marketplace), BerdEV (Smart EV Mobility &amp; Charging Rewards), LeasifAI (Real Estate GTM), and ElectrifAI.
               </p>
               <button className="border border-white/20 hover:border-hyco-blue hover:text-hyco-blue text-white px-6 py-3 text-xs font-bold uppercase tracking-widest transition-colors">
                 Contact Us
@@ -223,8 +223,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-4 text-[14px] text-slate-400">
                 <li>
                   <Link href="/servicio-ai" className="hover:text-white transition-colors flex items-center justify-between">
-                    <span>Servicio</span>
-                    <span className="text-[9px] text-blue-400 font-bold uppercase">Main Focus</span>
+                    <span>Servicio.AI</span>
+                    <span className="text-[9px] text-blue-400 font-bold uppercase">Lead Horse</span>
                   </Link>
                 </li>
                 <li>
