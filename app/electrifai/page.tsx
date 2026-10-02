@@ -654,7 +654,7 @@ export default function ElectrifAI() {
           </div>
           <div className="flex items-center gap-6">
             <Link href="/servicio-ai" className="text-xs font-mono text-slate-500 hover:text-[#0F3383] transition-colors">
-              ← Servicio.AI
+              ← Serbisyow.AI
             </Link>
             <Link href="/leasifai" className="text-xs font-mono text-slate-500 hover:text-[#0F3383] transition-colors">
               LeasifAI →

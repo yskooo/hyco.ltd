@@ -257,7 +257,7 @@ export default function ContactPage() {
                         className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-[#0F3383] transition-colors"
                       >
                         <option value="HYCO Group">HYCO Group (Holding Entity)</option>
-                        <option value="Servicio.AI">Servicio.AI (Flagship Marketplace)</option>
+                        <option value="Serbisyow.AI">Serbisyow.AI (Flagship Marketplace)</option>
                         <option value="ElectrifAI PH">ElectrifAI PH (Smart Energy &amp; Hardware)</option>
                         <option value="LeasifAI">LeasifAI (Commercial Real Estate)</option>
                         <option value="BerdEV">BerdEV (EV Mobility &amp; Charging)</option>

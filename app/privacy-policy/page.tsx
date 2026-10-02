@@ -26,7 +26,7 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-3">
           <h2 className="text-xl font-serif font-bold text-slate-900">1. Overview</h2>
           <p>
-            HYCO Group (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) operates technology and infrastructure platforms across Southeast Asia, including Servicio.AI, ElectrifAI PH, LeasifAI, and BerdEV. We are committed to protecting your personal information in full compliance with the <strong>Philippine Data Privacy Act of 2012 (Republic Act No. 10173)</strong> and its Implementing Rules and Regulations.
+            HYCO Group (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) operates technology and infrastructure platforms across Southeast Asia, including Serbisyow.AI, ElectrifAI PH, LeasifAI, and BerdEV. We are committed to protecting your personal information in full compliance with the <strong>Philippine Data Privacy Act of 2012 (Republic Act No. 10173)</strong> and its Implementing Rules and Regulations.
           </p>
         </section>
 
@@ -35,7 +35,7 @@ export default function PrivacyPolicyPage() {
           <p>We collect information you provide directly to us or through your use of our platforms:</p>
           <ul className="list-disc pl-5 space-y-1.5">
             <li><strong>Account &amp; Contact Information:</strong> Name, official email address, phone number, and company affiliation when you submit inquiries or register on our platforms.</li>
-            <li><strong>Professional Verification (Servicio.AI):</strong> Professional Regulation Commission (PRC) licenses, government-issued IDs, and credentials required to verify service providers.</li>
+            <li><strong>Professional Verification (Serbisyow.AI):</strong> Professional Regulation Commission (PRC) licenses, government-issued IDs, and credentials required to verify service providers.</li>
             <li><strong>Mobility &amp; Usage Data (BerdEV):</strong> Geolocation data (while using the app) to provide live EV charger locations, plug availability, and navigation.</li>
             <li><strong>Technical Telemetry (ElectrifAI PH &amp; LeasifAI):</strong> Grid power logs, energy telemetry, and anonymized foot-traffic data.</li>
           </ul>

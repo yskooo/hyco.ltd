@@ -33,7 +33,7 @@ export default function TermsPage() {
         <section className="space-y-3">
           <h2 className="text-xl font-serif font-bold text-slate-900">2. Platform Architecture &amp; Subsidiaries</h2>
           <p>
-            HYCO Group operates as a technology venture group. Individual platforms—including <strong>Servicio.AI</strong> (verified professional marketplace), <strong>ElectrifAI PH</strong> (energy monitoring), <strong>LeasifAI</strong> (commercial location intelligence), and <strong>BerdEV</strong> (EV navigation &amp; charging network)—may feature specific user terms, escrow guidelines, and service agreements that apply to transactions conducted thereon.
+            HYCO Group operates as a technology venture group. Individual platforms—including <strong>Serbisyow.AI</strong> (verified professional marketplace), <strong>ElectrifAI PH</strong> (energy monitoring), <strong>LeasifAI</strong> (commercial location intelligence), and <strong>BerdEV</strong> (EV navigation &amp; charging network)—may feature specific user terms, escrow guidelines, and service agreements that apply to transactions conducted thereon.
           </p>
         </section>
 

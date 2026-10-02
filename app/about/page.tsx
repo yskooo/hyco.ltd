@@ -99,7 +99,7 @@ export default function About() {
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="text-[#1A46B0] shrink-0 mt-1" size={18} />
                 <div>
-                  <h4 className="text-sm font-bold text-black">Servicio.AI (Flagship)</h4>
+                  <h4 className="text-sm font-bold text-black">Serbisyow.AI (Flagship)</h4>
                   <p className="text-xs text-slate-500">Accessible, compliant AI-driven service solutions for Filipino SMEs and consumers.</p>
                 </div>
               </div>
@@ -190,7 +190,7 @@ export default function About() {
                 &quot;Engineering sustainable, high-impact enterprise technology requires more than novelty—it demands unwavering governance, architectural rigor, and relentless focus on market-tested value. At HYCO Group, we are positioning ASEAN as a crucible for practical, transformative artificial intelligence.&quot;
               </blockquote>
               <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-6">
-                Under Engr. Gerhard P. Tan&apos;s board guidance, HYCO Group combines technical engineering standards with disciplined commercialization—ensuring our flagship operations like <strong>Servicio.AI</strong>, smart EV mobility platform <strong>BerdEV</strong>, and geospatial platform <strong>LeasifAI</strong> scale on resilient foundations.
+                Under Engr. Gerhard P. Tan&apos;s board guidance, HYCO Group combines technical engineering standards with disciplined commercialization—ensuring our flagship operations like <strong>Serbisyow.AI</strong>, smart EV mobility platform <strong>BerdEV</strong>, and geospatial platform <strong>LeasifAI</strong> scale on resilient foundations.
               </p>
 
               {/* Boardroom Feature Showcase */}
