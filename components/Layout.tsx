@@ -95,15 +95,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       Deploying transformative AI and intelligent infrastructure across four high-impact ventures.
                     </p>
                     <div className="text-[10px] uppercase font-bold tracking-widest text-[#0F3383] bg-blue-50 p-2.5 rounded border border-blue-100 font-mono">
-                      ★ Flagship: Servicio.AI
+                      ★ Flagship: Serbisyow.AI
                     </div>
                   </div>
 
                   <div className="w-2/3 grid grid-cols-2 gap-3 border-l border-slate-100 pl-6">
-                    {/* 1. Servicio.AI */}
+                    {/* 1. Serbisyow.AI */}
                     <Link href="/servicio-ai" className="group/link p-3 hover:bg-slate-50 rounded-lg transition-colors border border-transparent hover:border-slate-200">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-sm font-bold text-slate-900 group-hover/link:text-[#0F3383]">Servicio.AI</span>
+                        <span className="text-sm font-bold text-slate-900 group-hover/link:text-[#0F3383]">Serbisyow.AI</span>
                         <span className="text-[9px] font-bold uppercase bg-[#0F3383] text-white px-1.5 py-0.5 rounded font-mono">Flagship</span>
                       </div>
                       <div className="text-[11px] text-slate-500 leading-tight font-light">
@@ -161,7 +161,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex items-center space-x-6 pl-4 border-l border-slate-200">
               {/* Search Icon */}
               <button 
-                onClick={() => alert("Search HYCO Group ventures: Servicio.AI, ElectrifAI, LeasifAI, BerdEV")}
+                onClick={() => alert("Search HYCO Group ventures: Serbisyow.AI, ElectrifAI, LeasifAI, BerdEV")}
                 className="text-slate-600 hover:text-[#0F3383] transition-colors p-1"
                 title="Search"
               >
@@ -215,7 +215,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </div>
                   <div className="pl-4 flex flex-col space-y-3 border-l-2 border-slate-100">
                     <Link href="/servicio-ai" className="text-sm font-semibold text-slate-800 flex items-center justify-between">
-                      <span>Servicio.AI</span>
+                      <span>Serbisyow.AI</span>
                       <span className="text-[10px] bg-blue-100 text-[#0F3383] px-2 py-0.5 rounded font-mono">Flagship</span>
                     </Link>
                     <Link href="/electrifai" className="text-sm font-medium text-slate-600 hover:text-slate-900 flex items-center justify-between">
@@ -277,7 +277,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-3 text-sm">
                 <li>
                   <Link href="/servicio-ai" className="text-slate-500 hover:text-slate-900 transition-colors flex items-center gap-2">
-                    <span>Servicio.AI</span>
+                    <span>Serbisyow.AI</span>
                     <span className="text-[9px] bg-blue-50 text-[#0F3383] font-bold px-1.5 py-0.5 rounded font-mono">Flagship</span>
                   </Link>
                 </li>

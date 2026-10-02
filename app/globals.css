@@ -1,37 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-space-grotesk), "Space Grotesk", "Space Grotesk Fallback", sans-serif;
-  --font-serif: var(--font-space-grotesk), "Space Grotesk", "Space Grotesk Fallback", sans-serif;
-  --font-display: var(--font-space-grotesk), "Space Grotesk", "Space Grotesk Fallback", sans-serif;
-  
-  --color-hyco-black: #000000;
-  --color-hyco-white: #ffffff;
-  --color-hyco-navy: #0F3383;
-  --color-hyco-blue: #1A46B0;
-  --color-hyco-cerulean: #28A4E7;
-  --color-hyco-gray: #1a1a1a;
+  /* ─── Type System ───────────────────────────────────────────── */
+  /* Display / headings  → Bricolage Grotesque: editorial, distinctive */
+  --font-sans:    var(--font-dm-sans), "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif:   var(--font-bricolage), "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    var(--font-dm-mono), "DM Mono", "Fira Mono", ui-monospace, monospace;
+
+  /* ─── Brand Colours ─────────────────────────────────────────── */
+  --color-hyco-black:      #000000;
+  --color-hyco-white:      #ffffff;
+  --color-hyco-navy:       #0F3383;
+  --color-hyco-blue:       #1A46B0;
+  --color-hyco-cerulean:   #28A4E7;
+  --color-hyco-gray:       #1a1a1a;
   --color-hyco-light-gray: #f8fafc;
 }
 
+/* ─── Base ──────────────────────────────────────────────────────── */
 html, body {
-  font-family: var(--font-space-grotesk), "Space Grotesk", "Space Grotesk Fallback", sans-serif;
+  font-family: var(--font-dm-sans), "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  @apply text-hyco-black bg-hyco-white antialiased;
+  @apply text-hyco-black bg-hyco-white;
 }
 
+/* ─── Headings  → Bricolage Grotesque ──────────────────────────── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-space-grotesk), "Space Grotesk", "Space Grotesk Fallback", sans-serif;
+  font-family: var(--font-bricolage), "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
   @apply font-bold tracking-tight;
 }
 
-p, span, a, button, input, textarea, select {
-  font-family: var(--font-space-grotesk), "Space Grotesk", "Space Grotesk Fallback", sans-serif;
+/* ─── Mono accents ──────────────────────────────────────────────── */
+code, kbd, pre, .font-mono {
+  font-family: var(--font-dm-mono), "DM Mono", ui-monospace, monospace;
 }
 
+/* ─── Utility overrides ─────────────────────────────────────────── */
+/* font-serif in Tailwind now correctly maps to Bricolage */
+.font-serif {
+  font-family: var(--font-bricolage), "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ─── Glass helpers ─────────────────────────────────────────────── */
 .glass-panel {
   @apply bg-black/40 backdrop-blur-lg border border-white/10;
 }

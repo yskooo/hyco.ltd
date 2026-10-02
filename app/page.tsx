@@ -108,7 +108,7 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-              {/* 1. Servicio.AI */}
+              {/* 1. Serbisyow.AI */}
               <Link
                 href="/servicio-ai"
                 className="group p-6 md:p-7 bg-slate-50/90 hover:bg-white rounded-2xl border border-slate-200/90 hover:border-[#0F3383]/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
@@ -116,13 +116,13 @@ export default function Home() {
                 <div className="h-28 md:h-32 flex items-center justify-center mb-4 px-4">
                   <img
                     src="/servicio-logo.png"
-                    alt="Servicio.AI"
+                    alt="Serbisyow.AI"
                     className="h-16 sm:h-20 md:h-22 w-auto max-w-[220px] object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
                   />
                 </div>
                 <div className="text-center pt-4 border-t border-slate-200/80">
                   <div className="font-bold text-slate-900 text-base md:text-lg group-hover:text-[#0F3383] transition-colors flex items-center justify-center gap-1.5">
-                    <span>Servicio.AI</span>
+                    <span>Serbisyow.AI</span>
                     <ArrowRight size={15} className="text-slate-400 group-hover:text-[#0F3383] group-hover:translate-x-1 transition-all" />
                   </div>
                   <div className="text-xs text-slate-500 font-mono mt-1">Flagship Service AI</div>
@@ -215,7 +215,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col gap-10">
-            {/* 1. Servicio.AI (Lead Horse & Flagship) */}
+            {/* 1. Serbisyow.AI (Lead Horse & Flagship) */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -269,10 +269,10 @@ export default function Home() {
                   <div className="absolute top-0 md:top-10 left-10 md:-left-1 w-12 md:w-1 h-1 md:h-12 bg-[#1A46B0]"></div>
                   <div className="flex items-center mb-6">
                     <div className="h-16 px-5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center mr-6 shrink-0 shadow-sm">
-                      <img src="/servicio-logo.png" alt="Servicio.AI" className="h-11 w-auto object-contain" />
+                      <img src="/servicio-logo.png" alt="Serbisyow.AI" className="h-11 w-auto object-contain" />
                     </div>
                     <div>
-                      <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-black font-serif">Servicio.AI</h4>
+                      <h4 className="text-3xl lg:text-4xl font-bold tracking-tight text-black font-serif">Serbisyow.AI</h4>
                       <p className="text-xs font-bold uppercase tracking-widest text-[#0F3383] mt-1 font-mono">Flagship Venture</p>
                     </div>
                   </div>
@@ -289,7 +289,7 @@ export default function Home() {
                     <span className="text-[11px] font-bold uppercase tracking-wider bg-blue-50 text-[#0F3383] px-3 py-1 rounded border border-blue-200">English &amp; Tagalog</span>
                   </div>
                   <div className="text-xs font-bold uppercase tracking-widest text-[#1A46B0] flex items-center transition-colors mt-auto group-hover:text-[#0F3383]">
-                    Access Servicio.AI Marketplace <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+                    Access Serbisyow.AI Marketplace <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>
               </Link>
